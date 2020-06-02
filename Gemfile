@@ -68,10 +68,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # gem 'sprockets', '3.7.2'
 # addGem
-gem 'pry-rails'
-gem 'jquery-rails'
+gem "pry-rails"
+gem "jquery-rails"
 gem "haml-rails"
 gem "font-awesome-sass"
 gem "carrierwave"
 gem "mini_magick"
-gem 'fog-aws'
+gem "fog-aws"
+gem "devise"
