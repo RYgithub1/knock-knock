@@ -1,0 +1,101 @@
+.html {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  .body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    .wrapper {
+      .headerMap {
+        background-color: darkorange;
+        z-index: 777;
+        position: fixed;
+        display: flex;
+        height: 100px;
+        width: 100%;
+        line-height: 100px;
+        justify-content: space-between;
+        border-bottom: 1px solid red;
+
+        .headerMap__logo {
+          color: black;
+          font-size: 30px;
+          margin-left: 200px;
+        }
+        .headerMap__link {
+          display: flex;
+          margin: 0 20px;
+          .headerMap__link__signUpBtn {
+            .signUpBtnx {
+              background-color: rgb(247, 189, 81);
+            }
+          }
+          .headerMap__link__loginBtn {
+            .loginBtnx {
+              background-color: rgb(247, 189, 81);
+            }
+          }
+          .headerMap__link__myAboutBtn {
+            .myAboutBtnx {
+              background-color: rgb(247, 189, 81);
+            }
+          }
+        }
+      }
+
+      .contentsMap {
+        height: 100%;
+        width: 100%;
+        padding-top: 100px;
+
+        .contentsMap__mapx {
+          background-color: rgb(243, 209, 145);
+          height: 100%;
+          width: 100%;
+
+          .contentsMap__mapx__topWord {
+            background-color: rgb(245, 190, 88);
+            height: 100px;
+          }
+          .contentsMap__mapx__middleMap {
+            background-color: rgb(245, 190, 88);
+            height: calc(100% - 400px);
+            #js-map {
+              position: relative;
+              width: 100%;
+              height: 100%;
+            }
+            .map {
+              position: relative;
+              width: 100%;
+              height: 100%;
+            }
+          }
+          .contentsMap__mapx__bottomAbout {
+            background-color: rgb(245, 190, 88);
+            height: 300px;
+          }
+        }
+      }
+      .footerMap {
+        background-color: darkorange;
+        z-index: 777;
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        height: 80px;
+        width: 100%;
+        border-top: 1px solid red;
+        .footerMap__foots {
+          .footerMap__foots__mycompany {
+          }
+          .footerMap__foots__rights {
+          }
+        }
+      }
+    }
+  }
+}
