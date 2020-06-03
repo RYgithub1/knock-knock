@@ -1,2 +1,112 @@
+.wrapper
+  .header
+    .header__headerContent
+      .header__headerContent__headerContentDoor
+        .header__headerContent__headerContentDoor__headerContentDoorLogo
+          = link_to root_path, class: "doorOpen" do
+            %i.fas.fa-hiking
+            %i.fas.fa-door-open
+      .header__headerContent__headerContentKnock
+        .header__headerContent__headerContentKnock__headerContentKnockTitle
+          Knock-Knock!
+      .header__headerContent__headerContentLink
+        - if user_signed_in?
+          .header__headerContent__headerContentLink__headerContentLinkLeft
+            = link_to "AboutMe", "#", class: "leftBtn"
+          .header__headerContent__headerContentLink__headerContentLinkRight
+            = link_to "LogOut", "#", class: "rightBtn"
+        - else
+          .header__headerContent__headerContentLink__headerContentLinkLeft
+            = link_to "SignUp", "#", class: "leftBtn"
+          .header__headerContent__headerContentLink__headerContentLinkRight
+            = link_to "LogIn", "#", class: "rightBtn"
 
-.test map
+  .banner
+    .banner__bannerContent
+      .banner__bannerContent__bannerContentImage
+        %p#slideshow.slideshow
+          -# 以下記述は後に修正検討
+          -# %img.active{alt: "noReadable", src: "freeTravelPhoto1.jpg", width: "490px", height: "250px"}
+          = image_tag "freeTravelPhoto1.jpg", alt: "noReadable", class: "active "
+          = image_tag "freeTravelPhoto2.jpg", alt: "noReadable"
+          = image_tag "freeTravelPhoto3.jpg", alt: "noReadable"
+          = image_tag "freeTravelPhoto4.jpg", alt: "noReadable"
+          = image_tag "freeTravelPhoto5.jpg", alt: "noReadable"
+          = image_tag "freeTravelPhoto6.jpg", alt: "noReadable"
+          = image_tag "freeTravelPhoto7.jpg", alt: "noReadable"
+          = image_tag "freeTravelPhoto8.jpg", alt: "noReadable"
+          = image_tag "freeTravelPhoto9.jpg", alt: "noReadable"
+          = image_tag "freeTravelPhoto10.jpg", alt: "noReadable"
+          = image_tag "freeTravelPhoto11.jpg", alt: "noReadable"
+
+  -# TODO:
+  .mapper
+    .mapper__mapperContent
+      .mapper__mapperContent__mapperContentHead
+        .mapper__mapperContent__mapperContentHead__mapperContentHeadLetter
+          %h1.letter.letter1 " Life is a journey, journey is a life. "
+          %h2.letter.letter2 〜 人生とは旅であり、旅とは人生である 〜
+          %h3.letter.letter3 by Hidetoshi Nakata
+      .mapper__mapperContent__mapperContentBody
+        .mapper__mapperContent__mapperContentBody__mapperContentBodyAtlas
+          .mapper__mapperContent__mapperContentBody__mapperContentBodyAtlas__mapperContentBodyAtlasWord
+            Find Travellers and Try to Talk
+          .mapper__mapperContent__mapperContentBody__mapperContentBodyAtlas__mapperContentBodyAtlasGo
+            APIマップ埋め込むぞ、
+            ピン立てる、
+            Ajax紹介__Aboutme、
+            招待フラグ、
+            貢献評価草、
+            ピンの時間と国名都市名、
+            ピンまでの距離
+
+  -# TODO:
+  .teller
+    .teller__tellerContent
+      .teller__tellerContent__tellerContentSuggestion
+        .teller__tellerContent__tellerContentSuggestion__tellerContentSuggestionBody
+          おすすめの体験！（投稿よりピックアップ）表形式
+      .teller__tellerContent__tellerContentNews
+        .teller__tellerContent__tellerContentNews__tellerContentNewsBody
+          ワールドニュースAPI表形式
+
+  .footer
+    .footer__footerContent
+      .footer__footerContent__footerContentFoot
+        .foot
+          %ul.footUl
+            %li.footUlLi
+              %h2.footUlLiHead
+                "Information"
+              %ul.footUlLiBody
+                %li= link_to "Our Team", root_path, class: "footest"
+                %li= link_to "Report", root_path, class: "footest"
+            %li.footUlLi
+              %h2.footUlLiHead
+                "Support"
+              %ul.footUlLiBody
+                %li= link_to "Insights", root_path, class: "footest"
+                %li= link_to "Currency", root_path, class: "footest"
+            %li.footUlLi
+              %h2.footUlLiHead
+                "Related sites"
+              %ul.footUlLiBody
+                %li= link_to "Booking.com", "https://www.booking.com/index.en-gb.html", class: "footest"
+                %li= link_to "Tripadvisor", "https://www.tripadvisor.com/", class: "footest"
+
+      .footer__footerContent__footerContentRights
+        .rights
+          %h1.rightsHead
+            Copyright (C) 2020 Kahoo! Corporation. All Rights Reserved.
+
+
+
+-# %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=【---】"}
+-# %script{:src => "map.js"}
+-# .wrapper
+-#   = render "header"
+-#   = render "header_image"
+-#   = render "items"
+-#   = render "footer_image"
+-#   = render "footer"
+-#   = render "sell-camera"

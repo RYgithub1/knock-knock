@@ -1,7 +1,15 @@
 class ApplicationController < ActionController::Base
-
-  # protect_from_forgery with: :exception
+  # forCSRF
+  protect_from_forgery with: :exception
+  # ログインユーザのみアクセス許可
+  before_action :authenticate_user!, except: [:index]
+  # devise向けストロングパラメータ
   before_action :configure_permitted_parameters, if: :devise_controller?
+
+
+
+
+
 
 
   protected
