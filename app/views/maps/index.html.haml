@@ -21,21 +21,23 @@
           .header__headerContent__headerContentLink__headerContentLinkRight
             = link_to "LogIn", "#", class: "rightBtn"
 
-  -# FIXME:
   .banner
     .banner__bannerContent
       .banner__bannerContent__bannerContentImage
-        = image_tag "freeTravelPhoto1", alt: "", class: "p1", size: "900x300"
-
-  -# #slideshow.slideshow
-  #slideshow
-    %img{:alt => "", :src => "freeTravelPhoto1", :class => "active"}/
-    %img{:alt => "", :src => "freeTravelPhoto2"}/
-    %img{:alt => "", :src => "freeTravelPhoto3"}/
-
-
-
-
+        %p#slideshow.slideshow
+          -# 以下記述は後に修正検討
+          -# %img.active{alt: "noReadable", src: "freeTravelPhoto1.jpg", width: "490px", height: "250px"}
+          = image_tag "freeTravelPhoto1.jpg", alt: "noReadable", class: "active "
+          = image_tag "freeTravelPhoto2.jpg", alt: "noReadable"
+          = image_tag "freeTravelPhoto3.jpg", alt: "noReadable"
+          = image_tag "freeTravelPhoto4.jpg", alt: "noReadable"
+          = image_tag "freeTravelPhoto5.jpg", alt: "noReadable"
+          = image_tag "freeTravelPhoto6.jpg", alt: "noReadable"
+          = image_tag "freeTravelPhoto7.jpg", alt: "noReadable"
+          = image_tag "freeTravelPhoto8.jpg", alt: "noReadable"
+          = image_tag "freeTravelPhoto9.jpg", alt: "noReadable"
+          = image_tag "freeTravelPhoto10.jpg", alt: "noReadable"
+          = image_tag "freeTravelPhoto11.jpg", alt: "noReadable"
 
   .contentsMap
     .contentsMap__mapx
