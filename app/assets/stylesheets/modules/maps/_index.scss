@@ -8,11 +8,12 @@
       width: 100%;
       height: 120px;
       line-height: 120px;
-      // position: fixed;
-      // z-index: 777;
+      z-index: 777;
+      position: fixed;
+      top: 0px;
+      left: 0px;
       display: flex;
       justify-content: space-between;
-
       &__headerContentDoor {
         &__headerContentDoorLogo {
           .doorOpen {
@@ -38,7 +39,6 @@
           font-weight: bold;
         }
       }
-
       &__headerContentLink {
         display: flex;
         margin-right: 30px;
@@ -46,7 +46,6 @@
 
         &__headerContentLinkLeft {
           padding-right: 10px;
-
           .leftBtn {
             background-color: #ff9966;
             color: black;
@@ -69,20 +68,59 @@
       }
     }
   }
+  .banner {
+    padding-top: 121px;
+    &__bannerContent {
+      width: 100%;
+      height: calc(50vh - 120px);
+      background-color: #ffdab9;
+      border-bottom: 1px solid #ff6600;
+      position: relative;
+      text-align: center;
+      &__bannerContentImage {
+        width: 95%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0 auto;
+        background-color: lightblue;
+      }
+    }
+  }
+  #slideshow {
+    position: relative;
+    height: 350px;
+  }
+  #slideshow IMG {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 8;
+  }
+  #slideshow IMG.active {
+    z-index: 10;
+  }
+  #slideshow IMG.last-active {
+    z-index: 9;
+  }
 
   .contentsMap {
-    height: 100%;
     width: 100%;
-    // padding-top: 120px;
+    height: 100%;
+    padding-bottom: 101px;
 
     .contentsMap__mapx {
       // 背景色
       background-color: #ffdab9;
-      height: 100%;
       width: 100%;
+      height: 100%;
 
       .contentsMap__mapx__topWord {
         background-color: rgb(245, 190, 88);
+        width: 80%;
+
         height: 100px;
       }
       .contentsMap__mapx__middleMap {
@@ -101,23 +139,55 @@
       }
       .contentsMap__mapx__bottomAbout {
         background-color: rgb(245, 190, 88);
+        width: 80%;
+
         height: 300px;
       }
     }
   }
+
   .footer {
-    background-color: #ff9933;
-    z-index: 777;
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
-    height: 80px;
-    width: 100%;
-    border-top: 1px solid #ff6600;
-    &__foots {
-      &__mycompany {
+    &__footerContent {
+      width: 100%;
+      height: 200px;
+      background-color: #ff9933;
+      border-top: 1px solid #ff6600;
+      z-index: 777;
+      position: fixed;
+      bottom: 0px;
+      left: 0px;
+      &__footerContentFoot {
+        margin-top: 25px;
+        .foot {
+          .footUl {
+            display: flex;
+            justify-content: center;
+            .footUlLi {
+              text-align: center;
+              margin-right: 60px;
+              margin-left: 60px;
+              .footUlLiHead {
+                font-weight: bold;
+                font-size: 20px;
+              }
+              .footUlLiBody {
+                .footest {
+                  color: black;
+                  text-decoration: none;
+                  font-size: 17px;
+                }
+              }
+            }
+          }
+        }
       }
-      &__rights {
+      &__footerContentRights {
+        margin-top: 40px;
+        text-align: center;
+        .rights {
+          .rightsHead {
+          }
+        }
       }
     }
   }

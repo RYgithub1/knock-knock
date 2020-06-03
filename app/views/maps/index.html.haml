@@ -21,6 +21,21 @@
           .header__headerContent__headerContentLink__headerContentLinkRight
             = link_to "LogIn", "#", class: "rightBtn"
 
+  -# FIXME:
+  .banner
+    .banner__bannerContent
+      .banner__bannerContent__bannerContentImage
+        = image_tag "freeTravelPhoto1", alt: "", class: "p1", size: "900x300"
+
+  -# #slideshow.slideshow
+  #slideshow
+    %img{:alt => "", :src => "freeTravelPhoto1", :class => "active"}/
+    %img{:alt => "", :src => "freeTravelPhoto2"}/
+    %img{:alt => "", :src => "freeTravelPhoto3"}/
+
+
+
+
 
   .contentsMap
     .contentsMap__mapx
@@ -40,16 +55,38 @@
         ピンの時間と国名都市名
 
   .footer
-    .footer__foots
-      .footer__foots__mycompany
-        自己紹介
-      .footer__foots__rights
-        Copyright (C) 2020 Tahoo! Japan Corporation. All Rights Reserved.
+    .footer__footerContent
+      .footer__footerContent__footerContentFoot
+        .foot
+          %ul.footUl
+            %li.footUlLi
+              %h2.footUlLiHead
+                "Information"
+              %ul.footUlLiBody
+                %li= link_to "Our Team", "#", class: "footest"
+                %li= link_to "Report", "#", class: "footest"
+            %li.footUlLi
+              %h2.footUlLiHead
+                "Support"
+              %ul.footUlLiBody
+                %li= link_to "Insights", "#", class: "footest"
+                %li= link_to "Currency", "#", class: "footest"
+            %li.footUlLi
+              %h2.footUlLiHead
+                "Related sites"
+              %ul.footUlLiBody
+                %li= link_to "Booking.com", "https://www.booking.com/index.en-gb.html", class: "footest"
+                %li= link_to "Tripadvisor", "https://www.tripadvisor.com/", class: "footest"
+
+      .footer__footerContent__footerContentRights
+        .rights
+          %h1.rightsHead
+            Copyright (C) 2020 Kahoo! Corporation. All Rights Reserved.
 
 
-    -# %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=【---】"}
-    -# %script{:src => "map.js"}
 
+-# %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=【---】"}
+-# %script{:src => "map.js"}
 -# .wrapper
 -#   = render "header"
 -#   = render "header_image"
