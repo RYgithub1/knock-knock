@@ -1,100 +1,123 @@
-.html {
-  padding: 0;
-  margin: 0;
-  height: 100%;
-  width: 100%;
-  .body {
-    padding: 0;
-    margin: 0;
+.wrapper {
+  .header {
+    &__headerContent {
+      // ヘッダー・フッター色
+      background-color: #ff9933;
+      // ボーダ線の色
+      border-bottom: 1px solid #ff6600;
+      width: 100%;
+      height: 120px;
+      line-height: 120px;
+      // position: fixed;
+      // z-index: 777;
+      display: flex;
+      justify-content: space-between;
+
+      &__headerContentDoor {
+        &__headerContentDoorLogo {
+          .doorOpen {
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 5px;
+            margin-left: 30px;
+            font-size: 45px;
+            color: rgb(8, 133, 216);
+            // リンク先色
+            background-color: #ff9966;
+            .fa-door-open {
+            }
+            .fa-hiking {
+            }
+          }
+        }
+      }
+      &__headerContentKnock {
+        &__headerContentKnockTitle {
+          color: black;
+          font-size: 50px;
+          font-weight: bold;
+        }
+      }
+
+      &__headerContentLink {
+        display: flex;
+        margin-right: 30px;
+        font-size: 20px;
+
+        &__headerContentLinkLeft {
+          padding-right: 10px;
+
+          .leftBtn {
+            background-color: #ff9966;
+            color: black;
+            text-decoration: none;
+            border: 1px dashed black;
+            border-radius: 5px;
+            padding: 5px;
+          }
+        }
+        &__headerContentLinkRight {
+          .rightBtn {
+            background-color: #ff9966;
+            color: black;
+            text-decoration: none;
+            border: 1px dashed black;
+            border-radius: 5px;
+            padding: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  .contentsMap {
     height: 100%;
     width: 100%;
-    .wrapper {
-      .headerMap {
-        background-color: darkorange;
-        z-index: 777;
-        position: fixed;
-        display: flex;
+    // padding-top: 120px;
+
+    .contentsMap__mapx {
+      // 背景色
+      background-color: #ffdab9;
+      height: 100%;
+      width: 100%;
+
+      .contentsMap__mapx__topWord {
+        background-color: rgb(245, 190, 88);
         height: 100px;
-        width: 100%;
-        line-height: 100px;
-        justify-content: space-between;
-        border-bottom: 1px solid red;
-
-        .headerMap__logo {
-          color: black;
-          font-size: 30px;
-          margin-left: 200px;
-        }
-        .headerMap__link {
-          display: flex;
-          margin: 0 20px;
-          .headerMap__link__signUpBtn {
-            .signUpBtnx {
-              background-color: rgb(247, 189, 81);
-            }
-          }
-          .headerMap__link__loginBtn {
-            .loginBtnx {
-              background-color: rgb(247, 189, 81);
-            }
-          }
-          .headerMap__link__myAboutBtn {
-            .myAboutBtnx {
-              background-color: rgb(247, 189, 81);
-            }
-          }
-        }
       }
-
-      .contentsMap {
-        height: 100%;
-        width: 100%;
-        padding-top: 100px;
-
-        .contentsMap__mapx {
-          background-color: rgb(243, 209, 145);
-          height: 100%;
+      .contentsMap__mapx__middleMap {
+        background-color: rgb(245, 190, 88);
+        height: calc(100% - 400px);
+        #js-map {
+          position: relative;
           width: 100%;
-
-          .contentsMap__mapx__topWord {
-            background-color: rgb(245, 190, 88);
-            height: 100px;
-          }
-          .contentsMap__mapx__middleMap {
-            background-color: rgb(245, 190, 88);
-            height: calc(100% - 400px);
-            #js-map {
-              position: relative;
-              width: 100%;
-              height: 100%;
-            }
-            .map {
-              position: relative;
-              width: 100%;
-              height: 100%;
-            }
-          }
-          .contentsMap__mapx__bottomAbout {
-            background-color: rgb(245, 190, 88);
-            height: 300px;
-          }
+          height: 100%;
+        }
+        .map {
+          position: relative;
+          width: 100%;
+          height: 100%;
         }
       }
-      .footerMap {
-        background-color: darkorange;
-        z-index: 777;
-        position: fixed;
-        bottom: 0px;
-        left: 0px;
-        height: 80px;
-        width: 100%;
-        border-top: 1px solid red;
-        .footerMap__foots {
-          .footerMap__foots__mycompany {
-          }
-          .footerMap__foots__rights {
-          }
-        }
+      .contentsMap__mapx__bottomAbout {
+        background-color: rgb(245, 190, 88);
+        height: 300px;
+      }
+    }
+  }
+  .footer {
+    background-color: #ff9933;
+    z-index: 777;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    height: 80px;
+    width: 100%;
+    border-top: 1px solid #ff6600;
+    &__foots {
+      &__mycompany {
+      }
+      &__rights {
       }
     }
   }

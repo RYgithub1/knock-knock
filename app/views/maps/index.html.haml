@@ -1,46 +1,59 @@
-.html
-  .head
-    %meta{:charset => "utf-8"}/
-  .body
-    .wrapper
-      -# = render "headerMap"
-      -# = render "contentsMap"
-      .headerMap
-        .headerMap__logo
+.wrapper
+  .header
+    .header__headerContent
+      .header__headerContent__headerContentDoor
+        .header__headerContent__headerContentDoor__headerContentDoorLogo
+          = link_to root_path, class: "doorOpen" do
+            %i.fas.fa-hiking
+            %i.fas.fa-door-open
+      .header__headerContent__headerContentKnock
+        .header__headerContent__headerContentKnock__headerContentKnockTitle
           Knock-Knock!
-        .headerMap__link
-          .headerMap__link__signUpBtn
-            = link_to "サインアップ", "#", class: "signUpBtnx"
-          .headerMap__link__loginBtn
-            = link_to "ログイン", "#", class: "loginBtnx"
-          .headerMap__link__myAboutBtn
-            = link_to "マイアバウト", "#", class: "myAboutBtnx"
-
-      .contentsMap
-        .contentsMap__mapx
-          .contentsMap__mapx__topWord
-            情報交換コラボレーション！
-          .contentsMap__mapx__middleMap
-            マップ埋め込み
-            ピン立てる-----
-
-            -# TODO:
-            #js-map.map
+      .header__headerContent__headerContentLink
+        - if user_signed_in?
+          .header__headerContent__headerContentLink__headerContentLinkLeft
+            = link_to "AboutMe", "#", class: "leftBtn"
+          .header__headerContent__headerContentLink__headerContentLinkRight
+            = link_to "LogOut", "#", class: "rightBtn"
+        - else
+          .header__headerContent__headerContentLink__headerContentLinkLeft
+            = link_to "SignUp", "#", class: "leftBtn"
+          .header__headerContent__headerContentLink__headerContentLinkRight
+            = link_to "LogIn", "#", class: "rightBtn"
 
 
-          .contentsMap__mapx__bottomAbout
-            選択したピンのアバウト抜粋
-            ピンまでの距離
-            ピンの時間と国名都市名
+  .contentsMap
+    .contentsMap__mapx
+      .contentsMap__mapx__topWord
+        情報交換コラボレーション！
+      .contentsMap__mapx__middleMap
+        マップ埋め込み
+        ピン立てる-----
 
-      .footerMap
-        .footerMap__foots
-          .footerMap__foots__mycompany
-            自己紹介
-          .footerMap__foots__rights
-            Copyright (C) 2020 Tahoo! Japan Corporation. All Rights Reserved.
+        -# TODO:
+        #js-map.map
+
+
+      .contentsMap__mapx__bottomAbout
+        選択したピンのアバウト抜粋
+        ピンまでの距離
+        ピンの時間と国名都市名
+
+  .footer
+    .footer__foots
+      .footer__foots__mycompany
+        自己紹介
+      .footer__foots__rights
+        Copyright (C) 2020 Tahoo! Japan Corporation. All Rights Reserved.
 
 
     -# %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=【---】"}
     -# %script{:src => "map.js"}
 
+-# .wrapper
+-#   = render "header"
+-#   = render "header_image"
+-#   = render "items"
+-#   = render "footer_image"
+-#   = render "footer"
+-#   = render "sell-camera"
