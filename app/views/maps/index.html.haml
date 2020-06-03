@@ -27,8 +27,7 @@
         %p#slideshow.slideshow
           -# 以下記述は後に修正検討
           -# %img.active{alt: "noReadable", src: "freeTravelPhoto1.jpg", width: "490px", height: "250px"}
-          = image_tag "freeTravelPhoto1.jpg", alt: "noReadable", class: "active " do
-            どうよ
+          = image_tag "freeTravelPhoto1.jpg", alt: "noReadable", class: "active "
           = image_tag "freeTravelPhoto2.jpg", alt: "noReadable"
           = image_tag "freeTravelPhoto3.jpg", alt: "noReadable"
           = image_tag "freeTravelPhoto4.jpg", alt: "noReadable"
@@ -50,13 +49,16 @@
           %h3.letter.letter3 by Hidetoshi Nakata
       .mapper__mapperContent__mapperContentBody
         .mapper__mapperContent__mapperContentBody__mapperContentBodyAtlas
-          APIマップ埋め込むぞ、
-          ピン立てる、
-          Ajax紹介__Aboutme、
-          招待フラグ、
-          貢献評価草、
-          ピンの時間と国名都市名、
-          ピンまでの距離
+          .mapper__mapperContent__mapperContentBody__mapperContentBodyAtlas__mapperContentBodyAtlasWord
+            Find Travellers and Try to Talk
+          .mapper__mapperContent__mapperContentBody__mapperContentBodyAtlas__mapperContentBodyAtlasGo
+            APIマップ埋め込むぞ、
+            ピン立てる、
+            Ajax紹介__Aboutme、
+            招待フラグ、
+            貢献評価草、
+            ピンの時間と国名都市名、
+            ピンまでの距離
 
   -# TODO:
   .teller
@@ -77,14 +79,14 @@
               %h2.footUlLiHead
                 "Information"
               %ul.footUlLiBody
-                %li= link_to "Our Team", "#", class: "footest"
-                %li= link_to "Report", "#", class: "footest"
+                %li= link_to "Our Team", root_path, class: "footest"
+                %li= link_to "Report", root_path, class: "footest"
             %li.footUlLi
               %h2.footUlLiHead
                 "Support"
               %ul.footUlLiBody
-                %li= link_to "Insights", "#", class: "footest"
-                %li= link_to "Currency", "#", class: "footest"
+                %li= link_to "Insights", root_path, class: "footest"
+                %li= link_to "Currency", root_path, class: "footest"
             %li.footUlLi
               %h2.footUlLiHead
                 "Related sites"

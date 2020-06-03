@@ -91,7 +91,7 @@
       width: 100%;
       height: calc(50vh - 120px);
       background-color: #ffdab9;
-      border-bottom: 1px solid #ff6600;
+      // border-bottom: 1px solid #ff6600;
       position: relative;
       text-align: center;
       &__bannerContentImage {
@@ -136,9 +136,8 @@
   .mapper {
     &__mapperContent {
       background-color: #ffdab9;
-      border-bottom: 1px solid #ff6600;
-
       &__mapperContentHead {
+        border-top: 1px solid #ff6600;
         width: 95%;
         margin: 0 auto;
         background-color: #ffd482;
@@ -169,10 +168,20 @@
       }
       // FIXME:
       &__mapperContentBody {
+        border-top: 1px solid #ff6600;
+        border-bottom: 1px solid #ff6600;
         background-color: #ffd482;
         width: 95%;
+        height: 700px;
         margin: 0 auto;
         &__mapperContentBodyAtlas {
+          &__mapperContentBodyAtlasWord {
+            text-align: center;
+            font-size: 20px;
+            margin: 10px 0px;
+          }
+          &__mapperContentBodyAtlasGo {
+          }
         }
       }
     }
