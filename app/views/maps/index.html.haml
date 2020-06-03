@@ -27,7 +27,8 @@
         %p#slideshow.slideshow
           -# 以下記述は後に修正検討
           -# %img.active{alt: "noReadable", src: "freeTravelPhoto1.jpg", width: "490px", height: "250px"}
-          = image_tag "freeTravelPhoto1.jpg", alt: "noReadable", class: "active "
+          = image_tag "freeTravelPhoto1.jpg", alt: "noReadable", class: "active " do
+            どうよ
           = image_tag "freeTravelPhoto2.jpg", alt: "noReadable"
           = image_tag "freeTravelPhoto3.jpg", alt: "noReadable"
           = image_tag "freeTravelPhoto4.jpg", alt: "noReadable"
@@ -39,22 +40,33 @@
           = image_tag "freeTravelPhoto10.jpg", alt: "noReadable"
           = image_tag "freeTravelPhoto11.jpg", alt: "noReadable"
 
-  .contentsMap
-    .contentsMap__mapx
-      .contentsMap__mapx__topWord
-        情報交換コラボレーション！
-      .contentsMap__mapx__middleMap
-        マップ埋め込み
-        ピン立てる-----
+  -# TODO:
+  .mapper
+    .mapper__mapperContent
+      .mapper__mapperContent__mapperContentHead
+        .mapper__mapperContent__mapperContentHead__mapperContentHeadLetter
+          %h1.letter.letter1 " Life is a journey, journey is a life. "
+          %h2.letter.letter2 〜 人生とは旅であり、旅とは人生である 〜
+          %h3.letter.letter3 by Hidetoshi Nakata
+      .mapper__mapperContent__mapperContentBody
+        .mapper__mapperContent__mapperContentBody__mapperContentBodyAtlas
+          APIマップ埋め込むぞ、
+          ピン立てる、
+          Ajax紹介__Aboutme、
+          招待フラグ、
+          貢献評価草、
+          ピンの時間と国名都市名、
+          ピンまでの距離
 
-        -# TODO:
-        #js-map.map
-
-
-      .contentsMap__mapx__bottomAbout
-        選択したピンのアバウト抜粋
-        ピンまでの距離
-        ピンの時間と国名都市名
+  -# TODO:
+  .teller
+    .teller__tellerContent
+      .teller__tellerContent__tellerContentSuggestion
+        .teller__tellerContent__tellerContentSuggestion__tellerContentSuggestionBody
+          おすすめの体験！（投稿よりピックアップ）表形式
+      .teller__tellerContent__tellerContentNews
+        .teller__tellerContent__tellerContentNews__tellerContentNewsBody
+          ワールドニュースAPI表形式
 
   .footer
     .footer__footerContent

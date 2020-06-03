@@ -17,7 +17,7 @@
       &__headerContentDoor {
         &__headerContentDoorLogo {
           .doorOpen {
-            border: 1px solid black;
+            border: 1px solid red;
             border-radius: 5px;
             padding: 5px;
             margin-left: 30px;
@@ -34,9 +34,12 @@
       }
       &__headerContentKnock {
         &__headerContentKnockTitle {
-          color: black;
           font-size: 50px;
           font-weight: bold;
+          text-shadow: 0 0 0.05em #fff59d, 0 0 0.06em #fff59d,
+            0 0 0.07em #fff59d, 0 0 0.08em #fff59d, 0 0 0.09em #fff59d,
+            0 0 0.2em #fff59d, 0 0 0.2em #fff59d, 0 0 0.2em #fff59d,
+            0 0 0.5em #fff59d;
         }
       }
       &__headerContentLink {
@@ -69,7 +72,6 @@
     }
   }
 
-  // TODO:
   .banner {
     padding-top: 121px;
     &__bannerContent {
@@ -96,7 +98,7 @@
         // 追加imgタグ->img単体へのデザイン
         .slideshow img {
           width: 100%;
-          height: 379px;
+          height: 411px;
           position: absolute;
           top: 0;
           left: 0;
@@ -117,43 +119,68 @@
     }
   }
 
-  // FIXME:
-  .contentsMap {
-    width: 100%;
-    height: 100%;
-    padding-bottom: 101px;
-
-    .contentsMap__mapx {
-      // 背景色
+  // TODO:
+  .mapper {
+    &__mapperContent {
       background-color: #ffdab9;
-      width: 100%;
-      height: 100%;
+      border-bottom: 1px solid #ff6600;
 
-      .contentsMap__mapx__topWord {
-        background-color: rgb(245, 190, 88);
-        width: 80%;
-
-        height: 100px;
-      }
-      .contentsMap__mapx__middleMap {
-        background-color: rgb(245, 190, 88);
-        height: calc(100% - 400px);
-        #js-map {
-          position: relative;
-          width: 100%;
-          height: 100%;
+      &__mapperContentHead {
+        width: 95%;
+        margin: 0 auto;
+        background-color: #ffd482;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        &__mapperContentHeadLetter {
+          .letter {
+            text-align: center;
+            color: transparent;
+            background: repeating-linear-gradient(
+              45deg,
+              #ff3d00 0 0.4em,
+              #0091ea 0.4em 0.8em
+            );
+            -webkit-background-clip: text;
+          }
+          .letter1 {
+            font-size: 40px;
+            font-weight: bold;
+          }
+          .letter2 {
+            font-size: 25px;
+          }
+          .letter3 {
+            font-size: 15px;
+          }
         }
-        .map {
-          position: relative;
-          width: 100%;
-          height: 100%;
+      }
+      &__mapperContentBody {
+        background-color: #ffd482;
+        width: 95%;
+
+        &__mapperContentBodyAtlas {
         }
       }
-      .contentsMap__mapx__bottomAbout {
-        background-color: rgb(245, 190, 88);
-        width: 80%;
+    }
+  }
 
-        height: 300px;
+  // TODO:
+  .teller {
+    &__tellerContent {
+      background-color: #ffdab9;
+      &__tellerContentSuggestion {
+        background-color: #ffd482;
+        width: 95%;
+
+        &__tellerContentSuggestionBody {
+        }
+      }
+      &__tellerContentNews {
+        background-color: #ffd482;
+        width: 95%;
+
+        &__tellerContentNewsBody {
+        }
       }
     }
   }
