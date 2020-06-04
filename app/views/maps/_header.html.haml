@@ -1,0 +1,22 @@
+.header
+  .header__headerContent
+    .header__headerContent__headerContentDoor
+      .header__headerContent__headerContentDoor__headerContentDoorLogo
+        = link_to root_path, class: "doorOpen" do
+          %i.fas.fa-hiking
+          %i.fas.fa-door-open
+    .header__headerContent__headerContentKnock
+      .header__headerContent__headerContentKnock__headerContentKnockTitle
+        Knock-Knock!
+    .header__headerContent__headerContentLink
+      - if user_signed_in?
+        .header__headerContent__headerContentLink__headerContentLinkLeft
+          = link_to "AboutMe", "#", class: "leftBtn"
+          -# = link_to user_path(current_user.id)
+        .header__headerContent__headerContentLink__headerContentLinkRight
+          = link_to "LogOut", destroy_user_session_path, class: "rightBtn", method: :delete
+      - else
+        .header__headerContent__headerContentLink__headerContentLinkLeft
+          = link_to "SignUp", new_user_registration_path, class: "leftBtn"
+        .header__headerContent__headerContentLink__headerContentLinkRight
+          = link_to "LogIn", new_user_session_path, class: "rightBtn"
