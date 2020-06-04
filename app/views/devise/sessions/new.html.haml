@@ -4,9 +4,7 @@
       %h2 Log In
 
     .regis__regisContent__regisContentBody
-
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-        -# = render "devise/shared/error_messages", resource: resource
 
         .regis__regisContent__regisContentBody__regisContentBodyFrom
           = f.label :name, class: "regisLabel"
