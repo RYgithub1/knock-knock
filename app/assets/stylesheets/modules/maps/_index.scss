@@ -104,13 +104,14 @@
         margin: 0 auto;
         background-color: #ffd482;
         .slideshow {
+          margin: 0 auto;
           position: relative;
-          width: 100%;
+          width: 98%;
           height: 100%;
         }
         // 追加imgタグ->img単体へのデザイン
         .slideshow img {
-          width: 100%;
+          width: 98%;
           height: 411px;
           position: absolute;
           top: 0;
@@ -172,15 +173,27 @@
         border-bottom: 1px solid #ff6600;
         background-color: #ffd482;
         width: 95%;
-        height: 700px;
+        height: 800px;
         margin: 0 auto;
         &__mapperContentBodyAtlas {
           &__mapperContentBodyAtlasWord {
             text-align: center;
             font-size: 20px;
             margin: 10px 0px;
+            padding-top: 10px;
           }
           &__mapperContentBodyAtlasGo {
+            width: 90%;
+            height: 730px;
+            margin: 0 auto;
+            padding-top: 10px;
+            #map {
+              width: 95%;
+              height: 95%;
+              margin: 0 auto;
+              border: 10px double #ff9933;
+              border-radius: 5%;
+            }
           }
         }
       }
