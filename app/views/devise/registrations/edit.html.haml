@@ -33,7 +33,7 @@
 
         .regis__regisContent__regisContentBody__regisContentBodyFrom
           = f.label :password, class: "regisLabel"
-          %span.regisMust Necessary
+          %span.regisMust Option
           %i (leave blank if you don't want to change it)
           %br/
           = f.password_field :password, autocomplete: "new-password", class: "regisField", placeholder: "  new password"
@@ -45,7 +45,7 @@
 
         .regis__regisContent__regisContentBody__regisContentBodyFrom
           = f.label :password_confirmation, class: "regisLabel"
-          %span.regisMust Necessary
+          %span.regisMust Option
           %br/
           = f.password_field :password_confirmation, autocomplete: "new-password", class: "regisField", placeholder: "  new one"
 
