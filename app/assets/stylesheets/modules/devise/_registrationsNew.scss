@@ -1,0 +1,69 @@
+.regis {
+  background-color: #ffdab9;
+  padding-top: 121px;
+  width: 100%;
+  height: 100vh;
+
+  &__regisContent {
+    background-color: #ffd482;
+    width: 95%;
+    height: 100%;
+    margin: 0 auto;
+    text-align: center;
+    &__regisContentHead {
+      height: 150px;
+      line-height: 150px;
+      h2 {
+        font-size: 40px;
+        font-weight: bold;
+      }
+    }
+
+    &__regisContentBody {
+      width: 350px;
+      margin: 0 auto;
+      padding-top: 0px;
+      padding-bottom: 30px;
+      &__regisContentBodyFrom {
+        margin-top: 20px;
+        width: 100%;
+        .regisLabel {
+          font-weight: bold;
+          font-size: 25px;
+        }
+        .regisMust {
+          color: red;
+          margin-left: 10px;
+          border-radius: 1px;
+          font-size: 15px;
+        }
+        .regisField {
+          background-color: lightyellow;
+          color: black;
+          border-radius: 1px;
+          font-size: 20px;
+          width: 200px;
+          height: 35px;
+        }
+      }
+      &__regisContentBodySubmit {
+        margin-top: 40px;
+        margin-bottom: 20px;
+        .regisContentBodySubmitBtn {
+          background-color: #ff9966;
+          line-height: 48px;
+          color: white;
+          font-size: 20px;
+          width: 100%;
+          border: 1px solid red;
+        }
+      }
+    }
+  }
+}
+
+// _link.html.hamlのデザイン修正
+.linksHtml {
+  text-decoration: none;
+  color: black;
+}

@@ -1,0 +1,38 @@
+.regis
+  .regis__regisContent
+    .regis__regisContent__regisContentHead
+      %h2 Log In
+
+    .regis__regisContent__regisContentBody
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+
+        .regis__regisContent__regisContentBody__regisContentBodyFrom
+          = f.label :name, class: "regisLabel"
+          %span.regisMust Necessary
+          %br/
+          = f.text_field :name, autofocus: true, class: "regisField", placeholder: "  your nickname"
+
+        .regis__regisContent__regisContentBody__regisContentBodyFrom
+          = f.label :email, class: "regisLabel"
+          %span.regisMust Necessary
+          %br/
+          = f.email_field :email, class: "regisField", placeholder: "  your mail address"
+
+        .regis__regisContent__regisContentBody__regisContentBodyFrom
+          = f.label :password, class: "regisLabel"
+          - if @minimum_password_length
+            %em
+              (#{@minimum_password_length} characters minimum) <-lets fix here !
+          %span.regisMust Necessary
+          %br/
+          = f.password_field :password, autocomplete: "off", class: "regisField", placeholder: "  8+ password"
+
+        - if devise_mapping.rememberable?
+          .regis__regisContent__regisContentBody__regisContentBodyFrom
+            = f.check_box :remember_me
+            = f.label :remember_me
+
+        .regis__regisContent__regisContentBody__regisContentBodySubmit
+          = f.submit "Log in", class: "regisContentBodySubmitBtn"
+
+      = render "devise/shared/links"

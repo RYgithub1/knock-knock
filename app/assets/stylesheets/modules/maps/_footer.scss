@@ -1,0 +1,45 @@
+.footer {
+  &__footerContent {
+    width: 100%;
+    height: 200px;
+    background-color: #ff9933;
+    border-top: 1px solid #ff6600;
+    z-index: 777;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    &__footerContentFoot {
+      margin-top: 25px;
+      .foot {
+        .footUl {
+          display: flex;
+          justify-content: center;
+          .footUlLi {
+            text-align: center;
+            margin-right: 60px;
+            margin-left: 60px;
+            .footUlLiHead {
+              font-weight: bold;
+              font-size: 20px;
+            }
+            .footUlLiBody {
+              .footest {
+                color: black;
+                text-decoration: none;
+                font-size: 17px;
+              }
+            }
+          }
+        }
+      }
+    }
+    &__footerContentRights {
+      margin-top: 35px;
+      text-align: center;
+      .rights {
+        .rightsHead {
+        }
+      }
+    }
+  }
+}
