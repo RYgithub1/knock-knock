@@ -1,17 +1,40 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.regis
+  .regis__regisContent
+    .regis__regisContent__regisContentHead
+      %h2 Log In
+
+    .regis__regisContent__regisContentBody
+
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        -# = render "devise/shared/error_messages", resource: resource
+
+        .regis__regisContent__regisContentBody__regisContentBodyFrom
+          = f.label :name, class: "regisLabel"
+          %span.regisMust Necessary
+          %br/
+          = f.text_field :name, autofocus: true, class: "regisField", placeholder: "  your nickname"
+
+        .regis__regisContent__regisContentBody__regisContentBodyFrom
+          = f.label :email, class: "regisLabel"
+          %span.regisMust Necessary
+          %br/
+          = f.email_field :email, class: "regisField", placeholder: "  any mail address"
+
+        .regis__regisContent__regisContentBody__regisContentBodyFrom
+          = f.label :password, class: "regisLabel"
+          - if @minimum_password_length
+            %em
+              (#{@minimum_password_length} characters minimum) <-lets fix here !
+          %span.regisMust Necessary
+          %br/
+          = f.password_field :password, autocomplete: "off", class: "regisField", placeholder: "  8+ password"
+
+        - if devise_mapping.rememberable?
+          .regis__regisContent__regisContentBody__regisContentBodyFrom
+            = f.check_box :remember_me
+            = f.label :remember_me
+
+        .regis__regisContent__regisContentBody__regisContentBodySubmit
+          = f.submit "Log in", class: "regisContentBodySubmitBtn"
+
+      = render "devise/shared/links"
