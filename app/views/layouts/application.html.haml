@@ -12,5 +12,7 @@
     %script{async: "", defer: "defer", src: "https://maps.googleapis.com/maps/api/js?key=【api】&callback=initMap"}
 
   %body
+    = render "maps/header"
+    = render "maps/footer"
     = yield
 

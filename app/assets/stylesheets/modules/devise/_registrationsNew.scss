@@ -1,0 +1,59 @@
+.regis {
+  &__regisContent {
+    background-color: white;
+    width: 700px;
+    margin: 0 auto;
+    margin-bottom: 100px;
+
+    &__regisContentHead {
+      height: 97px;
+      line-height: 97px;
+      text-align: center;
+      border-bottom: 1px solid lightgrey;
+      h2 {
+        font-size: 22px;
+        font-weight: bold;
+      }
+    }
+
+    &__regisContentBody {
+      width: 343px;
+      margin: 0 auto;
+      padding-bottom: 64px;
+      &__regisContentBodyFrom {
+        margin-top: 32px;
+        width: 100%;
+        .regisLabel {
+          font-weight: 600;
+          .regisMust {
+            background-color: #ea352d;
+            color: white;
+            margin-left: 8px;
+            padding: 2px 4px;
+            border-radius: 2px;
+            font-size: 12px;
+          }
+          .regisField {
+            background-color: lightyellow;
+            color: white;
+            margin-left: 8px;
+            padding: 2px 4px;
+            border-radius: 2px;
+            font-size: 12px;
+          }
+        }
+      }
+      &__regisContentBodySubmit {
+        margin-top: 50px;
+        .regisContentBodySubmitBtn {
+          background-color: lightgreen;
+          line-height: 48px;
+          color: white;
+          font-size: 14px;
+          width: 100%;
+          border: 1px solid lightblue;
+        }
+      }
+    }
+  }
+}
