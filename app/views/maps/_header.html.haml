@@ -7,7 +7,7 @@
           %i.fas.fa-door-open
     .header__headerContent__headerContentKnock
       .header__headerContent__headerContentKnock__headerContentKnockTitle
-        Knock-Knock!
+        = link_to "Knock-Knock!", root_path, class: "knockknock"
     .header__headerContent__headerContentLink
       - if user_signed_in?
         .header__headerContent__headerContentLink__headerContentLinkLeft
