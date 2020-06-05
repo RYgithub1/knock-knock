@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_05_074140) do
+ActiveRecord::Schema.define(version: 2020_06_05_074805) do
+
+  create_table "about_nations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "about_id", null: false
+    t.bigint "nation_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["about_id"], name: "index_about_nations_on_about_id"
+    t.index ["nation_id"], name: "index_about_nations_on_nation_id"
+  end
 
   create_table "abouts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -20,6 +29,12 @@ ActiveRecord::Schema.define(version: 2020_06_05_074140) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_abouts_on_user_id"
+  end
+
+  create_table "nations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "photos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -41,6 +56,8 @@ ActiveRecord::Schema.define(version: 2020_06_05_074140) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "about_nations", "abouts"
+  add_foreign_key "about_nations", "nations"
   add_foreign_key "abouts", "users"
   add_foreign_key "photos", "abouts"
 end
