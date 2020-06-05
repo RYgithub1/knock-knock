@@ -62,8 +62,14 @@
   }
 }
 
-// _link.html.hamlのデザイン修正
+// === devise類デザイン ===
+// _link.html.haml
 .linksHtml {
   text-decoration: none;
   color: black;
+}
+// devise/passwords#new
+.passwordsNew {
+  padding: 15px;
+  text-decoration: none;
 }

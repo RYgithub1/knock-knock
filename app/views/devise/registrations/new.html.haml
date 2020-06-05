@@ -30,13 +30,13 @@
               (#{@minimum_password_length} characters minimum) <-fix!
           %span.regisMust Necessary
           %br/
-          = f.password_field :password, autocomplete: "off", class: "regisField", placeholder: "  8+ password"
+          = f.password_field :password, autocomplete: "new-password", class: "regisField", placeholder: "  8+ password"
 
         .regis__regisContent__regisContentBody__regisContentBodyFrom
           = f.label :password_confirmation, class: "regisLabel"
           %span.regisMust Necessary
           %br/
-          = f.password_field :password_confirmation, autocomplete: "off", class: "regisField", placeholder: "  same one"
+          = f.password_field :password_confirmation, autocomplete: "new-password", class: "regisField", placeholder: "  same one"
 
         .regis__regisContent__regisContentBody__regisContentBodySubmit
           = f.submit "Sign up", class: "regisContentBodySubmitBtn"
