@@ -1,2 +1,7 @@
 class Nation < ApplicationRecord
+
+
+
+
+
 end
