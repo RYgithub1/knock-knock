@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2020_06_05_075433) do
 
   create_table "abouts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
+    t.date "birthday", null: false
     t.integer "sex", null: false
     t.text "body"
     t.string "invitation"

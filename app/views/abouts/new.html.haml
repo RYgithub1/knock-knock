@@ -20,8 +20,10 @@
             %span.newFormAboutTitleText 《Basic Information 1》
             %span.newFormAboutTitleMust Necessary
           .newFormAbout__newFormAboutPhoto
-            （必須1）photo
+            （必須1）photo -----------------
             -# = f.file_field :image, class = "---"
+            -# = f.fields_for
+            = image_tag "freeTravelPhoto4.jpg", alt: "non", size: "200x100", class: "plusPictureCode"
 
           .newFormAbout__newFormAboutName
             （自動）your name here）変数設定のみ
@@ -34,11 +36,21 @@
             %span.newFormBasicTitleText 《Basic Information 2》
             %span.newFormBasicTitleMust Necessary
           .newFormBasic__newFormBasicNation
-            （必須2）国籍 ★タグ付
+            NATIONALITYs (Hidden @ About Me)
           .newFormBasic__newFormBasicLanguage
-            （必須3）言語 ★タグ付
+            LANGUAGEs
+
+
           .newFormBasic__newFormBasicBirthday
-            （必須4）西暦生年月日
+            .newFormBasic__newFormBasicBirthday__newFormBasicBirthdayTitle
+              BIRTHDAY (Hidden @ About Me)
+            .newFormBasic__newFormBasicBirthday__newFormBasicBirthdayCode
+              %span.birthdayForm dd / mm / yyyy
+              %br
+              = f.date_select(:birthday, use_two_digit_numbers: true, order: [:day, :month, :year], start_year: (Time.now.year - 70), end_year: (Time.now.year - 10), default: Date.new(1990, 1, 1), date_separator: '/')
+              -# Controllerへのデータ受け渡し
+
+
           .newFormBasic__newFormBasicSex
             .newFormBasic__newFormBasicSex__newFormBasicSexTitle
               %span.basicSexTitle SEX
@@ -64,7 +76,7 @@
               %span.plusPictureTitle PICTURES (maximun 8 ??)
             .newFormPlus__newFormPlusPicture__newFormPlusPictureCode
               -# = f.fields_for
-              class = "plusPictureCode"
+              = image_tag "freeTravelPhoto4.jpg", alt: "non", size: "200x100", class: "plusPictureCode"
 
 
 
