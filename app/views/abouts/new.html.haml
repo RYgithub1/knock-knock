@@ -40,8 +40,13 @@
           .newFormBasic__newFormBasicBirthday
             （必須4）西暦生年月日
           .newFormBasic__newFormBasicSex
-            （必須5）性別ボタン
-
+            .newFormBasic__newFormBasicSex__newFormBasicSexTitle
+              %span.basicSexTitle SEX
+            .newFormBasic__newFormBasicSex__newFormBasicSexCode
+              = f.label :male
+              = f.radio_button :sex, :male
+              = f.label :female
+              = f.radio_button :sex, :female
 
         -# =====  追加情報  ==========================
         .newFormPlus

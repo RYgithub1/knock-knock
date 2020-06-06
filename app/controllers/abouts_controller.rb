@@ -39,7 +39,8 @@ class AboutsController < ApplicationController
     params.require(:about).permit(
       :sex,
       :body,
-      :invitation
+      :invitation,
+      :recommendation
     ).merge(user_id: current_user.id)
     # ,pictures_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
 

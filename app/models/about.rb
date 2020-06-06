@@ -17,4 +17,11 @@ class About < ApplicationRecord
   has_many :languages, through: :about_languages
   has_many :about_languages, dependent: :destroy
 
+
+
+  #  add male/female radio btn by enum
+  enum sex: { male: 0, female: 1}
+
+
+
 end
