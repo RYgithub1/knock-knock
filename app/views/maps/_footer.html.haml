@@ -5,24 +5,27 @@
         %ul.footUl
           %li.footUlLi
             %h2.footUlLiHead
-              "Information"
+              "About Us"
             %ul.footUlLiBody
+              %li= link_to "Adventure", root_path, class: "footest"
               %li= link_to "Our Team", root_path, class: "footest"
-              %li= link_to "Report", root_path, class: "footest"
+              %li= link_to "Contacts", root_path, class: "footest"
           %li.footUlLi
             %h2.footUlLiHead
               "Support"
             %ul.footUlLiBody
-              %li= link_to "Insights", root_path, class: "footest"
               %li= link_to "Currency", root_path, class: "footest"
+              %li= link_to "Insights", root_path, class: "footest"
+              %li= link_to "Guides", root_path, class: "footest"
           %li.footUlLi
             %h2.footUlLiHead
-              "Related sites"
+              "Related Sites"
             %ul.footUlLiBody
               %li= link_to "Booking.com", "https://www.booking.com/index.en-gb.html", class: "footest"
+              %li= link_to "Skyscanner", "https://www.skyscanner.net/", class: "footest"
               %li= link_to "Tripadvisor", "https://www.tripadvisor.com/", class: "footest"
 
     .footer__footerContent__footerContentRights
       .rights
         %h1.rightsHead
-          Copyright (C) 2020 Kahoo! Corporation. All Rights Reserved.
+          Copyright (C) 2020 Rahoo! Corporation. All Rights Reserved.
