@@ -6,6 +6,7 @@ class CreateAbouts < ActiveRecord::Migration[5.2]
       t.integer :sex, null: false
       t.text :body
       t.string :invitation
+      t.string :recommendation
       t.timestamps
     end
   end

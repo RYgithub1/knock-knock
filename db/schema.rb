@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_06_05_075433) do
     t.integer "sex", null: false
     t.text "body"
     t.string "invitation"
+    t.string "recommendation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_abouts_on_user_id"

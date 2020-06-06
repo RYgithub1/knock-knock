@@ -3,52 +3,79 @@
 %br
 %br
 %br
-%br
-%br
-%br
 .aboutsNew
   .aboutsNew__aboutsNewContent
 
-    .aboutsNew__aboutsNewContent__aboutsNewContentTitle
-      .aboutsNew__aboutsNewContent__aboutsNewContentTitle__aboutsNewContentTitleYou
-        （自動）About You
-      .aboutsNew__aboutsNewContent__aboutsNewContentTitle__aboutsNewContentTitleDate
+    .aboutsNew__aboutsNewContent__aboutsNewContentHead
+      .aboutsNew__aboutsNewContent__aboutsNewContentHead__aboutsNewContentHeadYou
+        （確定）About Setting
+      .aboutsNew__aboutsNewContent__aboutsNewContentHead__aboutsNewContentHeadDate
         （自動）最終更新日
 
     .aboutsNew__aboutsNewContent__aboutsNewContentForm
       = form_with model: @about, class: "newForm", local: true do |f|
-
+        -# =====  基本情報１  =========================
         .newFormAbout
+          .newFormAbout__newFormAboutTitle
+            %span.newFormAboutTitleText 《Basic Information 1》
+            %span.newFormAboutTitleMust Necessary
           .newFormAbout__newFormAboutPhoto
             （必須1）photo
-          .newFormAbout__newFormAboutName
-            （自動）your name here
-          .newFormAbout__newFormAboutContribution
-            （自動）草貢献度
+            -# = f.file_field :image, class = "---"
 
+          .newFormAbout__newFormAboutName
+            （自動）your name here）変数設定のみ
+          .newFormAbout__newFormAboutContribution
+            （自動）草貢献度_優先度低い
+
+        -# =====  基本情報２  =========================
         .newFormBasic
+          .newFormBasic__newFormBasicTitle
+            %span.newFormBasicTitleText 《Basic Information 2》
+            %span.newFormBasicTitleMust Necessary
           .newFormBasic__newFormBasicNation
-            （必須2）国籍
+            （必須2）国籍 ★タグ付
           .newFormBasic__newFormBasicLanguage
-            （必須3）言語
+            （必須3）言語 ★タグ付
           .newFormBasic__newFormBasicBirthday
             （必須4）西暦生年月日
           .newFormBasic__newFormBasicSex
             （必須5）性別ボタン
 
-        .newFormPlus
-          .newFormPlus__newFormPlusBody
-            （任意）自己紹介areあ
-          .newFormPlus__newFormPlusPicture
-            （任意）picture本人らしい写真8枚登録可能
-          .newFormPlus__newFormPlusInvitation
-            （任意）誘いたいリスト3つ
-          .newFormPlus__newFormPlusSuggestion
-            （任意）感想
 
+        -# =====  追加情報  ==========================
+        .newFormPlus
+          .newFormPlus__newFormPlusTitle
+            %span.newFormPlusTitleText 《Additional Information》
+            %span.newFormPlusTitleMust Option
+          .newFormPlus__newFormPlusBody
+            .newFormPlus__newFormPlusBody__newFormPlusBodyTitle
+              %span.plusBodyTitle INTRODUCTION
+            .newFormPlus__newFormPlusBody__newFormPlusBodyCode
+              -# = f.text_area :body, class: "plusBodyCode", size: "70x6", placeholder: "エスケープ処理を外す場合.html_safe追記へ変更".html_safe
+              = f.text_area :body, class: "plusBodyCode", size: "70x6", placeholder: "Example:\nRoute\nSchedule\nStyle\nSingle or..."
+          .newFormPlus__newFormPlusPicture
+            .newFormPlus__newFormPlusPicture__newFormPlusPictureTitle
+              %span.plusPictureTitle PICTURES (maximun 8 ??)
+            .newFormPlus__newFormPlusPicture__newFormPlusPictureCode
+              -# = f.fields_for
+              class = "plusPictureCode"
+
+
+
+          .newFormPlus__newFormPlusInvitation
+            .newFormPlus__newFormPlusInvitation__newFormPlusInvitationTitle
+              %span.plusInvitationTitle INVITATION
+            .newFormPlus__newFormPlusInvitation__newFormPlusInvitationCode
+              = f.text_area :invitation, class: "plusInvitationCode", size: "70x4", placeholder: "Example:\nI wanna go out to eat with someone next Sunday at Paris.\nIt there anybody who is free??"
+          .newFormPlus__newFormPlusRecommendation
+            .newFormPlus__newFormPlusRecommendation__newFormPlusRecommendationTitle
+              %span.plusSuggestionTitle RECOMMENDATION
+            .newFormPlus__newFormPlusRecommendation__newFormPlusRecommendationCode
+              = f.text_area :recommendation, class: "plusRecommendationCode", size: "70x4", placeholder: "Example:\n★★★★☆ Mt.Fuji@Japan -> Beautiful!\n★★★★★ Machu Picchu@Peru -> Amazing!\n★★★★★ Sagrada Família@Spain -> Crazy!"
+
+
+        -# =====  送信ボタン  ==========================
         .newFormPost
           .newFormPost__newFormPostSubmit
-            -# - if @about.name?
-            = f.submit 'Update "About Me"', class: "newFormPostSubmitBtn"
-            -# - else
-            -#   = f.submit 'Createmy "About Me"', class: "newFormPostSubmitBtn"
+            = f.submit "Set About Me", class: "newFormPostSubmitBtn"
