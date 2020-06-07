@@ -3,6 +3,8 @@
 %br
 %br
 %br
+%br
+%br
 .aboutsNew
   .aboutsNew__aboutsNewContent
 
@@ -15,7 +17,7 @@
           .newContentHeadDateUpdated
             = @about.updated_at
         - else
-          %span.newContentHeadDateUpdated (This is first About.)
+          %span.newContentHeadDateUpdated ( first setting )
           .newContentHeadDateUpdated
 
     .aboutsNew__aboutsNewContent__aboutsNewContentForm
@@ -26,17 +28,22 @@
             %span.newFormAboutTitleText 《Basic Information 1》
             %span.newFormAboutTitleMust Necessary
           .newFormAbout__newFormAboutPhoto
-            （必須1）photo -----------------
-            -# = f.file_field :image, class = "---"
-            -# = f.fields_for
-            = image_tag "freeTravelPhoto4.jpg", alt: "non", size: "200x100", class: "plusPictureCode"
+            .newFormAbout__newFormAboutPhoto__newFormAboutPhotoTitle
+              %span.aboutPhotoTitle PICTURES (maximun 8 ??)
+            .newFormAbout__newFormAboutPhoto__newFormAboutPhotoCode
+              = image_tag "freeTravelPhoto4.jpg", alt: "non", size: "200x100", class: "aboutPhotoCode"
+              （必須1）photo アイコン用１枚 -----------------
+              -# = f.file_field :image, class = "---"
+              -# = f.fields_for
 
           .newFormAbout__newFormAboutName
             = current_user.name
             名前cccさんが表示されているよ！ccccccccccccccccccccccccccccc
           .newFormAbout__newFormAboutContribution
             （自動）草貢献度_優先度低い
-
+        %br
+        %br
+        %br
         -# =====  基本情報２  =========================
         .newFormBasic
           .newFormBasic__newFormBasicTitle
@@ -45,7 +52,7 @@
 
           .newFormBasic__newFormBasicNation
             .newFormBasic__newFormBasicNation__newFormBasicNationTitle
-              %span.basicNationTitle NATIONALITYs (Hidden @ About Me)
+              %span.basicNationTitle NATIONALITYs ( Hidden )
             .newFormBasic__newFormBasicNation__newFormBasicNationCode
               .basicNationCode
                 -# = f.check_box
@@ -61,7 +68,7 @@
 
           .newFormBasic__newFormBasicBirthday
             .newFormBasic__newFormBasicBirthday__newFormBasicBirthdayTitle
-              %span.basicBirthdayTitle BIRTHDAY (Hidden @ About Me)
+              %span.basicBirthdayTitle BIRTHDAY ( Hidden )
             .newFormBasic__newFormBasicBirthday__newFormBasicBirthdayCode
               %span.birthdayForm dd / mm / yyyy
               %br
@@ -79,7 +86,9 @@
                 = f.radio_button :sex, :male
                 = f.label :female
                 = f.radio_button :sex, :female
-
+        %br
+        %br
+        %br
         -# =====  追加情報  ==========================
         .newFormPlus
           .newFormPlus__newFormPlusTitle
@@ -107,7 +116,7 @@
               = f.text_area :invitation, class: "plusInvitationCode", size: "70x4", placeholder: "Example:\nI wanna go out to eat with someone next Sunday at Paris.\nIt there anybody who is free??"
           .newFormPlus__newFormPlusRecommendation
             .newFormPlus__newFormPlusRecommendation__newFormPlusRecommendationTitle
-              %span.plusSuggestionTitle RECOMMENDATION
+              %span.plusRecommendationTitle RECOMMENDATION
             .newFormPlus__newFormPlusRecommendation__newFormPlusRecommendationCode
               = f.text_area :recommendation, class: "plusRecommendationCode", size: "70x4", placeholder: "Example:\n★★★★☆ Mt.Fuji@Japan -> Beautiful!\n★★★★★ Machu Picchu@Peru -> Amazing!\n★★★★★ Sagrada Família@Spain -> Crazy!"
 
