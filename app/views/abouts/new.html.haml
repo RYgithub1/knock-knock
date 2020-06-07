@@ -10,7 +10,13 @@
       .aboutsNew__aboutsNewContent__aboutsNewContentHead__aboutsNewContentHeadYou
         About Setting
       .aboutsNew__aboutsNewContent__aboutsNewContentHead__aboutsNewContentHeadDate
-        （自動）最終更新日
+        - if @about.id
+          %span.newContentHeadDateUpdated Last Updated Date
+          .newContentHeadDateUpdated
+            = @about.updated_at
+        - else
+          %span.newContentHeadDateUpdated (This is first About.)
+          .newContentHeadDateUpdated
 
     .aboutsNew__aboutsNewContent__aboutsNewContentForm
       = form_with model: @about, class: "newForm", local: true do |f|
@@ -27,7 +33,7 @@
 
           .newFormAbout__newFormAboutName
             = current_user.name
-            表示されているccccccccccccccccccccccccccccc
+            名前cccさんが表示されているよ！ccccccccccccccccccccccccccccc
           .newFormAbout__newFormAboutContribution
             （自動）草貢献度_優先度低い
 
