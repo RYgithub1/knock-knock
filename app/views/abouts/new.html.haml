@@ -8,7 +8,7 @@
 
     .aboutsNew__aboutsNewContent__aboutsNewContentHead
       .aboutsNew__aboutsNewContent__aboutsNewContentHead__aboutsNewContentHeadYou
-        （確定）About Setting
+        About Setting
       .aboutsNew__aboutsNewContent__aboutsNewContentHead__aboutsNewContentHeadDate
         （自動）最終更新日
 
@@ -26,7 +26,8 @@
             = image_tag "freeTravelPhoto4.jpg", alt: "non", size: "200x100", class: "plusPictureCode"
 
           .newFormAbout__newFormAboutName
-            （自動）your name here）変数設定のみ
+            = current_user.name
+            表示されているccccccccccccccccccccccccccccc
           .newFormAbout__newFormAboutContribution
             （自動）草貢献度_優先度低い
 
@@ -35,30 +36,43 @@
           .newFormBasic__newFormBasicTitle
             %span.newFormBasicTitleText 《Basic Information 2》
             %span.newFormBasicTitleMust Necessary
+
           .newFormBasic__newFormBasicNation
-            NATIONALITYs (Hidden @ About Me)
+            .newFormBasic__newFormBasicNation__newFormBasicNationTitle
+              %span.basicNationTitle NATIONALITYs (Hidden @ About Me)
+            .newFormBasic__newFormBasicNation__newFormBasicNationCode
+              .basicNationCode
+                -# = f.check_box
+
+
           .newFormBasic__newFormBasicLanguage
-            LANGUAGEs
+            .newFormBasic__newFormBasicLanguage__newFormBasicLanguageTitle
+              %span.basicLanguageTitle LANGUAGEs
+            .newFormBasic__newFormBasicLanguage__newFormBasicLanguageCode
+              .basicLanguageCode
+                -# = f.check_box
 
 
           .newFormBasic__newFormBasicBirthday
             .newFormBasic__newFormBasicBirthday__newFormBasicBirthdayTitle
-              BIRTHDAY (Hidden @ About Me)
+              %span.basicBirthdayTitle BIRTHDAY (Hidden @ About Me)
             .newFormBasic__newFormBasicBirthday__newFormBasicBirthdayCode
               %span.birthdayForm dd / mm / yyyy
               %br
-              = f.date_select(:birthday, use_two_digit_numbers: true, order: [:day, :month, :year], start_year: (Time.now.year - 70), end_year: (Time.now.year - 10), default: Date.new(1990, 1, 1), date_separator: '/')
-              -# Controllerへのデータ受け渡し
+              .basicBirthdayCode
+                = f.date_select(:birthday, use_two_digit_numbers: true, order: [:day, :month, :year], start_year: (Time.now.year - 70), end_year: (Time.now.year - 10), default: Date.new(1990, 1, 1), date_separator: '/')
+                -# Controllerへのデータ受け渡し未確認
 
 
           .newFormBasic__newFormBasicSex
             .newFormBasic__newFormBasicSex__newFormBasicSexTitle
               %span.basicSexTitle SEX
             .newFormBasic__newFormBasicSex__newFormBasicSexCode
-              = f.label :male
-              = f.radio_button :sex, :male
-              = f.label :female
-              = f.radio_button :sex, :female
+              .basicSexCode
+                = f.label :male
+                = f.radio_button :sex, :male
+                = f.label :female
+                = f.radio_button :sex, :female
 
         -# =====  追加情報  ==========================
         .newFormPlus
