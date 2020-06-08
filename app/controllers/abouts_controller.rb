@@ -5,8 +5,6 @@ class AboutsController < ApplicationController
     # aboutモデルと紐付くphotoモデルのインスタンスを作成
     # @about.photos.build
     @about.photos.new
-
-    
     @about.pictures.new
   end
 
@@ -36,7 +34,11 @@ class AboutsController < ApplicationController
       flash.now[:alert] = "Your About was not found"
       render :new
     end
+  end
 
+  def edit
+  end
+  def update
   end
 
 

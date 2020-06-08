@@ -33,9 +33,16 @@
             .newFormAbout__newFormAboutPhoto__newFormAboutPhotoCode
               -# FIXME:
               .aboutPhotoCode
-                = f.fields_for :photos do |i|
-                  = i.file_field :image, class: "jsFile"
-                  
+                #image-boxIcon
+                  = f.fields_for :photos do |i|
+                    .jsFileGroupIcon{"data-indexIcon" => "#{i.index}"}
+                      = i.label :image, class: "jsFileLabelIcon" do
+                        = i.file_field :image, class: "jsFileIcon"
+                        .jsRemoveIcon
+                          delete icon image
+                          
+                  -# = f.fields_for :photos do |i|
+                  -#   = i.file_field :image, class: "jsFile"
                   -# = image_tag @about.photos.image.url, class: "pppp" if @about.photos.image.present?
                   -# - about.photos.each do |photo|
                   -#   = image_tag photo.src.url
@@ -110,10 +117,17 @@
               %span.plusPictureTitle PICTURES (maximun 8 ??)
             .newFormPlus__newFormPlusPicture__newFormPlusPictureCode
               .plusPictureCode
-                こちらには複数追加
-                = f.fields_for :pictures do |j|
-                  = j.file_field :image, class: "jsFile"
-                    
+                -# TODO:
+                #image-box
+                  = f.fields_for :pictures do |j|
+                    .jsFileGroup{"data-index" => "#{j.index}"}
+                      = j.label :image, class: "jsFileLabel" do
+                        = j.file_field :image, class: "jsFile"
+                        .jsRemove
+                          delete picture
+
+
+
 
 
           .newFormPlus__newFormPlusInvitation
