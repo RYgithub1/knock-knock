@@ -10,13 +10,13 @@
 
         .regis__regisContent__regisContentBody__regisContentBodyFrom
           = f.label :name, class: "regisLabel"
-          %span.regisMust Necessary
+          %span.regisMust Mmandatory
           %br/
           = f.text_field :name, autofocus: true, class: "regisField", placeholder: "  your nickname"
 
         .regis__regisContent__regisContentBody__regisContentBodyFrom
           = f.label :email, class: "regisLabel"
-          %span.regisMust Necessary
+          %span.regisMust Mmandatory
           %br/
           = f.email_field :email, autofocus: true, autocomplete: "email", class: "regisField", placeholder: "  any mail address"
 
@@ -26,14 +26,14 @@
 
         .regis__regisContent__regisContentBody__regisContentBodyFrom
           = f.label :current_password, class: "regisLabel"
-          %span.regisMust Necessary
+          %span.regisMust Mmandatory
           %i (we need your current password to confirm your changes)
           %br/
           = f.password_field :current_password, autocomplete: "current-password", class: "regisField", placeholder: "  current password"
 
         .regis__regisContent__regisContentBody__regisContentBodyFrom
           = f.label :password, class: "regisLabel"
-          %span.regisMust Option
+          %span.regisMust Optional
           %i (leave blank if you don't want to change it)
           %br/
           = f.password_field :password, autocomplete: "new-password", class: "regisField", placeholder: "  new password"
@@ -45,7 +45,7 @@
 
         .regis__regisContent__regisContentBody__regisContentBodyFrom
           = f.label :password_confirmation, class: "regisLabel"
-          %span.regisMust Option
+          %span.regisMust Optional
           %br/
           = f.password_field :password_confirmation, autocomplete: "new-password", class: "regisField", placeholder: "  new one"
 
