@@ -46,10 +46,15 @@
 
 
           .newFormAbout__newFormAboutName
-            = current_user.name
-            名前cccさんが表示されているよ！ccccccccccccccccccccccccccccc
+            .newFormAbout__newFormAboutName__newFormAboutNameTitle
+              %span.newFormAboutNameText 《Basic Information 1》
+            .newFormAbout__newFormAboutName__newFormAboutNameCode
+              = current_user.name
+              名前cccさんが表示されているよ！ccccccccccccccccccccccccccccc
           .newFormAbout__newFormAboutContribution
-            （自動）草貢献度_優先度低い
+            .newFormAbout__newFormAboutContribution__newFormAboutContributionTitle
+              -# add community contribution function later
+            .newFormAbout__newFormAboutContribution__newFormAboutContributionCode
         %br
         %br
         %br
@@ -64,19 +69,13 @@
               %span.basicNationTitle NATIONALITYs ( Hidden )
             .newFormBasic__newFormBasicNation__newFormBasicNationCode
               .basicNationCode
-                -# = f.check_box
-                -# .selectBox
-                -#   = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください"
-                -#   %i.fas.fa-chevron-down
-                -# .delivery__day
                 = f.collection_select :nation_id, Nation.all, :id, :name
-
-
 
           .newFormBasic__newFormBasicLanguage
             .newFormBasic__newFormBasicLanguage__newFormBasicLanguageTitle
               %span.basicLanguageTitle LANGUAGEs
             .newFormBasic__newFormBasicLanguage__newFormBasicLanguageCode
+              -# TODO:
               .basicLanguageCode
                 -# = f.check_box
 
@@ -91,8 +90,6 @@
               %br
               .basicBirthdayCode
                 = f.date_select(:birthday, use_two_digit_numbers: true, order: [:day, :month, :year], start_year: (Time.now.year - 70), end_year: (Time.now.year - 10), default: Date.new(1990, 1, 1), date_separator: '/')
-                -# Controllerへのデータ受け渡し未確認
-
 
           .newFormBasic__newFormBasicSex
             .newFormBasic__newFormBasicSex__newFormBasicSexTitle
@@ -122,7 +119,7 @@
               %span.plusPictureTitle PICTURES (maximun 8 ??)
             .newFormPlus__newFormPlusPicture__newFormPlusPictureCode
               .plusPictureCode
-                -# TODO:
+                -# FIXME:
                 #image-box
                   = f.fields_for :pictures do |j|
                     .jsFileGroup{"data-index" => "#{j.index}"}
