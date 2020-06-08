@@ -40,9 +40,6 @@
                         = i.file_field :image, class: "jsFileIcon"
                         .jsRemoveIcon
                           delete icon image
-                          
-                  -# = f.fields_for :photos do |i|
-                  -#   = i.file_field :image, class: "jsFile"
                   -# = image_tag @about.photos.image.url, class: "pppp" if @about.photos.image.present?
                   -# - about.photos.each do |photo|
                   -#   = image_tag photo.src.url
@@ -68,6 +65,12 @@
             .newFormBasic__newFormBasicNation__newFormBasicNationCode
               .basicNationCode
                 -# = f.check_box
+                -# .selectBox
+                -#   = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください"
+                -#   %i.fas.fa-chevron-down
+                -# .delivery__day
+                = f.collection_select :nation_id, Nation.all, :id, :name
+
 
 
           .newFormBasic__newFormBasicLanguage
@@ -76,6 +79,8 @@
             .newFormBasic__newFormBasicLanguage__newFormBasicLanguageCode
               .basicLanguageCode
                 -# = f.check_box
+
+
 
 
           .newFormBasic__newFormBasicBirthday

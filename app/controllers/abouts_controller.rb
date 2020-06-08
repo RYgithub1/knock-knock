@@ -49,6 +49,7 @@ class AboutsController < ApplicationController
       # :user_id,
       :birthday,
       :sex,
+      :nation_id,
       :body,
       :invitation,
       :recommendation,

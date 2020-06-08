@@ -10,10 +10,6 @@ class About < ApplicationRecord
   # fields_for -> to show relation for child table name at parent's model
   accepts_nested_attributes_for :photos, allow_destroy: true
 
-  # to Nations Table
-  has_many :nations, through: :about_nations
-  has_many :about_nations, dependent: :destroy
-
   # to Languages Table
   has_many :languages, through: :about_languages
   has_many :about_languages, dependent: :destroy
@@ -26,6 +22,9 @@ class About < ApplicationRecord
   #  add male/female radio btn by enum
   enum sex: { male: 0, female: 1}
 
+  # association of active_hash for nation.rb
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :nation
 
 
 end
