@@ -7,7 +7,8 @@ class About < ApplicationRecord
 
   # to Photos Table
   has_many :photos, dependent: :destroy
-  # accepts_nested_attributes_for :pictures, allow_destroy: true
+  # fields_for -> to show relation for child table name at parent's model
+  accepts_nested_attributes_for :photos, allow_destroy: true
 
   # to Nations Table
   has_many :nations, through: :about_nations
@@ -16,8 +17,6 @@ class About < ApplicationRecord
   # to Languages Table
   has_many :languages, through: :about_languages
   has_many :about_languages, dependent: :destroy
-
-
 
   #  add male/female radio btn by enum
   enum sex: { male: 0, female: 1}

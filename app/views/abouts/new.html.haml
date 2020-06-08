@@ -29,12 +29,21 @@
             %span.newFormAboutTitleMust Necessary
           .newFormAbout__newFormAboutPhoto
             .newFormAbout__newFormAboutPhoto__newFormAboutPhotoTitle
-              %span.aboutPhotoTitle PICTURES (maximun 8 ??)
+              %span.aboutPhotoTitle PHOTO ( Icon Image )
             .newFormAbout__newFormAboutPhoto__newFormAboutPhotoCode
-              = image_tag "freeTravelPhoto4.jpg", alt: "non", size: "200x100", class: "aboutPhotoCode"
-              （必須1）photo アイコン用１枚 -----------------
-              -# = f.file_field :image, class = "---"
+              -# = image_tag "freeTravelPhoto4.jpg", alt: "non", size: "200x100", class: "aboutPhotoCode"
               -# = f.fields_for
+              -# = f.file_field :image, class: "aboutPhotoCode"
+              .aboutPhotoCode
+                -# = f.file_field :image, class: "jsFile"
+                = f.fields_for :photos do |i|
+                  = i.file_field :image, class: "jsFile"
+                  
+                  -# - binding.pry
+                  -# = image_tag @about.photos.image.url, class: "pppp" if @about.photos.image.present?
+                  -# - about.photos.each do |photo|
+                  -#   = image_tag photo.src.url
+
 
           .newFormAbout__newFormAboutName
             = current_user.name
