@@ -5,6 +5,7 @@ class Picture < ApplicationRecord
 
   # to Abouts Table
   belongs_to :about
-  validates :image, presence: true
+  # 仕様として一端、投稿は任意
+  # validates :image, presence: true
 
 end

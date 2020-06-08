@@ -110,12 +110,11 @@
               %span.plusPictureTitle PICTURES (maximun 8 ??)
             .newFormPlus__newFormPlusPicture__newFormPlusPictureCode
               .plusPictureCode
-                = f.fields_for :pictures do |i|
-                  = i.file_field :image, class: "jsFileSecond"
-              .aboutPhotoCode
-                = f.fields_for :photos do |i|
-                  = i.file_field :image, class: "jsFile"
-                        
+                こちらには複数追加
+                = f.fields_for :pictures do |j|
+                  = j.file_field :image, class: "jsFile"
+                    
+
 
           .newFormPlus__newFormPlusInvitation
             .newFormPlus__newFormPlusInvitation__newFormPlusInvitationTitle

@@ -5,6 +5,9 @@ class AboutsController < ApplicationController
     # aboutモデルと紐付くphotoモデルのインスタンスを作成
     # @about.photos.build
     @about.photos.new
+
+    
+    @about.pictures.new
   end
 
   def create
