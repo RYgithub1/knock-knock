@@ -47,7 +47,8 @@ class AboutsController < ApplicationController
       :body,
       :invitation,
       :recommendation,
-      photos_attributes: [:image]
+      photos_attributes: [:image],
+      pictures_attributes: [:image]
     ).merge(user_id: current_user.id)
     # ,pictures_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
   end

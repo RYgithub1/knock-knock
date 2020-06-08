@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_05_075433) do
+ActiveRecord::Schema.define(version: 2020_06_08_035659) do
 
   create_table "about_languages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "about_id", null: false
@@ -62,6 +62,14 @@ ActiveRecord::Schema.define(version: 2020_06_05_075433) do
     t.index ["about_id"], name: "index_photos_on_about_id"
   end
 
+  create_table "pictures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "about_id", null: false
+    t.string "image", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["about_id"], name: "index_pictures_on_about_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
@@ -79,4 +87,5 @@ ActiveRecord::Schema.define(version: 2020_06_05_075433) do
   add_foreign_key "about_nations", "nations"
   add_foreign_key "abouts", "users"
   add_foreign_key "photos", "abouts"
+  add_foreign_key "pictures", "abouts"
 end

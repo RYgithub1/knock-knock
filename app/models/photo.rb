@@ -1,5 +1,6 @@
 class Photo < ApplicationRecord
-  # for icon image
+  #---- for icon image ----
+
   mount_uploader :image, ImageUploader
 
   # to Abouts Table

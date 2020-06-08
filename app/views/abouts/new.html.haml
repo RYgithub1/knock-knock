@@ -31,15 +31,11 @@
             .newFormAbout__newFormAboutPhoto__newFormAboutPhotoTitle
               %span.aboutPhotoTitle PHOTO ( Icon Image )
             .newFormAbout__newFormAboutPhoto__newFormAboutPhotoCode
-              -# = image_tag "freeTravelPhoto4.jpg", alt: "non", size: "200x100", class: "aboutPhotoCode"
-              -# = f.fields_for
-              -# = f.file_field :image, class: "aboutPhotoCode"
+              -# FIXME:
               .aboutPhotoCode
-                -# = f.file_field :image, class: "jsFile"
                 = f.fields_for :photos do |i|
                   = i.file_field :image, class: "jsFile"
                   
-                  -# - binding.pry
                   -# = image_tag @about.photos.image.url, class: "pppp" if @about.photos.image.present?
                   -# - about.photos.each do |photo|
                   -#   = image_tag photo.src.url
@@ -113,10 +109,13 @@
             .newFormPlus__newFormPlusPicture__newFormPlusPictureTitle
               %span.plusPictureTitle PICTURES (maximun 8 ??)
             .newFormPlus__newFormPlusPicture__newFormPlusPictureCode
-              -# = f.fields_for
-              = image_tag "freeTravelPhoto4.jpg", alt: "non", size: "200x100", class: "plusPictureCode"
-
-
+              .plusPictureCode
+                = f.fields_for :pictures do |i|
+                  = i.file_field :image, class: "jsFileSecond"
+              .aboutPhotoCode
+                = f.fields_for :photos do |i|
+                  = i.file_field :image, class: "jsFile"
+                        
 
           .newFormPlus__newFormPlusInvitation
             .newFormPlus__newFormPlusInvitation__newFormPlusInvitationTitle
