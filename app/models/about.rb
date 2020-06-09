@@ -26,5 +26,8 @@ class About < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :nation
 
+  # add Tag function at About (object.tag_list.method)
+  acts_as_taggable
+
 
 end
