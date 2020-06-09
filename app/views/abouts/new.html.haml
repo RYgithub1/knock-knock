@@ -1,35 +1,28 @@
-%br
-%br
-%br
-%br
-%br
-%br
-%br
 .aboutsNew
   .aboutsNew__aboutsNewContent
 
     .aboutsNew__aboutsNewContent__aboutsNewContentHead
       .aboutsNew__aboutsNewContent__aboutsNewContentHead__aboutsNewContentHeadYou
-        About Setting
+        About Me Setting
       .aboutsNew__aboutsNewContent__aboutsNewContentHead__aboutsNewContentHeadDate
         - if @about.id
-          %span.newContentHeadDateUpdated Last Updated Date
+          %span.newContentHeadDateNow Update Date
           .newContentHeadDateUpdated
             = @about.updated_at
         - else
-          %span.newContentHeadDateUpdated ( first setting )
-          .newContentHeadDateUpdated
+          %span.newContentHeadDateNow Update Date
+          .newContentHeadDateUpdated (first setting)
 
     .aboutsNew__aboutsNewContent__aboutsNewContentForm
       = form_with model: @about, class: "newForm", local: true do |f|
         -# =====  基本情報１  =========================
         .newFormAbout
           .newFormAbout__newFormAboutTitle
-            %span.newFormAboutTitleText 《Basic Information 1》
-            %span.newFormAboutTitleMust Mandatory
+            %span.newFormAboutTitleText 《Mandatory Information 1》
+            %span.newFormAboutTitleMust ----------
           .newFormAbout__newFormAboutPhoto
             .newFormAbout__newFormAboutPhoto__newFormAboutPhotoTitle
-              %span.aboutPhotoTitle PHOTO ( Icon Image )
+              %span.aboutPhotoTitle ICON IMAGE
             .newFormAbout__newFormAboutPhoto__newFormAboutPhotoCode
               -# FIXME:
               .aboutPhotoCode
@@ -47,10 +40,9 @@
 
           .newFormAbout__newFormAboutName
             .newFormAbout__newFormAboutName__newFormAboutNameTitle
-              %span.newFormAboutNameText 《Basic Information 1》
+              %span.newFormAboutNameText YOUR NAME
             .newFormAbout__newFormAboutName__newFormAboutNameCode
               = current_user.name
-              名前cccさんが表示されているよ！ccccccccccccccccccccccccccccc
           .newFormAbout__newFormAboutContribution
             .newFormAbout__newFormAboutContribution__newFormAboutContributionTitle
               -# add community contribution function later
@@ -61,12 +53,12 @@
         -# =====  基本情報２  =========================
         .newFormBasic
           .newFormBasic__newFormBasicTitle
-            %span.newFormBasicTitleText 《Basic Information 2》
-            %span.newFormBasicTitleMust Mandatory
+            %span.newFormBasicTitleText 《Mandatory Information 2》
+            %span.newFormBasicTitleMust ----------
 
           .newFormBasic__newFormBasicNation
             .newFormBasic__newFormBasicNation__newFormBasicNationTitle
-              %span.basicNationTitle NATIONALITYs ( Hidden )
+              %span.basicNationTitle NATIONALITYs
             .newFormBasic__newFormBasicNation__newFormBasicNationCode
               .basicNationCode
                 = f.collection_select :nation_id, Nation.all, :id, :name
@@ -77,14 +69,15 @@
             .newFormBasic__newFormBasicLanguage__newFormBasicLanguageCode
               -# TODO:
               .basicLanguageCode
-                = f.label :tag_list, 'put "," between your languages'
+                = f.label :tag_list, 'add "," between languages'
+                %br
                 -# = text_field_tag "about[tag_list]", @about.tag_list.join(","), class: "taglist"
                 = f.text_field :tag_list, value: @about.tag_list.join(","), class: "taglist"
 
 
           .newFormBasic__newFormBasicBirthday
             .newFormBasic__newFormBasicBirthday__newFormBasicBirthdayTitle
-              %span.basicBirthdayTitle BIRTHDAY ( Hidden )
+              %span.basicBirthdayTitle BIRTHDAY
             .newFormBasic__newFormBasicBirthday__newFormBasicBirthdayCode
               %span.birthdayForm dd / mm / yyyy
               %br
@@ -106,17 +99,17 @@
         -# =====  追加情報  ==========================
         .newFormPlus
           .newFormPlus__newFormPlusTitle
-            %span.newFormPlusTitleText 《Additional Information》
-            %span.newFormPlusTitleMust Optional
+            %span.newFormPlusTitleText 《Optional Information》
+            %span.newFormPlusTitleMust ----------
           .newFormPlus__newFormPlusBody
             .newFormPlus__newFormPlusBody__newFormPlusBodyTitle
               %span.plusBodyTitle INTRODUCTION
             .newFormPlus__newFormPlusBody__newFormPlusBodyCode
-              -# = f.text_area :body, class: "plusBodyCode", size: "70x6", placeholder: "エスケープ処理を外す場合.html_safe追記へ変更".html_safe
-              = f.text_area :body, class: "plusBodyCode", size: "70x6", placeholder: "Example:\nRoute\nSchedule\nStyle\nSingle or..."
+              -# = f.text_area :body, class: "plusBodyCode", size: "50x6", placeholder: "エスケープ処理を外す場合.html_safe追記へ変更".html_safe
+              = f.text_area :body, class: "plusBodyCode", size: "50x6", placeholder: "Example:\nRoute\nSchedule\nStyle\nSingle or..."
           .newFormPlus__newFormPlusPicture
             .newFormPlus__newFormPlusPicture__newFormPlusPictureTitle
-              %span.plusPictureTitle PICTURES (maximun 8 ??)
+              %span.plusPictureTitle PICTUREs
             .newFormPlus__newFormPlusPicture__newFormPlusPictureCode
               .plusPictureCode
                 -# FIXME:
@@ -130,21 +123,19 @@
 
 
 
-
-
           .newFormPlus__newFormPlusInvitation
             .newFormPlus__newFormPlusInvitation__newFormPlusInvitationTitle
               %span.plusInvitationTitle INVITATION
             .newFormPlus__newFormPlusInvitation__newFormPlusInvitationCode
-              = f.text_area :invitation, class: "plusInvitationCode", size: "70x4", placeholder: "Example:\nI wanna go out to eat with someone next Sunday at Paris.\nIt there anybody who is free??"
+              = f.text_area :invitation, class: "plusInvitationCode", size: "50x4", placeholder: "Example:\nI wanna go out to eat with someone next Sunday at Paris.\nIt there anybody who is free??"
           .newFormPlus__newFormPlusRecommendation
             .newFormPlus__newFormPlusRecommendation__newFormPlusRecommendationTitle
               %span.plusRecommendationTitle RECOMMENDATION
             .newFormPlus__newFormPlusRecommendation__newFormPlusRecommendationCode
-              = f.text_area :recommendation, class: "plusRecommendationCode", size: "70x4", placeholder: "Example:\n★★★★☆ Mt.Fuji@Japan -> Beautiful!\n★★★★★ Machu Picchu@Peru -> Amazing!\n★★★★★ Sagrada Família@Spain -> Crazy!"
+              = f.text_area :recommendation, class: "plusRecommendationCode", size: "50x4", placeholder: "Example:\n★★★★☆ Mt.Fuji@Japan -> Beautiful!\n★★★★★ Machu Picchu@Peru -> Amazing!\n★★★★★ Sagrada Família@Spain -> Crazy!"
 
 
         -# =====  送信ボタン  ==========================
         .newFormPost
           .newFormPost__newFormPostSubmit
-            = f.submit "Set About Me", class: "newFormPostSubmitBtn"
+            = f.submit "Sst Button", class: "newFormPostSubmitBtn"

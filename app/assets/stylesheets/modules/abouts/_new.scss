@@ -1,4 +1,295 @@
 .aboutsNew {
+  padding-top: 121px;
   width: 100%;
-  height: 1800px;
+  background-color: #ffdab9;
+  &__aboutsNewContent {
+    width: 95%;
+    text-align: center;
+    margin: 0 auto;
+
+    &__aboutsNewContentHead {
+      width: 95%;
+      height: 98%;
+      background-color: #ffd482;
+      margin: 0 auto;
+      padding: 15px 5px 20px 5px;
+
+      &__aboutsNewContentHeadYou {
+        font-size: 45px;
+        font-weight: bold;
+      }
+      &__aboutsNewContentHeadDate {
+        .newContentHeadDateNow {
+          font-size: 20px;
+        }
+        .newContentHeadDateUpdated {
+        }
+      }
+    }
+
+    &__aboutsNewContentForm {
+      width: 95%;
+      background-color: #ffd482;
+      margin: 0 auto;
+
+      border-top: 1px solid #ff6600;
+
+      // -# =====  基本情報１  =========================
+      .newFormAbout {
+        width: 100%;
+        height: 200px;
+        padding: 15px 5px 20px 5px;
+
+        &__newFormAboutTitle {
+          .newFormAboutTitleText {
+            font-size: 30px;
+            font-weight: bold;
+          }
+          .newFormAboutTitleMust {
+            color: red;
+            display: block;
+            font-size: 10px;
+          }
+        }
+        &__newFormAboutPhoto {
+          &__newFormAboutPhotoTitle {
+            .aboutPhotoTitle {
+              font-size: 20px;
+              font-weight: bold;
+            }
+          }
+          &__newFormAboutPhotoCode {
+            width: 60%;
+            height: 60px;
+            margin: 10px auto;
+            background-color: rgb(255, 196, 129);
+            .aboutPhotoCode {
+              #image-boxIcon {
+                .jsFileGroupIcon {
+                  .jsFileLabelIcon {
+                    .jsFileIcon {
+                    }
+                    .jsRemoveIcon {
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        &__newFormAboutName {
+          margin: 20px auto;
+          &__newFormAboutNameTitle {
+            .newFormAboutNameText {
+              font-size: 20px;
+              font-weight: bold;
+            }
+          }
+          &__newFormAboutNameCode {
+            font-size: 20px;
+          }
+        }
+        &__newFormAboutContribution {
+          &__newFormAboutContributionTitle {
+            font-size: 20px;
+            font-weight: bold;
+          }
+          &__newFormAboutContributionCode {
+          }
+        }
+      }
+
+      // -# =====  基本情報２  =========================
+      .newFormBasic {
+        border-top: 1px solid #ff6600;
+        width: 100%;
+        height: 370px;
+        padding: 15px 5px 20px 5px;
+
+        &__newFormBasicTitle {
+          .newFormBasicTitleText {
+            font-size: 30px;
+            font-weight: bold;
+          }
+          .newFormBasicTitleMust {
+            color: red;
+            display: block;
+            font-size: 10px;
+          }
+        }
+        &__newFormBasicNation {
+          margin: 20px auto;
+          &__newFormBasicNationTitle {
+            .basicNationTitle {
+              font-size: 20px;
+              font-weight: bold;
+            }
+          }
+          &__newFormBasicNationCode {
+            .basicNationCode {
+              font-size: 15px;
+            }
+          }
+        }
+        &__newFormBasicLanguage {
+          margin: 20px auto;
+          &__newFormBasicLanguageTitle {
+            .basicLanguageTitle {
+              font-size: 20px;
+              font-weight: bold;
+            }
+          }
+          &__newFormBasicLanguageCode {
+            .basicLanguageCode {
+              font-size: 15px;
+              .taglist {
+              }
+            }
+          }
+        }
+        &__newFormBasicBirthday {
+          margin: 20px auto;
+          &__newFormBasicBirthdayTitle {
+            .basicBirthdayTitle {
+              font-size: 20px;
+              font-weight: bold;
+            }
+          }
+          &__newFormBasicBirthdayCode {
+            .birthdayForm {
+            }
+            .basicBirthdayCode {
+              font-size: 15px;
+            }
+          }
+        }
+        &__newFormBasicSex {
+          margin: 20px auto;
+          &__newFormBasicSexTitle {
+            .basicSexTitle {
+              font-size: 20px;
+              font-weight: bold;
+            }
+          }
+          &__newFormBasicSexCode {
+            font-size: 20px;
+
+            .basicSexCode {
+            }
+          }
+        }
+      }
+
+      // -# =====  追加情報  ==========================
+      .newFormPlus {
+        border-top: 1px solid #ff6600;
+        padding: 15px 5px 20px 5px;
+        &__newFormPlusTitle {
+          .newFormPlusTitleText {
+            font-size: 30px;
+            color: rgba(0, 0, 0, 0.425);
+            font-weight: bold;
+          }
+          .newFormPlusTitleMust {
+            color: red;
+            display: block;
+            font-size: 10px;
+          }
+        }
+        &__newFormPlusBody {
+          margin: 20px auto;
+          &__newFormPlusBodyTitle {
+            .plusBodyTitle {
+              font-size: 20px;
+              color: rgba(0, 0, 0, 0.425);
+              font-weight: bold;
+            }
+          }
+          &__newFormPlusBodyCode {
+            .plusBodyCode {
+            }
+          }
+        }
+        &__newFormPlusPicture {
+          margin: 20px auto;
+          &__newFormPlusPictureTitle {
+            .plusPictureTitle {
+              font-size: 20px;
+              color: rgba(0, 0, 0, 0.425);
+              font-weight: bold;
+            }
+          }
+          &__newFormPlusPictureCode {
+            width: 95%;
+            height: 100px;
+            margin: 10px auto;
+            padding-top: 20px;
+            background-color: rgb(255, 196, 129);
+
+            .plusPictureCode {
+              #image-box {
+                .jsFileGroup {
+                  .jsFileLabel {
+                    .jsFile {
+                    }
+                    .jsRemove {
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        &__newFormPlusInvitation {
+          margin: 20px auto;
+          &__newFormPlusInvitationTitle {
+            .plusInvitationTitle {
+              font-size: 20px;
+              color: rgba(0, 0, 0, 0.425);
+              font-weight: bold;
+            }
+          }
+          &__newFormPlusInvitationCode {
+            .plusInvitationCode {
+            }
+          }
+        }
+        &__newFormPlusRecommendation {
+          margin: 20px auto;
+          &__newFormPlusRecommendationTitle {
+            .plusRecommendationTitle {
+              font-size: 20px;
+              color: rgba(0, 0, 0, 0.425);
+              font-weight: bold;
+            }
+          }
+          &__newFormPlusRecommendationCode {
+            .plusRecommendationCode {
+            }
+          }
+        }
+      }
+
+      // -# =====  送信ボタン  ==========================
+      .newFormPost {
+        width: 95%;
+        height: 50px;
+        font-size: 25px;
+        padding-top: 20px;
+        padding-bottom: 201px;
+        margin: 25px 5px;
+        border-top: 1px solid #ff6600;
+        &__newFormPostSubmit {
+          .newFormPostSubmitBtn {
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+            background-color: #ff9966;
+          }
+        }
+      }
+    }
+  }
 }
