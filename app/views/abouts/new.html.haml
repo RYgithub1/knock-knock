@@ -61,6 +61,7 @@
               %span.basicNationTitle NATIONALITYs
             .newFormBasic__newFormBasicNation__newFormBasicNationCode
               .basicNationCode
+                -# = f.collection_select :nation_id, Nation.all, :id, :name
                 = f.collection_select :nation_id, Nation.all, :id, :name
 
           .newFormBasic__newFormBasicLanguage
@@ -106,7 +107,7 @@
               %span.plusBodyTitle INTRODUCTION
             .newFormPlus__newFormPlusBody__newFormPlusBodyCode
               -# = f.text_area :body, class: "plusBodyCode", size: "50x6", placeholder: "エスケープ処理を外す場合.html_safe追記へ変更".html_safe
-              = f.text_area :body, class: "plusBodyCode", size: "50x6", placeholder: "Example:\nRoute\nSchedule\nStyle\nSingle or..."
+              = f.text_area :body, class: "plusBodyCode", size: "100x6", placeholder: "Example:\nRoute\nSchedule\nStyle\nSingle or..."
           .newFormPlus__newFormPlusPicture
             .newFormPlus__newFormPlusPicture__newFormPlusPictureTitle
               %span.plusPictureTitle PICTUREs
@@ -127,12 +128,12 @@
             .newFormPlus__newFormPlusInvitation__newFormPlusInvitationTitle
               %span.plusInvitationTitle INVITATION
             .newFormPlus__newFormPlusInvitation__newFormPlusInvitationCode
-              = f.text_area :invitation, class: "plusInvitationCode", size: "50x4", placeholder: "Example:\nI wanna go out to eat with someone next Sunday at Paris.\nIt there anybody who is free??"
+              = f.text_area :invitation, class: "plusInvitationCode", size: "100x4", placeholder: "Example:\nI wanna go out to eat with someone next Sunday at Paris.\nIt there anybody who is free??"
           .newFormPlus__newFormPlusRecommendation
             .newFormPlus__newFormPlusRecommendation__newFormPlusRecommendationTitle
               %span.plusRecommendationTitle RECOMMENDATION
             .newFormPlus__newFormPlusRecommendation__newFormPlusRecommendationCode
-              = f.text_area :recommendation, class: "plusRecommendationCode", size: "50x4", placeholder: "Example:\n★★★★☆ Mt.Fuji@Japan -> Beautiful!\n★★★★★ Machu Picchu@Peru -> Amazing!\n★★★★★ Sagrada Família@Spain -> Crazy!"
+              = f.text_area :recommendation, class: "plusRecommendationCode", size: "100x4", placeholder: "Example:\n★★★★☆ Mt.Fuji@Japan -> Beautiful!\n★★★★★ Machu Picchu@Peru -> Amazing!\n★★★★★ Sagrada Família@Spain -> Crazy!"
 
 
         -# =====  送信ボタン  ==========================

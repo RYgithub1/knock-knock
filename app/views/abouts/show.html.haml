@@ -1,21 +1,29 @@
+.trans
+  .trans__transContent
+    .trans__transContent__transContentDoors
+      .trans__transContent__transContentDoors__transContentDoorsLink
+        = link_to "Open DoorS", "#", class: "doorsLink"
+    .trans__transContent__transContentState
+      .trans__transContent__transContentState__transContentStateLink
+        - if user_signed_in? && @about.user_id == current_user.id
+          .trans__transContent__transContentState__transContentStateLink__transContentStateLinkBtn
+            = link_to "Edit > About Me", edit_about_path, class: "transBtn transBtnAbout"
+            = link_to "Edit > Sign Up", edit_user_registration_path, class: "transBtn transBtnSign"
+        - else
+          .trans__transContent__transContentState__transContentStateLink__transContentStateLinkBtn
+            = link_to "Knock-Knock Door", "#", class: "transBtn transBtnDoor"
 %br
 %br
 %br
 %br
 %br
+%br%br
 %br
 %br
-%br
-ここで
-%br
-about編集、削除
-%br
-pair遷移
-%br
-map遷移
+%br%br
 %br
 %br
-%br
+%br%br
 %br
 %br
 %br
