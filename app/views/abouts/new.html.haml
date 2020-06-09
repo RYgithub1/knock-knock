@@ -22,7 +22,7 @@
             %span.newFormAboutTitleMust ----------
           .newFormAbout__newFormAboutPhoto
             .newFormAbout__newFormAboutPhoto__newFormAboutPhotoTitle
-              %span.aboutPhotoTitle ICON IMAGE
+              %span.aboutPhotoTitle ICON PHOTO
             .newFormAbout__newFormAboutPhoto__newFormAboutPhotoCode
               -# FIXME:
               .aboutPhotoCode
@@ -58,7 +58,7 @@
 
           .newFormBasic__newFormBasicNation
             .newFormBasic__newFormBasicNation__newFormBasicNationTitle
-              %span.basicNationTitle NATIONALITYs
+              %span.basicNationTitle NATIONALITY
             .newFormBasic__newFormBasicNation__newFormBasicNationCode
               .basicNationCode
                 -# = f.collection_select :nation_id, Nation.all, :id, :name
@@ -66,7 +66,7 @@
 
           .newFormBasic__newFormBasicLanguage
             .newFormBasic__newFormBasicLanguage__newFormBasicLanguageTitle
-              %span.basicLanguageTitle LANGUAGEs
+              %span.basicLanguageTitle LANGUAGES
             .newFormBasic__newFormBasicLanguage__newFormBasicLanguageCode
               -# TODO:
               .basicLanguageCode
@@ -110,7 +110,7 @@
               = f.text_area :body, class: "plusBodyCode", size: "100x6", placeholder: "Example:\nRoute\nSchedule\nStyle\nSingle or..."
           .newFormPlus__newFormPlusPicture
             .newFormPlus__newFormPlusPicture__newFormPlusPictureTitle
-              %span.plusPictureTitle PICTUREs
+              %span.plusPictureTitle PICTURES
             .newFormPlus__newFormPlusPicture__newFormPlusPictureCode
               .plusPictureCode
                 -# FIXME:

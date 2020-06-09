@@ -29,12 +29,19 @@ class AboutsController < ApplicationController
 
   def show
     @about = About.find_by(id: params[:id])
-    if @about.nil?
-      @abouts = About.all
-      flash.now[:alert] = "Your About was not found"
-      render :new
-    end
+    # @user = @about.user
+    # @tags = @about.tags
+    @photos = Photo.where(id: @about.photos.ids)
+    @pictures = Picture.where(id: @about.pictures.ids)
+    # binding.pry
+    # if @about.nil?
+    #   @abouts = About.all
+    #   flash.now[:alert] = "Your About was not found"
+    #   render :new
+    # end
   end
+
+
 
   def edit
   end
