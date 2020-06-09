@@ -77,11 +77,9 @@
             .newFormBasic__newFormBasicLanguage__newFormBasicLanguageCode
               -# TODO:
               .basicLanguageCode
-                -# = f.check_box
-                = f.label :tag_list, "タグ（カンマ区切り）"
-                = text_field_tag 'about[tag_list]', @about.tag_list.join(',')
-                -# = f.text_field 'about[tag_list]', @about.tag_list.join(',')
-
+                = f.label :tag_list, 'put "," between your languages'
+                -# = text_field_tag "about[tag_list]", @about.tag_list.join(","), class: "taglist"
+                = f.text_field :tag_list, value: @about.tag_list.join(","), class: "taglist"
 
 
           .newFormBasic__newFormBasicBirthday

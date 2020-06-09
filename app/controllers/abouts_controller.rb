@@ -50,6 +50,7 @@ class AboutsController < ApplicationController
       :body,
       :birthday,
       :tag_list,
+      # tag_ids: [],
       :nation_id,
       :invitation,
       :recommendation,
