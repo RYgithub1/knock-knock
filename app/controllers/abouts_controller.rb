@@ -46,11 +46,12 @@ class AboutsController < ApplicationController
   private
   def about_params
     params.require(:about).permit(
-      # :user_id,
-      :birthday,
       :sex,
-      :nation_id,
       :body,
+      :birthday,
+      :tag_list,
+      # tag_ids: [],
+      :nation_id,
       :invitation,
       :recommendation,
       photos_attributes: [:image],
