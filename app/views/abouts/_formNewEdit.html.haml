@@ -1,0 +1,142 @@
+.aboutsNew
+  .aboutsNew__aboutsNewContent
+
+    .aboutsNew__aboutsNewContent__aboutsNewContentHead
+      .aboutsNew__aboutsNewContent__aboutsNewContentHead__aboutsNewContentHeadYou
+        About Me Setting
+      .aboutsNew__aboutsNewContent__aboutsNewContentHead__aboutsNewContentHeadDate
+        - if @about.id
+          %span.newContentHeadDateNow Update Date
+          .newContentHeadDateUpdated
+            = @about.updated_at
+        - else
+          %span.newContentHeadDateNow Update Date
+          .newContentHeadDateUpdated (first setting)
+
+    .aboutsNew__aboutsNewContent__aboutsNewContentForm
+      = form_with model: @about, class: "newForm", local: true do |f|
+        -# =====  基本情報１  =========================
+        .newFormAbout
+          .newFormAbout__newFormAboutTitle
+            %span.newFormAboutTitleText 《Mandatory Information 1》
+            %span.newFormAboutTitleMust ----------
+          .newFormAbout__newFormAboutPhoto
+            .newFormAbout__newFormAboutPhoto__newFormAboutPhotoTitle
+              %span.aboutPhotoTitle ICON PHOTO
+            .newFormAbout__newFormAboutPhoto__newFormAboutPhotoCode
+              -# FIXME:
+              .aboutPhotoCode
+                #image-boxIcon
+                  = f.fields_for :photos do |i|
+                    .jsFileGroupIcon{"data-indexIcon" => "#{i.index}"}
+                      = i.label :image, class: "jsFileLabelIcon" do
+                        = i.file_field :image, class: "jsFileIcon"
+                        .jsRemoveIcon
+                          delete icon
+                  -# = image_tag @about.photos.image.url, class: "pppp" if @about.photos.image.present?
+                  -# - about.photos.each do |photo|
+                  -#   = image_tag photo.src.url
+
+
+          .newFormAbout__newFormAboutName
+            .newFormAbout__newFormAboutName__newFormAboutNameTitle
+              %span.newFormAboutNameText YOUR NAME
+            .newFormAbout__newFormAboutName__newFormAboutNameCode
+              = current_user.name
+          .newFormAbout__newFormAboutContribution
+            .newFormAbout__newFormAboutContribution__newFormAboutContributionTitle
+              -# add community contribution function later
+            .newFormAbout__newFormAboutContribution__newFormAboutContributionCode
+        %br
+        %br
+        %br
+        -# =====  基本情報２  =========================
+        .newFormBasic
+          .newFormBasic__newFormBasicTitle
+            %span.newFormBasicTitleText 《Mandatory Information 2》
+            %span.newFormBasicTitleMust ----------
+
+          .newFormBasic__newFormBasicNation
+            .newFormBasic__newFormBasicNation__newFormBasicNationTitle
+              %span.basicNationTitle NATIONALITY
+            .newFormBasic__newFormBasicNation__newFormBasicNationCode
+              .basicNationCode
+                -# = f.collection_select :nation_id, Nation.all, :id, :name
+                = f.collection_select :nation_id, Nation.all, :id, :name
+
+          .newFormBasic__newFormBasicLanguage
+            .newFormBasic__newFormBasicLanguage__newFormBasicLanguageTitle
+              %span.basicLanguageTitle LANGUAGES
+            .newFormBasic__newFormBasicLanguage__newFormBasicLanguageCode
+              -# TODO:
+              .basicLanguageCode
+                = f.label :tag_list, 'add "," between languages'
+                %br
+                -# = text_field_tag "about[tag_list]", @about.tag_list.join(","), class: "taglist"
+                = f.text_field :tag_list, value: @about.tag_list.join(","), class: "taglist"
+
+
+          .newFormBasic__newFormBasicBirthday
+            .newFormBasic__newFormBasicBirthday__newFormBasicBirthdayTitle
+              %span.basicBirthdayTitle BIRTHDAY
+            .newFormBasic__newFormBasicBirthday__newFormBasicBirthdayCode
+              %span.birthdayForm dd / mm / yyyy
+              %br
+              .basicBirthdayCode
+                = f.date_select(:birthday, use_two_digit_numbers: true, order: [:day, :month, :year], start_year: (Time.now.year - 70), end_year: (Time.now.year - 10), default: Date.new(1990, 1, 1), date_separator: '/')
+
+          .newFormBasic__newFormBasicSex
+            .newFormBasic__newFormBasicSex__newFormBasicSexTitle
+              %span.basicSexTitle SEX
+            .newFormBasic__newFormBasicSex__newFormBasicSexCode
+              .basicSexCode
+                = f.label :male
+                = f.radio_button :sex, :male
+                = f.label :female
+                = f.radio_button :sex, :female
+        %br
+        %br
+        %br
+        -# =====  追加情報  ==========================
+        .newFormPlus
+          .newFormPlus__newFormPlusTitle
+            %span.newFormPlusTitleText 《Optional Information》
+            %span.newFormPlusTitleMust ----------
+          .newFormPlus__newFormPlusBody
+            .newFormPlus__newFormPlusBody__newFormPlusBodyTitle
+              %span.plusBodyTitle INTRODUCTION
+            .newFormPlus__newFormPlusBody__newFormPlusBodyCode
+              -# = f.text_area :body, class: "plusBodyCode", size: "50x6", placeholder: "エスケープ処理を外す場合.html_safe追記へ変更".html_safe
+              = f.text_area :body, class: "plusBodyCode", size: "100x6", placeholder: "Example:\nRoute\nSchedule\nStyle\nSingle or..."
+          .newFormPlus__newFormPlusPicture
+            .newFormPlus__newFormPlusPicture__newFormPlusPictureTitle
+              %span.plusPictureTitle PICTURES
+            .newFormPlus__newFormPlusPicture__newFormPlusPictureCode
+              .plusPictureCode
+                -# FIXME:
+                #image-box
+                  = f.fields_for :pictures do |j|
+                    .jsFileGroup{"data-index" => "#{j.index}"}
+                      = j.label :image, class: "jsFileLabel" do
+                        = j.file_field :image, class: "jsFile"
+                        .jsRemove
+                          delete picture
+
+
+
+          .newFormPlus__newFormPlusInvitation
+            .newFormPlus__newFormPlusInvitation__newFormPlusInvitationTitle
+              %span.plusInvitationTitle INVITATION
+            .newFormPlus__newFormPlusInvitation__newFormPlusInvitationCode
+              = f.text_area :invitation, class: "plusInvitationCode", size: "100x4", placeholder: "Example:\nI wanna go out to eat with someone next Sunday at Paris.\nIt there anybody who is free??"
+          .newFormPlus__newFormPlusRecommendation
+            .newFormPlus__newFormPlusRecommendation__newFormPlusRecommendationTitle
+              %span.plusRecommendationTitle RECOMMENDATION
+            .newFormPlus__newFormPlusRecommendation__newFormPlusRecommendationCode
+              = f.text_area :recommendation, class: "plusRecommendationCode", size: "100x4", placeholder: "Example:\n★★★★☆ Mt.Fuji@Japan -> Beautiful!\n★★★★★ Machu Picchu@Peru -> Amazing!\n★★★★★ Sagrada Família@Spain -> Crazy!"
+
+
+        -# =====  送信ボタン  ==========================
+        .newFormPost
+          .newFormPost__newFormPostSubmit
+            = f.submit "Sst Button", class: "newFormPostSubmitBtn"
