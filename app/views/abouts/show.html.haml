@@ -1,23 +1,92 @@
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-ここで
-%br
-about編集、削除
-%br
-pair遷移
-%br
-map遷移
-%br
-%br
-%br
-%br
-%br
-%br
-タグ＿＿
-= @about.tag_list
+-# transfer part
+.trans
+  .trans__transContent
+    .trans__transContent__transContentDoors
+      .trans__transContent__transContentDoors__transContentDoorsLink
+        = link_to "Open DoorS", "#", class: "doorsLink"
+    .trans__transContent__transContentState
+      .trans__transContent__transContentState__transContentStateLink
+        - if user_signed_in? && @about.user_id == current_user.id
+          .trans__transContent__transContentState__transContentStateLink__transContentStateLinkBtn
+            = link_to "Edit > About ME", edit_about_path(@about.id), method: :get, class: "transBtn transBtnAbout"
+            = link_to "Edit > Sign Up", edit_user_registration_path(@about.id), method: :get, class: "transBtn transBtnSign"
+        - else
+          .trans__transContent__transContentState__transContentStateLink__transContentStateLinkBtn
+            = link_to "Knock-Knock Door", "#", class: "transBtn transBtnDoor"
+
+
+-# show part
+.aboutsShow
+  .aboutsShow__aboutsShowContent
+    -# some infomation ===================
+    .aboutsShow__aboutsShowContent__aboutsShowContentSome
+      .aboutsShow__aboutsShowContent__aboutsShowContentSome__aboutsShowContentSomeTitle
+        - if current_user.id == @about.user.id
+          %h.ContentSomeTitle About ME
+        - else
+          %h.ContentSomeTitle About HIM / HER
+      .aboutsShow__aboutsShowContent__aboutsShowContentSome__aboutsShowContentSomeProfile
+        .aboutsShow__aboutsShowContent__aboutsShowContentSome__aboutsShowContentSomeProfile__aboutsShowContentSomeProfilePhoto
+          %h.someProfilePhotoTitle ICON PHOTO
+          %p.onePhoto
+            - @photos.each do |photo|
+              = image_tag photo.image.url, class: "photoImage", size: "140x126"
+        .aboutsShow__aboutsShowContent__aboutsShowContentSome__aboutsShowContentSomeProfile__aboutsShowContentSomeProfileTable
+          %h.someProfileTableTitle ABOUTS
+          %table.tabler{border: "1"}
+            %tr
+              %th
+                Name
+                %td
+                  -# = @user.name
+                  = @about.user.name
+            %tr
+              %th
+                Nationality
+                %td
+                  = @about.nation.name
+            %tr
+              %th
+                Languages
+                %td
+                  -# - @tags.each do |tag|
+                  -#   = tag.name
+                  = @about.tag_list
+            %tr
+              %th
+                Sex
+                %td
+                  = @about.sex
+
+    -# introduction ===================
+    .aboutsShow__aboutsShowContent__aboutsShowContentBody
+      .aboutsShow__aboutsShowContent__aboutsShowContentBody__aboutsShowContentBodyTitle
+        %h.showContentBodyTitle INTRODUCTION
+      .aboutsShow__aboutsShowContent__aboutsShowContentBody__aboutsShowContentBodyCode
+        .showContentBodyCode
+          = @about.body
+
+    -# picturtes ===================
+    .aboutsShow__aboutsShowContent__aboutsShowContentPicture
+      .aboutsShow__aboutsShowContent__aboutsShowContentPicture__aboutsShowContentPictureTitle
+        %h.showContentPictureTitle PICTURES
+      .aboutsShow__aboutsShowContent__aboutsShowContentPicture__aboutsShowContentPictureCode
+        .showContentPictureCode
+          - @pictures.each do |picture|
+            = image_tag picture.image.url, class: "pictureImage", size: "200x180"
+
+    -# invitation ===================
+    .aboutsShow__aboutsShowContent__aboutsShowContentInvitstion
+      .aboutsShow__aboutsShowContent__aboutsShowContentInvitstion__aboutsShowContentInvitstionTitle
+        %h.showContentInvitstionTitle INVITAION
+      .aboutsShow__aboutsShowContent__aboutsShowContentInvitstion__aboutsShowContentInvitstionCode
+        .showContentInvitstionCode
+          = @about.invitation
+
+    -# recommendation ===================
+    .aboutsShow__aboutsShowContent__aboutsShowContentRecommendation
+      .aboutsShow__aboutsShowContent__aboutsShowContentRecommendation__aboutsShowContentRecommendationTitle
+        %h.showContentRecommendationTitle RECOMMENDATION
+      .aboutsShow__aboutsShowContent__aboutsShowContentRecommendation__aboutsShowContentRecommendationCode
+        .showContentRecommendationCode
+          = @about.recommendation

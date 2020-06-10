@@ -1,2 +1,259 @@
+// ===== transfer part ==============================
+.trans {
+  &__transContent {
+    z-index: 666;
+    position: fixed;
+    top: 121px;
+    background-color: #ff9933;
+    border-bottom: 1px solid #ff5100;
+    border-top: 1px solid white;
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+    display: flex;
+    justify-content: center;
 
+    &__transContentDoors {
+      width: 300px;
+      margin-left: 300px;
+      &__transContentDoorsLink {
+        width: 290px;
+        .doorsLink {
+          font-size: 20px;
+          text-decoration: none;
+          color: white;
+          background-color: rgb(8, 133, 216);
+          padding: 15px 80px;
+          border-radius: 10px;
+          border: 2px solid rgb(0, 174, 255);
+        }
+      }
+    }
+    &__transContentState {
+      width: 700px;
+      &__transContentStateLink {
+        &__transContentStateLinkBtn {
+          width: 690px;
+          .transBtn {
+            text-decoration: none;
+          }
+          .transBtnAbout {
+            margin-right: 20px;
+            margin-left: 80px;
+            font-size: 18px;
+            padding: 10px 30px;
+            color: black;
+            background-color: rgb(253, 186, 148);
+            border: 2px solid rgb(0, 174, 255);
+            border-radius: 30px;
+          }
+          .transBtnSign {
+            font-size: 18px;
+            padding: 10px 30px;
+            color: black;
+            background-color: rgb(253, 186, 148);
+            border: 2px solid rgb(0, 174, 255);
+            border-radius: 30px;
+          }
+          .transBtnDoor {
+            font-size: 25px;
+            color: white;
+            background-color: rgb(8, 133, 216);
+            padding: 15px 80px;
+            border-radius: 10px;
+            border: 2px solid rgb(0, 174, 255);
+          }
+        }
+      }
+    }
+  }
+}
 
+// ===== show part ==============================
+.aboutsShow {
+  padding-top: 193px;
+  width: 100%;
+  height: 100%;
+  background-color: #ffdab9;
+
+  &__aboutsShowContent {
+    width: 95%;
+    height: 1800px;
+    background-color: #ffd482;
+    margin: 0 auto;
+    text-align: center;
+
+    // -# some infomation ===================
+    &__aboutsShowContentSome {
+      &__aboutsShowContentSomeTitle {
+        width: 98%;
+        height: 80px;
+        line-height: 80px;
+        padding-top: 20px;
+        .ContentSomeTitle {
+          font-size: 45px;
+          font-weight: bold;
+        }
+      }
+      &__aboutsShowContentSomeProfile {
+        display: flex;
+        width: 95%;
+        height: 200px;
+        padding-top: 10px;
+        margin: 0 auto;
+
+        &__aboutsShowContentSomeProfilePhoto {
+          width: 50%;
+          margin: 0 20px;
+          .someProfilePhotoTitle {
+            font-weight: bold;
+            font-size: 20px;
+            float: right;
+          }
+          .onePhoto {
+            margin: 0 auto;
+            width: 100%;
+            float: right;
+
+            .photoImage {
+              padding: 20px;
+              border: 1px solid black;
+              background-color: #faba5a;
+              float: right;
+            }
+          }
+        }
+        &__aboutsShowContentSomeProfileTable {
+          margin-right: 404px;
+          width: 50%;
+          .someProfileTableTitle {
+            font-weight: bold;
+            font-size: 20px;
+          }
+          .tabler {
+            width: 600px;
+            // width: 90%;
+            height: 75%;
+            margin: 0 auto;
+            table {
+              margin: 0 auto;
+            }
+            table tr {
+            }
+            table th {
+              width: 20%;
+              border-color: rgb(209, 207, 207);
+              font-size: 15px;
+            }
+            table td {
+              width: 70%;
+              border-color: rgb(209, 207, 207);
+              font-size: 15px;
+            }
+            th {
+              background-color: #f8b147;
+              padding: 5px 0px 5px 7px;
+              font-weight: bold;
+              text-align: center;
+            }
+            td {
+              background-color: #faba5a;
+              padding: 5px 0px 5px 7px;
+            }
+          }
+        }
+      }
+    }
+
+    // -# introduction ===================
+    &__aboutsShowContentBody {
+      padding-top: 20px;
+      &__aboutsShowContentBodyTitle {
+        .showContentBodyTitle {
+          font-weight: bold;
+          font-size: 20px;
+        }
+      }
+      &__aboutsShowContentBodyCode {
+        border: 1px solid rgb(0, 174, 255);
+        width: 66%;
+        height: 120px;
+        margin: 0 auto;
+        font-size: 19px;
+        .showContentBodyCode {
+        }
+      }
+    }
+
+    // -# picturtes ===================
+    &__aboutsShowContentPicture {
+      margin: 15px 0;
+      padding-top: 20px;
+      width: 88%;
+      margin: 0 auto;
+      &__aboutsShowContentPictureTitle {
+        .showContentPictureTitle {
+          font-weight: bold;
+          font-size: 20px;
+        }
+      }
+      &__aboutsShowContentPictureCode {
+        .showContentPictureCode {
+          background-color: rgb(255, 196, 129);
+          height: 180px;
+          // 複数投稿を実装想定。折返しcss
+          // flex-wrap: wrap;
+          .pictureImage {
+            width: 20%;
+            display: flex;
+            margin: 0 auto;
+            justify-content: center;
+          }
+        }
+      }
+    }
+
+    // -# invitation ===================
+    &__aboutsShowContentInvitstion {
+      border-top: 1px solid #ff6600;
+      margin: 30px 0;
+      padding-top: 20px;
+      &__aboutsShowContentInvitstionTitle {
+        .showContentInvitstionTitle {
+          font-weight: bold;
+          font-size: 20px;
+        }
+      }
+      &__aboutsShowContentInvitstionCode {
+        border: 1px solid rgb(0, 174, 255);
+        width: 66%;
+        height: 100px;
+        margin: 0 auto;
+        font-size: 19px;
+        .showContentInvitstionCode {
+        }
+      }
+    }
+
+    // -# recommendation ===================
+    &__aboutsShowContentRecommendation {
+      padding-bottom: 251px;
+
+      &__aboutsShowContentRecommendationTitle {
+        .showContentRecommendationTitle {
+          font-weight: bold;
+          font-size: 20px;
+        }
+      }
+      &__aboutsShowContentRecommendationCode {
+        border: 1px solid rgb(0, 174, 255);
+        width: 44%;
+        height: 100px;
+        margin: 0 auto;
+        font-size: 19px;
+        .showContentRecommendationCode {
+        }
+      }
+    }
+  }
+}
