@@ -35,10 +35,10 @@ class AboutsController < ApplicationController
     # @tags = @about.tags
     @photos = Photo.where(id: @about.photos.ids)
     @pictures = Picture.where(id: @about.pictures.ids)
-    if @about.nil?
-      flash.now[:alert] = 'Your "About ME" was not found.'
-      render :new
-    end
+    # if @about.nil?
+    #   flash.now[:alert] = 'Your "About ME" was not found.'
+    #   render :new
+    # end
   end
 
 
