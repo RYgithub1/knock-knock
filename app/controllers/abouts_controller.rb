@@ -1,8 +1,5 @@
 class AboutsController < ApplicationController
-
-  # def index
-  #   @abouts = About.new(id: user_id)
-  # end
+  # before_action xxx
 
 
   def new
@@ -54,12 +51,14 @@ class AboutsController < ApplicationController
     @about = About.find_by(id: params[:id])
     @photos = Photo.where(id: @about.photos.ids)
     @pictures = Picture.where(id: @about.pictures.ids)
-
     if @about.update(about_params)
       redirect_to about_path(@about.id)
     else
       render :edit
     end
+  end
+
+  def destroy
   end
 
 
