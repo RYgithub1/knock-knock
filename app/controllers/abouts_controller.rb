@@ -1,24 +1,26 @@
 class AboutsController < ApplicationController
+  # before_action :set_xxx, except: [:index, :new, :create]
+
+
 
   def new
+    # @about = About.find_by(id: params[:id])
     @about = About.new
-    # aboutモデルと紐付くphotoモデルのインスタンスを作成
-    # @about.photos.build
+    # aboutモデルと紐付くxxxモデルの,インスタンスを作成
     @about.photos.new
     @about.pictures.new
   end
 
   def create
-    # About.create(about_params)
+    # @about = About.find_by(id: params[:id])
     @about = About.new(about_params)
-    # binding.pry
     if @about.save
-      redirect_to root_path
-      # redirect_to root_path, notice: "Successed Settting"
+      # redirect_to root_path(@about)
+      redirect_to about_path(@about.id)
       # redirect_to about_path
       # redirect_to about_path(id: params[:id])
       # redirect_to about_path(@about)
-      # redirect_to about_path(@about.id)
+      # redirect_to about_path(@about.id) これやろフリマより！
     else
       render :new
       # redirect_to new_about_path
@@ -33,10 +35,8 @@ class AboutsController < ApplicationController
     # @tags = @about.tags
     @photos = Photo.where(id: @about.photos.ids)
     @pictures = Picture.where(id: @about.pictures.ids)
-    # binding.pry
     # if @about.nil?
-    #   @abouts = About.all
-    #   flash.now[:alert] = "Your About was not found"
+    #   flash.now[:alert] = 'Your "About ME" was not found.'
     #   render :new
     # end
   end
@@ -44,12 +44,30 @@ class AboutsController < ApplicationController
 
 
   def edit
+    @about = About.find_by(id: params[:id])
+    @photos = Photo.where(id: @about.photos.ids)
+    @pictures = Picture.where(id: @about.pictures.ids)
+
   end
+
   def update
+    @about = About.find_by(id: params[:id])
+    @photos = Photo.where(id: @about.photos.ids)
+    @pictures = Picture.where(id: @about.pictures.ids)
+    if @about.update(about_params)
+      redirect_to about_path(@about.id)
+    else
+      render :edit
+    end
   end
 
+  # def destroy
+  #   @about.destroy
+  #   redirect_to root_path
+  # end
 
 
+  # === Strong parameter =======================
   private
   def about_params
     params.require(:about).permit(
@@ -61,10 +79,9 @@ class AboutsController < ApplicationController
       :nation_id,
       :invitation,
       :recommendation,
-      photos_attributes: [:image],
-      pictures_attributes: [:image]
+      photos_attributes: [:image, :_destroy, :id],
+      pictures_attributes: [:image, :_destroy, :id]
     ).merge(user_id: current_user.id)
-    # ,pictures_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
 end

@@ -10,10 +10,6 @@ class About < ApplicationRecord
   # fields_for -> to show relation for child table name at parent's model
   accepts_nested_attributes_for :photos, allow_destroy: true
 
-  # to Languages Table
-  has_many :languages, through: :about_languages
-  has_many :about_languages, dependent: :destroy
-
   # to Pictures Table
   has_many :pictures, dependent: :destroy
   # fields_for -> to show relation for child table name at parent's model
