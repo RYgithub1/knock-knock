@@ -64,7 +64,8 @@
         %h.showContentBodyTitle INTRODUCTION
       .aboutsShow__aboutsShowContent__aboutsShowContentBody__aboutsShowContentBodyCode
         .showContentBodyCode
-          = @about.body
+          -# h: <html>エスケープ、<script>除去
+          = simple_format(h(@about.body))
 
     -# picturtes ===================
     .aboutsShow__aboutsShowContent__aboutsShowContentPicture
@@ -81,7 +82,7 @@
         %h.showContentInvitstionTitle INVITAION
       .aboutsShow__aboutsShowContent__aboutsShowContentInvitstion__aboutsShowContentInvitstionCode
         .showContentInvitstionCode
-          = @about.invitation
+          = simple_format(h(@about.invitation))
 
     -# recommendation ===================
     .aboutsShow__aboutsShowContent__aboutsShowContentRecommendation
@@ -89,4 +90,4 @@
         %h.showContentRecommendationTitle RECOMMENDATION
       .aboutsShow__aboutsShowContent__aboutsShowContentRecommendation__aboutsShowContentRecommendationCode
         .showContentRecommendationCode
-          = @about.recommendation
+          = simple_format(h(@about.recommendation))
