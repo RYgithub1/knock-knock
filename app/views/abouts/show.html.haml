@@ -30,7 +30,7 @@
           %h.someProfilePhotoTitle ICON PHOTO
           %p.onePhoto
             - @photos.each do |photo|
-              = image_tag photo.image.url, class: "photoImage", size: "100x80"
+              = image_tag photo.image.url, class: "photoImage", size: "140x126"
         .aboutsShow__aboutsShowContent__aboutsShowContentSome__aboutsShowContentSomeProfile__aboutsShowContentSomeProfileTable
           %h.someProfileTableTitle ABOUTS
           %table.tabler{border: "1"}
@@ -73,8 +73,7 @@
       .aboutsShow__aboutsShowContent__aboutsShowContentPicture__aboutsShowContentPictureCode
         .showContentPictureCode
           - @pictures.each do |picture|
-            = image_tag picture.image.url, class: "pictureImage", size: "200x100"
-
+            = image_tag picture.image.url, class: "pictureImage", size: "200x180"
 
     -# invitation ===================
     .aboutsShow__aboutsShowContent__aboutsShowContentInvitstion
