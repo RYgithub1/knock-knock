@@ -222,11 +222,11 @@
           }
           &__newFormPlusPictureCode {
             width: 95%;
-            height: 100px;
+            // height: 100px;
+            height: 300px;
             margin: 10px auto;
             padding-top: 20px;
             background-color: rgb(255, 196, 129);
-
             .plusPictureCode {
               #image-box {
                 .jsFileGroup {

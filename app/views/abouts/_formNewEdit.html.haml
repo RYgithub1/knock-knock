@@ -115,10 +115,34 @@
               .plusPictureCode
                 -# FIXME:
                 #image-box
+                  -# ===== 処理 Preview ======
+                  #previews
+                    -# @aboutに画像image登録->js裏側でsvとやり取り->存在すればpreview用JS発火
+                    - if @about.persisted?
+                      - @about.pictures.each_with_index do |pic, k|
+                        -# imageタグで表示しつつindex番号付与->削除時にindexん番号でpreviewも削除するため
+                        = image_tag pic.image.url, data:{ index: k }, width: "100", height: "100"
+
+                  -# ===== 処理 FileGroup１ ======
                   = f.fields_for :pictures do |j|
+                    -# j.indexよりbuild時にindexをあてがいカスタムとして取得
                     .jsFileGroup{"data-index" => "#{j.index}"}
                       = j.label :image, class: "jsFileLabel" do
                         = j.file_field :image, class: "jsFile"
+                        .jsRemove
+                          delete picture
+                    -# 既に 上記で@aboutが存在->保存済みimage削除用check_box->checkBoxをon->railsがレコード検索し削除実行
+                    - if @about.persisted?
+                      = image.check_box :_destroy, data:{ index: j.index }, class: "hiddenDestroy"
+                  
+                  -# ===== 処理 FileGroup２ ======
+                  -# (edit遷移時のbuildは既存枚数分のみゆえ、追加用input作成)
+                  -# abouts#edit時のみ走る->@aboutsが存在済み->新規画像追加の専用ボタンを表示
+                  - if @about.persisted?
+                    .jsFileGroup{"data-index" => "#{@about.pictures.count}"}
+                      -# fields_for外なので_tagで実装
+                      = label_tag :image, class: "jsFileLabel" do
+                        = file_field_tag :image, name: "about[pictures_attributes][#{@about.pictures.count}][image]", class: "jsFile"
                         .jsRemove
                           delete picture
 

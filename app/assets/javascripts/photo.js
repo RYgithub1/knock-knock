@@ -1,6 +1,6 @@
-$(document).on("turbolinks:load", () => {
+$(document).on("turbolinks:load", function () {
   // 画像用のinputを生成する関数
-  const buildFileField = (index) => {
+  const buildFileField = function (index) {
     const html = `<div class="jsFileGroupIcon" data-indexicon="${index}">
                 <label class="jsFileLabelIcon" for="about_photos_attributes_${index}_image">
                 <input class="jsFileIcon" type="file" name="about[photos_attributes][${index}][image]" id="about_photos_attributes_${index}_image">

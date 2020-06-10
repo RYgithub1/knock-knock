@@ -1,8 +1,10 @@
 class AboutsController < ApplicationController
-  # before_action xxx
+  # before_action :set_xxx, except: [:index, :new, :create]
+
 
 
   def new
+    # @about = About.find_by(id: params[:id])
     @about = About.new
     # aboutモデルと紐付くxxxモデルの,インスタンスを作成
     @about.photos.new
@@ -10,6 +12,7 @@ class AboutsController < ApplicationController
   end
 
   def create
+    # @about = About.find_by(id: params[:id])
     @about = About.new(about_params)
     if @about.save
       # redirect_to root_path(@about)
@@ -58,11 +61,13 @@ class AboutsController < ApplicationController
     end
   end
 
-  def destroy
-  end
+  # def destroy
+  #   @about.destroy
+  #   redirect_to root_path
+  # end
 
 
-
+  # === Strong parameter =======================
   private
   def about_params
     params.require(:about).permit(
@@ -74,10 +79,9 @@ class AboutsController < ApplicationController
       :nation_id,
       :invitation,
       :recommendation,
-      photos_attributes: [:image],
-      pictures_attributes: [:image]
+      photos_attributes: [:image, :_destroy, :id],
+      pictures_attributes: [:image, :_destroy, :id]
     ).merge(user_id: current_user.id)
-    # ,pictures_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
 end
