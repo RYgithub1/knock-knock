@@ -73,6 +73,7 @@
         %h.showContentPictureTitle PICTURES
       .aboutsShow__aboutsShowContent__aboutsShowContentPicture__aboutsShowContentPictureCode
         .showContentPictureCode
+          -# - if @about.pictures.image.present?
           - if @pictures.present?
             - @pictures.each do |picture|
               = image_tag picture.image.url, class: "pictureImage", size: "200x180"

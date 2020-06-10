@@ -26,16 +26,31 @@
             .newFormAbout__newFormAboutPhoto__newFormAboutPhotoCode
               -# FIXME:
               .aboutPhotoCode
+                -# = f.fields_for :photos do |i|
+                -#   = i.file_field :image, class: "jsFileIcon"
                 #image-boxIcon
+                  -# preview part
+                  #previewsIcon
+                    -if @about.persisted?
+                      - @about.photos.each_with_index do |pho, m|
+                        = image_tag pho.image.url, data: { index: m }, width: "100", height: "100"
+                  -# group part
                   = f.fields_for :photos do |i|
-                    .jsFileGroupIcon{"data-indexIcon" => "#{i.index}"}
+                    .jsFileGroupIcon{"data-index" => "#{i.index}"}
                       = i.label :image, class: "jsFileLabelIcon" do
                         = i.file_field :image, class: "jsFileIcon"
                         .jsRemoveIcon
                           delete icon
-                  -# = image_tag @about.photos.image.url, class: "pppp" if @about.photos.image.present?
-                  -# - about.photos.each do |photo|
-                  -#   = image_tag photo.src.url
+                    - if @about.persisted?
+                      = i.check_box :_destroy, data:{ index: i.index }, class: "hiddenDestroyIcon"
+                  -# additonal group part
+                  - if @about.persisted?
+                    .jsFileGroupIcon{"data-index" => "#{@about.photos.count}"}
+                      = label_tag :image, class: "jsFileLabelIcon" do
+                        = file_field_tag :image, name: "about[photos_attributes][#{@about.photos.count}][image]", class: "jsFileIcon"
+                        .jsRemoveIcon
+                          delete icon
+
 
 
           .newFormAbout__newFormAboutName
@@ -113,17 +128,16 @@
               %span.plusPictureTitle PICTURES
             .newFormPlus__newFormPlusPicture__newFormPlusPictureCode
               .plusPictureCode
-                -# FIXME:
                 #image-box
-                  -# ===== 処理 Preview ======
+                  -# ===== 処理 Preview ====================================
                   #previews
                     -# @aboutに画像image登録->js裏側でsvとやり取り->存在すればpreview用JS発火
                     - if @about.persisted?
-                      - @about.pictures.each_with_index do |pic, k|
+                      - @about.pictures.each_with_index do |pic, n|
                         -# imageタグで表示しつつindex番号付与->削除時にindexん番号でpreviewも削除するため
-                        = image_tag pic.image.url, data:{ index: k }, width: "100", height: "100"
+                        = image_tag pic.image.url, data:{ index: n }, width: "100", height: "100"
 
-                  -# ===== 処理 FileGroup１ ======
+                  -# ===== 処理 FileGroup１ ====================================
                   = f.fields_for :pictures do |j|
                     -# j.indexよりbuild時にindexをあてがいカスタムとして取得
                     .jsFileGroup{"data-index" => "#{j.index}"}
@@ -134,8 +148,8 @@
                     -# 既に 上記で@aboutが存在->保存済みimage削除用check_box->checkBoxをon->railsがレコード検索し削除実行
                     - if @about.persisted?
                       = image.check_box :_destroy, data:{ index: j.index }, class: "hiddenDestroy"
-                  
-                  -# ===== 処理 FileGroup２ ======
+
+                  -# ===== 処理 FileGroup２ ====================================
                   -# (edit遷移時のbuildは既存枚数分のみゆえ、追加用input作成)
                   -# abouts#edit時のみ走る->@aboutsが存在済み->新規画像追加の専用ボタンを表示
                   - if @about.persisted?
@@ -145,12 +159,6 @@
                         = file_field_tag :image, name: "about[pictures_attributes][#{@about.pictures.count}][image]", class: "jsFile"
                         .jsRemove
                           delete picture
-
-
-
-
-                         
-
 
           .newFormPlus__newFormPlusInvitation
             .newFormPlus__newFormPlusInvitation__newFormPlusInvitationTitle
