@@ -2,6 +2,8 @@ class PairsController < ApplicationController
 
 
   def index
+    @about = About.all
+    # @currentUserEntry=Entry.where(user_id: current_user.id)
   end
 
   def new
@@ -13,16 +15,10 @@ class PairsController < ApplicationController
   def show
   end
 
-  def edit
-  end
-
-  def updata
-  end
-
   def destroy
   end
 
-  
+
 
 
 
