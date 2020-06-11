@@ -1,8 +1,3 @@
-/*
- *= require_tree .
- *= require_self
- */
-
 @import "config/reset";
 @import "config/colors";
 @import "font-awesome-sprockets";
@@ -10,3 +5,5 @@
 @import "modules/maps";
 @import "modules/devise";
 @import "modules/abouts";
+@import "modules/pairs";
+@import "bootstrap";

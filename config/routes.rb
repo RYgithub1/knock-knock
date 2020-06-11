@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   # resources :maps, only: [:index]
   resources :abouts, except: [:index]
 
-  resources :pairs, only: [:new, :create]
+  resources :pairs
 
 
 end
