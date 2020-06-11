@@ -19,6 +19,9 @@ class User < ApplicationRecord
             format: { with: VALID_NAME_PW_REGEX }
 
 
+  has_many :users_pairs, dependent: :destroy
+  has_many :pairs, through: :users_pairs
+  has_many :messages, dependent: :destroy
 
 
 end
