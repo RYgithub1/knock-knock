@@ -1,5 +1,34 @@
 
+-# !!!
+-# %html
+-#   %head
+-#     %link#bootstrap-css{:href => "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css", :rel => "stylesheet"}/
+-#     %script{:src => "//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"}
+-#     %script{:src => "//code.jquery.com/jquery-1.11.1.min.js"}
+-#     / ---- Include the above in your HEAD tag --------
+-#   %body
+-#     .col-sm-3.col-sm-offset-4.frame
+-#       %ul
+-#       %div
+-#         .msj-rta.macro
+-#           .text.text-r{:style => "background:whitesmoke !important"}
+-#             %input.mytext{:placeholder => "Type a message"}/
+-#         %div{:style => "padding:10px;"}
+-#           %span.glyphicon.glyphicon-share-alt
+
 %br
+%br
+%br
+%br
+%br%br
+%br
+%br
+%br
+%br%br
+%br
+%br
+%br
+%br%br
 %br
 %br
 %br
@@ -13,20 +42,18 @@
 %br
 %br
 
-
-!!!
-%html
-  %head
-    %link#bootstrap-css{:href => "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css", :rel => "stylesheet"}/
-    %script{:src => "//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"}
-    %script{:src => "//code.jquery.com/jquery-1.11.1.min.js"}
-    / ---- Include the above in your HEAD tag --------
-  %body
-    .col-sm-3.col-sm-offset-4.frame
-      %ul
-      %div
-        .msj-rta.macro
-          .text.text-r{:style => "background:whitesmoke !important"}
-            %input.mytext{:placeholder => "Type a message"}/
-        %div{:style => "padding:10px;"}
-          %span.glyphicon.glyphicon-share-alt
+-# transfer part
+.trans
+  .trans__transContent
+    .trans__transContent__transContentDoors
+      .trans__transContent__transContentDoors__transContentDoorsLink
+        = link_to "Open DoorS", "#", class: "doorsLink"
+    .trans__transContent__transContentState
+      .trans__transContent__transContentState__transContentStateLink
+        -# -# - if user_signed_in? && @about.user_id == current_user.id
+        -#   .trans__transContent__transContentState__transContentStateLink__transContentStateLinkBtn
+        -#     = link_to "Edit > About ME", edit_about_path(@about.id), method: :get, class: "transBtn transBtnAbout"
+        -#     = link_to "Edit > Sign Up", edit_user_registration_path(@about.id), method: :get, class: "transBtn transBtnSign"
+        -# - else
+        -#   .trans__transContent__transContentState__transContentStateLink__transContentStateLinkBtn
+        -#     = link_to "Knock-Knock Door", "#", class: "transBtn transBtnDoor"
