@@ -80,4 +80,4 @@ gem "devise"
 gem "dotenv-rails"
 gem "active_hash"
 gem "acts-as-taggable-on", github: "Fodoj/acts-as-taggable-on", branch: "rails-5.2"
-
+gem "bootstrap", '~> 4.5.0'

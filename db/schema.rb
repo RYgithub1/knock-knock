@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_09_002451) do
+ActiveRecord::Schema.define(version: 2020_06_11_043922) do
 
   create_table "abouts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -23,6 +23,24 @@ ActiveRecord::Schema.define(version: 2020_06_09_002451) do
     t.datetime "updated_at", null: false
     t.integer "nation_id"
     t.index ["user_id"], name: "index_abouts_on_user_id"
+  end
+
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "pair_id", null: false
+    t.text "content", null: false
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pair_id"], name: "index_messages_on_pair_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "pairs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_pairs_on_name", unique: true
   end
 
   create_table "photos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -77,7 +95,20 @@ ActiveRecord::Schema.define(version: 2020_06_09_002451) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "users_pairs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "pair_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pair_id"], name: "index_users_pairs_on_pair_id"
+    t.index ["user_id"], name: "index_users_pairs_on_user_id"
+  end
+
   add_foreign_key "abouts", "users"
+  add_foreign_key "messages", "pairs"
+  add_foreign_key "messages", "users"
   add_foreign_key "photos", "abouts"
   add_foreign_key "pictures", "abouts"
+  add_foreign_key "users_pairs", "pairs"
+  add_foreign_key "users_pairs", "users"
 end
