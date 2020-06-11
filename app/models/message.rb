@@ -6,5 +6,4 @@ class Message < ApplicationRecord
   validates :pair_id, presence: true
   validates :content, presence: true
 
-
 end
