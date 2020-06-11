@@ -1,0 +1,2 @@
+class UsersPair < ApplicationRecord
+end

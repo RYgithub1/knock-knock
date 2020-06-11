@@ -18,4 +18,7 @@ class User < ApplicationRecord
   validates :password, presence: true,
             format: { with: VALID_NAME_PW_REGEX }
 
+
+
+
 end
