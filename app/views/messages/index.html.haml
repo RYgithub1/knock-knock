@@ -1,15 +1,61 @@
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
+-# transfer part
+-# = render "xxx"
+.trans
+  .trans__transContent
+    .trans__transContent__transContentDoors
+      .trans__transContent__transContentDoors__transContentDoorsLink
+        = link_to "Open DoorS", "#", class: "doorsLink"
+    .trans__transContent__transContentState
+      .trans__transContent__transContentState__transContentStateLink
+        -# - if user_signed_in? && @about.user_id == current_user.id
+        -#   .trans__transContent__transContentState__transContentStateLink__transContentStateLinkBtn
+        -#     = link_to "Edit > About ME", edit_about_path(@about.id), method: :get, class: "transBtn transBtnAbout"
+        -#     = link_to "Edit > Sign Up", edit_user_registration_path(@about.id), method: :get, class: "transBtn transBtnSign"
+        -# - else
+        -# .trans__transContent__transContentState__transContentStateLink__transContentStateLinkBtn
+        -#   = link_to "About HIM / HER", "#", class: "transBtn transBtnDoor"
 
+
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
 %h1 Messages#index
 %p Find me in app/views/messages/index.html.haml
+ドアメッセージやりとりのトップページ
+不要ではないか
+相手のid  about.idと
+カレントユーザid＝自分のユーザーid
+→用にドア（ペア）id作成して、そのpairIDに紐づくメッセージをshow
+
+
+.mess
+  .mess__messContent
+    .mess__messContent__messContentTitle
+      .mess__messContent__messContentTitle__messContentTitleDoor
+        Knock-Knock Door
+      .mess__messContent__messContentTitle__messContentTitlePair
+        .mess__messContent__messContentTitle__messContentTitlePair__messContentTitlePairMe
+          = current_user.name
+        .mess__messContent__messContentTitle__messContentTitlePair__messContentTitlePairYou
+          -# = @about.user.name
+
+
+    .mess__messContent__messContentForm
+      = form_with model: [@pair,@message], class: "chatForm", local: true do |f|
+        .chatFormBoard
+          = f.text_field :content, class: "chatText", placeholder: "Knock yourself out!"
+          .chatMask
+            = f.label :image, class: "chatLavel" do
+              %i.fas.fa-camera-retro.chatIcon
+              = f.file_field :image, class: 'chatFile'
+        .chatFormBtn
+          = f.submit "Send", class: "submitBtn"
+
 

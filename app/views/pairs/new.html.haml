@@ -1,0 +1,48 @@
+%br
+%br
+%br
+%br%br
+%br
+%br
+%br%br
+%br
+%br
+%br%br
+%br
+%br
+%br
+-# pairs#new second header part
+.trans
+  .trans__transContent
+    .trans__transContent__transContentDoors
+      .trans__transContent__transContentDoors__transContentDoorsLink
+        = link_to "Open DoorS", "#", class: "doorsLink"
+    .trans__transContent__transContentState
+      .trans__transContent__transContentState__transContentStateLink
+        .trans__transContent__transContentState__transContentStateLink__transContentStateLinkBtn
+          = link_to "About HIM / HER", about_path(@about.id), class: "transBtn transBtnDoor"
+%br
+%br
+%br
+%br
+%br
++++++++++
+-# aboutMe
+-# = current_user.name
+-# aboutAZ
+-# - binding.pry
+-# = @about.user.name
+-# = @about.users.name
+-# = current_user.about.name
+-# = @about.user_id
+-# = @about.id
+-# = @about.body
+%br
+%br
+%br
+%br
+
+=form_for @pair do |f|
+  = f.text_field :name, class: "chat-group-form__input", placeholder: "グループ名を入力してください"
+  = f.collection_check_boxes :user_ids, User.all, :id, :name
+  = f.submit "Save", class: "chat-group-form__action-btn"

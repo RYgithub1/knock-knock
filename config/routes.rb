@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'messages/index'
   devise_for :users, controllers: {
     sessions: "users/sessions",
     passwords: "users/passwords",
@@ -7,13 +6,14 @@ Rails.application.routes.draw do
   }
 
   root to: "maps#index"
-  # resources :users, only: [:edit, :update]
+  # resources :users, only: [:index, :edit, :update]
 
-  # resources :maps, only: [:index]
   resources :abouts, except: [:index]
 
-  resources :pairs, except: [:edit, :update]
-
-  resources :messages, only: [:index]
+  # resources :pairs do
+  #   resources :messages
+  # end
+  resources :pairs, except: [:index]
+  resources :messages
 
 end
