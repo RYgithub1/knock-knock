@@ -6,6 +6,9 @@
 function initMap() {
   var mapArea = document.getElementById("map");
   var mapCenter = { lat: -34.397, lng: 150.644 };
+  // var lat = parseFloat(document.getElementById('lat').textContent);
+  // var lng = parseFloat(document.getElementById('lng').textContent)
+
   var mapOption = {
     center: mapCenter,
     zoom: 8,
@@ -24,40 +27,68 @@ function initMap() {
     zoomControlOptions: {
       position: google.maps.ControlPosition.RIGHT_TOP,
     },
+    styles: [
+      {
+        featureType: "all",
+        elementType: "all",
+        stylers: [{ weight: 1 }, { lightness: -5 }, { saturation: 3 }],
+      },
+    ],
   };
 
-  // map itself
+  // ----- 地図の生成 -----
   var map = new google.maps.Map(mapArea, mapOption);
 
-  // marker
+  // ----- marker -----
+  // var image = 'bullets/_st_zzzzzzl SSS.gif';
   var mapMarker = new google.maps.Marker({
     position: mapCenter,
+    // current_userとaboutsを繰り返しで指定
     map: map,
+    title: "here is",
+    animation: google.maps.Animation.DROP,
+    icon: {
+      url: "https://maps.google.com/mapfiles/ms/micons/red-dot.png",
+      scaledSize: new google.maps.Size(50, 50),
+    },
+    label: {
+      text: "knock",
+      color: "black",
+      fontSize: "20px",
+      fontWeight: "bold",
+    },
   });
 
-  // infoWindow
+  // ------ infoWindow ------
+  var infoWindowContent =
+    '<div id="content">' +
+    '<h1 id="firstHeading" class="firstHeading">Tokyoだ</h1>' +
+    '<div id="bodyContent">' +
+    "<p><b>Tokyo</b>は人多い</p>" +
+    '<img src="画像のパス">' +
+    "<li>Info Window</li>" +
+    "<li>Open</li>" +
+    "<li>Close</li>" +
+    '<p>詳細はこちら: <a id="url" href="http://www.tokyo-skytree.jp/" target="_blank">www.tokyo-skytree.jp</a></p>' +
+    '<p id="lat">35.710033</p>' +
+    '<p id="lng">139.810716</p>' +
+    "</div>" +
+    "</div>";
   var mapInfoWindow = new google.maps.InfoWindow({
-    content: '<div class="sample">TAM 大阪</div>',
-    // content: "marker InfoWindow",
+    content: infoWindowContent,
   });
 
-  // mouseover
-  // mapMarker.addListener("mouseover", function () {
+  // ----- addListener -----
+  // google.maps.event.addListener(mapMarker, "mouseover", function () {
   //   mapInfoWindow.open(map, mapMarker);
   // });
-  google.maps.event.addListener(mapMarker, "mouseover", function () {
+  mapMarker.addListener("mouseover", function () {
     mapInfoWindow.open(map, mapMarker);
   });
-
-  // mouseout
-  google.maps.event.addListener(mapMarker, "mouseout", function () {
-    mapInfoWindow.close();
-  });
-
-  // var markerOptions = {
-  //   map: map,
-  //   position: mapPosition,
-  //   icon: "{マーカー画像へのパス}",
-  // };
-  // var marker = new google.maps.Marker(markerOptions);
+  // mapMarker.addListener("position_changed", function () {
+  //   mapInfoWindow.close();
+  // });
+  // infoWindow.addListener("position_changed", function () {
+  //   marker.setMap(null); //マーカーを削除
+  // });
 }

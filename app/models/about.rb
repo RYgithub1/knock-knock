@@ -25,5 +25,8 @@ class About < ApplicationRecord
   # add Tag function at About (object.tag_list.method)
   acts_as_taggable
 
+  # -------------------------
+  # geocoded_by :address
+  # after_validation :geocode
 
 end
