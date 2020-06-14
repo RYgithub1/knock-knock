@@ -1,16 +1,3 @@
-%br
-%br
-%br
-%br%br
-%br
-%br
-%br%br
-%br
-%br
-%br%br
-%br
-%br
-%br
 -# pairs#new second header part
 .trans
   .trans__transContent
@@ -21,63 +8,48 @@
       .trans__transContent__transContentState__transContentStateLink
         .trans__transContent__transContentState__transContentStateLink__transContentStateLinkBtn
           = link_to "About HIM / HER", "#", class: "transBtn transBtnDoor"
-          -# = link_to "About HIM / HER", about_path(@about.id), class: "transBtn transBtnDoor"
 %br
 %br
 %br
 %br
 %br
-+++++++++
--# aboutMe
--# = current_user.name
--# aboutAZ
--# - binding.pry
--# = @about.user.name
--# = @about.users.name
--# = @about.user_id
--# = @about.id
--# = @about.body
 %br
 %br
 %br
 %br
-
+%br
+%br
 Knock on the door?
 %br
-About ME：わたしの名前
+%br
+About ME：わたしの名前とid番号
 = current_user.name
 = current_user.id
 %br
-About AZ：相手の名前
--# = @about.user.name
--# = @about.user.id
+ーーーーーーーーー
+%br
 %br
 check a door knob ,and Knock-knock!
 %br
 %br
--# -# = form_with(model: @group, url: admin_group_members_path, group_id: @group.id, local: true) do |form|
--# = form_with (model: @pair, url: messages_path(@pair.id @about.id), local: true) do |f|
--#   = f.label :name, "door knob"
--#   = f.check_box :name
--#   -# = image.check_box :_destroy, data:{ index: j.index }, class: "hiddenDestroy"
--#   = f.submit "Knock-knock!", class: "xxx"
-
--# - binding.pry
 = form_for @pair do |f|
-  = f.text_field :name, class: "chat-group-form__input", placeholder: "グループ名を入力してください"
-  -# = f.collection_check_boxes :user_ids, User.all, :id, :name
+  = f.text_field :name, class: "chatGroup__input", placeholder: "ペア名を入力してください"
   = f.collection_check_boxes :user_ids, User.all, :id, :name
-  -# current_user.nameは初期チェック
-  -#                ccb(送信データキー、フォーム表示データ元、送信データバリュー、フォーム表示カラム)
-  = f.submit "Save", class: "chat-group-form__action-btn"
+  = f.submit "送信", class: "chatGroup__btn"
 
--#   -# = form.collection_check_boxes(:user_ids, @users, :id, :name) do |user|
-      <%= form_with(model: [@tweet, @comment], local: true) do |form| %>
-      親子関係、ネストの場合
--# k wa÷y
+
+
+
+
+-# = link_to "About HIM / HER", about_path(@about.id), class: "transBtn transBtnDoor"
+-# About AZ：相手の名前とid番号
+-# = @about.user.name
+-# = @about.user.id
+  -# = f.collection_check_boxes :user_ids, User.where(id: @about.user_id), :id, :name
+
+
+-# テスト ＝＝＝＝＝＝＝＝＝＝＝
 -# = form_for @pair do |f|
 -#   = fields_for @userspair do |e|
 -#     = e.hidden_field :user_id, :value=> current_user.id
 -#   = f.submit "チャットを始める", class: "card-link btn btn-primary"
--# @pair
--# @userspair
