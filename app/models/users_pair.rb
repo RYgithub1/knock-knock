@@ -1,6 +1,8 @@
 class UsersPair < ApplicationRecord
 
-  belongs_to :pair
-  belongs_to :user
+  belongs_to :pair,optional: true
+  belongs_to :user,optional: true
+  # belongs_to :pair
+  # belongs_to :user
 
 end

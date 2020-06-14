@@ -1,0 +1,55 @@
+-# pairs#new second header part
+.trans
+  .trans__transContent
+    .trans__transContent__transContentDoors
+      .trans__transContent__transContentDoors__transContentDoorsLink
+        = link_to "Open DoorS", "#", class: "doorsLink"
+    .trans__transContent__transContentState
+      .trans__transContent__transContentState__transContentStateLink
+        .trans__transContent__transContentState__transContentStateLink__transContentStateLinkBtn
+          = link_to "About HIM / HER", "#", class: "transBtn transBtnDoor"
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+Knock on the door?
+%br
+%br
+About ME：わたしの名前とid番号
+= current_user.name
+= current_user.id
+%br
+ーーーーーーーーー
+%br
+%br
+check a door knob ,and Knock-knock!
+%br
+%br
+= form_for @pair do |f|
+  = f.text_field :name, class: "chatGroup__input", placeholder: "ペア名を入力してください"
+  = f.collection_check_boxes :user_ids, User.all, :id, :name
+  = f.submit "送信", class: "chatGroup__btn"
+
+
+
+
+
+-# = link_to "About HIM / HER", about_path(@about.id), class: "transBtn transBtnDoor"
+-# About AZ：相手の名前とid番号
+-# = @about.user.name
+-# = @about.user.id
+  -# = f.collection_check_boxes :user_ids, User.where(id: @about.user_id), :id, :name
+
+
+-# テスト ＝＝＝＝＝＝＝＝＝＝＝
+-# = form_for @pair do |f|
+-#   = fields_for @userspair do |e|
+-#     = e.hidden_field :user_id, :value=> current_user.id
+-#   = f.submit "チャットを始める", class: "card-link btn btn-primary"

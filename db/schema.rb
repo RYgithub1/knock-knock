@@ -96,8 +96,8 @@ ActiveRecord::Schema.define(version: 2020_06_11_043922) do
   end
 
   create_table "users_pairs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "pair_id", null: false
+    t.bigint "user_id"
+    t.bigint "pair_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["pair_id"], name: "index_users_pairs_on_pair_id"

@@ -1,19 +1,5 @@
--# transfer part
-.trans
-  .trans__transContent
-    .trans__transContent__transContentDoors
-      .trans__transContent__transContentDoors__transContentDoorsLink
-        = link_to "Open DoorS", "#", class: "doorsLink"
-    .trans__transContent__transContentState
-      .trans__transContent__transContentState__transContentStateLink
-        - if user_signed_in? && @about.user_id == current_user.id
-          .trans__transContent__transContentState__transContentStateLink__transContentStateLinkBtn
-            = link_to "Edit > About ME", edit_about_path(@about.id), method: :get, class: "transBtn transBtnAbout"
-            = link_to "Edit > Sign Up", edit_user_registration_path(@about.id), method: :get, class: "transBtn transBtnSign"
-        - else
-          .trans__transContent__transContentState__transContentStateLink__transContentStateLinkBtn
-            = link_to "Knock-Knock Door", "#", class: "transBtn transBtnDoor"
-
+-# abouts#show second header part
+= render "showSecondHeader"
 
 -# show part
 .aboutsShow
@@ -40,6 +26,7 @@
                 %td
                   -# = @user.name
                   = @about.user.name
+                  -# = @about.user_id
             %tr
               %th
                 Nationality
