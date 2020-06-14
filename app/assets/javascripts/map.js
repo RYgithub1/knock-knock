@@ -26,19 +26,32 @@ function initMap() {
     },
   };
 
+  // map itself
   var map = new google.maps.Map(mapArea, mapOption);
 
+  // marker
   var mapMarker = new google.maps.Marker({
     position: mapCenter,
     map: map,
   });
 
+  // infoWindow
   var mapInfoWindow = new google.maps.InfoWindow({
     content: '<div class="sample">TAM 大阪</div>',
+    // content: "marker InfoWindow",
   });
-  mapMarker.addListener("click", function () {
-    // マーカーをクリックしたとき
+
+  // mouseover
+  // mapMarker.addListener("mouseover", function () {
+  //   mapInfoWindow.open(map, mapMarker);
+  // });
+  google.maps.event.addListener(mapMarker, "mouseover", function () {
     mapInfoWindow.open(map, mapMarker);
+  });
+
+  // mouseout
+  google.maps.event.addListener(mapMarker, "mouseout", function () {
+    mapInfoWindow.close();
   });
 
   // var markerOptions = {
