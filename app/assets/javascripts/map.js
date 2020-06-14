@@ -1,10 +1,13 @@
 // var map;
+// var mapCenter;
+// var mapMarker;
+// var mapInfoWindow;
 
 function initMap() {
   var mapArea = document.getElementById("map");
-  var mapPin = { lat: -34.397, lng: 150.644 };
+  var mapCenter = { lat: -34.397, lng: 150.644 };
   var mapOption = {
-    center: mapPin,
+    center: mapCenter,
     zoom: 8,
     // PCズーム(ctrl/command +スクロール)orMobile(地図移動指2本)
     gestureHandling: "greedy",
@@ -24,6 +27,19 @@ function initMap() {
   };
 
   var map = new google.maps.Map(mapArea, mapOption);
+
+  var mapMarker = new google.maps.Marker({
+    position: mapCenter,
+    map: map,
+  });
+
+  var mapInfoWindow = new google.maps.InfoWindow({
+    content: '<div class="sample">TAM 大阪</div>',
+  });
+  mapMarker.addListener("click", function () {
+    // マーカーをクリックしたとき
+    mapInfoWindow.open(map, mapMarker);
+  });
 
   // var markerOptions = {
   //   map: map,
