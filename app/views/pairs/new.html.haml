@@ -7,7 +7,9 @@
     .trans__transContent__transContentState
       .trans__transContent__transContentState__transContentStateLink
         .trans__transContent__transContentState__transContentStateLink__transContentStateLinkBtn
-          = link_to "About HIM / HER", "#", class: "transBtn transBtnDoor"
+          -# = link_to "About HIM / HER", "#", class: "transBtn transBtnDoor"
+          = link_to "Back to About HIM / HER", about_path(@about.id), class: "transBtn transBtnDoor"
+
 %br
 %br
 %br
@@ -26,6 +28,9 @@ About ME：わたしの名前とid番号
 = current_user.name
 = current_user.id
 %br
+About AZ：相手の名前とid番号
+= @about.user.name
+= @about.user.id
 ーーーーーーーーー
 %br
 %br
@@ -35,8 +40,8 @@ check a door knob ,and Knock-knock!
 = form_for @pair do |f|
   = f.text_field :name, class: "chatGroup__input", placeholder: "ペア名を入力してください"
   = f.collection_check_boxes :user_ids, User.all, :id, :name
-  = f.submit "送信", class: "chatGroup__btn"
 
+  = f.submit "送信", class: "chatGroup__btn"
 
 
 
@@ -45,10 +50,9 @@ check a door knob ,and Knock-knock!
 -# About AZ：相手の名前とid番号
 -# = @about.user.name
 -# = @about.user.id
-  -# = f.collection_check_boxes :user_ids, User.where(id: @about.user_id), :id, :name
-
-
--# テスト ＝＝＝＝＝＝＝＝＝＝＝
+-# = f.collection_check_boxes :user_ids, User.where(id: @about.user_id), :id, :name
+-# = f.collection_check_boxes :user_ids, User.where(id: current_user.id).or(User.where(id: @about.user_id)), :id, :name
+-# ＝＝＝＝＝＝＝＝＝＝＝
 -# = form_for @pair do |f|
 -#   = fields_for @userspair do |e|
 -#     = e.hidden_field :user_id, :value=> current_user.id

@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :validatable
 
+  # １ユーザ１プロフィールのため
   has_one :about
 
   # 半角英数字、大小文字、8文字以上
@@ -14,7 +15,6 @@ class User < ApplicationRecord
   validates :email, presence: true,
             uniqueness: { case_sensitive: false },
             format: { with: VALID_EMAIL_REGEX }
-            # ,allow_blank: true
   validates :password, presence: true,
             format: { with: VALID_NAME_PW_REGEX }
 
