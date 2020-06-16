@@ -4,7 +4,7 @@ class CreateMessages < ActiveRecord::Migration[5.2]
     create_table :messages do |t|
       t.references :user, null: false, foreign_key: true
       t.references :pair, null: false, foreign_key: true
-      t.text :content   , null: false
+      t.string :content
       t.string :image
       t.timestamps
     end
