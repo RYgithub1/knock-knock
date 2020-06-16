@@ -20,6 +20,7 @@
 %br
 %br
 %br
+-# pairs#new part
 Knock on the door?
 %br
 %br
@@ -33,11 +34,11 @@ About AZ：相手の名前とid番号
 ーーーーーーーーー
 %br
 %br
-check a door knob ,and Knock-knock!
+check both door knob box ,and Knock-knock!
 %br
 %br
 = form_for @pair do |f|
-  = f.text_field :name, class: "chatGroup__input", placeholder: "ペア名を入力してください"
+  = f.text_field :name, class: "chatGroup__input", placeholder: "ペア名を入力してください→名前は削除かつ、同じペア？作成不可"
   = f.collection_check_boxes :user_ids, User.where(id: current_user.id).or(User.where(id: @about.user_id)), :id, :name
-  = f.submit "送信", class: "chatGroup__btn"
+  = f.submit "knock-knock!", class: "chatGroup__btn"
 
