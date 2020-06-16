@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   root to: "maps#index"
 
-  resources :maps,     only: [:index]
+  resource  :maps,     only: [:index]
   resources :abouts,   except: [:index]
   resources :pairs,    except: [:index, :edit, :update]
   resources :messages, only: [:index, :show]
