@@ -61,10 +61,10 @@ class AboutsController < ApplicationController
     end
   end
 
-  # def destroy
+  def destroy
   #   @about.destroy
   #   redirect_to root_path
-  # end
+  end
 
 
   # === Strong parameter =======================

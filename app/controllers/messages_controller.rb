@@ -7,8 +7,9 @@ class MessagesController < ApplicationController
     @messages = @pair.message
     # @messages = @pair.message.includes(:user)
     # @messages = @pair.messages.includes(:user)
-
   end
+
+
   def show
   end
 

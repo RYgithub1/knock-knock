@@ -6,13 +6,13 @@ Rails.application.routes.draw do
   }
 
   root to: "maps#index"
-  # resources :users, only: [:edit, :update]
 
-  resources :abouts, except: [:index]
-  resources :pairs,  except: [:index]
-  resources :messages
+  resources :maps,     only: [:index]
+  resources :abouts,   except: [:index]
+  resources :pairs,    except: [:index, :edit, :update]
+  resources :messages, only: [:index, :show]
 
-    # resources :pairs do
+  # resources :pairs do
   #   resources :messages
   # end
 

@@ -1,31 +1,24 @@
 class PairsController < ApplicationController
 
 
+
   def new
     @pair = Pair.new
-    # 配列に要素追加
+    # 配列へ要素追加
     @pair.users << current_user
     @about = About.find_by(id: params[:format])
-    # @user = User.all
-    # binding.pry
-    # @userspair = UsersPair.new
   end
 
   def create
-    binding.pry
     @pair = Pair.new(pair_params)
     if @pair.save
+      @pair.users = User.where(id: params[:pair][:user_ids])
       redirect_to root_path
+      # チャット画面に遷移messages#index ?
     else
       render :new
     end
   end
-
-  # @userspair = UsersPair.new(userspair_params)
-  # @pair = Pair.where(pair_id: pair_params[:user_ids])
-  # @about = About.find_by(id: params[:format])
-  # @user = User.all
-  # binding.pry
 
 
   def show
@@ -36,18 +29,9 @@ class PairsController < ApplicationController
 
   private
   def pair_params
-    params.require(:pair).permit(:name, user_ids: [])
+    params.require(:pair).permit(:name)
+    # 仕様変更時に下記へ修正
+    # params.require(:pair).permit(:name, {user_ids: []}).merge(user_id: current_user.id, about_id: params[:about_id])
   end
-
-    # params.require(:pair).permit(:name, users_ids: [])
-    # params.require(:pair).permit(:name)
-    # params.require(:pair).permit(:name, :user_id, :pair_id)
-    # params.require(:pair).permit(:name, user_ids:[]).merge(user_id: current_user.id)
-    # params.require(:comment).permit(:text).merge(user_id: current_user.id, tweet_id: params[:tweet_id])
-    
-
-  # def userspair_params
-  #   params.require(:userspair_params).permit(user_ids:[], pair_ids:[])
-  # end
 
 end
