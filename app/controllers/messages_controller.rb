@@ -5,13 +5,18 @@ class MessagesController < ApplicationController
     @message = Message.new
     @pair = Pair.find_by(id: params[:id])
     @messages = @pair.message
-    # @messages = @pair.message.includes(:user)
     # @messages = @pair.messages.includes(:user)
   end
 
-
-  def show
+  def create
   end
+
+
+  private
+  def xxx_params
+    # params.require(:message).permit(xxx)
+  end
+
 
 
 end
