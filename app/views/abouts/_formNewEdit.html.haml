@@ -61,7 +61,7 @@
               = current_user.name
           .newFormAbout__newFormAboutContribution
             .newFormAbout__newFormAboutContribution__newFormAboutContributionTitle
-              -# add community contribution function later
+              add community contribution function later
             .newFormAbout__newFormAboutContribution__newFormAboutContributionCode
         %br
         %br
@@ -77,7 +77,6 @@
               %span.basicNationTitle NATIONALITY
             .newFormBasic__newFormBasicNation__newFormBasicNationCode
               .basicNationCode
-                -# = f.collection_select :nation_id, Nation.all, :id, :name
                 = f.collection_select :nation_id, Nation.all, :id, :name
 
           .newFormBasic__newFormBasicLanguage
@@ -122,7 +121,7 @@
             .newFormPlus__newFormPlusBody__newFormPlusBodyTitle
               %span.plusBodyTitle INTRODUCTION
             .newFormPlus__newFormPlusBody__newFormPlusBodyCode
-              -# = f.text_area :body, class: "plusBodyCode", size: "50x6", placeholder: "エスケープ処理を外す場合.html_safe追記へ変更".html_safe
+              -# placeholder: "エスケープ処理を外す場合.html_safeを以下へ追記".html_safe
               = f.text_area :body, class: "plusBodyCode", size: "100x6", placeholder: "Example:\nRoute\nSchedule\nStyle\nSingle or..."
           .newFormPlus__newFormPlusPicture
             .newFormPlus__newFormPlusPicture__newFormPlusPictureTitle
@@ -176,4 +175,4 @@
         -# =====  送信ボタン  ==========================
         .newFormPost
           .newFormPost__newFormPostSubmit
-            = f.submit "Sst Button", class: "newFormPostSubmitBtn"
+            = f.submit "Set Button", class: "newFormPostSubmitBtn"

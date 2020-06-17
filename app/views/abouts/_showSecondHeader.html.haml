@@ -3,7 +3,8 @@
   .trans__transContent
     .trans__transContent__transContentDoors
       .trans__transContent__transContentDoors__transContentDoorsLink
-        = link_to "Open DoorS", "#", class: "doorsLink"
+        = link_to "Open DoorS", pairs_path(current_user), class: "doorsLink"
+              
     .trans__transContent__transContentState
       .trans__transContent__transContentState__transContentStateLink
         - if user_signed_in? && @about.user_id == current_user.id
@@ -13,5 +14,6 @@
         - else
           .trans__transContent__transContentState__transContentStateLink__transContentStateLinkBtn
             = link_to "Knock-Knock Door", new_pair_path(@about.id), class: "transBtn transBtnDoor"
+
 
 
