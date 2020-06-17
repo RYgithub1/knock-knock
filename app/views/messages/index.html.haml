@@ -27,6 +27,7 @@
 %br
 %br
 -# messages#index part
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 %h1 Messages#index h1
 %h3 Messages#index h3
 %h6 Messages#index h6
@@ -36,29 +37,41 @@
 %br
 pairIDに紐づくメッセージ
 %br
-
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 
 .mess
   .mess__messContent
+    -# タイトル＝＝＝＝＝＝＝＝＝＝＝＝＝
     .mess__messContent__messContentTitle
       .mess__messContent__messContentTitle__messContentTitleDoor
         Knock-Knock Door
-      .mess__messContent__messContentTitle__messContentTitlePair
-        .mess__messContent__messContentTitle__messContentTitlePair__messContentTitlePairMe
-          = current_user.name
-        .mess__messContent__messContentTitle__messContentTitlePair__messContentTitlePairYou
-          -# = @about.user.name
-          -# = @about.user_id.name
+
+    -# ペアユーザー＝＝＝＝＝＝＝＝＝＝＝＝
+    .mess__messContent__messContentPair
+      .mess__messContent__messContentPair__messContentPairMe
+        カレントユーザー名
+        = current_user.name
+      .mess__messContent__messContentPair__messContentPairYou
+        ペアユーザー名
+        -# = @about.user.name
+        -# = @about.user_id.name
+
+    .mess__messContent__messContentChat
+      .mess__messContent__messContentChat__messContentChat
+      .mess__messContent__messContentChat__messContentChat
 
 
+
+
+    -# 送信フォーム＝＝＝＝＝＝＝＝＝＝＝＝＝
     .mess__messContent__messContentForm
-      -# = form_with model: [@pair,@message], class: "messForm", local: true do |f|
-      -#   .messFormBoard
-      -#     = f.text_field :content, class: "messText", placeholder: "type a message"
-      -#     .messMask
-      -#       = f.label :image, class: "messLabel" do
-      -#         %i.fas.fa-camera-retro.chatIcon
-      -#         = f.file_field :image, class: "messFile"
-      -#   .messFormBtn
-      -#     = f.submit "Send", class: "messSubmitBtn"
-      
+      = form_with model: [@pair,@message], class: "messForm", local: true do |f|
+        .messFormBoard
+          = f.text_field :content, class: "messText", placeholder: " open and talk"
+          .messMask
+            = f.label :image, class: "messLabel" do
+              %i.fas.fa-camera-retro.chatIcon
+              = f.file_field :image, class: "messFile"
+        .messFormBtn
+          = f.submit "Send", class: "messSubmitBtn"
+

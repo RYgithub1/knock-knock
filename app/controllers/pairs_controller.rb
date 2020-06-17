@@ -30,4 +30,6 @@ class PairsController < ApplicationController
     # 仕様変更時に下記へ修正
     # params.require(:pair).permit(:name, {user_ids:[]}).merge(user_id: current_user.id, about_id: params[:about_id])
   end
+
+
 end
