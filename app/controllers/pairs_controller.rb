@@ -1,6 +1,9 @@
 class PairsController < ApplicationController
 
 
+  def index
+  end
+
   def new
     @pair = Pair.new
     @pair.users << current_user
@@ -18,8 +21,6 @@ class PairsController < ApplicationController
   end
 
 
-  def show
-  end
   def destroy
   end
 

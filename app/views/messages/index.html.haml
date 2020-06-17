@@ -28,41 +28,51 @@
 %br
 -# messages#index part
 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-%h1 Messages#index h1
-%h3 Messages#index h3
-%h6 Messages#index h6
-相手のid(about.id ?)と
-%br
-カレントユーザid
-%br
-pairIDに紐づくメッセージ
-%br
-＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 
 .mess
   .mess__messContent
     -# タイトル＝＝＝＝＝＝＝＝＝＝＝＝＝
     .mess__messContent__messContentTitle
       .mess__messContent__messContentTitle__messContentTitleDoor
-        Knock-Knock Door
-
+        %h1 Knock-Knock Door
+    %br
+    %br
     -# ペアユーザー＝＝＝＝＝＝＝＝＝＝＝＝
     .mess__messContent__messContentPair
-      .mess__messContent__messContentPair__messContentPairMe
-        カレントユーザー名
-        = current_user.name
       .mess__messContent__messContentPair__messContentPairYou
-        ペアユーザー名
+        ペアユーザー名 左づめ
         -# = @about.user.name
         -# = @about.user_id.name
-
+      .mess__messContent__messContentPair__messContentPairMe
+        カレントユーザー名 右詰め
+        = current_user.name
+    %br
+    %br
     .mess__messContent__messContentChat
-      .mess__messContent__messContentChat__messContentChat
-      .mess__messContent__messContentChat__messContentChat
+      .mess__messContent__messContentChat__messContentChatYou
+        左づめ
+        相手アイコン
+        自分現在地時刻
+        相手投稿写真と投稿テキスト
+        %br
+        - @pair.messages.each do |message|
+          -# = message.user.name
+          -# = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+          - if message.content.present?
+            = message.content
+            = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+          = image_tag message.image.url, class: "chatImage", size: "66x66" if message.image.present?
+
+      %br
+      .mess__messContent__messContentChat__messContentChatMe
+        右づめ
+        自分アイコン
+        自分現在地時刻
+        自分投稿写真と投稿テキスト
 
 
-
-
+    %br
+    %br
     -# 送信フォーム＝＝＝＝＝＝＝＝＝＝＝＝＝
     .mess__messContent__messContentForm
       = form_with model: [@pair,@message], class: "messForm", local: true do |f|

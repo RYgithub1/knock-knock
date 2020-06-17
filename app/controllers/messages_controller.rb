@@ -6,6 +6,7 @@ class MessagesController < ApplicationController
     # @about = About.find_by(id: params[:format])
     @message = Message.new
     @messages = @pair.messages.includes(:user)
+    # - binding.pry
   end
 
               

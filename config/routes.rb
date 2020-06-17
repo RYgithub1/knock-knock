@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :maps, only: [:index]
   resources :abouts, except: [:index]
 
-  resources :pairs, except: [:index, :edit, :update] do
+  resources :pairs, except: [:show, :edit, :update] do
     resources :messages, only: [:index, :create]
   end
 
