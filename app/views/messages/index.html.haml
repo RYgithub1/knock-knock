@@ -1,4 +1,4 @@
--# transfer part
+-# messages#index transfer part
 -# = render "xxx"
 .trans
   .trans__transContent
@@ -26,13 +26,16 @@
 %br
 %br
 %br
-%h1 Messages#index
-%p Find me in app/views/messages/index.html.haml
-ドアメッセージやりとりのトップページ
-不要ではないか
-相手のid  about.idと
-カレントユーザid＝自分のユーザーid
-→用にドア（ペア）id作成して、そのpairIDに紐づくメッセージをshow
+-# messages#index part
+%h1 Messages#index h1
+%h3 Messages#index h3
+%h6 Messages#index h6
+相手のid(about.id ?)と
+%br
+カレントユーザid
+%br
+pairIDに紐づくメッセージ
+%br
 
 
 .mess
@@ -45,17 +48,17 @@
           = current_user.name
         .mess__messContent__messContentTitle__messContentTitlePair__messContentTitlePairYou
           -# = @about.user.name
+          -# = @about.user_id.name
 
 
     .mess__messContent__messContentForm
-      = form_with model: [@pair,@message], class: "chatForm", local: true do |f|
-        .chatFormBoard
-          = f.text_field :content, class: "chatText", placeholder: "Knock yourself out!"
-          .chatMask
-            = f.label :image, class: "chatLavel" do
-              %i.fas.fa-camera-retro.chatIcon
-              = f.file_field :image, class: 'chatFile'
-        .chatFormBtn
-          = f.submit "Send", class: "submitBtn"
-
-
+      -# = form_with model: [@pair,@message], class: "messForm", local: true do |f|
+      -#   .messFormBoard
+      -#     = f.text_field :content, class: "messText", placeholder: "type a message"
+      -#     .messMask
+      -#       = f.label :image, class: "messLabel" do
+      -#         %i.fas.fa-camera-retro.chatIcon
+      -#         = f.file_field :image, class: "messFile"
+      -#   .messFormBtn
+      -#     = f.submit "Send", class: "messSubmitBtn"
+      

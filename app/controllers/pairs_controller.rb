@@ -14,7 +14,6 @@ class PairsController < ApplicationController
     if @pair.save
       @pair.users = User.where(id: params[:pair][:user_ids])
       redirect_to root_path
-      # チャット画面に遷移messages#index ?
     else
       render :new
     end
