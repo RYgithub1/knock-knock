@@ -7,7 +7,6 @@ class Pair < ApplicationRecord
   has_many :messages, dependent: :destroy
   accepts_nested_attributes_for :messages, allow_destroy: true
 
-  validates :name, presence: true, uniqueness: true
 
 
   # ラストメッセージの表示＠一覧表示
