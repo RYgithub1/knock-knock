@@ -1,36 +1,40 @@
 -# pairs#new second header part
 = render "newSecondHeader"
 
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
+
 -# pairs#new part
-Knock on the door?
-%br
-%br
-About ME：わたしの名前とid番号
-= current_user.name
-= current_user.id
-%br
-About AZ：相手の名前とid番号
-= @about.user.name
-= @about.user.id
-ーーーーーーーーー
-%br
-%br
-check both door knob box ,and Knock-knock!
-%br
-%br
-= form_with model: [@pair] do |f|
-  = f.text_field :name, class: "chatGroup__input", placeholder: "ペア名入力→名前は削除＆同じペア成約"
-  = f.collection_check_boxes :user_ids, User.where(id: current_user.id).or(User.where(id: @about.user_id)), :id, :name
-  = f.submit "knock-knock!", class: "chatGroup__btn"
+.pairNew
+  .pairNew__pairNewContent
+
+    .pairNew__pairNewContent__pairNewContentTitle
+      %h1.kkdAsk
+        knock on the door ??
+
+    .pairNew__pairNewContent__pairNewContentName
+      .pairNew__pairNewContent__pairNewContentName__pairNewContentNameMe
+        %h3.pairNewMeText
+          《 My name 》
+        .pairNewMePerson
+          = current_user.name
+      .pairNew__pairNewContent__pairNewContentName__pairNewContentNameYou
+        %h3.pairNewYouText
+          《 Him/Her name 》
+        .pairNewYouPerson
+          = @about.user.name
+
+    .pairNew__pairNewContent__pairNewContentDo
+      %h4.kkdText
+        > check both "knobs" below , and Knock-Knock Door !
+
+    .pairNew__pairNewContent__pairNewContent
+      .pairNew__pairNewContent__pairNewContent__pairNewContentCheck
+        = form_with model: [@pair] do |f|
+          .deleteThis
+            -# 名前不要、かつペアにつき１つのみ
+            = f.text_field :name, placeholder: "ペア名入力→名前は削除＆同じペア成約"
+          .kkdCollectionCheck
+            = f.collection_check_boxes :user_ids, User.where(id: current_user.id).or(User.where(id: @about.user_id)), :id, :name
+          .kkdCollectionSubmit
+            = f.submit "Knock-Knock Door !", class: "kkdCollectionSubmitBtn btn btn-primary"
+
 
