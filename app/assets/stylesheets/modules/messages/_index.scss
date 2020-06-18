@@ -1,8 +1,209 @@
-* {
-  box-sizing: border-box;
-}
-
 .mess {
+  padding-top: 191px;
   width: 100%;
-  height: 1800px;
+  background-color: #ffdab9;
+  text-align: center;
+
+  // -# top form ＝＝＝＝＝＝＝＝＝＝＝＝
+  &__messContent {
+    width: 95%;
+    height: 150px;
+    z-index: 7;
+    position: fixed;
+    // -# Title ---------------------
+    &__messContentTitle {
+      width: 98%;
+      margin: 0 auto;
+      background-color: #ffd482;
+      &__messContentTitleDoor {
+        .kkdDoor {
+        }
+      }
+      &__messContentTitlePair {
+        display: flex;
+        justify-content: center;
+        .kkdPairSomeone {
+          margin-right: 300px;
+          font-size: 20px;
+          font-weight: bold;
+        }
+        .kkdPairMe {
+          margin-left: 100px;
+          font-size: 20px;
+          font-weight: bold;
+        }
+      }
+    }
+    // -# Pair Users ---------------------
+    &__messContentPair {
+      width: 98%;
+      padding-bottom: 7px;
+      background-color: #ffd482;
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+      &__messContentPairYou {
+        display: flex;
+        margin-right: 100px;
+        color: white;
+        font-weight: bold;
+        font-size: 25px;
+        background-color: rgb(8, 133, 216);
+        border-radius: 30px;
+        padding: 5px 50px;
+        border: 3px solid blue;
+        &__messContentPairYouIcon {
+          height: 50px;
+          line-height: 50px;
+        }
+        &__messContentPairYouName {
+          height: 50px;
+          line-height: 50px;
+          margin-left: 10px;
+        }
+      }
+      &__messContentPairMe {
+        display: flex;
+        margin-left: 100px;
+        font-weight: bold;
+        font-size: 25px;
+        background-color: rgb(191, 248, 156);
+        border-radius: 30px;
+        padding: 5px 50px;
+        border: 3px solid green;
+        &__messContentPairMeIcon {
+          height: 50px;
+          line-height: 50px;
+        }
+        &__messContentPairMeName {
+          height: 50px;
+          line-height: 50px;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+
+  // -# Display Form ＝＝＝＝＝＝＝＝＝＝＝＝
+  &__messPost {
+    padding-top: 128px;
+    width: 95%;
+    text-align: center;
+    margin: 0 auto;
+    &__messPostChat {
+      // background-color: #ffd482;
+      background-color: #ffd482;
+      height: 3800px;
+      align-items: center;
+      padding-top: 60px;
+      &__messPostChatBox {
+        &__messPostChatBoxRL {
+          .messRight {
+            background-color: rgb(191, 248, 156);
+            width: 50vw;
+            float: right;
+            border-radius: 30px;
+            margin: 5px 60px 5px 0px;
+            padding: 5px 0px;
+            .RLDate {
+            }
+            .RLMessage {
+              .RLMessageContent {
+                width: 95%;
+                margin: 0 auto;
+                word-wrap: break-word;
+              }
+              .RLMessageImage {
+                .chatImage {
+                }
+              }
+            }
+          }
+          .messLeft {
+            color: white;
+            font-weight: bold;
+            background-color: rgb(8, 133, 216);
+            width: 50vw;
+            float: left;
+            border-radius: 30px;
+            margin: 5px 0px 5px 60px;
+            padding: 5px 0px;
+            .RLDate {
+            }
+            .RLMessage {
+              .RLMessageContent {
+                width: 95%;
+                margin: 0 auto;
+                word-wrap: break-word;
+              }
+              .RLMessageImage {
+                .chatImage {
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // -# Submit Form ＝＝＝＝＝＝＝＝＝＝＝＝＝
+  &__messSubmit {
+    width: 95%;
+    height: 60px;
+    text-align: center;
+    z-index: 7;
+    position: fixed;
+    bottom: 200px;
+    left: 0px;
+    &__messSubmitForm {
+      background-color: #ffd482;
+      .messForm {
+        display: flex;
+        justify-content: center;
+        .messFormBoard {
+          height: 60px;
+          line-height: 60px;
+          display: flex;
+          position: relative;
+          .messText {
+            width: 40vw;
+            height: 45px;
+            border-radius: 10px;
+            margin-top: 8px;
+            padding-left: 15px;
+          }
+          .messMask {
+            width: 45px;
+            height: 45px;
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            .messLabel {
+              width: 40px;
+              height: 40px;
+              .chatIcon {
+                width: 35px;
+                height: 35px;
+              }
+              .messFile {
+                display: none;
+              }
+            }
+          }
+        }
+        .messFormBtn {
+          width: 10vw;
+          height: 60px;
+          line-height: 60px;
+          .messSubmitBtn {
+            width: 7vw;
+            height: 35px;
+            line-height: 35px;
+            border-radius: 10px;
+          }
+        }
+      }
+    }
+  }
 }

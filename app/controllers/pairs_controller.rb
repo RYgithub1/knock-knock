@@ -21,13 +21,19 @@ class PairsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @pair = Pair.new(pair_params)
+    # @about = About.find_by(id: params[:format])
+
     if @pair.save
       @pair.users = User.where(id: params[:pair][:user_ids])
       redirect_to pair_messages_path(@pair)
+      # redirect_to pair_messages_path(@pair,@about)
     else
       render :new
     end
+
+
   end
 
 

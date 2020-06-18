@@ -29,9 +29,8 @@ About AZ：相手の名前とid番号
 check both door knob box ,and Knock-knock!
 %br
 %br
--# = form_with model: [@pair], class: "formform" do |f|
 = form_with model: [@pair] do |f|
-  = f.text_field :name, class: "chatGroup__input", placeholder: "ペア名を入力してください→名前は削除かつ、同じペア？作成不可"
+  = f.text_field :name, class: "chatGroup__input", placeholder: "ペア名入力→名前は削除＆同じペア成約"
   = f.collection_check_boxes :user_ids, User.where(id: current_user.id).or(User.where(id: @about.user_id)), :id, :name
   = f.submit "knock-knock!", class: "chatGroup__btn"
 
