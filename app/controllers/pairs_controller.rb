@@ -32,8 +32,9 @@ class PairsController < ApplicationController
     end
   end
 
-
   def destroy
+    @pair.destroy
+    redirect_to  pairs_path
   end
 
 end
