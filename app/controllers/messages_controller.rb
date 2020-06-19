@@ -3,8 +3,6 @@ class MessagesController < ApplicationController
 
   def index
     @pair = Pair.find_by(id: params[:pair_id])
-    # @about = About.find_by(id: params[:format])
-    # @about = About.find(params[:format])
     @message = Message.new
     @messages = @pair.messages.includes(:user)
   end
@@ -14,8 +12,12 @@ class MessagesController < ApplicationController
     @pair = Pair.find_by(id: params[:pair_id])
     @message = @pair.messages.new(message_params)
     if @message.save
-      # messages#index needs pair_id
-      redirect_to pair_messages_path(@pair)
+      respond_to do |format|
+        format.html {redirect_to pair_messages_path(@pair)}
+        format.json
+        # messages#index needs pair_id
+        # redirect_to pair_messages_path(@pair)
+      end
     else
       @messages = @pair.messages.includes(:user)
       render :index
