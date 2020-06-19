@@ -1,5 +1,4 @@
 -# messages#index transfer part
--# = render "xxx"
 .trans
   .trans__transContent
     .trans__transContent__transContentDoors
@@ -9,93 +8,82 @@
       .trans__transContent__transContentState__transContentStateLink
         .trans__transContent__transContentState__transContentStateLink__transContentStateLinkBtn
           -# = link_to "About HIM / HER", about_path(@about), class: "transBtn transBtnDoor"
-          = link_to "About HIM / HER", "", class: "transBtn transBtnDoor"
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
--# messages#index part
-＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+          = link_to "About HIM / HER", "#", class: "transBtn transBtnDoor"
 
+-# messages#index part
 .mess
+  -# top form ＝＝＝＝＝＝＝＝＝＝＝＝
   .mess__messContent
-    -# タイトル＝＝＝＝＝＝＝＝＝＝＝＝＝
+    -# Title ＝＝＝＝＝＝＝＝＝＝＝＝＝
     .mess__messContent__messContentTitle
       .mess__messContent__messContentTitle__messContentTitleDoor
-        %h1 Knock-Knock Door
-    %br
-    %br
-    -# ペアユーザー＝＝＝＝＝＝＝＝＝＝＝＝
+        %h2.kkdDoor ~~ Knock-Knock Door ~~
+      .mess__messContent__messContentTitle__messContentTitlePair
+        %h6.kkdPairSomeone about HIM/HER
+        %h6.kkdPairMe about ME
+    -# Pair Users ＝＝＝＝＝＝＝＝＝＝＝＝
     .mess__messContent__messContentPair
       .mess__messContent__messContentPair__messContentPairYou
-        - if @pair.users[0].name != current_user.name
-          = @pair.users[0].name
-          「チャット相手の名前」ダブル
-          -# - @pair.users[0].about.photos.each do |p|
-            -# = image_tag p.image.url, size: "55x55"
-        - else
-          = @pair.users[1].name
-          「チャット相手の名前」ダブル
-          -# - @pair.users[1].about.photos.each do |p|
-            -# = image_tag p.image.url, size: "55x55"
+        .mess__messContent__messContentPair__messContentPairYou__messContentPairYouIcon
+          - @pair.users.each do |user|
+            - us = User.find_by(name: user.name)
+            - if us.id != current_user.id
+              - us.about.photos.each do |ph|
+                = image_tag  ph.image.url, size: "55x55"
+        .mess__messContent__messContentPair__messContentPairYou__messContentPairYouName
+          - if @pair.users[0].name != current_user.name
+            = @pair.users[0].name
+          - else
+            = @pair.users[1].name
       .mess__messContent__messContentPair__messContentPairMe
-        = current_user.name
-        「カレントユーザー名」
+        .mess__messContent__messContentPair__messContentPairMe__messContentPairMeIcon
+          - current_user.about.photos.each do |p|
+            = image_tag p.image.url, size: "55x55"
+        .mess__messContent__messContentPair__messContentPairMe__messContentPairMeName
+          = current_user.name
 
-    %br
-    %br
-    カレントユーザーのアイコン画像
-    - current_user.about.photos.each do |p|
-      = image_tag p.image.url, size: "55x55"
-    チャット相手のアイコン画像
-    - @pair.users.each do |user|
-      - us = User.find_by(name: user.name)
-      - if us.id != current_user.id
-        - us.about.photos.each do |ph|
-          = image_tag  ph.image.url, size: "55x55"
-    %br
-    %br
-    %br
-    %br
-    .mess__messContent__messContentChat
-      .mess__messContent__messContentChat__messContentChatYou
-        左づめ
-        相手アイコン
-        自分現在地時刻
-        相手投稿写真と投稿テキスト
-        %br
-        - @pair.messages.each do |message|
-          - if message.content.present?
-            = message.content
-            = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
-          = image_tag message.image.url, class: "chatImage", size: "66x66" if message.image.present?
+  -# Display Form ＝＝＝＝＝＝＝＝＝＝＝＝
+  .mess__messPost
+    .mess__messPost__messPostChat
+      .mess__messPost__messPostChat__messPostChatBox
+        .mess__messPost__messPostChat__messPostChatBox__messPostChatBoxRL
+          - @pair.messages.each do |message|
+            - if message.user_id == current_user.id
+              .messRight
+                .RLDate
+                  = message.created_at.strftime("%Y/%m/%d(%a) %H:%M(%Z)")
+                .RLMessage
+                  - if message.content.present?
+                    .RLMessageContent
+                      = message.content
+                  - if message.image.present?
+                    .RLMessageImage
+                      = image_tag message.image.url, class: "chatImage", size: "123x123"
+            - else
+              .messLeft
+                .RLDate
+                  = message.created_at.strftime("%Y/%m/%d(%a) %H:%M(%Z)")
+                .RLMessage
+                  - if message.content.present?
+                    .RLMessageContent
+                      = message.content
+                  - if message.image.present?
+                    .RLMessageImage
+                      = image_tag message.image.url, class: "chatImage", size: "123x123"
 
-      %br
-      .mess__messContent__messContentChat__messContentChatMe
-        右づめ
-        自分アイコン
-        自分現在地時刻
-        自分投稿写真と投稿テキスト
 
-    %br
-    %br
-    %br
-    %br
-    -# 送信フォーム＝＝＝＝＝＝＝＝＝＝＝＝＝
-    .mess__messContent__messContentForm
+
+
+  -# Submit Form ＝＝＝＝＝＝＝＝＝＝＝＝＝
+  .mess__messSubmit
+    .mess__messSubmit__messSubmitForm
       = form_with model: [@pair,@message], class: "messForm", local: true do |f|
         .messFormBoard
-          = f.text_field :content, class: "messText", placeholder: " open and talk"
+          = f.text_field :content, class: "messText", placeholder: " type from here"
           .messMask
             = f.label :image, class: "messLabel" do
               %i.fas.fa-camera-retro.chatIcon
               = f.file_field :image, class: "messFile"
         .messFormBtn
-          = f.submit "Send", class: "messSubmitBtn"
+          = f.submit "SEND", class: "messSubmitBtn"
 

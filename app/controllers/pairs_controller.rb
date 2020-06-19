@@ -21,10 +21,12 @@ class PairsController < ApplicationController
   end
 
   def create
-    @pair = Pair.new(pair_params)
+    @pair = Pair.new
+    # @about = About.find_by(id: params[:format])
     if @pair.save
       @pair.users = User.where(id: params[:pair][:user_ids])
       redirect_to pair_messages_path(@pair)
+      # redirect_to pair_messages_path(@pair,@about)
     else
       render :new
     end
@@ -33,14 +35,5 @@ class PairsController < ApplicationController
 
   def destroy
   end
-
-
-  private
-  def pair_params
-    params.require(:pair).permit(:name)
-    # 仕様変更時に下記へ修正
-    # params.require(:pair).permit(:name, {user_ids:[]}).merge(user_id: current_user.id, about_id: params[:about_id])
-  end
-
 
 end

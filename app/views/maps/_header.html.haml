@@ -12,7 +12,7 @@
       - if user_signed_in?
         .header__headerContent__headerContentLink__headerContentLinkLeft
           = link_to "AboutMe", "#", class: "leftBtn"
-          -# = link_to user_path(current_user.id)
+          -# １：１前提 →user_path(current_user.id)
         .header__headerContent__headerContentLink__headerContentLinkRight
           = link_to "LogOut", destroy_user_session_path, class: "rightBtn", method: :delete
       - else
