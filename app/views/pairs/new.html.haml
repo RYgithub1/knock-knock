@@ -29,9 +29,6 @@
     .pairNew__pairNewContent__pairNewContent
       .pairNew__pairNewContent__pairNewContent__pairNewContentCheck
         = form_with model: [@pair] do |f|
-          .deleteThis
-            -# 名前不要、かつペアにつき１つのみ
-            = f.text_field :name, placeholder: "ペア名入力→名前は削除＆同じペア成約"
           .kkdCollectionCheck
             = f.collection_check_boxes :user_ids, User.where(id: current_user.id).or(User.where(id: @about.user_id)), :id, :name
           .kkdCollectionSubmit

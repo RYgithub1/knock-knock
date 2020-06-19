@@ -1,0 +1,26 @@
+.pairDestroy
+  .pairDestroy__pairDestroyContent
+
+    .pairDestroy__pairDestroyContent__pairDestroyContentTitle
+      %h1.kkdDestroyAsk
+        Do you delete one pair door below ?
+
+    .pairDestroy__pairDestroyContent__pairDestroyContentName
+      .pairDestroy__pairDestroyContent__pairDestroyContentName__pairDestroyContentNameMe
+        %h3.pairDestroyMeText
+          《 My name 》
+        .pairDestroyMePerson
+          = current_user.name
+      .pairDestroy__pairDestroyContent__pairDestroyContentName__pairDestroyContentNameYou
+        %h3.pairDestroyYouText
+          《 Him/Her name 》
+        .pairDestroyYouPerson
+          = @about.user.name
+
+    .pairDestroy__pairDestroyContent__pairDestroyContentDo
+      %h4.kkdDestroyText
+        > if so, push delete button.
+
+    .pairDestroy__pairDestroyContent__pairDestroyContent
+      .pairDestroy__pairDestroyContent__pairDestroyContent__pairDestroyContentCheck
+        = link_to "delete", pair_path(@about), class: "pairDestroyBtn", method: :delete
