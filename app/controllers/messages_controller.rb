@@ -27,7 +27,7 @@ class MessagesController < ApplicationController
   def message_params
     # merge two hashes to register user_id for messages table
     params.require(:message).permit(:content, :image).merge(user_id: current_user.id)
-    # user_id 偽造作成用
+    # user_id テスト用別id
     # params.require(:message).permit(:content, :image).merge(user_id: 6)
   end
 end

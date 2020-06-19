@@ -86,17 +86,18 @@
 
   // -# Display Form ＝＝＝＝＝＝＝＝＝＝＝＝
   &__messPost {
-    padding-top: 128px;
+    padding: 128px 0px 260px 0px;
     width: 95%;
     text-align: center;
     margin: 0 auto;
     background-color: #ffd482;
     &__messPostChat {
-      height: 3800px;
       align-items: center;
       padding-top: 60px;
       &__messPostChatBox {
         &__messPostChatBoxRL {
+          height: 100vh;
+          overflow: scroll;
           .messRight {
             background-color: rgb(191, 248, 156);
             width: 50vw;
