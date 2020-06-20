@@ -1,0 +1,2 @@
+module HangersHelper
+end

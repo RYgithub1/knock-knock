@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'hangers/create'
+  get 'hangers/destroy'
   devise_for :users, controllers: {
     sessions: "users/sessions",
     passwords: "users/passwords",
