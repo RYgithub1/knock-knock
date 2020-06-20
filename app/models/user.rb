@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :validatable
 
-  # １ユーザ１プロフィールのため
+  # １ユーザ１プロフィール
   has_one :about
 
   # 半角英数字、大小文字、8文字以上
@@ -25,6 +25,8 @@ class User < ApplicationRecord
 
   has_many :messages, dependent: :destroy
   accepts_nested_attributes_for :messages, allow_destroy: true
+
+  has_many :hangers
 
 
 end
