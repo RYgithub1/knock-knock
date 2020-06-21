@@ -12,6 +12,24 @@
         - else
           %h.ContentSomeTitle About HIM / HER
       .aboutsShow__aboutsShowContent__aboutsShowContentSome__aboutsShowContentSomeProfile
+                
+
+                
+        .hanger
+          - if @about.hangered_by?(current_user)
+            %p
+              %span 解除:
+              = link_to @about.hangers.count, about_hangers_path(@about.id), method: :delete
+          - else
+            %p
+              %i.fas.fa-weight-hanging.hhhhhhhh
+              %span 登録:
+              -# - binding.pry
+              = link_to @about.hangers.count, about_hangers_path(@about.id), method: :post
+
+
+
+
         .aboutsShow__aboutsShowContent__aboutsShowContentSome__aboutsShowContentSomeProfile__aboutsShowContentSomeProfilePhoto
           %h.someProfilePhotoTitle ICON PHOTO
           %p.onePhoto

@@ -26,6 +26,10 @@ class About < ApplicationRecord
   acts_as_taggable
 
   has_many :hangers
+  def hangered_by?(user)
+    hangers.where(user_id: user.id).exists?
+  end
+  # if @about.hangered_by?(current_user)
 
 
   # -------------------------
