@@ -1,11 +1,11 @@
 
 - if @about.already_hangered_on?(current_user)
-  .hangerCode__hangerCodeIf.hangerCodeRemove
-    %span.spanHangerRemove 解除:
-    = link_to about_hangers_path(@about.id), method: :delete, remote: true, class: "hangerLogoLink hangerLogoLinkRemove", data: { confirm: "remove this hanger ?" } do
+  .hangerCode__hangerCodeIf
+    %span.spanHangerRemove Already Hungered on the Door. Remove it now ?：
+    = link_to about_hangers_path(@about.id), method: :delete, remote: true, class: "hangerLogoLink", data: { confirm: "remove this hanger ?" } do
       %i.fas.fa-weight-hanging.hangerRemove
 - else
-  .hangerCode__hangerCodeIf.hangerCodeAdd
-    %span.spanHangerAdd 登録:
-    = link_to about_hangers_path(@about.id), method: :post, remote: true, class: "hangerLogoLink hangerLogoLinkAdd" do
+  .hangerCode__hangerCodeIf
+    %span.spanHangerAdd Put Hanger on the Door ? :
+    = link_to about_hangers_path(@about.id), method: :post, remote: true, class: "hangerLogoLink" do
       %i.fas.fa-weight-hanging.hangerAdd

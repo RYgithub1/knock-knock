@@ -182,5 +182,40 @@
         }
       }
     }
+    // -# hanger ===================
+    &__aboutsShowContentHanger {
+      &__aboutsShowContentHangerTitle {
+        .showContentHangerTitle {
+          font-weight: bold;
+          font-size: 40px;
+        }
+      }
+      &__aboutsShowContentHangerCode {
+        .hangerCode {
+          &__hangerCodeIf {
+            font-size: 20px;
+            .spanHangerRemove {
+            }
+            .hangerLogoLink {
+              .hangerRemove {
+                color: #ff6600;
+                font-size: 30px;
+              }
+            }
+          }
+          &__hangerCodeIf {
+            font-size: 20px;
+            .spanHangerAdd {
+            }
+            .hangerLogoLink {
+              .hangerAdd {
+                color: rgb(0, 174, 255);
+                font-size: 30px;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

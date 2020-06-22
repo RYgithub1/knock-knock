@@ -89,9 +89,9 @@
         - if current_user.id == @about.user.id
           -# (投稿者本人なら表示しない)
         - else
-          .aboutsShow__aboutsShowContent__aboutsShowContentHangerTitle
+          .aboutsShow__aboutsShowContent__aboutsShowContentHanger__aboutsShowContentHangerTitle
             %h.showContentHangerTitle Door Hanger
-          .aboutsShow__aboutsShowContent__aboutsShowContentHangerCode
+          .aboutsShow__aboutsShowContent__aboutsShowContentHanger__aboutsShowContentHangerCode
             .hangerCode
               %div{id: "hangers_buttons_#{@about.id}"}
                 = render partial: "hangers/hanger", locals: { about: @about }
