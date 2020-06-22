@@ -26,13 +26,11 @@ class About < ApplicationRecord
   acts_as_taggable
 
   # Door Hanger function
-  has_many :hangers
+  has_many :hangers, dependent: :destroy
+  accepts_nested_attributes_for :hangers, allow_destroy: true
   def already_hangered_on?(user)
     hangers.where(user_id: user.id).exists?
   end
-  # def already_add_hanger?(about)
-  #   self.hangers.exists?(about_id: about.id)
-  # end
 
   # -------------------------
   # geocoded_by :address
