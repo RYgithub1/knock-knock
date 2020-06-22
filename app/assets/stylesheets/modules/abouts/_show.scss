@@ -108,6 +108,7 @@
         margin: 0 auto;
         font-size: 19px;
         .showContentBodyCode {
+          padding: 10px;
         }
       }
     }
@@ -127,13 +128,13 @@
       &__aboutsShowContentPictureCode {
         .showContentPictureCode {
           background-color: rgb(255, 196, 129);
-          height: 180px;
-          // 複数投稿を実装想定。折返しcss
-          // flex-wrap: wrap;
+          height: 190px;
+          display: flex;
           .pictureImage {
             width: 20%;
-            display: flex;
+            max-height: 90%;
             margin: 0 auto;
+            padding-top: 15px;
             justify-content: center;
           }
         }
@@ -158,6 +159,7 @@
         margin: 0 auto;
         font-size: 19px;
         .showContentInvitstionCode {
+          padding: 10px;
         }
       }
     }
@@ -179,6 +181,7 @@
         margin: 0 auto;
         font-size: 19px;
         .showContentRecommendationCode {
+          padding: 10px;
         }
       }
     }

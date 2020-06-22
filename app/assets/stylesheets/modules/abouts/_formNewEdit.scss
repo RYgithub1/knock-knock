@@ -209,6 +209,7 @@
           }
           &__newFormPlusBodyCode {
             .plusBodyCode {
+              padding: 10px;
             }
           }
         }
@@ -228,12 +229,23 @@
             padding-top: 20px;
             background-color: rgb(255, 196, 129);
             .plusPictureCode {
-              #image-box {
+              .image-box {
+                .previews {
+                  width: 100%;
+                  height: 100px;
+                  background-color: lightpink;
+                  padding: 0 30px;
+                }
                 .jsFileGroup {
+                  background-color: lightseagreen;
                   .jsFileLabel {
+                    display: flex;
+                    padding-left: 130px;
                     .jsFile {
                     }
                     .jsRemove {
+                      padding-left: 10px;
+                      margin-top: 2px;
                     }
                   }
                 }
@@ -253,6 +265,7 @@
           }
           &__newFormPlusInvitationCode {
             .plusInvitationCode {
+              padding: 10px;
             }
           }
         }
@@ -267,6 +280,7 @@
           }
           &__newFormPlusRecommendationCode {
             .plusRecommendationCode {
+              padding: 10px;
             }
           }
         }
@@ -280,7 +294,6 @@
         padding-top: 20px;
         padding-bottom: 201px;
         margin: 25px 5px 90px 5px;
-        border-top: 1px solid #ff6600;
         &__newFormPostSubmit {
           .newFormPostSubmitBtn {
             padding: 10px;
