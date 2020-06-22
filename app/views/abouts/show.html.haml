@@ -12,24 +12,6 @@
         - else
           %h.ContentSomeTitle About HIM / HER
       .aboutsShow__aboutsShowContent__aboutsShowContentSome__aboutsShowContentSomeProfile
-                
-
-
-        .hanger
-          - if @about.hangered_by?(current_user)
-            %p
-              %span 解除:
-              = link_to @about.hangers.count, about_hangers_path(@about.id), method: :delete
-          - else
-            %p
-              %span 登録:
-              = link_to @about.hangers.count, about_hangers_path(@about.id), method: :post
-          -# リンクのアイコン化   ーーーーーー
-          -# .hangerLogo
-          -#   = link_to "#", method: :delete, class: "hangerLogoLink" do
-          -#     %i.fas.fa-weight-hanging.hangerLogoMark
-
-
         .aboutsShow__aboutsShowContent__aboutsShowContentSome__aboutsShowContentSomeProfile__aboutsShowContentSomeProfilePhoto
           %h.someProfilePhotoTitle ICON PHOTO
           %p.onePhoto
@@ -98,3 +80,18 @@
       .aboutsShow__aboutsShowContent__aboutsShowContentRecommendation__aboutsShowContentRecommendationCode
         .showContentRecommendationCode
           = simple_format(h(@about.recommendation))
+
+    -# door hanger ===================
+    .aboutsShow__aboutsShowContent__aboutsShowContentHanger
+      - unless user_signed_in?
+        = render "/users/sign_in"
+      - else
+        - if current_user.id == @about.user.id
+          -# (投稿者本人なら表示しない)
+        - else
+          .aboutsShow__aboutsShowContent__aboutsShowContentHangerTitle
+            %h.showContentHangerTitle Door Hanger
+          .aboutsShow__aboutsShowContent__aboutsShowContentHangerCode
+            .hangerCode
+              %div{id: "hangers_buttons_#{@about.id}"}
+                = render partial: "hangers/hanger", locals: { about: @about }
