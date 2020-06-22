@@ -11,7 +11,10 @@
     .header__headerContent__headerContentLink
       - if user_signed_in?
         .header__headerContent__headerContentLink__headerContentLinkLeft
-          = link_to "AboutMe", about_path(About.find_by(user_id: current_user.id).id), class: "leftBtn"
+          - if About.find_by(user_id: current_user.id).present?
+            = link_to "AboutMe", about_path(About.find_by(user_id: current_user.id).id), class: "leftBtn"
+          - else
+            = link_to "AboutMe", new_about_path, class: "leftBtn"
         .header__headerContent__headerContentLink__headerContentLinkRight
           = link_to "LogOut", destroy_user_session_path, class: "rightBtn", method: :delete
       - else
