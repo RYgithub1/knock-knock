@@ -80,3 +80,18 @@
       .aboutsShow__aboutsShowContent__aboutsShowContentRecommendation__aboutsShowContentRecommendationCode
         .showContentRecommendationCode
           = simple_format(h(@about.recommendation))
+
+    -# door hanger ===================
+    .aboutsShow__aboutsShowContent__aboutsShowContentHanger
+      - unless user_signed_in?
+        = render "/users/sign_in"
+      - else
+        - if current_user.id == @about.user.id
+          -# (投稿者本人なら表示しない)
+        - else
+          .aboutsShow__aboutsShowContent__aboutsShowContentHanger__aboutsShowContentHangerTitle
+            %h.showContentHangerTitle Door Hanger
+          .aboutsShow__aboutsShowContent__aboutsShowContentHanger__aboutsShowContentHangerCode
+            .hangerCode
+              %div{id: "hangers_buttons_#{@about.id}"}
+                = render partial: "hangers/hanger", locals: { about: @about }

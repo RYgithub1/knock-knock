@@ -27,4 +27,5 @@ class MessagesController < ApplicationController
     # user_id検証
     # params.require(:message).permit(:content, :image).merge(user_id: 6)
   end
+
 end
