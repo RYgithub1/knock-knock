@@ -14,8 +14,6 @@
           = f.email_field :email, autofocus: true, autocomplete: "email", class: "regisField", placeholder: "  your mail address"
 
         .regis__regisContent__regisContentBody__regisContentBodySubmit
-          -# アクセス先作成後に下記へ修正
-          -# = f.submit "Send me reset PW instructions", class: "regisContentBodySubmitBtn"
           = link_to  "Send me reset PW instructions", root_path, class: "regisContentBodySubmitBtn passwordsNew"
 
       = render "devise/shared/links"

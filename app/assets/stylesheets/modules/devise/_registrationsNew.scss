@@ -62,7 +62,7 @@
   }
 }
 
-// === devise類デザイン ===
+// === devise類スタイル ===
 // _link.html.haml
 .linksHtml {
   text-decoration: none;
@@ -71,5 +71,8 @@
 // devise/passwords#new
 .passwordsNew {
   padding: 15px;
+  text-decoration: none;
+}
+.passwordsNew:hover {
   text-decoration: none;
 }
