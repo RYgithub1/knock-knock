@@ -1,11 +1,11 @@
 class AboutsController < ApplicationController
   # before_action :set_xxx, except: [:index, :new, :create]
-
+  before_action :one_about_check, only: [:new, :create]
 
 
   def new
     @about = About.new
-    # aboutモデルに紐付く各モデルのインスタンスを設定
+    # aboutモデルに紐付く各モデルのインスタンスの設定が必要
     @about.photos.new
     @about.pictures.new
   end
@@ -62,6 +62,12 @@ class AboutsController < ApplicationController
       photos_attributes: [:image, :_destroy, :id],
       pictures_attributes: [:image, :_destroy, :id]
     ).merge(user_id: current_user.id)
+  end
+
+  def one_about_check
+    if About.find_by(user_id: current_user.id).present?
+      redirect_to about_path(About.find_by(user_id: current_user.id).id)
+    end
   end
 
 end
