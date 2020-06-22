@@ -15,7 +15,7 @@ $(document).on("turbolinks:load", function () {
   };
 
   // file_fieldのnameに動的なindexをつける為の配列
-  let fileIndex = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  let fileIndex = [1, 2, 3, 4, 5];
 
   // ページ読み込み時に、既に使われているindexを除外
   lastIndex = $(".jsFileGroup:last").data("index");
