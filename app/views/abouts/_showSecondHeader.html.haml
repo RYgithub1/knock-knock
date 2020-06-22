@@ -4,7 +4,6 @@
     .trans__transContent__transContentDoors
       .trans__transContent__transContentDoors__transContentDoorsLink
         = link_to "Open DoorS", pairs_path(current_user), class: "doorsLink"
-              
     .trans__transContent__transContentState
       .trans__transContent__transContentState__transContentStateLink
         - if user_signed_in? && @about.user_id == current_user.id
