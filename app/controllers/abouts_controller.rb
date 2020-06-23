@@ -1,4 +1,5 @@
 class AboutsController < ApplicationController
+
   # before_action :set_xxx, except: [:index, :new, :create]
   before_action :one_about_check, only: [:new, :create]
 
@@ -19,6 +20,10 @@ class AboutsController < ApplicationController
     end
   end
 
+
+
+
+     
   def show
     @about = About.find_by(id: params[:id])
     @photos = Photo.where(id: @about.photos.ids)

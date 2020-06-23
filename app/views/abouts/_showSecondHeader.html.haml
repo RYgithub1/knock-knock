@@ -12,7 +12,4 @@
             = link_to "Edit > Sign Up", edit_user_registration_path(@about.id), method: :get, class: "transBtn transBtnSign"
         - else
           .trans__transContent__transContentState__transContentStateLink__transContentStateLinkBtn
-            = link_to "Knock-Knock Door", new_pair_path(@about.id), class: "transBtn transBtnDoor"
-
-
-
+            = link_to "Knock-Knock Door", new_pair_path(@about), class: "transBtn transBtnDoor"
