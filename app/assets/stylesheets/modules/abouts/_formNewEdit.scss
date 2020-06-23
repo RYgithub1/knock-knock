@@ -13,7 +13,6 @@
       background-color: #ffd482;
       margin: 0 auto;
       padding: 15px 5px 20px 5px;
-
       &__aboutsNewContentHeadYou {
         font-size: 45px;
         font-weight: bold;
@@ -58,10 +57,11 @@
             }
           }
           &__newFormAboutPhotoCode {
-            width: 60%;
-            height: 60px;
+            width: 50%;
+            height: 160px;
             margin: 10px auto;
             background-color: rgb(255, 196, 129);
+            padding-top: 5px;
             .aboutPhotoCode {
               #image-boxIcon {
                 .jsFileGroupIcon {
@@ -87,6 +87,8 @@
           }
           &__newFormAboutNameCode {
             font-size: 20px;
+            font-weight: bold;
+            color: rgb(8, 133, 216);
           }
         }
         &__newFormAboutContribution {
@@ -105,7 +107,7 @@
         width: 100%;
         height: 370px;
         padding: 15px 5px 20px 5px;
-
+        margin-top: 100px;
         &__newFormBasicTitle {
           .newFormBasicTitleText {
             font-size: 30px;
@@ -207,6 +209,8 @@
           }
           &__newFormPlusBodyCode {
             .plusBodyCode {
+              max-width: 95%;
+              padding: 10px;
             }
           }
         }
@@ -221,18 +225,27 @@
           }
           &__newFormPlusPictureCode {
             width: 95%;
-            // height: 100px;
             height: 300px;
             margin: 10px auto;
             padding-top: 20px;
             background-color: rgb(255, 196, 129);
             .plusPictureCode {
-              #image-box {
+              .image-box {
+                .previews {
+                  width: 100%;
+                  height: 100px;
+                  padding: 0 30px;
+                }
                 .jsFileGroup {
                   .jsFileLabel {
+                    display: flex;
+                    justify-content: center;
                     .jsFile {
                     }
                     .jsRemove {
+                      width: 155px;
+                      height: 20px;
+                      margin-top: 2px;
                     }
                   }
                 }
@@ -252,6 +265,8 @@
           }
           &__newFormPlusInvitationCode {
             .plusInvitationCode {
+              max-width: 95%;
+              padding: 10px;
             }
           }
         }
@@ -266,6 +281,8 @@
           }
           &__newFormPlusRecommendationCode {
             .plusRecommendationCode {
+              max-width: 95%;
+              padding: 10px;
             }
           }
         }
@@ -278,8 +295,7 @@
         font-size: 25px;
         padding-top: 20px;
         padding-bottom: 201px;
-        margin: 25px 5px;
-        border-top: 1px solid #ff6600;
+        margin: 25px 5px 90px 5px;
         &__newFormPostSubmit {
           .newFormPostSubmitBtn {
             padding: 10px;

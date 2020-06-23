@@ -1,5 +1,7 @@
 class PairsController < ApplicationController
 
+  before_action :already_pair_exist_check, only: [:new]
+
 
   def index
     # @pair = Pair.find_by(user_id: current_user.id)
@@ -22,11 +24,9 @@ class PairsController < ApplicationController
 
   def create
     @pair = Pair.new
-    # @about = About.find_by(id: params[:format])
     if @pair.save
       @pair.users = User.where(id: params[:pair][:user_ids])
       redirect_to pair_messages_path(@pair)
-      # redirect_to pair_messages_path(@pair,@about)
     else
       render :new
     end
@@ -35,6 +35,26 @@ class PairsController < ApplicationController
   def destroy
     @pair.destroy
     redirect_to  pairs_path
+  end
+
+
+  private
+  def already_pair_exist_check
+    @about = About.find_by(id: params[:format])
+    currentArray = []
+    ataboutArray = []
+    UsersPair.where(user_id: current_user.id).each do |c|
+      currentArray << c.pair_id
+    end
+    UsersPair.where(user_id: @about.user_id).each do |a|
+      ataboutArray << a.pair_id
+    end
+    commonPairId = currentArray & ataboutArray
+    if commonPairId.empty?
+    else
+      @pair = Pair.find_by(id: commonPairId)
+      redirect_to pair_messages_path(@pair)
+    end
   end
 
 end

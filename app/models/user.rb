@@ -26,7 +26,9 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   accepts_nested_attributes_for :messages, allow_destroy: true
 
-  has_many :hangers
+  has_many :hangers, dependent: :destroy
+  accepts_nested_attributes_for :hangers, allow_destroy: true
+
 
 
 end

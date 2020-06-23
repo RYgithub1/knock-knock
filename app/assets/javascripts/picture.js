@@ -4,7 +4,7 @@ $(document).on("turbolinks:load", function () {
     const html = `<div class="jsFileGroup" data-index="${index}">
                 <label class="jsFileLabel" for="about_pictures_attributes_${index}_image">
                 <input class="jsFile" type="file" name="about[pictures_attributes][${index}][image]" id="about_pictures_attributes_${index}_image">
-                <div class="jsRemove">delete picture</div>
+                <div class="jsRemove">← delete left picture</div>
                 </label></div>`;
     return html;
   };
@@ -15,7 +15,7 @@ $(document).on("turbolinks:load", function () {
   };
 
   // file_fieldのnameに動的なindexをつける為の配列
-  let fileIndex = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  let fileIndex = [1, 2, 3, 4];
 
   // ページ読み込み時に、既に使われているindexを除外
   lastIndex = $(".jsFileGroup:last").data("index");
