@@ -23,7 +23,7 @@ class AboutsController < ApplicationController
 
 
 
-     
+           
   def show
     @about = About.find_by(id: params[:id])
     @photos = Photo.where(id: @about.photos.ids)

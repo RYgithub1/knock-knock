@@ -2,7 +2,7 @@ class PairsController < ApplicationController
 
   before_action :already_pair_exist_check, only: [:new]
 
-
+        
   def index
     # @pair = Pair.find_by(user_id: current_user.id)
     # @pairs = Pair.all(user_id: current_user.id)
