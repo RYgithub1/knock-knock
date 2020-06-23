@@ -1,5 +1,7 @@
 class MessagesController < ApplicationController
 
+  before_action :login_check_messages, only: [:index]
+
 
   def index
     @pair = Pair.find_by(id: params[:pair_id])
@@ -26,6 +28,10 @@ class MessagesController < ApplicationController
     params.require(:message).permit(:content, :image).merge(user_id: current_user.id)
     # user_id検証
     # params.require(:message).permit(:content, :image).merge(user_id: 6)
+  end
+
+  def login_check_messages
+    redirect_to new_user_session_path unless user_signed_in?
   end
 
 end
