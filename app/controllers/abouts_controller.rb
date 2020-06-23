@@ -46,7 +46,7 @@ class AboutsController < ApplicationController
       render :edit
     end
   end
-
+            
   def destroy
   #   @about.destroy
   #   redirect_to root_path

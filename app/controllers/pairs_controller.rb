@@ -5,31 +5,10 @@ class PairsController < ApplicationController
 
            
   def index
+    @abouts = About.all
+    @currentHangers = current_user.hangers
+    @currentUsersPairs = current_user.users_pairs
 
-    
-    # @pair = Pair.find_by(user_id: current_user.id)
-    # @pairs = Pair.all(user_id: current_user.id)
-    # @pair = Pair.find_by(id: params[:id])
-    # @pictures = Picture.where(id: @good.pictures.ids)
-    # @pair = Pair.where(user_id: current_user.id)
-    # @pairs = Pair.all
-    # @pair = Pair.find_by(user_id: current_user.id)
-    # @message = Message.new
-    # @messages = @pair.messages.includes(:user)
-    # @message = Message.find_by(id: @pair.messages.ids)
-    # @abouts = About.all
-    # @user=User.find(params[:id])
-    # @users = User.search(params[:keyword], current_user.id)
-    # respond_to do |format|
-    #   format.html
-    #   format.json
-    # end
-    # @users = User.all
-    # @user = @good.user
-    # @grandChild = @good.category
-    # @child = @grandChild.parent
-    # @parent = @child.parent
-    # order(dec/asxx).limit(xxx)
   end
 
   def new
@@ -66,8 +45,9 @@ class PairsController < ApplicationController
       ataboutArray << a.pair_id
     end
     commonPairId = currentArray & ataboutArray
-    if commonPairId.empty?
-    else
+    # if commonPairId.empty?
+    # else
+    unless commonPairId.empty?
       @pair = Pair.find_by(id: commonPairId)
       redirect_to pair_messages_path(@pair)
     end
