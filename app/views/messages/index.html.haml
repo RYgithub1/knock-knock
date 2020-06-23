@@ -1,4 +1,4 @@
--# messages#index transfer part
+-# ===== messages#index transfer part ============
 .trans
   .trans__transContent
     .trans__transContent__transContentDoors
@@ -10,18 +10,18 @@
           -# = link_to "About HIM / HER", about_path(@about), class: "transBtn transBtnDoor"
           = link_to "About HIM / HER", "#", class: "transBtn transBtnDoor"
 
--# messages#index part
+-# ===== messages#index part ======================
 .mess
-  -# top form ＝＝＝＝＝＝＝＝＝＝＝＝
+  -# ---- top form ----------------------------
   .mess__messContent
-    -# Title ＝＝＝＝＝＝＝＝＝＝＝＝＝
+    -# ````` Title ``````````````````
     .mess__messContent__messContentTitle
       .mess__messContent__messContentTitle__messContentTitleDoor
         %h2.kkdDoor ~~ Knock-Knock Door ~~
       .mess__messContent__messContentTitle__messContentTitlePair
         %h6.kkdPairSomeone about HIM/HER
         %h6.kkdPairMe about ME
-    -# Pair Users ＝＝＝＝＝＝＝＝＝＝＝＝
+    -# ````` Pair Users ``````````````````
     .mess__messContent__messContentPair
       .mess__messContent__messContentPair__messContentPairYou
         .mess__messContent__messContentPair__messContentPairYou__messContentPairYouIcon
@@ -42,7 +42,7 @@
         .mess__messContent__messContentPair__messContentPairMe__messContentPairMeName
           = current_user.name
 
-  -# Display Form ＝＝＝＝＝＝＝＝＝＝＝＝
+  -# ---- Display Form ----------------------------
   .mess__messPost
     .mess__messPost__messPostChat
       .mess__messPost__messPostChat__messPostChatBox
@@ -72,9 +72,7 @@
                       = image_tag message.image.url, class: "chatImage", size: "123x123"
 
 
-
-
-  -# Submit Form ＝＝＝＝＝＝＝＝＝＝＝＝＝
+  -# ---- Submit Form ----------------------------
   .mess__messSubmit
     .mess__messSubmit__messSubmitForm
       = form_with model: [@pair,@message], class: "messForm", local: true do |f|

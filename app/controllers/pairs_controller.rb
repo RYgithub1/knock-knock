@@ -5,6 +5,8 @@ class PairsController < ApplicationController
 
            
   def index
+
+    
     # @pair = Pair.find_by(user_id: current_user.id)
     # @pairs = Pair.all(user_id: current_user.id)
     # @pair = Pair.find_by(id: params[:id])
@@ -27,7 +29,7 @@ class PairsController < ApplicationController
     # @grandChild = @good.category
     # @child = @grandChild.parent
     # @parent = @child.parent
-    # 雷とorder(dec/asxx).limit(xxx)
+    # order(dec/asxx).limit(xxx)
   end
 
   def new
@@ -45,7 +47,7 @@ class PairsController < ApplicationController
       render :new
     end
   end
-         
+              
   def destroy
     @pair.destroy
     redirect_to  pairs_path

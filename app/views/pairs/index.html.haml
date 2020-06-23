@@ -9,45 +9,69 @@
 %br
 %br
 %br
--# pairs#show part
-※まだノックしてない場合、ノックしてませんのif文コメント
-DoorS
-%br
-%br
-ーーーー ブックマークリストDoorhanger ーーーーーーーーー
+-# ==== pairs#index part =============================
+.pairIndex
+  .pairIndex__pairIndexContent
+    -# ---- DoorS title ------------------------
+    .pairIndex__pairIndexContent__pairIndexContentTitle
+      .pairIndex__pairIndexContent__pairIndexContentTitle__pairIndexContentTitleHead
+        %h3.pairIndexTitleHead DoorS
+
+    -# ---- door hanger list------------------------
+    .pairIndex__pairIndexContent__pairIndexContentHanger
+      .pairIndex__pairIndexContent__pairIndexContentHanger__pairIndexContentHangerHead
+      .pairIndex__pairIndexContent__pairIndexContentHanger__pairIndexContentHangerCode
+    
+    
+    -# ---- knocked door list ------------------------
+    .pairIndex__pairIndexContent__pairIndexContentDoor
+      .pairIndex__pairIndexContent__pairIndexContentDoor__pairIndexContentDoorHead
+      .pairIndex__pairIndexContent__pairIndexContentDoor__pairIndexContentDoorCode
 
 %br
 %br
-ーーーー ノックしたリストknock-knocked ーーーーーーーー
--# .pairs
--#   - current_user.pairs.each do |pair|
--#     アソシエーションないし、インスタンス変数を他con#actからわたして来て持ってくる
--#     .pa
--#       = link_to "pairチャット画面に遷移", pair_messages_path(@pair), method: :get, class: "---" do
--#         .pa__name
--#           = pair.name
--#         .pa__message
--#           最終やり取りしたコメントを記入
--#       = pair.show_last_message
+%br
+%br
+.pairsssssssssss
+  - current_user.pairs.each do |pair|
+    アソシエーションないし、インスタンス変数を他con#actからわたして来て持ってくる
+    .pa
+      = link_to "pairチャット画面に遷移", pair_messages_path(@pair), method: :get, class: "---" do
+        .pa__name
+          = pair.name
+        .pa__message
+          最終やり取りしたコメントを記入
+      = pair.show_last_message
 
--# 確認ダイアログ
--# = link_to "削除ボタン", pair_path(@about), class: "pairDestroyBtn", method: :delete, data: {confirm: "delete this door ?"}
+確認ダイアログ
+= link_to "削除ボタン", pair_path(@about), class: "pairDestroyBtn", method: :delete, data: {confirm: "delete this door ?"}
 
+ログイン中のカレントユーザーに紐づく
+※アソシエーションかインスタンス変数か
+→ハンガー（アバウトにかけたブックマーク）の一覧
+→ペアドア作成済み（メッセージ有無は関係なし）の一覧
 
-【DoorS】
-pairs#index
-knock関連の一覧
+（ハンガーアイコン）hangered doors
 
-[1]Hanger
-1-1.【pairs#new】
+1-1.【pairs#new】ペア作成リンク
 1-2.アイコン,名前
 1-3.【AZ】
 ※ kkd作成→[2]へ
 
-[2]knocked
-2-1.【KKD】
+
+★！！もしペアドア作成済みならば、ハンガーボタン消す
+ハンガーボタンは残しつつ、表示は上でしないの制約が必要！
+
+（ドアアイコン）knocked doors
+2-1.【KKD】メッセージ画面へのリンク
 2-2.アイコン,名前
 2-3.【AZ】
 2-4.最終日時/コメ,
-2-5.新着未読お知らせマーク★,
 2-6.削除リンク
+
+
+※ページネーション機能
+ハンガー、ドアが増えていき
+古いものは次のページへ
+ハンガーは最新ハンガーかけた日付順
+ドアは最新のメーセージ日付順（ifメッセージなしならドア作成日時）

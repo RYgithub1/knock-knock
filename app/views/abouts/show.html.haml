@@ -1,11 +1,11 @@
--# abouts#show second header part
+-# ===== abouts#show second header part =====================
 = render "showSecondHeader"
 
 
--# abouts#show part
+-# ===== abouts#show part ===================================
 .aboutsShow
   .aboutsShow__aboutsShowContent
-    -# some infomation ===================
+    -# ----- some infomation --------------------------
     .aboutsShow__aboutsShowContent__aboutsShowContentSome
       .aboutsShow__aboutsShowContent__aboutsShowContentSome__aboutsShowContentSomeTitle
         - if current_user.id == @about.user.id
@@ -46,7 +46,7 @@
                 %td
                   = @about.sex
 
-    -# introduction ===================
+    -# ----- introduction --------------------------
     .aboutsShow__aboutsShowContent__aboutsShowContentBody
       .aboutsShow__aboutsShowContent__aboutsShowContentBody__aboutsShowContentBodyTitle
         %h.showContentBodyTitle INTRODUCTION
@@ -55,7 +55,7 @@
           -# h: <html>エスケープ、<script>除去
           = simple_format(h(@about.body))
 
-    -# picturtes ===================
+    -# ----- picturtes --------------------------
     .aboutsShow__aboutsShowContent__aboutsShowContentPicture
       .aboutsShow__aboutsShowContent__aboutsShowContentPicture__aboutsShowContentPictureTitle
         %h.showContentPictureTitle PICTURES
@@ -66,7 +66,7 @@
             - @pictures.each do |picture|
               = image_tag picture.image.url, class: "pictureImage", size: "200x180"
 
-    -# invitation ===================
+    -# ----- invitation --------------------------
     .aboutsShow__aboutsShowContent__aboutsShowContentInvitstion
       .aboutsShow__aboutsShowContent__aboutsShowContentInvitstion__aboutsShowContentInvitstionTitle
         %h.showContentInvitstionTitle INVITAION
@@ -74,7 +74,7 @@
         .showContentInvitstionCode
           = simple_format(h(@about.invitation))
 
-    -# recommendation ===================
+    -# ----- recommendation --------------------------
     .aboutsShow__aboutsShowContent__aboutsShowContentRecommendation
       .aboutsShow__aboutsShowContent__aboutsShowContentRecommendation__aboutsShowContentRecommendationTitle
         %h.showContentRecommendationTitle RECOMMENDATION
@@ -82,7 +82,7 @@
         .showContentRecommendationCode
           = simple_format(h(@about.recommendation))
 
-    -# door hanger ===================
+    -# ----- door hanger --------------------------
     .aboutsShow__aboutsShowContent__aboutsShowContentHanger
       - unless user_signed_in?
         = render "/users/sign_in"
