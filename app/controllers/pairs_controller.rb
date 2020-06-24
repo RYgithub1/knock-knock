@@ -23,7 +23,7 @@ class PairsController < ApplicationController
       render :new
     end
   end
-    
+
   def destroy
     @pair = Pair.find_by(id: params[:id])
     @pair.destroy
@@ -47,8 +47,6 @@ class PairsController < ApplicationController
       ataboutArray << a.pair_id
     end
     commonPairId = currentArray & ataboutArray
-    # if commonPairId.empty?
-    # else
     unless commonPairId.empty?
       @pair = Pair.find_by(id: commonPairId)
       redirect_to pair_messages_path(@pair)
