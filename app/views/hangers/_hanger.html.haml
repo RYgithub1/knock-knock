@@ -1,7 +1,7 @@
 -# ===== from abouts#show ===========================
 - if @about.already_hangered_on?(current_user)
   .hangerCode__hangerCodeIf
-    %span.spanHangerRemove Already Hungered on the Door. Remove it now ?：
+    %span.spanHangerRemove Already Hanger on the Door. Remove it now ?：
     = link_to about_hangers_path(@about.id), method: :delete, remote: true, class: "hangerLogoLink", data: { confirm: "remove this hanger ?" } do
       %i.fas.fa-weight-hanging.hangerRemove
 - else
