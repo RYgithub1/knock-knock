@@ -21,8 +21,6 @@ class AboutsController < ApplicationController
   end
 
 
-
-
            
   def show
     @about = About.find_by(id: params[:id])

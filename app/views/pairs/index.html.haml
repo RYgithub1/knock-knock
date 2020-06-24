@@ -34,42 +34,50 @@
       .pairIndex__pairIndexContent__pairIndexContentDoor__pairIndexContentDoorCode
 
 %br
--# - @currentHangers[0]  は、|hanger|に相当  《指針》
 %br
 - @currentHangers.each do |currentHanger|
-  %br
-  %br
-  1-1.ハンガーかけた日付
-  = currentHanger.updated_at
-  %br
-  1-2.アイコン
-  -# ハンガーかけているドアのAbout情報が下記
-  - hangerPhoto = Photo.find_by(about_id: currentHanger.about_id)
-  -# = image_tag hangerPhoto.image.url, class: "pppppp", size: "30x30"
-  -# [0]でなく二重に深い配列かもをターミナルで確認
-  %br
-  1-3 名前
-  - hangerAbout = About.find_by(id: currentHanger.about_id)
-  - hangerUser = User.where(id: hangerAbout.user_id)
-  = hangerUser[0].name
-  -# 配列の中身のハッシュを外す[0]常にひとつしかこない仕様ゆえ、一個上だけは常に[0]
-  %br
-  1-4.リンク【AZ】
-  -# もし渡すのが配列通らないなら、[0]
-  = link_to "About", about_path(hangerAbout), class: "pbbbbbbbb"
-  %br
-  1-5.リンク【pairs#new】ペア作成リンク
-  -# もし渡すのが配列通らないなら、[0]
-  = link_to "knock-knock?", new_pair_path(hangerAbout), class: "tbbbbbbb"
+  - currentUser_usersPair_Array = []
+  - currentUser_usersPairs = UsersPair.where(user_id: current_user.id)
+  - currentUser_usersPairs.each do |currentUser_usersPair|
+    - currentUser_usersPair_Array << currentUser_usersPair.pair_id
 
+  - hangerAbout = About.find_by(id: currentHanger.about_id)
+  - hangerAbout_usersPair_Array = []
+  - hangerAbout_usersPairs = UsersPair.where(user_id: hangerAbout.user_id)
+  - hangerAbout_usersPairs.each do |hangerAbout_usersPair|
+    - hangerAbout_usersPair_Array << hangerAbout_usersPair.pair_id
+
+  - if (currentUser_usersPair_Array & hangerAbout_usersPair_Array).blank?
+
+    %br
+    %br
+    1-1.ハンガーかけた日付
+    = currentHanger.updated_at.strftime("%Y/%m/%d")
+    %br
+    1-2.アイコン
+    -# ハンガーかけているドアのAbout情報が下記
+    - hangerPhoto = Photo.find_by(about_id: currentHanger.about_id)
+    -# = image_tag hangerPhoto.image.url, class: "pppppp", size: "30x30"
+    -# [0]でなく二重に深い配列かもをターミナルで確認
+    %br
+    1-3 名前
+    -# find_by大ジュブ？
+    - hangerAbout = About.find_by(id: currentHanger.about_id)
+    - hangerUser = User.where(id: hangerAbout.user_id)
+    = hangerUser[0].name
+    -# 配列の中身のハッシュを外す[0]常にひとつしかこない仕様ゆえ、一個上だけは常に[0]
+    %br
+    1-4.リンク【AZ】
+    -# もし渡すのが配列通らないなら、[0]
+    = link_to "About", about_path(hangerAbout), class: "pbbbbbbbb"
+    %br
+    1-5.リンク【pairs#new】ペア作成リンク
+    -# もし渡すのが配列通らないなら、[0]
+    = link_to "knock-knock?", new_pair_path(hangerAbout), class: "tbbbbbbb"
 %br
 %br
 %br
 -# ======================================================
--# - @currentUsersPairs = current_user.users_pairs
--# user_idは４さんのみ  →pair_id
--# - currentUsersPair = current_user.users_pairs[0]
--# - current_user.users_pairs.each do |currentUsersPair|
 .zzzzzzzzzz
   - @currentUsersPairs.each       do |currentUsersPair|
     %br
@@ -79,9 +87,9 @@
     - lastMessage = messages.last
     -# 以上は共通かも
     - if lastMessage.blank?
-      = currentUsersPair.updated_at
+      = currentUsersPair.updated_at.strftime("%Y/%m/%d")
     - else
-      = lastMessage.created_at
+      = lastMessage.created_at.strftime("%Y/%m/%d")
     %br
     2-2.アイコン
     - upwwn = UsersPair.where(pair_id: currentUsersPair.pair_id).where.not(user_id: current_user.id)[0]
@@ -118,6 +126,5 @@
     %br
     2-7.ペアドア削除リンク
     = link_to "Delete?", pair_path(currentUsersPair.pair_id), class: "paaaaaaaaaa", method: :delete, data: {confirm: "delete this door ?"}
-
 
 

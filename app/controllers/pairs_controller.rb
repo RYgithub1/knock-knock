@@ -1,14 +1,12 @@
 class PairsController < ApplicationController
 
-  before_action :already_pair_exist_check, only: [:new]
   before_action :login_check_pairs, only: [:index]
+  before_action :already_pair_exist_check, only: [:new]
 
-           
+
   def index
-    @abouts = About.all
     @currentHangers = current_user.hangers
     @currentUsersPairs = current_user.users_pairs
-
   end
 
   def new
@@ -26,7 +24,7 @@ class PairsController < ApplicationController
       render :new
     end
   end
-              
+                 
   def destroy
     @pair.destroy
     redirect_to  pairs_path
@@ -34,6 +32,10 @@ class PairsController < ApplicationController
 
 
   private
+  def login_check_pairs
+    redirect_to new_user_session_path unless user_signed_in?
+  end
+
   def already_pair_exist_check
     @about = About.find_by(id: params[:format])
     currentArray = []
@@ -51,10 +53,6 @@ class PairsController < ApplicationController
       @pair = Pair.find_by(id: commonPairId)
       redirect_to pair_messages_path(@pair)
     end
-  end
-
-  def login_check_pairs
-    redirect_to new_user_session_path unless user_signed_in?
   end
 
 end
