@@ -1,29 +1,21 @@
 class PairsController < ApplicationController
 
+  before_action :login_check_pairs, only: [:index]
   before_action :already_pair_exist_check, only: [:new]
+  before_action :set_pair, only: [:new, :create]
 
 
   def index
-    # @pair = Pair.find_by(user_id: current_user.id)
-    # @pairs = Pair.all(user_id: current_user.id)
-    # @pair = Pair.find_by(id: params[:id])
-    # @pair = Pair.where(user_id: current_user.id)
-    # @pairs = Pair.all
-    # @pair = Pair.find_by(user_id: current_user.id)
-    # @message = Message.new
-    # @messages = @pair.messages.includes(:user)
-    # @message = Message.find_by(id: @pair.messages.ids)
-    # @abouts = About.all
+    @currentHangers = current_user.hangers
+    @currentUsersPairs = current_user.users_pairs
   end
 
   def new
-    @pair = Pair.new
     @pair.users << current_user
     @about = About.find_by(id: params[:format])
   end
 
   def create
-    @pair = Pair.new
     if @pair.save
       @pair.users = User.where(id: params[:pair][:user_ids])
       redirect_to pair_messages_path(@pair)
@@ -33,12 +25,17 @@ class PairsController < ApplicationController
   end
 
   def destroy
+    @pair = Pair.find_by(id: params[:id])
     @pair.destroy
-    redirect_to  pairs_path
+    redirect_to pairs_path
   end
 
 
   private
+  def login_check_pairs
+    redirect_to new_user_session_path unless user_signed_in?
+  end
+
   def already_pair_exist_check
     @about = About.find_by(id: params[:format])
     currentArray = []
@@ -50,10 +47,13 @@ class PairsController < ApplicationController
       ataboutArray << a.pair_id
     end
     commonPairId = currentArray & ataboutArray
-    if commonPairId.empty?
-    else
+    unless commonPairId.empty?
       @pair = Pair.find_by(id: commonPairId)
       redirect_to pair_messages_path(@pair)
+    end
+
+    def set_pair
+      @pair = Pair.new
     end
   end
 

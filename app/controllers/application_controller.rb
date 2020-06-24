@@ -1,16 +1,13 @@
 class ApplicationController < ActionController::Base
-  # forCSRF
+
+  # for cross-site request forgeries
   protect_from_forgery with: :exception
-  # ログインユーザのみアクセス許可
-  # before_action :authenticate_user!, except: [:index]
-  before_action :authenticate_user!
-  # devise向けストロングパラメータ
+
+  # ログインユーザのみアクセス許可 [maps#indexは許可]
+  before_action :authenticate_user!, except: [:index]
+
+  # strong parameter for devise
   before_action :configure_permitted_parameters, if: :devise_controller?
-
-
-
-
-
 
 
   protected

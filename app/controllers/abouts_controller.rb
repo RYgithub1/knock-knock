@@ -21,9 +21,7 @@ class AboutsController < ApplicationController
   end
 
 
-
-
-     
+           
   def show
     @about = About.find_by(id: params[:id])
     @photos = Photo.where(id: @about.photos.ids)
@@ -46,7 +44,7 @@ class AboutsController < ApplicationController
       render :edit
     end
   end
-
+        
   def destroy
   #   @about.destroy
   #   redirect_to root_path
