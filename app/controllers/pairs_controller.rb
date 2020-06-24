@@ -23,10 +23,11 @@ class PairsController < ApplicationController
       render :new
     end
   end
-                 
+    
   def destroy
+    @pair = Pair.find_by(id: params[:id])
     @pair.destroy
-    redirect_to  pairs_path
+    redirect_to pairs_path
   end
 
 

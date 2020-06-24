@@ -89,7 +89,7 @@
     - else
       = lastMessage.created_at.strftime("%Y/%m/%d")
     %br
-  
+
     2-2.アイコン
     - upwwn = UsersPair.where(pair_id: currentUsersPair.pair_id).where.not(user_id: current_user.id)[0]
     -# ここから上共通かも
@@ -126,5 +126,6 @@
         = lastMessage.content
     %br
     2-7.ペアドア削除リンク
-    = link_to "Delete Door?", pair_path(currentUsersPair.pair_id), class: "paaaaaaaaaa", method: :delete, data: {confirm: "delete this door ?"}
+
+    = link_to "Delete Door?", pair_path(currentUsersPair.pair_id), class: "paaaaaaaaaa", method: :delete, data: {confirm: "delete this door really ?"}
 
