@@ -2,6 +2,7 @@ class PairsController < ApplicationController
 
   before_action :login_check_pairs, only: [:index]
   before_action :already_pair_exist_check, only: [:new]
+  before_action :set_pair, only: [:new, :create]
 
 
   def index
@@ -10,13 +11,11 @@ class PairsController < ApplicationController
   end
 
   def new
-    @pair = Pair.new
     @pair.users << current_user
     @about = About.find_by(id: params[:format])
   end
 
   def create
-    @pair = Pair.new
     if @pair.save
       @pair.users = User.where(id: params[:pair][:user_ids])
       redirect_to pair_messages_path(@pair)
@@ -52,6 +51,10 @@ class PairsController < ApplicationController
     unless commonPairId.empty?
       @pair = Pair.find_by(id: commonPairId)
       redirect_to pair_messages_path(@pair)
+    end
+
+    def set_pair
+      @pair = Pair.new
     end
   end
 
