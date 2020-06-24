@@ -1,6 +1,90 @@
-// hangered door and knocked door
+// ==== pairs#index part =============================
+.pairIndex {
+  padding-top: 200px;
+  &__pairIndexContent {
+    // ---- DoorS title ------------------------
+    &__pairIndexContentTitle {
+      &__pairIndexContentTitleHead {
+        .pairIndexTitleHead {
+        }
+      }
+      &__pairIndexContentTitleCode {
+      }
+    }
 
-.zzzzzzzzzz {
-  width: 100%;
-  height: 1000px;
+    // ---- door hanger list------------------------
+    &__pairIndexContentHanger {
+      &__pairIndexContentHangerHead {
+        .pairIndexDoorLogo {
+        }
+        .pairIndexHangerHead {
+        }
+      }
+
+      &__pairIndexContentHangerCode {
+        &__pairIndexContentHangerCodeLimit {
+          .table-responsive {
+            table {
+            }
+            tr {
+            }
+            th {
+            }
+            td {
+            }
+            table tr {
+            }
+            table th {
+            }
+            table td {
+              .pairsIndexHangerPhoto {
+              }
+              .pairsIndexAboutHanger {
+              }
+              .pairsIndexKnockHanger {
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // ---- knocked door list ------------------------
+    &__pairIndexContentDoor {
+      &__pairIndexContentDoorHead {
+        .pairIndexHangerLogo {
+        }
+        .pairIndexDoorHead {
+        }
+      }
+      &__pairIndexContentDoorCode {
+        &__pairIndexContentDoorCodeLimit {
+          .table-responsive {
+            table {
+            }
+            tr {
+            }
+            th {
+            }
+            td {
+            }
+            table tr {
+            }
+            table th {
+            }
+            table td {
+              .pairsIndexPhotoAboutUpwwnm {
+              }
+              .pairsIndexAboutPair {
+              }
+              .pairsIndexKnockPair {
+              }
+              .pairsIndexDoorDelete {
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
