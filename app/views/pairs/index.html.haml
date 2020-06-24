@@ -74,7 +74,7 @@
   - @currentUsersPairs.each       do |currentUsersPair|
     %br
     %br
-    2-1.ドア作成日付,,メッセージ最終日付
+    2-1.ドア作成日付 -> メッセージ最終日付
     - messages = Message.where(pair_id: currentUsersPair.pair_id)
     - lastMessage = messages.last
     -# 以上は共通かも
@@ -85,16 +85,25 @@
     %br
     2-2.アイコン
     - upwwn = UsersPair.where(pair_id: currentUsersPair.pair_id).where.not(user_id: current_user.id)[0]
+    -# ここから上共通かも
     - aboutUpwwn = About.find_by(user_id: upwwn.user_id)
     - photoAboutUpwwn = Photo.where(about_id: aboutUpwwn.id)[0]
     -# = photoAboutUpwwn.image
     -# = image_tag photoAboutUpwwn.image.url, class: "paaappppp", size: "30x30"
     %br
-    2-3.名前  pair_idに紐づく自分以外のuser_idに紐づくabout情報
+    2-3.名前
+    -# - binding.pry
+    - upwwn = UsersPair.where(pair_id: currentUsersPair.pair_id).where.not(user_id: current_user.id)[0]
+    - userUpwwn = User.find_by(id: upwwn.user_id)
+    = userUpwwn.name
     %br
     2-4.リンク【AZ】
+    - aboutUpwwn = About.find_by(user_id: upwwn.user_id)
+    -# 共通かも
+    = link_to "About", about_path(aboutUpwwn), class: "pbbbbbbbaaaaab"
     %br
     2-5.リンク【KKD】メッセージ画面へのリンク
+    = link_to "knock-knock door", pair_messages_path(currentUsersPair.pair_id), class: "pbbbbbbbssssaaaaab"
     %br
     2-6.最終コメ->imageです->no message
     - messages = Message.where(pair_id: currentUsersPair.pair_id)
@@ -109,5 +118,6 @@
     %br
     2-7.ペアドア削除リンク
     = link_to "Delete?", pair_path(currentUsersPair.pair_id), class: "paaaaaaaaaa", method: :delete, data: {confirm: "delete this door ?"}
+
 
 

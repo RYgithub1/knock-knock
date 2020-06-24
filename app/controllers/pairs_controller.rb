@@ -8,7 +8,7 @@ class PairsController < ApplicationController
     @abouts = About.all
     @currentHangers = current_user.hangers
     @currentUsersPairs = current_user.users_pairs
- 
+
   end
 
   def new
