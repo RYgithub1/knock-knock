@@ -60,6 +60,15 @@
           .kkdCollectionSubmitBtn {
             padding: 10px 50px;
             font-size: 20px;
+            color: white;
+            border: none;
+            background-color: rgb(8, 133, 216);
+            border-radius: 10px;
+            opacity: 0.95;
+          }
+          .kkdCollectionSubmitBtn:hover {
+            opacity: 1;
+            font-weight: bold;
           }
         }
       }

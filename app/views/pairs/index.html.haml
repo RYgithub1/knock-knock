@@ -1,14 +1,3 @@
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
 -# ==== pairs#index part =============================
 .pairIndex
   .pairIndex__pairIndexContent
@@ -18,12 +7,55 @@
         %h2.pairIndexTitleHead DoorS
       .pairIndex__pairIndexContent__pairIndexContentTitle__pairIndexContentTitleCode
 
+
     -# ---- door hanger list------------------------
     .pairIndex__pairIndexContent__pairIndexContentHanger
       .pairIndex__pairIndexContent__pairIndexContentHanger__pairIndexContentHangerHead
         %i.fas.fa-weight-hanging.pairIndexDoorLogo
-        %h3.pairIndexHangerHead hangered doors
+        %h3.pairIndexHangerHead door hangers
+
       .pairIndex__pairIndexContent__pairIndexContentHanger__pairIndexContentHangerCode
+        .pairIndex__pairIndexContent__pairIndexContentHanger__pairIndexContentHangerCode__pairIndexContentHangerCodeLimit
+          .table-responsive
+            %table.table.table-hover.table-bordered
+              %caption List of hangers
+              %thead.thead-light
+                %tr.h3
+                  %th{scope: "col"} Date
+                  %th{scope: "col"} Icon
+                  %th{scope: "col"} Name
+                  %th{scope: "col"} HIM/HER
+                  %th{scope: "col"} Door
+              %tbody
+                - @currentHangers.each do |currentHanger|
+                  - currentUser_usersPair_Array = []
+                  - currentUser_usersPairs = UsersPair.where(user_id: current_user.id)
+                  - currentUser_usersPairs.each do |currentUser_usersPair|
+                    - currentUser_usersPair_Array << currentUser_usersPair.pair_id
+                  - hangerAbout = About.find_by(id: currentHanger.about_id)
+                  - hangerAbout_usersPair_Array = []
+                  - hangerAbout_usersPairs = UsersPair.where(user_id: hangerAbout.user_id)
+                  - hangerAbout_usersPairs.each do |hangerAbout_usersPair|
+                    - hangerAbout_usersPair_Array << hangerAbout_usersPair.pair_id
+                  - if (currentUser_usersPair_Array & hangerAbout_usersPair_Array).blank?
+                    %tr.h5.tableRecord
+                      %td
+                        = currentHanger.updated_at.strftime("%Y/%m/%d")
+                      %td
+                        - hangerPhoto = Photo.find_by(about_id: currentHanger.about_id)
+                        - if hangerPhoto.blank?
+                          = p "no icon"
+                        - else
+                          = image_tag hangerPhoto.image.url, class: "pairsIndexHangerPhoto", size: "44x44"
+                      %td
+                        - hangerAbout = About.find_by(id: currentHanger.about_id)
+                        - hangerUser = User.where(id: hangerAbout.user_id)
+                        = hangerUser[0].name
+                      %td
+                        = link_to "About", about_path(hangerAbout), class: "pairsIndexAboutHanger"
+                      %td
+                        = link_to "knock-knock", new_pair_path(hangerAbout), class: "pairsIndexKnockHanger"
+
 
     -# ---- knocked door list ------------------------
     .pairIndex__pairIndexContent__pairIndexContentDoor
@@ -32,99 +64,54 @@
         %h3.pairIndexDoorHead knocked doors
 
       .pairIndex__pairIndexContent__pairIndexContentDoor__pairIndexContentDoorCode
-
-%br
-%br
-- @currentHangers.each do |currentHanger|
-  - currentUser_usersPair_Array = []
-  - currentUser_usersPairs = UsersPair.where(user_id: current_user.id)
-  - currentUser_usersPairs.each do |currentUser_usersPair|
-    - currentUser_usersPair_Array << currentUser_usersPair.pair_id
-
-  - hangerAbout = About.find_by(id: currentHanger.about_id)
-  - hangerAbout_usersPair_Array = []
-  - hangerAbout_usersPairs = UsersPair.where(user_id: hangerAbout.user_id)
-  - hangerAbout_usersPairs.each do |hangerAbout_usersPair|
-    - hangerAbout_usersPair_Array << hangerAbout_usersPair.pair_id
-
-  - if (currentUser_usersPair_Array & hangerAbout_usersPair_Array).blank?
-
-    %br
-    %br
-    1-1.ハンガーかけた日付
-    = currentHanger.updated_at.strftime("%Y/%m/%d")
-    %br
-    1-2.アイコン
-    - hangerPhoto = Photo.find_by(about_id: currentHanger.about_id)
-    - if hangerPhoto.blank?
-      = p "no icon"
-    - else
-      = image_tag hangerPhoto.image.url, class: "ppdfghjpppp", size: "100x100"
-
-    %br
-    1-3 名前
-    - hangerAbout = About.find_by(id: currentHanger.about_id)
-    - hangerUser = User.where(id: hangerAbout.user_id)
-    = hangerUser[0].name
-    %br
-    1-4.リンク【AZ】
-    = link_to "About", about_path(hangerAbout), class: "pbbbbbbbb"
-    %br
-    1-5.リンク【pairs#new】ペア作成リンク
-    = link_to "knock-knock?", new_pair_path(hangerAbout), class: "tbbbbbbb"
-%br
-%br
-%br
--# ======================================================
-.zzzzzzzzzz
-  - @currentUsersPairs.each do |currentUsersPair|
-    %br
-    %br
-    2-1.ドア作成日付 -> メッセージ最終日付
-    - messages = Message.where(pair_id: currentUsersPair.pair_id)
-    - lastMessage = messages.last
-    -# 以上は共通かも
-    - if lastMessage.blank?
-      = currentUsersPair.updated_at.strftime("%Y/%m/%d")
-    - else
-      = lastMessage.created_at.strftime("%Y/%m/%d")
-    %br
-
-    2-2.アイコン
-    - upwwn = UsersPair.where(pair_id: currentUsersPair.pair_id).where.not(user_id: current_user.id)[0]
-    -# ここから上共通かも
-    - aboutUpwwn = About.find_by(user_id: upwwn.user_id)
-    - photoAboutUpwwn = Photo.where(about_id: aboutUpwwn.id)
-    - if photoAboutUpwwn.blank?
-      = p "no icon"
-    - else
-      = image_tag photoAboutUpwwn[0].image.url, class: "paaapghjkpppp", size: "100x100"
-
-    %br
-    2-3.名前
-    - upwwn = UsersPair.where(pair_id: currentUsersPair.pair_id).where.not(user_id: current_user.id)[0]
-    - userUpwwn = User.find_by(id: upwwn.user_id)
-    = userUpwwn.name
-    %br
-    2-4.リンク【AZ】
-    - aboutUpwwn = About.find_by(user_id: upwwn.user_id)
-    -# 共通かも
-    = link_to "About", about_path(aboutUpwwn), class: "pbbbbbbbaaaaab"
-    %br
-    2-5.リンク【KKD】メッセージ画面へのリンク
-    = link_to "knock-knock door", pair_messages_path(currentUsersPair.pair_id), class: "pbbbbbbbssssaaaaab"
-    %br
-    2-6.最終コメ->imageです->no message
-    - messages = Message.where(pair_id: currentUsersPair.pair_id)
-    - lastMessage = messages.last
-    - if lastMessage.blank?
-      = "no message yet."
-    - else
-      - if lastMessage.image.present? && lastMessage.content.blank?
-        = "last one is the picture."
-      - else
-        = lastMessage.content
-    %br
-    2-7.ペアドア削除リンク
-    = link_to "Delete Door?", pair_path(currentUsersPair.pair_id), class: "paaaaaaaaaa", method: :delete, data: {confirm: "delete this door really ?"}
+        .pairIndex__pairIndexContent__pairIndexContentDoor__pairIndexContentDoorCode__pairIndexContentDoorCodeLimit
+          .table-responsive
+            %table.table.table-hover.table-bordered
+              %caption List of knock-knocks
+              %thead.thead-light
+                %tr.h3
+                  %th{scope: "col"} Date
+                  %th{scope: "col"} Icon
+                  %th{scope: "col"} Name
+                  %th{scope: "col"} HIM/HER
+                  %th{scope: "col"} Door
+                  %th{scope: "col"} Last Message
+                  %th{scope: "col"} Delete Door
+              %tbody
+                - @currentUsersPairs.each do |currentUsersPair|
+                  - upwwn = UsersPair.where(pair_id: currentUsersPair.pair_id).where.not(user_id: current_user.id)[0]
+                  - aboutUpwwn = About.find_by(user_id: upwwn.user_id)
+                  %tr.h5
+                    %td
+                      - messages = Message.where(pair_id: currentUsersPair.pair_id)
+                      - lastMessage = messages.last
+                      - if lastMessage.blank?
+                        = currentUsersPair.updated_at.strftime("%Y/%m/%d")
+                      - else
+                        = lastMessage.created_at.strftime("%Y/%m/%d")
+                    %td
+                      - photoAboutUpwwn = Photo.where(about_id: aboutUpwwn.id)
+                      - if photoAboutUpwwn.blank?
+                        = p "no icon"
+                      - else
+                        = image_tag photoAboutUpwwn[0].image.url, class: "pairsIndexPhotoAboutUpwwn", size: "44x44"
+                    %td
+                      - userUpwwn = User.find_by(id: upwwn.user_id)
+                      = userUpwwn.name
+                    %td
+                      = link_to "About", about_path(aboutUpwwn), class: "pairsIndexAboutPair"
+                    %td
+                      = link_to "knock-knock", pair_messages_path(currentUsersPair.pair_id), class: "pairsIndexKnockPair"
+                    %td
+                      - messages = Message.where(pair_id: currentUsersPair.pair_id)
+                      - lastMessage = messages.last
+                      - if lastMessage.blank?
+                        = "no message yet."
+                      - else
+                        - if lastMessage.image.present? && lastMessage.content.blank?
+                          = "last one is the picture."
+                        - else
+                          = lastMessage.content
+                    %td
+                      = link_to "delete", pair_path(currentUsersPair.pair_id), class: "pairsIndexDoorDelete", method: :delete, data: {confirm: "delete this door really ?"}
 
