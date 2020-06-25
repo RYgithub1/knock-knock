@@ -38,7 +38,7 @@
                   - hangerAbout_usersPairs.each do |hangerAbout_usersPair|
                     - hangerAbout_usersPair_Array << hangerAbout_usersPair.pair_id
                   - if (currentUser_usersPair_Array & hangerAbout_usersPair_Array).blank?
-                    %tr.h5
+                    %tr.h5.tableRecord
                       %td
                         = currentHanger.updated_at.strftime("%Y/%m/%d")
                       %td

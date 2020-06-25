@@ -1,47 +1,85 @@
 // ==== pairs#index part =============================
+html {
+  height: calc(100% + 131px);
+}
+body {
+  height: 100%;
+}
 .pairIndex {
-  padding-top: 200px;
+  padding-top: 120px;
+  width: 100%;
+  height: 100%;
+  background-color: #ffdab9;
   &__pairIndexContent {
+    width: 95%;
+    background-color: #ffd482;
+    margin: 0 auto;
+
     // ---- DoorS title ------------------------
     &__pairIndexContentTitle {
+      padding-top: 20px;
+      margin: 0px auto 20px auto;
       &__pairIndexContentTitleHead {
         .pairIndexTitleHead {
+          text-align: center;
+          font-weight: bold;
+          font-size: 50px;
+          max-width: 200px;
+          margin: 0 auto;
+          border-bottom: 1px dashed black;
         }
       }
       &__pairIndexContentTitleCode {
       }
     }
 
-    // ---- door hanger list------------------------
+    // ---- hanger list------------------------
     &__pairIndexContentHanger {
+      width: 95%;
+      margin: 40px 0px 30px 50px;
       &__pairIndexContentHangerHead {
+        display: flex;
         .pairIndexDoorLogo {
+          color: #ff6600;
+          border: 1px solid rgb(8, 133, 216);
+          background-color: rgb(150, 205, 241);
+          border-radius: 30px;
+          font-size: 30px;
+          padding: 7px;
+          margin: 20px 20px 20px 40px;
         }
         .pairIndexHangerHead {
+          padding-top: 17px;
+          font-size: 40px;
+          max-width: 350px;
         }
       }
 
       &__pairIndexContentHangerCode {
+        width: 71%;
         &__pairIndexContentHangerCodeLimit {
           .table-responsive {
+            caption {
+              margin-left: 10px;
+            }
             table {
-            }
-            tr {
-            }
-            th {
-            }
-            td {
             }
             table tr {
             }
             table th {
+              background-color: #f5995c;
             }
             table td {
+              padding-left: 20px;
+              font-size: 20px;
+              vertical-align: middle;
               .pairsIndexHangerPhoto {
               }
               .pairsIndexAboutHanger {
+                text-decoration: none;
               }
               .pairsIndexKnockHanger {
+                text-decoration: none;
               }
             }
           }
@@ -49,37 +87,57 @@
       }
     }
 
-    // ---- knocked door list ------------------------
+    // ---- knocked list ------------------------
     &__pairIndexContentDoor {
+      width: 95%;
+      margin: 40px 0px 30px 50px;
+      padding-bottom: 365px;
       &__pairIndexContentDoorHead {
+        display: flex;
         .pairIndexHangerLogo {
+          color: #ff6600;
+          border: 1px solid rgb(8, 133, 216);
+          background-color: rgb(150, 205, 241);
+          border-radius: 30px;
+          font-size: 30px;
+          padding: 7px;
+          margin: 20px 20px 20px 40px;
         }
         .pairIndexDoorHead {
+          padding-top: 17px;
+          font-size: 40px;
+          max-width: 350px;
         }
       }
+
       &__pairIndexContentDoorCode {
+        width: 98%;
         &__pairIndexContentDoorCodeLimit {
           .table-responsive {
+            caption {
+              margin-left: 10px;
+            }
             table {
-            }
-            tr {
-            }
-            th {
-            }
-            td {
             }
             table tr {
             }
             table th {
+              background-color: #f5995c;
             }
             table td {
+              padding-left: 20px;
+              font-size: 20px;
+              vertical-align: middle;
               .pairsIndexPhotoAboutUpwwnm {
               }
               .pairsIndexAboutPair {
+                text-decoration: none;
               }
               .pairsIndexKnockPair {
+                text-decoration: none;
               }
               .pairsIndexDoorDelete {
+                text-decoration: none;
               }
             }
           }
