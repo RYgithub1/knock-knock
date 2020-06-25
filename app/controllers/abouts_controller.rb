@@ -40,7 +40,7 @@ class AboutsController < ApplicationController
     if @about.update(about_params)
       redirect_to about_path(@about.id)
     else
-      # なぜかこっち
+      # なぜかこっち photo のときは、newもeditも？
       redirect_to edit_about_path(@about.id)
 
     end
