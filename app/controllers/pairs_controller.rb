@@ -2,6 +2,7 @@ class PairsController < ApplicationController
 
   before_action :login_check_pairs, only: [:index]
   before_action :already_pair_exist_check, only: [:new]
+  before_action :create_currentUserAbout_before_pairStart_check, only: [:new]
   before_action :set_pair, only: [:new, :create]
 
 
@@ -34,6 +35,13 @@ class PairsController < ApplicationController
   private
   def login_check_pairs
     redirect_to new_user_session_path unless user_signed_in?
+  end
+
+  def create_currentUserAbout_before_pairStart_check
+    currentUserAbout = About.where(user_id: current_user.id)
+    if currentUserAbout.blank?
+      redirect_to new_about_path
+    end
   end
 
   def already_pair_exist_check
