@@ -9,11 +9,12 @@
 
         .regis__regisContent__regisContentBody__regisContentBodyFrom
           = f.label :email, class: "regisLabel"
+          %br
           %span.regisMust Mmandatory
           %br/
           = f.email_field :email, autofocus: true, autocomplete: "email", class: "regisField", placeholder: "  your mail address"
 
         .regis__regisContent__regisContentBody__regisContentBodySubmit
-          = link_to  "Send me reset PW instructions", root_path, class: "regisContentBodySubmitBtn passwordsNew"
+          = link_to  "Send request of PW reset", root_path, class: "regisContentBodySubmitBtn passwordsNew"
 
       = render "devise/shared/links"

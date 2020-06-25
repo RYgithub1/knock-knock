@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -10,7 +11,7 @@ class User < ApplicationRecord
   # 半角英数字、大小文字、8文字以上
   VALID_NAME_PW_REGEX = /\A^([a-zA-Z0-9]{8,})$\z/i
   validates :name, presence: true, format: { with: VALID_NAME_PW_REGEX }
-  # 半角英数字、大小文字、数字、ドットを少なくとも１つ以上繰り返す。＠を挟む
+  # 「半角英数字で大小文字か数字かドット」を少なくとも１つ以上繰り返す。＠を挟む
   VALID_EMAIL_REGEX = /\A[a-zA-Z\d.]+@[a-zA-Z\d.]+\z/i
   validates :email, presence: true,
             uniqueness: { case_sensitive: false },
@@ -28,7 +29,5 @@ class User < ApplicationRecord
 
   has_many :hangers, dependent: :destroy
   accepts_nested_attributes_for :hangers, allow_destroy: true
-
-
 
 end

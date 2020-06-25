@@ -78,7 +78,7 @@
             .newFormBasic__newFormBasicLanguage__newFormBasicLanguageTitle
               %span.basicLanguageTitle LANGUAGES
             .newFormBasic__newFormBasicLanguage__newFormBasicLanguageCode
-              -# TODO:
+              -# TODO: tag
               .basicLanguageCode
                 = f.label :tag_list, 'add "," between languages'
                 %br
@@ -140,7 +140,7 @@
                       = j.label :image, class: "jsFileLabel" do
                         = j.file_field :image, class: "jsFile"
                         .jsRemove
-                          ← delete left picture
+                          ← delete left picture?
                     -# 既に 上記で@aboutが存在->保存済みimage削除用check_box->checkBoxをon->railsがレコード検索し削除実行
                     - if @about.persisted?
                       = image.check_box :_destroy, data:{ index: j.index }, class: "hiddenDestroy"
@@ -154,7 +154,7 @@
                       = label_tag :image, class: "jsFileLabel" do
                         = file_field_tag :image, name: "about[pictures_attributes][#{@about.pictures.count}][image]", class: "jsFile"
                         .jsRemove
-                          delete left picture
+                          ← delete left picture?
 
           .newFormPlus__newFormPlusInvitation
             .newFormPlus__newFormPlusInvitation__newFormPlusInvitationTitle

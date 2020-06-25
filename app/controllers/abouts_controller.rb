@@ -1,12 +1,12 @@
 class AboutsController < ApplicationController
 
-  # before_action :set_xxx, except: [:index, :new, :create]
-  before_action :one_about_check, only: [:new, :create]
+  before_action :oneUser_oneAbout_check, only: [:new, :create]
+  before_action :noCurrentUserAbout_then_canNotWatchOtherAbout_check, only: [:show, :edit, :update]
 
 
   def new
     @about = About.new
-    # aboutモデルに紐付く各モデルのインスタンスの設定が必要
+    # new 2 instances, related to About model
     @about.photos.new
     @about.pictures.new
   end
@@ -20,14 +20,13 @@ class AboutsController < ApplicationController
     end
   end
 
-
-           
   def show
     @about = About.find_by(id: params[:id])
     @photos = Photo.where(id: @about.photos.ids)
     @pictures = Picture.where(id: @about.pictures.ids)
   end
 
+                  
   def edit
     @about = About.find_by(id: params[:id])
     @photos = Photo.where(id: @about.photos.ids)
@@ -41,13 +40,10 @@ class AboutsController < ApplicationController
     if @about.update(about_params)
       redirect_to about_path(@about.id)
     else
-      render :edit
+      # なぜかこっち photo のときは、newもeditも？
+      redirect_to edit_about_path(@about.id)
+
     end
-  end
-        
-  def destroy
-  #   @about.destroy
-  #   redirect_to root_path
   end
 
 
@@ -67,9 +63,15 @@ class AboutsController < ApplicationController
     ).merge(user_id: current_user.id)
   end
 
-  def one_about_check
+  def oneUser_oneAbout_check
     if About.find_by(user_id: current_user.id).present?
       redirect_to about_path(About.find_by(user_id: current_user.id).id)
+    end
+  end
+
+  def noCurrentUserAbout_then_canNotWatchOtherAbout_check
+    if About.find_by(user_id: current_user.id).blank?
+      redirect_to new_about_path
     end
   end
 

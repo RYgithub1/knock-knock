@@ -4,7 +4,7 @@ $(document).on("turbolinks:load", function () {
     const html = `<div class="jsFileGroup" data-index="${index}">
                 <label class="jsFileLabel" for="about_pictures_attributes_${index}_image">
                 <input class="jsFile" type="file" name="about[pictures_attributes][${index}][image]" id="about_pictures_attributes_${index}_image">
-                <div class="jsRemove">← delete left picture</div>
+                <div class="jsRemove">← delete left picture ?</div>
                 </label></div>`;
     return html;
   };

@@ -243,9 +243,13 @@
                     .jsFile {
                     }
                     .jsRemove {
-                      width: 155px;
+                      width: 170px;
                       height: 20px;
                       margin-top: 2px;
+                    }
+                    .jsRemove:hover {
+                      font-weight: bold;
+                      color: rgb(255, 94, 0);
                     }
                   }
                 }

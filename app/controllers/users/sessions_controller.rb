@@ -18,23 +18,18 @@ class Users::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  protected
 
+  protected
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
-
   #ログイン後のリダイレクト先
   # The path used after Log In
   def after_sign_in_path_for(resource)
     root_path
-    # about_path(about.id?current_user.id?current_user?)
-    # abouts#showにに飛ばす為にid付記が必要では
-    # FIXME: abouts#show作成後に指定。root_pathを仮置き
   end
-
 
   #ログアウト後のリダイレクト先
   # The path used after Log Out

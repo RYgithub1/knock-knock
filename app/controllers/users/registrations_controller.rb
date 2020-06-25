@@ -38,8 +38,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  protected
 
+  protected
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
@@ -50,24 +50,22 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
 
-  # アカウント登録後のリダイレクト先
+  # ユーザー登録後のリダイレクト先
   # The path used after sign up.
   def after_sign_up_path_for(resource)
     new_about_path
   end
 
-  # アカウント登録後のリダイレクト先（confirmableモジュールが有効の場合）
-  # The path used after SIGN UP for inactive accounts.
+  # アカウント登録後のリダイレクト先（confirmableモジュールが有効の場合はこちらを指定）
+  # The path used after sign up "for inactive accounts".
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
 
-  #アカウント編集後のリダイレクト先
+  # ユーザー編集後のリダイレクト先
   # The path used after acount UPDATE
   def after_update_path_for(resource)
-    root_path
-    # about_path(about.id?current_user.id?current_user?)
-    # abouts#showにに飛ばす為にid付記が必要では
-    # FIXME: abouts#show作成後に指定。root_pathを仮置き
+    about_path(About.find_by(user_id: current_user.id).id)
   end
+
 end
