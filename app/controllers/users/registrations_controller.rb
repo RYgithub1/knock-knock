@@ -65,11 +65,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # ユーザー編集後のリダイレクト先
   # The path used after acount UPDATE
   def after_update_path_for(resource)
-    # binding.pry
-    root_path
-    # about_path(about.id?current_user.id?current_user?)
-    # abouts#showにに飛ばす為にid付記が必要では
-    # FIXME: abouts#show作成後に指定。root_pathを仮置き
+    about_path(About.find_by(user_id: current_user.id).id)
   end
 
 end
