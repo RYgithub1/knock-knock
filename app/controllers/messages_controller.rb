@@ -34,8 +34,6 @@ class MessagesController < ApplicationController
   def message_params
     # merge two hashes to register user_id for messages table
     params.require(:message).permit(:content, :image).merge(user_id: current_user.id)
-    # user_id検証
-    # params.require(:message).permit(:content, :image).merge(user_id: 6)
   end
 
 end

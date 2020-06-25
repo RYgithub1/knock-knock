@@ -2,7 +2,7 @@ class PairsController < ApplicationController
 
   before_action :login_check_pairs, only: [:index]
   before_action :already_pair_exist_check, only: [:new]
-  before_action :create_currentUserAbout_before_pairStart_check, only: [:new]
+  before_action :create_currentUserAbout_before_pairStart_check, only: [:index, :new]
   before_action :set_pair, only: [:new, :create]
 
 
