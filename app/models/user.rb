@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -28,7 +29,5 @@ class User < ApplicationRecord
 
   has_many :hangers, dependent: :destroy
   accepts_nested_attributes_for :hangers, allow_destroy: true
-
-
 
 end

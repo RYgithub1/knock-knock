@@ -11,11 +11,11 @@
         .regis__regisContent__regisContentBody__regisContentBodyFrom
           = f.label :name, class: "regisLabel"
           %br
-          %span.ruleRegisterName ("some English numbers or letters"@"some English numbers or letters")
+          %span.ruleRegisterName (half-width English numbers or letters, more than 8 characters)
           %br
           %span.regisMust Mmandatory
           %br/
-          = f.text_field :name, autofocus: true, class: "regisField", placeholder: "  your nickname"
+          = f.text_field :name, autofocus: true, class: "regisField", placeholder: "  8+ your nickname"
 
         .regis__regisContent__regisContentBody__regisContentBodyFrom
           = f.label :email, class: "regisLabel"
@@ -34,6 +34,7 @@
           = f.label :current_password, class: "regisLabel"
           %br
           %span.regisMust Mmandatory
+          %br
           %i (we need your current password to confirm your changes)
           %br/
           = f.password_field :current_password, autocomplete: "current-password", class: "regisField", placeholder: "  current password"
@@ -42,14 +43,15 @@
           = f.label :password, class: "regisLabel"
           %br
           %span.regisMust Optional
+          %br
           %i (leave blank if you don't want to change it)
           %br/
-          = f.password_field :password, autocomplete: "new-password", class: "regisField", placeholder: "  new password"
+          = f.password_field :password, autocomplete: "new-password", class: "regisField", placeholder: "  8+ new password"
           - if @minimum_password_length
             %br/
             %em
-              = @minimum_password_length
-              characters minimum
+              -# = @minimum_password_length
+              8 characters minimum
 
         .regis__regisContent__regisContentBody__regisContentBodyFrom
           = f.label :password_confirmation, class: "regisLabel"

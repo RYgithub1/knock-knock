@@ -1,4 +1,5 @@
 class Nation < ActiveHash::Base
+
   self.data = [
       {id: 1, name: 'Afghanistan'},
       {id: 2, name: 'Albania'},
@@ -197,5 +198,6 @@ class Nation < ActiveHash::Base
       {id: 195, name: 'Zambia'},
       {id: 196, name: 'Zimbabwe'}
   ]
+
 end
 
