@@ -37,6 +37,8 @@ class MessagesController < ApplicationController
     params.require(:message).permit(:content, :image).merge(user_id: current_user.id)
   end
 
+
+             
   def onlyTwoPersons_canUsePairDoor_check
     # binding.pry
     pairIdArray = []

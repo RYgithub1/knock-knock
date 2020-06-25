@@ -26,9 +26,9 @@
               %span.aboutPhotoTitle ICON PHOTO
             .newFormAbout__newFormAboutPhoto__newFormAboutPhotoCode
               .aboutPhotoCode
-                #image-boxIcon
+                #image-boxIcon.image-boxIcon
                   -# ````` preview part ``````````````````````
-                  #previewsIcon
+                  #previewsIcon.previewsIcon
                     -if @about.persisted?
                       - @about.photos.each_with_index do |pho, m|
                         = image_tag pho.image.url, data:{ indexIcon: m }, width: "100", height: "100"
