@@ -5,6 +5,7 @@ class MessagesController < ApplicationController
 
 
   def index
+    @aboutAZ = About.find_by(user_id: UsersPair.where(pair_id: params[:pair_id]).where.not(user_id: current_user.id)[0].user_id)
     @message = Message.new
     @messages = @pair.messages.includes(:user)
   end
