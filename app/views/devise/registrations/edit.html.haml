@@ -10,12 +10,18 @@
 
         .regis__regisContent__regisContentBody__regisContentBodyFrom
           = f.label :name, class: "regisLabel"
+          %br
+          %span.ruleRegisterName ("some English numbers or letters"@"some English numbers or letters")
+          %br
           %span.regisMust Mmandatory
           %br/
           = f.text_field :name, autofocus: true, class: "regisField", placeholder: "  your nickname"
 
         .regis__regisContent__regisContentBody__regisContentBodyFrom
           = f.label :email, class: "regisLabel"
+          %br
+          %span.ruleRegisterName ("some English numbers or letters"@"some English numbers or letters")
+          %br
           %span.regisMust Mmandatory
           %br/
           = f.email_field :email, autofocus: true, autocomplete: "email", class: "regisField", placeholder: "  any mail address"
@@ -26,6 +32,7 @@
 
         .regis__regisContent__regisContentBody__regisContentBodyFrom
           = f.label :current_password, class: "regisLabel"
+          %br
           %span.regisMust Mmandatory
           %i (we need your current password to confirm your changes)
           %br/
@@ -33,6 +40,7 @@
 
         .regis__regisContent__regisContentBody__regisContentBodyFrom
           = f.label :password, class: "regisLabel"
+          %br
           %span.regisMust Optional
           %i (leave blank if you don't want to change it)
           %br/
@@ -45,6 +53,7 @@
 
         .regis__regisContent__regisContentBody__regisContentBodyFrom
           = f.label :password_confirmation, class: "regisLabel"
+          %br
           %span.regisMust Optional
           %br/
           = f.password_field :password_confirmation, autocomplete: "new-password", class: "regisField", placeholder: "  new one"

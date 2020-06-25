@@ -2,7 +2,7 @@
   background-color: #ffdab9;
   padding-top: 121px;
   width: 100%;
-  height: 100vh;
+  height: 120%;
 
   &__regisContent {
     background-color: #ffd482;
@@ -21,7 +21,7 @@
     }
 
     &__regisContentBody {
-      width: 350px;
+      width: 600px;
       margin: 0 auto;
       padding-top: 0px;
       padding-bottom: 30px;
@@ -31,6 +31,9 @@
         .regisLabel {
           font-weight: bold;
           font-size: 25px;
+        }
+        .ruleRegisterName {
+          // width: 400px;
         }
         .regisMust {
           color: red;

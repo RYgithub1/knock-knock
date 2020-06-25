@@ -8,15 +8,17 @@
 
         .regis__regisContent__regisContentBody__regisContentBodyFrom
           = f.label :email, class: "regisLabel"
+          %br
           %span.regisMust Mmandatory
           %br/
           = f.email_field :email, class: "regisField", placeholder: "  your mail address"
 
         .regis__regisContent__regisContentBody__regisContentBodyFrom
           = f.label :password, class: "regisLabel"
+          %br
           - if @minimum_password_length
             %em
-              (#{@minimum_password_length} characters minimum) <-lets fix here !
+              (#{@minimum_password_length + 2 } characters minimum)
           %span.regisMust Mmandatory
           %br/
           = f.password_field :password, autocomplete: "new-password", class: "regisField", placeholder: "  8+ password"

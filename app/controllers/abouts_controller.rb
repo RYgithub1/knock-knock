@@ -6,7 +6,7 @@ class AboutsController < ApplicationController
 
   def new
     @about = About.new
-    # aboutモデルに紐付く各モデルのインスタンスの設定が必要
+    # make new instances of each, related to About model
     @about.photos.new
     @about.pictures.new
   end
@@ -20,14 +20,13 @@ class AboutsController < ApplicationController
     end
   end
 
-
-           
   def show
     @about = About.find_by(id: params[:id])
     @photos = Photo.where(id: @about.photos.ids)
     @pictures = Picture.where(id: @about.pictures.ids)
   end
 
+             
   def edit
     @about = About.find_by(id: params[:id])
     @photos = Photo.where(id: @about.photos.ids)
@@ -41,13 +40,10 @@ class AboutsController < ApplicationController
     if @about.update(about_params)
       redirect_to about_path(@about.id)
     else
-      render :edit
+      # １なぜかこっちきてるし
+      redirect_to edit_about_path(@about.id)
+
     end
-  end
-        
-  def destroy
-  #   @about.destroy
-  #   redirect_to root_path
   end
 
 
