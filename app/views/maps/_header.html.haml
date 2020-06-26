@@ -23,3 +23,12 @@
           = link_to "SignUp", new_user_registration_path, class: "leftBtn"
         .header__headerContent__headerContentLink__headerContentLinkRight
           = link_to "LogIn", new_user_session_path, class: "rightBtn"
+
+.displayPop
+  - if user_signed_in?
+    .displayPop__displayPopCurrent
+      %h5.displayPopCurrentTitle
+        current;
+        %br
+      %h5.displayPopCurrentName
+        = current_user.name

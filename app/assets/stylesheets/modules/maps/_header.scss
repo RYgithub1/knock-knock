@@ -85,3 +85,27 @@
     }
   }
 }
+
+.displayPop {
+  z-index: 999;
+  opacity: 0.5;
+  height: 80px;
+  position: fixed;
+  top: 200px;
+  right: 55px;
+  border-radius: 20px;
+  border: 1px solid red;
+  background-color: #ff9933;
+  text-align: center;
+  padding: 12px 20px 12px 20px;
+  &__displayPopCurrent {
+    .displayPopCurrentTitle {
+    }
+    .displayPopCurrentName {
+    }
+  }
+}
+.displayPop:hover {
+  opacity: 0.8;
+  font-weight: bold;
+}
