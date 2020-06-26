@@ -9,6 +9,8 @@ class About < ApplicationRecord
   has_many :photos, dependent: :destroy
   # fields_for -> to show relation for child table name at parent's model
   accepts_nested_attributes_for :photos, allow_destroy: true
+  validates_associated :photos
+  validates :photos, presence: true
 
   # to Pictures Table
   has_many :pictures, dependent: :destroy

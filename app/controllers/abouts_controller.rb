@@ -17,7 +17,7 @@ class AboutsController < ApplicationController
     if @about.save
       redirect_to about_path(@about.id)
     else
-      render :new
+      redirect_to new_about_path
     end
   end
 
