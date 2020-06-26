@@ -21,9 +21,20 @@
           .newFormAbout__newFormAboutTitle
             %span.newFormAboutTitleText 《Mandatory Information 1》
             %span.newFormAboutTitleMust ----------
+      
+          .newFormAbout__newFormAboutName
+            .newFormAbout__newFormAboutName__newFormAboutNameTitle
+              %span.newFormAboutNameText YOUR NAME
+            .newFormAbout__newFormAboutName__newFormAboutNameCode
+              = current_user.name
+          .newFormAbout__newFormAboutContribution
+            .newFormAbout__newFormAboutContribution__newFormAboutContributionTitle
+              -# contribution function later
+            .newFormAbout__newFormAboutContribution__newFormAboutContributionCode
+          
           .newFormAbout__newFormAboutPhoto
             .newFormAbout__newFormAboutPhoto__newFormAboutPhotoTitle
-              %span.aboutPhotoTitle ICON PHOTO
+              %span.aboutPhotoTitle ICON PHOTO (1/5)
             .newFormAbout__newFormAboutPhoto__newFormAboutPhotoCode
               .aboutPhotoCode
                 #image-boxIcon.image-boxIcon
@@ -48,16 +59,6 @@
                         = file_field_tag :image, name: "about[photos_attributes][#{@about.photos.count}][image]", class: "jsFileIcon"
                         .jsRemoveIcon
                           delete icon
-
-          .newFormAbout__newFormAboutName
-            .newFormAbout__newFormAboutName__newFormAboutNameTitle
-              %span.newFormAboutNameText YOUR NAME
-            .newFormAbout__newFormAboutName__newFormAboutNameCode
-              = current_user.name
-          .newFormAbout__newFormAboutContribution
-            .newFormAbout__newFormAboutContribution__newFormAboutContributionTitle
-              -# contribution function later
-            .newFormAbout__newFormAboutContribution__newFormAboutContributionCode
         %br
         %br
         %br
@@ -69,14 +70,14 @@
 
           .newFormBasic__newFormBasicNation
             .newFormBasic__newFormBasicNation__newFormBasicNationTitle
-              %span.basicNationTitle NATIONALITY
+              %span.basicNationTitle NATIONALITY (2/5)
             .newFormBasic__newFormBasicNation__newFormBasicNationCode
               .basicNationCode
                 = f.collection_select :nation_id, Nation.all, :id, :name
 
           .newFormBasic__newFormBasicLanguage
             .newFormBasic__newFormBasicLanguage__newFormBasicLanguageTitle
-              %span.basicLanguageTitle LANGUAGES
+              %span.basicLanguageTitle LANGUAGES (3/5)
             .newFormBasic__newFormBasicLanguage__newFormBasicLanguageCode
               -# TODO: tag
               .basicLanguageCode
@@ -89,7 +90,7 @@
 
           .newFormBasic__newFormBasicBirthday
             .newFormBasic__newFormBasicBirthday__newFormBasicBirthdayTitle
-              %span.basicBirthdayTitle BIRTHDAY
+              %span.basicBirthdayTitle BIRTHDAY (4/5)
             .newFormBasic__newFormBasicBirthday__newFormBasicBirthdayCode
               %span.birthdayForm dd / mm / yyyy
               %br
@@ -98,7 +99,7 @@
 
           .newFormBasic__newFormBasicSex
             .newFormBasic__newFormBasicSex__newFormBasicSexTitle
-              %span.basicSexTitle SEX
+              %span.basicSexTitle SEX (5/5)
             .newFormBasic__newFormBasicSex__newFormBasicSexCode
               .basicSexCode
                 = f.label :male

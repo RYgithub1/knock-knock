@@ -2,6 +2,7 @@ class AboutsController < ApplicationController
 
   before_action :oneUser_oneAbout_check, only: [:new, :create]
   before_action :noCurrentUserAbout_then_canNotWatchOtherAbout_check, only: [:show, :edit, :update]
+  # before_action :set_about, only: [:show, :edit, :update]
 
 
   def new
