@@ -38,26 +38,13 @@ class MessagesController < ApplicationController
   end
 
   def onlyTwoPersons_canUsePairDoor_check
-    # binding.pry
     pairIdArray = []
     currentUserPairsArray  = []
-
-    # pairIdArray << params[:pair_id].to_i
-    UsersPair.where(pair_id: params[:pair_id]).each do |pi|
-      pairIdArray << pi.pair_id
+    pairIdArray << params[:pair_id].to_i
+    current_user.users_pairs.each do |cur|
+      currentUserPairsArray << cur.pair_id
     end
-
-    # current_user.users_pairs.each do |cur|
-    #   currentUserPairsArray << cur.pair_id
-    # end
-    UsersPair.where(user_id: current_user.id).each do |cu|
-      currentUserPairsArray << cu.pair_id
-    end
-
-    pairIdCheck = pairIdArray & currentUserPairsArray
-    if pairIdCheck.blank?
-      root_path
-    end
+    redirect_to root_path if (pairIdArray & currentUserPairsArray).blank?
   end
 
 end

@@ -2,6 +2,7 @@ class AboutsController < ApplicationController
 
   before_action :oneUser_oneAbout_check, only: [:new, :create]
   before_action :noCurrentUserAbout_then_canNotWatchOtherAbout_check, only: [:show, :edit, :update]
+  # before_action :set_about, only: [:show, :edit, :update]
 
 
   def new
@@ -16,7 +17,7 @@ class AboutsController < ApplicationController
     if @about.save
       redirect_to about_path(@about.id)
     else
-      render :new
+      redirect_to new_about_path
     end
   end
 

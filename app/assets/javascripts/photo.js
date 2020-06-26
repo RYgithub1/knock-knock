@@ -8,8 +8,8 @@ $(document).on("turbolinks:load", function () {
     return html;
   };
 
-  const buildImgIcon = function (tIndex, bUrl) {
-    const html = `<img data-indexIcon="${tIndex}" src="${bUrl}" width="100px" height="100px">`;
+  const buildImgIcon = function (tIndexIcon, bUrlIcon) {
+    const html = `<img data-indexIcon="${tIndexIcon}" src="${bUrlIcon}" width="100px" height="100px">`;
     return html;
   };
   let fileIndexIcon = [1, 2];
@@ -20,7 +20,10 @@ $(document).on("turbolinks:load", function () {
 
   // ==== 新規と編集 ================================
   $("#image-boxIcon").on("change", ".jsFileIcon", function (e) {
-    const targetIndex = $(this).parent().parent().data("indexIcon");
+    // one photo for one about(here)
+    // const targetIndex = $(this).parent().parent().data("indexIcon");
+    const targetIndex = 0;
+
     const file = e.target.files[0];
     const blobUrl = window.URL.createObjectURL(file);
 
@@ -37,7 +40,9 @@ $(document).on("turbolinks:load", function () {
 
   // ==== 削除 =========================================
   $("#image-boxIcon").on("click", ".jsRemoveIcon", function () {
-    const targetIndex = $(this).parent().parent().data("indexIcon");
+    // one photo for one about(here)
+    // const targetIndex = $(this).parent().parent().data("indexIcon");
+    const targetIndex = 0;
     const hiddenCheck = $(
       `input[data-indexIcon="${targetIndex}"].hiddenDestroyIcon`
     );

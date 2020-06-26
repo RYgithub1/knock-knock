@@ -37,7 +37,6 @@
         width: 100%;
         height: 200px;
         padding: 15px 5px 20px 5px;
-
         &__newFormAboutTitle {
           .newFormAboutTitleText {
             font-size: 30px;
@@ -47,6 +46,28 @@
             color: red;
             display: block;
             font-size: 10px;
+          }
+        }
+        &__newFormAboutName {
+          margin: 20px auto;
+          &__newFormAboutNameTitle {
+            .newFormAboutNameText {
+              font-size: 25px;
+              font-weight: bold;
+            }
+          }
+          &__newFormAboutNameCode {
+            font-size: 25px;
+            font-weight: bold;
+            color: rgb(8, 133, 216);
+          }
+        }
+        &__newFormAboutContribution {
+          &__newFormAboutContributionTitle {
+            font-size: 20px;
+            font-weight: bold;
+          }
+          &__newFormAboutContributionCode {
           }
         }
         &__newFormAboutPhoto {
@@ -63,40 +84,23 @@
             background-color: rgb(255, 196, 129);
             padding-top: 5px;
             .aboutPhotoCode {
-              #image-boxIcon {
+              .image-boxIcon {
+                .previewsIcon {
+                }
                 .jsFileGroupIcon {
                   .jsFileLabelIcon {
                     .jsFileIcon {
                     }
                     .jsRemoveIcon {
                     }
+                    .jsRemoveIcon:hover {
+                      font-weight: bold;
+                      color: rgb(255, 94, 0);
+                    }
                   }
                 }
               }
             }
-          }
-        }
-
-        &__newFormAboutName {
-          margin: 20px auto;
-          &__newFormAboutNameTitle {
-            .newFormAboutNameText {
-              font-size: 20px;
-              font-weight: bold;
-            }
-          }
-          &__newFormAboutNameCode {
-            font-size: 20px;
-            font-weight: bold;
-            color: rgb(8, 133, 216);
-          }
-        }
-        &__newFormAboutContribution {
-          &__newFormAboutContributionTitle {
-            font-size: 20px;
-            font-weight: bold;
-          }
-          &__newFormAboutContributionCode {
           }
         }
       }
@@ -107,7 +111,7 @@
         width: 100%;
         height: 370px;
         padding: 15px 5px 20px 5px;
-        margin-top: 100px;
+        margin-top: 130px;
         &__newFormBasicTitle {
           .newFormBasicTitleText {
             font-size: 30px;
@@ -185,7 +189,8 @@
       // -# =====  追加情報  ==========================
       .newFormPlus {
         border-top: 1px solid #ff6600;
-        padding: 15px 5px 20px 5px;
+        padding: 25px 5px 20px 5px;
+        margin-top: 30px;
         &__newFormPlusTitle {
           .newFormPlusTitleText {
             font-size: 30px;
@@ -225,9 +230,9 @@
           }
           &__newFormPlusPictureCode {
             width: 95%;
-            height: 300px;
+            height: 350px;
             margin: 10px auto;
-            padding-top: 20px;
+            padding-top: 15px;
             background-color: rgb(255, 196, 129);
             .plusPictureCode {
               .image-box {
@@ -243,7 +248,7 @@
                     .jsFile {
                     }
                     .jsRemove {
-                      width: 170px;
+                      width: 200px;
                       height: 20px;
                       margin-top: 2px;
                     }
