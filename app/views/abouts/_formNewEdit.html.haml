@@ -21,7 +21,7 @@
           .newFormAbout__newFormAboutTitle
             %span.newFormAboutTitleText 《Mandatory Information 1》
             %span.newFormAboutTitleMust ----------
-      
+
           .newFormAbout__newFormAboutName
             .newFormAbout__newFormAboutName__newFormAboutNameTitle
               %span.newFormAboutNameText YOUR NAME
@@ -31,7 +31,7 @@
             .newFormAbout__newFormAboutContribution__newFormAboutContributionTitle
               -# contribution function later
             .newFormAbout__newFormAboutContribution__newFormAboutContributionCode
-          
+
           .newFormAbout__newFormAboutPhoto
             .newFormAbout__newFormAboutPhoto__newFormAboutPhotoTitle
               %span.aboutPhotoTitle ICON PHOTO (1/5)
@@ -53,12 +53,13 @@
                     - if @about.persisted?
                       = i.check_box :_destroy, data:{ indexIcon: i.index }, class: "hiddenDestroyIcon"
                   -# ````` additonal group part ``````````````````````
-                  - if @about.persisted?
-                    .jsFileGroupIcon{"data-indexIcon" => "#{@about.photos.count}"}
-                      = label_tag :image, class: "jsFileLabelIcon" do
-                        = file_field_tag :image, name: "about[photos_attributes][#{@about.photos.count}][image]", class: "jsFileIcon"
-                        .jsRemoveIcon
-                          delete icon
+                  -# no need anymore photo now (if few photos, then add)
+                  -# - if @about.persisted?
+                  -#   .jsFileGroupIcon{"data-indexIcon" => "#{@about.photos.count}"}
+                  -#     = label_tag :image, class: "jsFileLabelIcon" do
+                  -#       = file_field_tag :image, name: "about[photos_attributes][#{@about.photos.count}][image]", class: "jsFileIcon"
+                  -#       .jsRemoveIcon
+                  -#         delete icon
         %br
         %br
         %br
@@ -136,7 +137,7 @@
 
                   -# `````` 処理 FileGroup１ ``````````````````````
                   = f.fields_for :pictures do |j|
-                    -# j.indexよりbuild時にindexをあてがいカスタムとして取得
+                    -# fields_for内でj.indexより、build時にindexをあてがいカスタムデータとして要素を取得
                     .jsFileGroup{"data-index" => "#{j.index}"}
                       = j.label :image, class: "jsFileLabel" do
                         = j.file_field :image, class: "jsFile"
@@ -144,7 +145,7 @@
                           ← delete left picture?
                     -# 既に 上記で@aboutが存在->保存済みimage削除用check_box->checkBoxをon->railsがレコード検索し削除実行
                     - if @about.persisted?
-                      = image.check_box :_destroy, data:{ index: j.index }, class: "hiddenDestroy"
+                      = j.check_box :_destroy, data:{ index: j.index }, class: "hiddenDestroy"
 
                   -# `````` 処理 FileGroup２ ``````````````````````
                   -# (edit遷移時のbuildは既存枚数分のみゆえ、追加用input作成)

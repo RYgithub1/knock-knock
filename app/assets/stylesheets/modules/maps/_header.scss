@@ -104,6 +104,11 @@
     .displayPopCurrentName {
     }
   }
+  &__displayPopNo {
+    .displayPopNoName {
+      padding-top: 13px;
+    }
+  }
 }
 .displayPop:hover {
   opacity: 0.8;

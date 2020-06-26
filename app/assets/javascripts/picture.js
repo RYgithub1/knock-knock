@@ -15,7 +15,7 @@ $(document).on("turbolinks:load", function () {
   };
 
   // file_fieldのnameに動的なindexをつける為の配列
-  let fileIndex = [1, 2, 3, 4];
+  let fileIndex = [1, 2, 3, 4, 5, 6, 7];
 
   // ページ読み込み時に、既に使われているindexを除外
   lastIndex = $(".jsFileGroup:last").data("index");
@@ -27,6 +27,7 @@ $(document).on("turbolinks:load", function () {
     const targetIndex = $(this).parent().parent().data("index");
     // ファイルのブラウザ上でのURLを取得する
     const file = e.target.files[0];
+    // blobaデータかfileデータをdownload（window.URL.createObjectURLメソ）
     const blobUrl = window.URL.createObjectURL(file);
 
     // 該当indexを持つimgがあれば取得して変数imgに入れる(画像変更の処理)
