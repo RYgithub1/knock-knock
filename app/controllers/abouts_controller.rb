@@ -2,7 +2,7 @@ class AboutsController < ApplicationController
 
   before_action :oneUser_oneAbout_check, only: [:new, :create]
   before_action :noCurrentUserAbout_then_canNotWatchOtherAbout_check, only: [:show, :edit, :update]
-  # before_action :set_about, only: [:show, :edit, :update]
+  before_action :set_about, only: [:show, :edit, :update]
 
 
   def new
@@ -22,28 +22,16 @@ class AboutsController < ApplicationController
   end
 
   def show
-    @about = About.find_by(id: params[:id])
-    @photos = Photo.where(id: @about.photos.ids)
-    @pictures = Picture.where(id: @about.pictures.ids)
   end
 
-                  
   def edit
-    @about = About.find_by(id: params[:id])
-    @photos = Photo.where(id: @about.photos.ids)
-    @pictures = Picture.where(id: @about.pictures.ids)
   end
 
   def update
-    @about = About.find_by(id: params[:id])
-    @photos = Photo.where(id: @about.photos.ids)
-    @pictures = Picture.where(id: @about.pictures.ids)
     if @about.update(about_params)
       redirect_to about_path(@about.id)
     else
-      # なぜかこっち photo のときは、newもeditも？
       redirect_to edit_about_path(@about.id)
-
     end
   end
 
@@ -74,6 +62,12 @@ class AboutsController < ApplicationController
     if About.find_by(user_id: current_user.id).blank?
       redirect_to new_about_path
     end
+  end
+
+  def set_about
+    @about = About.find_by(id: params[:id])
+    @photos = Photo.where(id: @about.photos.ids)
+    @pictures = Picture.where(id: @about.pictures.ids)
   end
 
 end
