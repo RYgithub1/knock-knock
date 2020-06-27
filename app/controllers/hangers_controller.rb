@@ -1,6 +1,6 @@
 class HangersController < ApplicationController
 
-  before_action :set_about, only: [:create, :destroy]
+  before_action :set_hanger, only: [:create, :destroy]
 
 
   def create
@@ -17,7 +17,7 @@ class HangersController < ApplicationController
 
 
   private
-  def set_about
+  def set_hanger
     @about = About.new(id: params[:about_id])
   end
 

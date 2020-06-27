@@ -92,3 +92,4 @@ function initMap() {
   //   marker.setMap(null); //マーカーを削除
   // });
 }
+
