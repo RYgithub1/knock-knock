@@ -41,9 +41,12 @@ class AboutsController < ApplicationController
     params.require(:about).permit(
       :sex,
       :body,
+      :address,
       :birthday,
       :tag_list,
       # tag_ids: [],
+      :latitude,
+      :longitude,
       :nation_id,
       :invitation,
       :recommendation,
