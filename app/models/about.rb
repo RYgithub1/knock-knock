@@ -34,7 +34,7 @@ class About < ApplicationRecord
     hangers.where(user_id: user.id).exists?
   end
 
-  # map
+  # geocode for map
   geocoded_by :address
   after_validation :geocode
 
