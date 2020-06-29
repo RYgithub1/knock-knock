@@ -191,7 +191,7 @@
         }
       }
     }
-    // -# hanger ===================
+    // -# doorHanger or currentLocation ===================
     &__aboutsShowContentHanger {
       &__locationTitle {
         .locationTitleName {
@@ -222,6 +222,25 @@
         }
       }
       &__locationCurrent {
+        padding-top: 20px;
+        &__nowSpot {
+          .nowSpotTitle {
+          }
+        }
+        &__nowCountry {
+          font-size: 22px;
+          &__nowCountryExist {
+          }
+          &__nowCountryNone {
+          }
+        }
+        &__nowCity {
+          font-size: 22px;
+          &__nowCityExist {
+          }
+          &__nowCityNone {
+          }
+        }
       }
       &__aboutsShowContentHangerTitle {
         .showContentHangerTitle {
