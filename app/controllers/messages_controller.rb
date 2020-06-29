@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
 
   before_action :login_check_messages, only: [:index]
-  before_action :set_pair, only: [:index, :create]
+  before_action :set_message, only: [:index, :create]
   before_action :onlyTwoPersons_canUsePairDoor_check, only: [:index, :create]
 
 
@@ -28,7 +28,7 @@ class MessagesController < ApplicationController
     redirect_to new_user_session_path unless user_signed_in?
   end
 
-  def set_pair
+  def set_message
     @pair = Pair.find_by(id: params[:pair_id])
   end
 

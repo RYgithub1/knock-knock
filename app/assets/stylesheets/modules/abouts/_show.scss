@@ -193,6 +193,36 @@
     }
     // -# hanger ===================
     &__aboutsShowContentHanger {
+      &__locationTitle {
+        .locationTitleName {
+        }
+        .locationTitleSub {
+          margin-top: 20px;
+        }
+      }
+      &__locationCode {
+        .locationCodeName {
+          margin-top: 20px;
+        }
+        .mapNone {
+          display: none;
+        }
+        button {
+          margin-top: 20px;
+          padding: 10px 30px;
+          font-size: 20px;
+          border-radius: 20px;
+          border: 2px solid rgb(0, 174, 255);
+          background-color: rgb(253, 186, 148);
+          color: black;
+          opacity: 0.85;
+        }
+        button:hover {
+          opacity: 1;
+        }
+      }
+      &__locationCurrent {
+      }
       &__aboutsShowContentHangerTitle {
         .showContentHangerTitle {
           font-weight: bold;

@@ -59,7 +59,6 @@
         %h.showContentPictureTitle PICTURES
       .aboutsShow__aboutsShowContent__aboutsShowContentPicture__aboutsShowContentPictureCode
         .showContentPictureCode
-          -# - if @about.pictures.image.present?
           - if @pictures.present?
             - @pictures.each do |picture|
               = image_tag picture.image.url, class: "pictureImage", size: "200x180"
@@ -80,14 +79,43 @@
         .showContentRecommendationCode
           = simple_format(h(@about.recommendation))
 
-    -# ----- door hanger --------------------------
+    -# ----- doorHanger or currentLocation -----------
     .aboutsShow__aboutsShowContent__aboutsShowContentHanger
       - unless user_signed_in?
         = render "/users/sign_in"
       - else
         - if current_user.id == @about.user.id
-          -# (投稿者本人なら表示しない)
+          -# `````` currentLocation ``````````````````````
+          .aboutsShow__aboutsShowContent__aboutsShowContentHanger__locationTitle
+            %h2.locationTitleName Location
+            %h4.locationTitleSub Your device CAN inform current spot to communicate with others Simply !
+          .aboutsShow__aboutsShowContent__aboutsShowContentHanger__locationCode
+            %h4.locationCodeName just Click
+            -# need id
+            #map.mapNone
+              :javascript
+                if (!navigator.geolocation) {
+                  // 端末がGeolocationAPIに非対応
+                  window.alert("This device can Not deal with spot button.");
+                } else {
+                  // 端末がGeolocationAPIに対応
+                  window.alert("This device can deal with spot button.");
+                }
+            %button{:onclick => "getPosition();"}
+              Get > Current Spot
+            -# %span{id: "latitude"}
+            -# - k = latitude
+            -# = p k
+            -# - @currentUserAbout.latitude
+            -# %span{id: "longitude"}
+            -# - @currentUserAbout.longitude = longitude
+            -# xxx.innerHTML
+
+
+          .aboutsShow__aboutsShowContent__aboutsShowContentHanger__locationCurrent
+            -# here is your current city name.
         - else
+          -# `````` doorHanger ````````````````````````
           .aboutsShow__aboutsShowContent__aboutsShowContentHanger__aboutsShowContentHangerTitle
             %h.showContentHangerTitle Door Hanger
           .aboutsShow__aboutsShowContent__aboutsShowContentHanger__aboutsShowContentHangerCode
