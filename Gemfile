@@ -83,3 +83,4 @@ gem "acts-as-taggable-on", github: "Fodoj/acts-as-taggable-on", branch: "rails-5
 gem "bootstrap", '~> 4.5.0'
 gem "geocoder"
 gem "gmaps4rails"
+gem "gon"

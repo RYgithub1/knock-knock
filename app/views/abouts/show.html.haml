@@ -90,19 +90,28 @@
             %h2.locationTitleName Location
             %h4.locationTitleSub Your device CAN inform current spot to communicate with others Simply !
           .aboutsShow__aboutsShowContent__aboutsShowContentHanger__locationCode
-            %h4.locationCodeName just Click Twice
+            %h4.locationCodeName just Click
             -# need id
             #map.mapNone
               :javascript
                 if (!navigator.geolocation) {
                   // 端末がGeolocationAPIに非対応
-                  alert("This device can Not deal with spot button.");
+                  window.alert("This device can Not deal with spot button.");
                 } else {
                   // 端末がGeolocationAPIに対応
-                  alert("This device can deal with spot button.");
+                  window.alert("This device can deal with spot button.");
                 }
             %button{:onclick => "getPosition();"}
               Get > Current Spot
+            -# %span{id: "latitude"}
+            -# - k = latitude
+            -# = p k
+            -# - @currentUserAbout.latitude
+            -# %span{id: "longitude"}
+            -# - @currentUserAbout.longitude = longitude
+            -# xxx.innerHTML
+
+
           .aboutsShow__aboutsShowContent__aboutsShowContentHanger__locationCurrent
             -# here is your current city name.
         - else

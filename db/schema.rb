@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 2020_06_27_140500) do
     t.datetime "updated_at", null: false
     t.integer "nation_id"
     t.string "address"
-    t.decimal "latitude", precision: 9, scale: 6
-    t.decimal "longitude", precision: 10, scale: 6
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_abouts_on_user_id"
   end
 
