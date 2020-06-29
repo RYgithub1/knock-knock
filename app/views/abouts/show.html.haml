@@ -88,7 +88,7 @@
           -# `````` currentLocation ``````````````````````
           .aboutsShow__aboutsShowContent__aboutsShowContentHanger__locationTitle
             %h2.locationTitleName Location
-            %h4.locationTitleSub Your device CAN inform current spot to communicate with others Simply !
+            %h4.locationTitleSub Your device CAN inform current spot, to communicate with others Simply !
           .aboutsShow__aboutsShowContent__aboutsShowContentHanger__locationCode
             %h4.locationCodeName just Click once
             -# need id
@@ -104,9 +104,26 @@
             %button{:onclick => "getPosition();"}
               Get > Current Spot
           .aboutsShow__aboutsShowContent__aboutsShowContentHanger__locationCurrent
-            -# here is your current city name.
-            -# %span{id: "latitude"}
-            -# %span{id: "longitude"}
+            .aboutsShow__aboutsShowContent__aboutsShowContentHanger__locationCurrent__nowSpot
+              %h4.nowSpotTitle Your current spot is below.
+            - if @about.nowCountry.present?
+              .aboutsShow__aboutsShowContent__aboutsShowContentHanger__locationCurrent__nowCountry
+                .aboutsShow__aboutsShowContent__aboutsShowContentHanger__locationCurrent__nowCountry__nowCountryExist
+                  = "country : "
+                  = @about.nowCountry
+            - else
+              .aboutsShow__aboutsShowContent__aboutsShowContentHanger__locationCurrent__nowCountry
+                .aboutsShow__aboutsShowContent__aboutsShowContentHanger__locationCurrent__nowCountry__nowCountryNone
+                  = "no info"
+            - if @about.nowCity.present?
+              .aboutsShow__aboutsShowContent__aboutsShowContentHanger__locationCurrent__nowCity
+                .aboutsShow__aboutsShowContent__aboutsShowContentHanger__locationCurrent__nowCity__nowCityExist
+                = "city : "
+                = @about.nowCity
+            - else
+              .aboutsShow__aboutsShowContent__aboutsShowContentHanger__locationCurrent__nowCity
+                .aboutsShow__aboutsShowContent__aboutsShowContentHanger__locationCurrent__nowCity__nowCityNone
+                  = "no info"
 
         - else
           -# `````` doorHanger ````````````````````````
