@@ -96,24 +96,18 @@
               :javascript
                 if (!navigator.geolocation) {
                   // 端末がGeolocationAPIに非対応
-                  window.alert("This device can Not deal with spot button.");
+                  window.alert("This device can Not deal with Current Spot button.");
                 } else {
                   // 端末がGeolocationAPIに対応
-                  window.alert("This device can deal with spot button.");
+                  window.alert("This device can deal with Current Spot button.");
                 }
             %button{:onclick => "getPosition();"}
               Get > Current Spot
-            -# %span{id: "latitude"}
-            -# - k = latitude
-            -# = p k
-            -# - @currentUserAbout.latitude
-            -# %span{id: "longitude"}
-            -# - @currentUserAbout.longitude = longitude
-            -# xxx.innerHTML
-
-
           .aboutsShow__aboutsShowContent__aboutsShowContentHanger__locationCurrent
             -# here is your current city name.
+            -# %span{id: "latitude"}
+            -# %span{id: "longitude"}
+
         - else
           -# `````` doorHanger ````````````````````````
           .aboutsShow__aboutsShowContent__aboutsShowContentHanger__aboutsShowContentHangerTitle
