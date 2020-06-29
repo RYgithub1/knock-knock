@@ -89,7 +89,7 @@
 .displayPop {
   z-index: 999;
   opacity: 0.5;
-  height: 80px;
+  height: 121px;
   position: fixed;
   top: 200px;
   right: 55px;
@@ -103,10 +103,12 @@
     }
     .displayPopCurrentName {
     }
+    .displayPopCurrentSpot {
+    }
   }
   &__displayPopNo {
     .displayPopNoName {
-      padding-top: 13px;
+      padding-top: 20px;
     }
   }
 }
