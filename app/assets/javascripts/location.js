@@ -3,13 +3,6 @@ function getPosition() {
   navigator.geolocation.getCurrentPosition(
     // ----- 《First Argument : Success to get》 -----------------
     function successFunction(position) {
-      alert(
-        "メッセージ修正!  " +
-          "緯度:" +
-          position.coords.latitude +
-          ",経度" +
-          position.coords.longitude
-      );
       $.ajax({
         type: "GET",
         url: "/abouts/location",

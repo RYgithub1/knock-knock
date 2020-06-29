@@ -37,6 +37,7 @@
       %h5.displayPopCurrentName
         = current_user.name
       %h5.displayPopCurrentSpot
-        = @about.nowCountry if @about.nowCountry.present?
-        = " , " if @about.nowCountry.present? && @about.nowCity if @about.nowCity.present?
-        = @about.nowCity if @about.nowCity.present?
+        - @currentUserAbout = About.find_by(user_id: current_user.id)
+        = @currentUserAbout.nowCountry if @currentUserAbout.nowCountry.present?
+        = " , " if @currentUserAbout.nowCountry.present? && @currentUserAbout.nowCity.present?
+        = @currentUserAbout.nowCity if @currentUserAbout.nowCity.present?
