@@ -11,7 +11,6 @@
 
     -# Dynamic Loading on/off
     %script{async: "", defer: "defer", src: "https://maps.googleapis.com/maps/api/js?key=#{ENV['MAP_API_KEY']}&callback=initMap"}
-    -# %script{src: "https://maps.googleapis.com/maps/api/js?key=#{ENV['MAP_API_KEY']}&libraries=geometry", type: "text/javascript"}
 
   %body
     = render "maps/header"

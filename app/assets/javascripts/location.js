@@ -3,6 +3,7 @@ function getPosition() {
   navigator.geolocation.getCurrentPosition(
     // ----- 《First Argument : Success to get》 -----------------
     function successFunction(position) {
+      window.alert("Success to get !");
       $.ajax({
         type: "GET",
         url: "/abouts/location",
