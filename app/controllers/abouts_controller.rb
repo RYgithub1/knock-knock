@@ -41,16 +41,18 @@ class AboutsController < ApplicationController
     @currentUserAbout = About.find_by(user_id: current_user.id)
     @currentUserAbout.latitude = params[:latitude].to_f
     @currentUserAbout.longitude = params[:longitude].to_f
-    if Geocoder.search([params[:latitude].to_f, params[:longitude].to_f]).first.country.present?
-      @currentUserAbout.nowCountry = Geocoder.search([params[:latitude].to_f, params[:longitude].to_f]).first.country
+    # @currentUserAbout.latitude = 35.878919;
+    # @currentUserAbout.longitude = 139.455159;
+              
+    if Geocoder.search([@currentUserAbout.latitude, @currentUserAbout.longitude]).first.country.present?
+      @currentUserAbout.nowCountry = Geocoder.search([@currentUserAbout.latitude, @currentUserAbout.longitude]).first.country
     end
-    if Geocoder.search([params[:latitude].to_f, params[:longitude].to_f]).first.city.present?
-      @currentUserAbout.nowCity = Geocoder.search([params[:latitude].to_f, params[:longitude].to_f]).first.city
+    if Geocoder.search([@currentUserAbout.latitude, @currentUserAbout.longitude]).first.city.present?
+      @currentUserAbout.nowCity = Geocoder.search([@currentUserAbout.latitude, @currentUserAbout.longitude]).first.city
     end
-    if @currentUserAbout.save
-    else
-      # Couldn't save location infos.
-    end
+    @currentUserAbout.save
+    # binding.pry
+    redirect_to about_path(@currentUserAbout.id)
   end
 
 
