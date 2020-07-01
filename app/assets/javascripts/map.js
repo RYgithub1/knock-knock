@@ -2,13 +2,29 @@
 // var mapCenter;
 // var mapMarker;
 // var mapInfoWindow;
+// `````````````````````````````````````````
+console.log(gon.nameArray);
+console.log(gon.aboutIdArray);
+console.log(gon.aboutIdArray[2]);
+console.log(gon.latArray);
+console.log(gon.lngArray);
+console.log(gon.invArray);
+console.log(parseFloat(gon.latArray));
+
+var currentUserLat = parseFloat(gon.latArray[0]);
+var currentUserLng = parseFloat(gon.lngArray[0]);
 
 function initMap() {
   var mapArea = document.getElementById("map");
-  var mapCenter = { lat: 35.681272, lng: 139.766946 };
+  var mapCenter = {
+    // lat: 35.659482,
+    // lng: 139.700553,
+    lat: currentUserLat,
+    lng: currentUserLng,
+  };
   var mapOption = {
     center: mapCenter,
-    zoom: 12,
+    zoom: 8,
     // PCzoom(ctrl/comm*scroll)_or_Mobile(2fingers)
     gestureHandling: "greedy",
     mapTypeControlOptions: {
@@ -59,8 +75,8 @@ function initMap() {
     '<h1 id="firstHeading" class="firstHeading">Tokyoだ</h1>' +
     '<div id="bodyContent">' +
     "<p><b>Tokyo</b>は人多い</p>" +
-    // -- 下記指定しないとエラーゆえ --
-    // '<img src="画像のパス">' +
+    "<%= user.username %>" +
+    '<a href="/abouts/<%= about.id %>">' +
     "<li>Info Window</li>" +
     "<li>Open</li>" +
     "<li>Close</li>" +
