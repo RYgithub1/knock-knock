@@ -1,19 +1,9 @@
 // ===== location from abouts#show =================================
-// var watchId = 0;
-// var watchId = null;
-// var watchId;
-
 function getPosition() {
-  // navigator.geolocation.getCurrentPosition(
-  // navigator.geolocation.clearWatch(id);
-  // watchId = navigator.geolocation.watchPosition(
   var watchId = navigator.geolocation.watchPosition(
     // ----- 《First Argument : Success to get》 -----------------
     function successFunction(position) {
       alert("Success to get !");
-      console.log(position);
-      console.log(position.coords.latitude);
-      console.log(position.coords.longitude);
       $.ajax({
         type: "GET",
         url: "/abouts/location",
@@ -44,10 +34,10 @@ function getPosition() {
       }
       navigator.geolocation.clearWatch(watchId);
     },
-    // ----- 《Third Argument》高精度,最大待ち時間120秒,キャッシュ有効期間0秒 -------------------
+    // ----- 《Third Argument》高精度,最大待ち時間60秒,キャッシュ有効期間0秒 -------------------
     {
       enableHighAccuracy: true,
-      timeout: 120000,
+      timeout: 60000,
       maximumAge: 0,
     }
   );

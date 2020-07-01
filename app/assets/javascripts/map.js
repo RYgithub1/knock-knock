@@ -8,7 +8,7 @@ function initMap() {
   var mapCenter = { lat: 35.681272, lng: 139.766946 };
   var mapOption = {
     center: mapCenter,
-    zoom: 8,
+    zoom: 12,
     // PCzoom(ctrl/comm*scroll)_or_Mobile(2fingers)
     gestureHandling: "greedy",
     mapTypeControlOptions: {
