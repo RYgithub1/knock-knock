@@ -2,14 +2,6 @@
 // var mapCenter;
 // var mapMarker;
 // var mapInfoWindow;
-// `````````````````````````````````````````
-console.log(gon.nameArray);
-console.log(gon.aboutIdArray);
-console.log(gon.aboutIdArray[2]);
-console.log(gon.latArray);
-console.log(gon.lngArray);
-console.log(gon.invArray);
-console.log(parseFloat(gon.latArray));
 
 var currentUserLat = parseFloat(gon.latArray[0]);
 var currentUserLng = parseFloat(gon.lngArray[0]);
