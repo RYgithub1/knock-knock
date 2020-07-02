@@ -1,22 +1,23 @@
-// var map;
-// var mapCenter;
-// var mapMarker;
-// var mapInfoWindow;
+// ===== Divided Cases and Constants ================================
+if (gon.currentUserLat && gon.currentUserLng) {
+  var centerLat = parseFloat(gon.currentUserLat);
+  var centerLng = parseFloat(gon.currentUserLng);
+} else {
+  var centerLat = 35.659482;
+  var centerLng = 139.700553;
+}
+var mapCenter = { lat: centerLat, lng: centerLng };
 
-var currentUserLat = parseFloat(gon.latArray[0]);
-var currentUserLng = parseFloat(gon.lngArray[0]);
+var mapMarker = [];
+var mapInfoWindow = [];
+var infoWindowContent = [];
 
+// ===== Function expression ========================================
 function initMap() {
   var mapArea = document.getElementById("map");
-  var mapCenter = {
-    // lat: 35.659482,
-    // lng: 139.700553,
-    lat: currentUserLat,
-    lng: currentUserLng,
-  };
   var mapOption = {
     center: mapCenter,
-    zoom: 8,
+    zoom: 6,
     // PCzoom(ctrl/comm*scroll)_or_Mobile(2fingers)
     gestureHandling: "greedy",
     mapTypeControlOptions: {
@@ -40,49 +41,49 @@ function initMap() {
     ],
   };
 
-  // ----- MAP ----------------------------------------
+  // ----- MAP ------------------------------------------
   var mapIs = new google.maps.Map(mapArea, mapOption);
 
-  // ----- marker -------------------------------------
-  var mapMarker = new google.maps.Marker({
-    position: mapCenter,
-    map: mapIs,
-    title: "cheak me",
-    animation: google.maps.Animation.DROP,
-    icon: {
-      url: "https://maps.google.com/mapfiles/ms/micons/red-dot.png",
-      scaledSize: new google.maps.Size(50, 50),
-    },
-    label: {
-      text: "kk!",
-      color: "blue",
-      fontSize: "20px",
-      fontWeight: "bold",
-    },
-  });
-
-  // ------ infoWindow --------------------------------
-  var infoWindowContent =
-    '<div id="content">' +
-    '<h1 id="firstHeading" class="firstHeading">Tokyoだ</h1>' +
-    '<div id="bodyContent">' +
-    "<p><b>Tokyo</b>は人多い</p>" +
-    "<%= user.username %>" +
-    '<a href="/abouts/<%= about.id %>">' +
-    "<li>Info Window</li>" +
-    "<li>Open</li>" +
-    "<li>Close</li>" +
-    '<p>詳細はこちら: <a id="url" href="http://www.tokyo-skytree.jp/" target="_blank">www.tokyo-skytree.jp</a></p>' +
-    '<p id="lat">35.710033</p>' +
-    '<p id="lng">139.810716</p>' +
-    "</div>" +
-    "</div>";
-  var mapInfoWindow = new google.maps.InfoWindow({
-    content: infoWindowContent,
-  });
-
-  // ----- addListener --------------------------------
-  google.maps.event.addListener(mapMarker, "mouseover", function () {
-    mapInfoWindow.open(mapIs, mapMarker);
+  // ----- Location -------------------------------------
+  for (var i = 0; i < gon.nameArray.length; i++) {
+    // ````` Marker ````````````````````
+    mapMarker[i] = new google.maps.Marker({
+      position: new google.maps.LatLng(
+        parseFloat(gon.latArray[i]),
+        parseFloat(gon.lngArray[i])
+      ),
+      map: mapIs,
+      title: "poke me",
+      animation: google.maps.Animation.DROP,
+      icon: {
+        url: "https://maps.google.com/mapfiles/ms/micons/red-dot.png",
+        scaledSize: new google.maps.Size(50, 50),
+      },
+      label: {
+        text: "knock!",
+        color: "blue",
+        fontSize: "20px",
+        fontWeight: "bold",
+      },
+    });
+    // ````` InfoWindow ````````````````
+    infoWindowContent[i] =
+      '<div class="infoWindow">' +
+      '<div class="infoWindowName">' +
+      "<%= gon.nameArray[i] %>" +
+      "</div>" +
+      '<div class="infoWindowAbout">' +
+      '<%= link_to "About", about_path(gon.aboutIdArray[i]), class: "infoWindowAboutLink" %>' +
+      "</div>" +
+      "</div>";
+    mapInfoWindow[i] = new google.maps.InfoWindow({
+      content: infoWindowContent[i],
+    });
+    // ````` markerEvent ```````````````
+    markerEvent(i);
+}
+function markerEvent(i) {
+  google.maps.event.addListener(mapMarker[i], "mouseover", function () {
+    mapInfoWindow[i].open(map, mapMarker[i]);
   });
 }
