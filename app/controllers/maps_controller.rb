@@ -47,7 +47,6 @@ class MapsController < ApplicationController
       gon.currentUserLat = @signInCurrentUserAbout.latitude
       gon.currentUserLng = @signInCurrentUserAbout.longitude
       gon.currentUserInv = @signInCurrentUserAbout.invitation
-    else
     end
   end
 

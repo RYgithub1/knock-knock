@@ -69,21 +69,29 @@ function initMap() {
     // ````` InfoWindow ````````````````
     infoWindowContent[i] =
       '<div class="infoWindow">' +
-      '<div class="infoWindowName">' +
-      "<%= gon.nameArray[i] %>" +
-      "</div>" +
-      '<div class="infoWindowAbout">' +
-      '<%= link_to "About", about_path(gon.aboutIdArray[i]), class: "infoWindowAboutLink" %>' +
-      "</div>" +
+      "<h4><b>Name : </b>" +
+      gon.nameArray[i] +
+      "</h4>" +
+      "<h5><b>About : </b>" +
+      gon.aboutIdArray[i] +
+      "</h5>" +
       "</div>";
+
+    // ````` infoWindow発火 ```````````````
     mapInfoWindow[i] = new google.maps.InfoWindow({
       content: infoWindowContent[i],
     });
     // ````` markerEvent ```````````````
     markerEvent(i);
+  }
 }
+var currentInfoWindow = null;
 function markerEvent(i) {
   google.maps.event.addListener(mapMarker[i], "mouseover", function () {
+    if (currentInfoWindow) {
+      currentInfoWindow.close();
+    }
     mapInfoWindow[i].open(map, mapMarker[i]);
+    currentInfoWindow = mapInfoWindow[i];
   });
 }
