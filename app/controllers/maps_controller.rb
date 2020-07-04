@@ -1,6 +1,5 @@
 class MapsController < ApplicationController
 
-
   def index
     # ===== Marker Position ============================
     gon.nameArray = []
@@ -9,8 +8,7 @@ class MapsController < ApplicationController
     gon.lngArray = []
     gon.invArray = []
 
-
-    # ----- pick noneAboutUser to skip -------------
+    # ----- pick noneAboutUser to skip -----------
     userIdArray = []
     noneAboutUserIdArray = []
     User.all.each do |user|
@@ -22,7 +20,7 @@ class MapsController < ApplicationController
       end
     end
 
-    # ----- send allUserGon [user.id order] --------
+    # ----- send allUserGon [user.id order] ------
     User.all.each do |user|
       noneAboutUserIdArray.each do |noneAboutUserId|
         if user.id == noneAboutUserId
@@ -50,6 +48,5 @@ class MapsController < ApplicationController
       gon.currentUserInv = @signInCurrentUserAbout.invitation
     end
   end
-
 
 end
