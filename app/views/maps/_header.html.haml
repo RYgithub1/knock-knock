@@ -25,14 +25,20 @@
           = link_to "LogIn", new_user_session_path, class: "rightBtn"
 
 .displayPop
-  - if user_signed_in?
+  - unless user_signed_in?
+    .displayPop__displayPopNo
+      %h5.displayPopNoName
+        visiter
+  - else
     .displayPop__displayPopCurrent
       %h5.displayPopCurrentTitle
         current;
         %br
       %h5.displayPopCurrentName
         = current_user.name
-  - else
-    .displayPop__displayPopNo
-      %h5.displayPopNoName
-        visiter
+      %h5.displayPopCurrentSpot
+        - if About.find_by(user_id: current_user.id).present?
+          - @currentUserAbout = About.find_by(user_id: current_user.id)
+          = @currentUserAbout.nowCountry if @currentUserAbout.nowCountry.present?
+          = " , " if @currentUserAbout.nowCountry.present? && @currentUserAbout.nowCity.present?
+          = @currentUserAbout.nowCity if @currentUserAbout.nowCity.present?

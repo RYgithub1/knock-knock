@@ -1,16 +1,25 @@
-// var map;
-// var mapCenter;
-// var mapMarker;
-// var mapInfoWindow;
+// ===== Constant ==============================================
+if (gon.currentUserLat && gon.currentUserLng) {
+  var centerLat = parseFloat(gon.currentUserLat);
+  var centerLng = parseFloat(gon.currentUserLng);
+} else {
+  var centerLat = 35.659482;
+  var centerLng = 139.700553;
+}
+var mapCenter = { lat: centerLat, lng: centerLng };
+var mapMarker = [];
+var mapInfoWindow = [];
+var infoWindowContent = [];
+var currentInfoWindow = null;
 
+// ===== Function【1】 ==========================================
 function initMap() {
+  // ----- Area and Option ------------------------------
   var mapArea = document.getElementById("map");
-  var mapCenter = { lat: 35.681272, lng: 139.766946 };
   var mapOption = {
     center: mapCenter,
-    zoom: 8,
-    // PCzoom(ctrl/comm*scroll)_or_Mobile(2fingers)
-    gestureHandling: "greedy",
+    zoom: 6,
+    gestureHandling: "greedy", // PCzoom(ctrl/comm*scroll)_or_Mobile(2fingers)
     mapTypeControlOptions: {
       position: google.maps.ControlPosition.TOP_LEFT,
     },
@@ -32,49 +41,55 @@ function initMap() {
     ],
   };
 
-  // ----- MAP ----------------------------------------
+  // ----- MAP ------------------------------------------
   var mapIs = new google.maps.Map(mapArea, mapOption);
 
-  // ----- marker -------------------------------------
-  var mapMarker = new google.maps.Marker({
-    position: mapCenter,
-    map: mapIs,
-    title: "cheak me",
-    animation: google.maps.Animation.DROP,
-    icon: {
-      url: "https://maps.google.com/mapfiles/ms/micons/red-dot.png",
-      scaledSize: new google.maps.Size(50, 50),
-    },
-    label: {
-      text: "kk!",
-      color: "blue",
-      fontSize: "20px",
-      fontWeight: "bold",
-    },
-  });
+  // ----- Location -------------------------------------
+  for (var i = 0; i < gon.nameArray.length; i++) {
+    // ````` Marker ````````````````````
+    mapMarker[i] = new google.maps.Marker({
+      position: new google.maps.LatLng(
+        parseFloat(gon.latArray[i]),
+        parseFloat(gon.lngArray[i])
+      ),
+      map: mapIs,
+      title: "poke me",
+      animation: google.maps.Animation.DROP,
+      icon: {
+        url: "https://maps.google.com/mapfiles/ms/micons/red-dot.png",
+        scaledSize: new google.maps.Size(50, 50),
+      },
+      label: {
+        text: "knock!",
+        color: "blue",
+        fontSize: "20px",
+        fontWeight: "bold",
+      },
+    });
+    markerEvent(i);
+  }
+}
 
-  // ------ infoWindow --------------------------------
-  var infoWindowContent =
-    '<div id="content">' +
-    '<h1 id="firstHeading" class="firstHeading">Tokyoだ</h1>' +
-    '<div id="bodyContent">' +
-    "<p><b>Tokyo</b>は人多い</p>" +
-    // -- 下記指定しないとエラーゆえ --
-    // '<img src="画像のパス">' +
-    "<li>Info Window</li>" +
-    "<li>Open</li>" +
-    "<li>Close</li>" +
-    '<p>詳細はこちら: <a id="url" href="http://www.tokyo-skytree.jp/" target="_blank">www.tokyo-skytree.jp</a></p>' +
-    '<p id="lat">35.710033</p>' +
-    '<p id="lng">139.810716</p>' +
-    "</div>" +
-    "</div>";
-  var mapInfoWindow = new google.maps.InfoWindow({
-    content: infoWindowContent,
-  });
-
-  // ----- addListener --------------------------------
-  google.maps.event.addListener(mapMarker, "mouseover", function () {
-    mapInfoWindow.open(mapIs, mapMarker);
+// ===== Function【2】 ==========================================
+function markerEvent(i) {
+  google.maps.event.addListener(mapMarker[i], "mouseover", function () {
+    // ````` Content ```````````````````
+    mapInfoWindow[i] = new google.maps.InfoWindow({
+      content:
+        '<div class="infoWindow">' +
+        "<h4><b>NAME : </b>" +
+        gon.nameArray[i] +
+        "</h4>" +
+        '<h5>ABOUT : <a id="url" href="/abouts/' +
+        gon.aboutIdArray[i] +
+        '" target="_blank">About ME</a></h5>' +
+        "</div>",
+    });
+    // ````` CurrentInfoWindow `````````
+    if (currentInfoWindow) {
+      currentInfoWindow.close();
+    }
+    mapInfoWindow[i].open(map, mapMarker[i]);
+    currentInfoWindow = mapInfoWindow[i];
   });
 }

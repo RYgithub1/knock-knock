@@ -11,11 +11,13 @@ Rails.application.routes.draw do
 
   resources :abouts, except: [:index, :destroy] do
     resource :hangers, only: [:create, :destroy]
+    collection do
+      get "location"
+    end
   end
 
   resources :pairs, except: [:show, :edit, :update] do
     resources :messages, only: [:index, :create]
   end
-
 
 end

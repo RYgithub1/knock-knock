@@ -88,32 +88,43 @@
           -# `````` currentLocation ``````````````````````
           .aboutsShow__aboutsShowContent__aboutsShowContentHanger__locationTitle
             %h2.locationTitleName Location
-            %h4.locationTitleSub Your device CAN inform current spot to communicate with others Simply !
+            %h4.locationTitleSub Your device CAN inform current spot, to communicate with others Simply !
           .aboutsShow__aboutsShowContent__aboutsShowContentHanger__locationCode
-            %h4.locationCodeName just Click
+            %h4.locationCodeName just Click once
             -# need id
             #map.mapNone
               :javascript
-                if (!navigator.geolocation) {
-                  // 端末がGeolocationAPIに非対応
-                  window.alert("This device can Not deal with spot button.");
-                } else {
+                if (navigator.geolocation) {
                   // 端末がGeolocationAPIに対応
-                  window.alert("This device can deal with spot button.");
+                  window.alert("Your device CAN deal with Current Spot button.");
+                } else {
+                  // 端末がGeolocationAPIに非対応
+                  window.alert("Sorry, your device does not support geolocation services.");
                 }
-            %button{:onclick => "getPosition();"}
+            %button{onclick: "getPosition();"}
               Get > Current Spot
-            -# %span{id: "latitude"}
-            -# - k = latitude
-            -# = p k
-            -# - @currentUserAbout.latitude
-            -# %span{id: "longitude"}
-            -# - @currentUserAbout.longitude = longitude
-            -# xxx.innerHTML
-
-
           .aboutsShow__aboutsShowContent__aboutsShowContentHanger__locationCurrent
-            -# here is your current city name.
+            .aboutsShow__aboutsShowContent__aboutsShowContentHanger__locationCurrent__nowSpot
+              %h4.nowSpotTitle Your current spot is below.
+            - if @about.nowCountry.present?
+              .aboutsShow__aboutsShowContent__aboutsShowContentHanger__locationCurrent__nowCountry
+                .aboutsShow__aboutsShowContent__aboutsShowContentHanger__locationCurrent__nowCountry__nowCountryExist
+                  = "country : "
+                  = @about.nowCountry
+            - else
+              .aboutsShow__aboutsShowContent__aboutsShowContentHanger__locationCurrent__nowCountry
+                .aboutsShow__aboutsShowContent__aboutsShowContentHanger__locationCurrent__nowCountry__nowCountryNone
+                  = "no info"
+            - if @about.nowCity.present?
+              .aboutsShow__aboutsShowContent__aboutsShowContentHanger__locationCurrent__nowCity
+                .aboutsShow__aboutsShowContent__aboutsShowContentHanger__locationCurrent__nowCity__nowCityExist
+                  = "city : "
+                  = @about.nowCity
+            - else
+              .aboutsShow__aboutsShowContent__aboutsShowContentHanger__locationCurrent__nowCity
+                .aboutsShow__aboutsShowContent__aboutsShowContentHanger__locationCurrent__nowCity__nowCityNone
+                  = "no info"
+
         - else
           -# `````` doorHanger ````````````````````````
           .aboutsShow__aboutsShowContent__aboutsShowContentHanger__aboutsShowContentHangerTitle

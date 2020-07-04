@@ -1,9 +1,10 @@
 class AboutsController < ApplicationController
 
-  skip_before_action :verify_authenticity_token
   before_action :oneUser_oneAbout_check, only: [:new, :create]
   before_action :noCurrentUserAbout_then_canNotWatchOtherAbout_check, only: [:show, :edit, :update]
-  # before_action :set_about, only: [:show, :edit, :update]
+  before_action :set_about, only: [:show, :edit, :update]
+  # location.js発火 -> InvalidAuthenticityTokenの場合の一次回避
+  # skip_before_action :verify_authenticity_token
 
 
   def new
@@ -23,47 +24,32 @@ class AboutsController < ApplicationController
   end
 
   def show
-    @about = About.find_by(id: params[:id])
-    @photos = Photo.where(id: @about.photos.ids)
-    @pictures = Picture.where(id: @about.pictures.ids)
-    # ------
-    # あるいは緯度経度のみ指定
-    # @currentUserAbout = About.find_by(user_id: current_user.id)
-    # gon.currentUserAbout = @currentUserAbout
-    gon.currentUserAbout = @about
-    # gon.currentUserPhotos = @photos
-    # gon.currentUserPictures = @pictures
   end
 
   def edit
-    @about = About.find_by(id: params[:id])
-    @photos = Photo.where(id: @about.photos.ids)
-    @pictures = Picture.where(id: @about.pictures.ids)
-    # ------
   end
 
   def update
-    @about = About.find_by(id: params[:id])
-    @photos = Photo.where(id: @about.photos.ids)
-    @pictures = Picture.where(id: @about.pictures.ids)
-    # ------
     if @about.update(about_params)
       redirect_to about_path(@about.id)
     else
       redirect_to edit_about_path(@about.id)
     end
-    # respond_to do |format|
-    #   # format.html { updated ? redirect_to about_path(@about.id) : redirect_to edit_about_path(@about.id) }
-    #   format.json { render json: flash.to_hash }
-    # end
   end
 
-  def search_location
-    latitude = params[:latitude].to_f
-    longitude = params[:longitude].to_f
-    binding.pry
-end
-
+  def location
+    @currentUserAbout = About.find_by(user_id: current_user.id)
+    @currentUserAbout.latitude = params[:latitude].to_f
+    @currentUserAbout.longitude = params[:longitude].to_f
+    if Geocoder.search([@currentUserAbout.latitude, @currentUserAbout.longitude]).first.country.present?
+      @currentUserAbout.nowCountry = Geocoder.search([@currentUserAbout.latitude, @currentUserAbout.longitude]).first.country
+    end
+    if Geocoder.search([@currentUserAbout.latitude, @currentUserAbout.longitude]).first.city.present?
+      @currentUserAbout.nowCity = Geocoder.search([@currentUserAbout.latitude, @currentUserAbout.longitude]).first.city
+    end
+    @currentUserAbout.save
+    redirect_to about_path(@currentUserAbout.id)
+  end
 
 
   private
