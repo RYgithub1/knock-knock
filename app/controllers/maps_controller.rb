@@ -9,6 +9,7 @@ class MapsController < ApplicationController
     gon.lngArray = []
     gon.invArray = []
 
+
     # ----- pick noneAboutUser to skip -------------
     userIdArray = []
     noneAboutUserIdArray = []

@@ -1,4 +1,4 @@
-// ===== Divided Cases and Constants ================================
+// ===== Constant ===================================================
 if (gon.currentUserLat && gon.currentUserLng) {
   var centerLat = parseFloat(gon.currentUserLat);
   var centerLng = parseFloat(gon.currentUserLng);
@@ -11,8 +11,9 @@ var mapCenter = { lat: centerLat, lng: centerLng };
 var mapMarker = [];
 var mapInfoWindow = [];
 var infoWindowContent = [];
+var currentInfoWindow = null;
 
-// ===== Function expression ========================================
+// ===== Function【1】 ===============================================
 function initMap() {
   var mapArea = document.getElementById("map");
   var mapOption = {
@@ -66,28 +67,30 @@ function initMap() {
         fontWeight: "bold",
       },
     });
-    // ````` InfoWindow ````````````````
-    infoWindowContent[i] =
-      '<div class="infoWindow">' +
-      "<h4><b>Name : </b>" +
-      gon.nameArray[i] +
-      "</h4>" +
-      "<h5><b>About : </b>" +
-      gon.aboutIdArray[i] +
-      "</h5>" +
-      "</div>";
-
-    // ````` infoWindow発火 ```````````````
-    mapInfoWindow[i] = new google.maps.InfoWindow({
-      content: infoWindowContent[i],
-    });
-    // ````` markerEvent ```````````````
     markerEvent(i);
   }
 }
-var currentInfoWindow = null;
+// ===== Function【2】 ===============================================
 function markerEvent(i) {
   google.maps.event.addListener(mapMarker[i], "mouseover", function () {
+    mapInfoWindow[i] = new google.maps.InfoWindow({
+      // content: infoWindowContent[i],
+      content:
+        '<div class="infoWindow">' +
+        "<h4><b>Name : </b>" +
+        gon.nameArray[i] +
+        "</h4>" +
+        "<h5><b>About : </b>" +
+        gon.aboutIdArray[i] +
+        "</h5>" +
+        "<h6><b>About : </b>" +
+        "</h6>" +
+        '<p>ABOUT: <a id="url" href="/abouts/42" target="_blank">直接idを指定すれば遷移可能</a></p>' +
+        '<p>ABOUT: <a id="url" href="/abouts/gon.aboutIdArray[i]" target="_blank">id反映されていない</a></p>' +
+        "</div>",
+    });
+
+    // -----------------------------------------
     if (currentInfoWindow) {
       currentInfoWindow.close();
     }
