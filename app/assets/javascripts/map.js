@@ -77,13 +77,16 @@ function markerEvent(i) {
     mapInfoWindow[i] = new google.maps.InfoWindow({
       content:
         '<div class="infoWindow">' +
-        "<h4><b>NAME : </b>" +
+        "<h5>NAME : <b>" +
         gon.nameArray[i] +
-        "</h4>" +
-        '<h5>ABOUT : <a id="url" href="/abouts/' +
+        "</b></h5>" +
+        '<h5>CLICK : <a id="url" href="/abouts/' +
         gon.aboutIdArray[i] +
         '" target="_blank">About ME</a></h5>' +
-        "</div>",
+        "</div>" +
+        "<h5>I'd like to : <i>" +
+        gon.invArray[i] +
+        "</i></h5>",
     });
     // ````` CurrentInfoWindow `````````
     if (currentInfoWindow) {
