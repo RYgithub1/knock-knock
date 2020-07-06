@@ -106,10 +106,10 @@ _Knock-Knock!_
 
 ### users_pairs Table
 
-| Column  | Type    | Options           |
-| ------- | ------- | ----------------- |
-| user_id | integer | foreign_key: true |
-| pair_id | integer | foreign_key: true |
+| Column  | Type   | Options           |
+| ------- | ------ | ----------------- |
+| user_id | bigint | foreign_key: true |
+| pair_id | bigint | foreign_key: true |
 
 #### Association(users_pairs)
 
@@ -130,23 +130,23 @@ _Knock-Knock!_
 
 ### messages Table
 
-| Column  | Type    | Options                        |
-| ------- | ------- | ------------------------------ |
-| user_id | integer | null: false, foreign_key: true |
-| pair_id | integer | null: false, foreign_key: true |
-| content | string  |                                |
-| image   | string  |                                |
+| Column  | Type   | Options                        |
+| ------- | ------ | ------------------------------ |
+| user_id | bigint | null: false, foreign_key: true |
+| pair_id | bigint | null: false, foreign_key: true |
+| content | string |                                |
+| image   | string |                                |
 
 #### Association(messages)
 
-- belongs_to :user
 - belongs_to :pair
+- belongs_to :user
 
 ### abouts Table
 
 | Column         | Type    | Options                        |
 | -------------- | ------- | ------------------------------ |
-| user_id        | integer | null: false, foreign_key: true |
+| user_id        | bigint  | null: false, foreign_key: true |
 | birthday       | date    | null: false                    |
 | sex            | integer | null: false                    |
 | nation_id      | integer | (active_hash)                  |
@@ -169,10 +169,10 @@ _Knock-Knock!_
 
 ### photos Table
 
-| Column   | Type    | Options                        |
-| -------- | ------- | ------------------------------ |
-| about_id | integer | null: false, foreign_key: true |
-| image    | string  | null: false                    |
+| Column   | Type   | Options                        |
+| -------- | ------ | ------------------------------ |
+| about_id | bigint | null: false, foreign_key: true |
+| image    | string | null: false                    |
 
 #### Association(photos)
 
@@ -180,10 +180,10 @@ _Knock-Knock!_
 
 ### pictures Table
 
-| Column   | Type    | Options                        |
-| -------- | ------- | ------------------------------ |
-| about_id | integer | null: false, foreign_key: true |
-| image    | string  | default: ""                    |
+| Column   | Type   | Options                        |
+| -------- | ------ | ------------------------------ |
+| about_id | bigint | null: false, foreign_key: true |
+| image    | string | default: ""                    |
 
 #### Association(pictures)
 
@@ -196,9 +196,9 @@ _Knock-Knock!_
 | tag_id        | integer | null: false, unique: true, foreign_key: true |
 | taggable_id   | integer | unique: true, polymorphic: true              |
 | tagger_id     | integer | unique: true, polymorphic: true              |
-| taggable_type | string  | unique: true                                 |
-| tagger_type   | string  | unique: true                                 |
-| context       | string  | unique: true, limit: 128                     |
+| taggable_type | varchar | unique: true                                 |
+| tagger_type   | varchar | unique: true                                 |
+| context       | varchar | unique: true, limit: 128                     |
 
 #### Association(taggings)
 
@@ -209,12 +209,24 @@ _Knock-Knock!_
 
 | Column         | Type    | Options      |
 | -------------- | ------- | ------------ |
-| name           | string  | unique: true |
+| name           | varchar | unique: true |
 | taggings_count | integer | default: 0   |
 
 #### Association(tags)
 
 - belongs_to :tagging
+
+### hangers Table
+
+| Column   | Type    | Options |
+| -------- | ------- | ------- |
+| about_id | integer |         |
+| user_id  | integer |         |
+
+#### Association(tags)
+
+- belongs_to :user
+- belongs_to :about
 
 ## 補足
 
