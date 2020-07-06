@@ -2,6 +2,7 @@ class MapsController < ApplicationController
   require "open-uri"
   require "nokogiri"
   require "news-api"
+  require "date"
 
 
   def index
@@ -54,13 +55,15 @@ class MapsController < ApplicationController
 
 
     # ===== News =======================================
-    newsApi = News.new("5a31e51cd4534b059937d4cc7bf271ba")
+    newsApi = News.new(ENV['NEWS_API_KEY'])
+    @scoops = newsApi.get_everything(q:"travel", from:"Date.today.days_ago(27)", to:"Date.today.days_ago(1)", pageSize:"5", language:"en", sortBy: "publishedAt")
 
-    @scoops = newsApi.get_everything(q:"travel", from:"2020-06-10", to:"2020-07-03", pageSize:"5", language:"en", sortBy: "popularity")
-
+    # binding.pry
   end
 
 end
+
+
 
 
 

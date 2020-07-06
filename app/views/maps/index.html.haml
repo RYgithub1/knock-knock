@@ -44,10 +44,13 @@
 
              
             - @scoops.each do |scoop|
+              = scoop.publishedAt
+              %br
               = scoop.title
               %br
               = scoop.description
               %br
+              = image_tag scoop.urlToImage, width: "100", height: "100"
               %br
               = link_to "Scoop", scoop.url, class: "zxc"
               %br
