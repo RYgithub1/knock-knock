@@ -5,14 +5,15 @@
   background-color: #ffdab9;
   text-align: center;
 
-  // -# top form ＝＝＝＝＝＝＝＝＝＝＝＝
+  // -# ===== top form ==========================
   &__messContent {
     width: 95%;
     height: 150px;
     z-index: 7;
     position: fixed;
     padding-top: 20px;
-    // -# Title ---------------------
+
+    // -# ----- Title ----------------------
     &__messContentTitle {
       width: 98%;
       margin: 0 auto;
@@ -35,7 +36,8 @@
         }
       }
     }
-    // -# Pair Users ---------------------
+
+    // -# ----- Pair Users -----------------
     &__messContentPair {
       width: 98%;
       padding-bottom: 7px;
@@ -84,7 +86,7 @@
     }
   }
 
-  // -# Display Form ＝＝＝＝＝＝＝＝＝＝＝＝
+  // -# ===== Display Form ======================
   &__messPost {
     padding: 128px 0px 260px 0px;
     width: 95%;
@@ -147,7 +149,7 @@
     }
   }
 
-  // -# Submit Form ＝＝＝＝＝＝＝＝＝＝＝＝＝
+  // -# ===== Submit Form =======================
   &__messSubmit {
     width: 95%;
     height: 60px;

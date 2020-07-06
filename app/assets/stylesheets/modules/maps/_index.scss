@@ -23,7 +23,7 @@
           width: 98%;
           height: 100%;
         }
-        // 追加imgタグ->img単体へのデザイン
+        // imgタグ画像z-index：(通常)8、(active)10、(last_active)9
         .slideshow img {
           width: 98%;
           height: 396px;
@@ -112,12 +112,14 @@
   }
   .teller {
     padding-bottom: 201px;
+    margin: 0 auto;
     &__tellerContent {
       background-color: #ffdab9;
+      margin: 0 auto;
       &__tellerContentSuggestion {
         background-color: #ffd482;
         width: 95%;
-        height: 300px;
+        height: 30px;
         margin: 0 auto;
         &__tellerContentSuggestionBody {
         }
@@ -127,6 +129,54 @@
         width: 95%;
         margin: 0 auto;
         &__tellerContentNewsBody {
+          width: 80%;
+          flex-direction: column;
+          align-items: center;
+          margin: 0 auto;
+          &__tellerContentNewsBodyTitle {
+            padding-bottom: 30px;
+            .newsTitle {
+              width: 30%;
+              margin: 0 auto;
+              text-align: center;
+              border-bottom: 1px dashed black;
+            }
+          }
+          &__tellerContentNewsBodyCode {
+            padding-bottom: 100px;
+            .newsCode {
+              margin: 0 auto;
+              &__newsCodeUrlImage {
+                text-align: center;
+                .scoopUrl {
+                  .scoopUrlToImage {
+                    border-radius: 10px;
+                    opacity: 0.85;
+                  }
+                  .scoopUrlToImage:hover {
+                    border-radius: 10px;
+                    opacity: 1;
+                  }
+                }
+              }
+              &__newsCodeDateTitleDescription {
+                text-align: center;
+                margin-bottom: 40px;
+                &__newsCodeDateTitleDescription--date {
+                  font-size: 15px;
+                }
+                &__newsCodeDateTitleDescription--title {
+                  font-size: 25px;
+                  font-weight: bold;
+                }
+                &__newsCodeDateTitleDescription--description {
+                  width: 85%;
+                  margin: 0 auto;
+                  font-size: 20px;
+                }
+              }
+            }
+          }
         }
       }
     }

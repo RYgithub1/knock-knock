@@ -1,5 +1,7 @@
 {
   "name": "knock-knock",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "newsapi": "^2.4.0"
+  }
 }

@@ -3,8 +3,8 @@
     .banner__bannerContent
       .banner__bannerContent__bannerContentImage
         %p#slideshow.slideshow
-          -# 記述修正検討
-          -# %img.active{alt: "noReadable", src: "freeTravelPhoto1.jpg", width: "490px", height: "250px"}
+          -# considering alternative syntax
+          -# %img.active{alt: "noReadable", src: "freeTravelPhoto1.jpg", width: "543px", height: "345px"}
           = image_tag "freeTravelPhoto1.jpg", alt: "noReadable", class: "active "
           = image_tag "freeTravelPhoto2.jpg", alt: "noReadable"
           = image_tag "freeTravelPhoto3.jpg", alt: "noReadable"
@@ -35,7 +35,22 @@
     .teller__tellerContent
       .teller__tellerContent__tellerContentSuggestion
         .teller__tellerContent__tellerContentSuggestion__tellerContentSuggestionBody
-          おすすめの体験！（投稿よりピックアップ）表形式
+          -# suggestion items later
       .teller__tellerContent__tellerContentNews
         .teller__tellerContent__tellerContentNews__tellerContentNewsBody
-          ワールドニュースAPI表形式
+          .teller__tellerContent__tellerContentNews__tellerContentNewsBody__tellerContentNewsBodyTitle
+            %h2.newsTitle News
+          .teller__tellerContent__tellerContentNews__tellerContentNewsBody__tellerContentNewsBodyCode
+            .newsCode
+              - @scoops.each do |scoop|
+                .newsCode__newsCodeUrlImage
+                  = link_to scoop.url, class: "scoopUrl" do
+                    - if scoop.urlToImage.present?
+                      = image_tag scoop.urlToImage, class: "scoopUrlToImage", width: "169", height: "121"
+                .newsCode__newsCodeDateTitleDescription
+                  .newsCode__newsCodeDateTitleDescription__newsCodeDateTitleDescription--date
+                    = DateTime.iso8601(scoop.publishedAt, Date::ENGLAND).to_date.to_s
+                  .newsCode__newsCodeDateTitleDescription__newsCodeDateTitleDescription--title
+                    = scoop.title
+                  .newsCode__newsCodeDateTitleDescription__newsCodeDateTitleDescription--description
+                    = scoop.description

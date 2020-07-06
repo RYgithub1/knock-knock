@@ -1,4 +1,9 @@
 class MapsController < ApplicationController
+  require "open-uri"
+  require "nokogiri"
+  require "news-api"
+  require "date"
+
 
   def index
     # ===== Marker Position ============================
@@ -47,6 +52,19 @@ class MapsController < ApplicationController
       gon.currentUserLng = @signInCurrentUserAbout.longitude
       gon.currentUserInv = @signInCurrentUserAbout.invitation
     end
+
+
+    # ===== News =======================================
+    newsApi = News.new(ENV['NEWS_API_KEY'])
+    @scoops = newsApi.get_everything(q:"travel", from:"Date.today.days_ago(27)", to:"Date.today.days_ago(1)", pageSize:"3", language:"en", sortBy: "publishedAt")
   end
 
 end
+
+
+
+
+
+
+
+

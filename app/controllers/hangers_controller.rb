@@ -9,7 +9,7 @@ class HangersController < ApplicationController
   end
 
   def destroy
-    # 代替案
+    # alternative idea
     # hanger = current_user.hangers.find_by(about_id: params[:about_id])
     hanger = Hanger.find_by(about_id: params[:about_id], user_id: current_user.id)
     hanger.destroy
