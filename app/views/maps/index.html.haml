@@ -44,13 +44,14 @@
 
              
             - @scoops.each do |scoop|
-              = scoop.publishedAt
+              = DateTime.iso8601(scoop.publishedAt, Date::ENGLAND).to_date.to_s
               %br
               = scoop.title
               %br
               = scoop.description
               %br
-              = image_tag scoop.urlToImage, width: "100", height: "100"
+              - if scoop.urlToImage.present?
+                = image_tag scoop.urlToImage, width: "144", height: "144"
               %br
               = link_to "Scoop", scoop.url, class: "zxc"
               %br
