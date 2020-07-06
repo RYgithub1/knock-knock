@@ -73,17 +73,14 @@ _Knock-Knock!_
 
 ## 開発環境
 
-- Ruby
-  - 2.5.1
-- Rails
-  - 5.2.4.3
-- JavaScript/jQuery
+- Ruby（2.5.1）
+- Rails（5.2.4.3）
+- JavaScript
+- jQuery（4.4.0）
 - HTML/HAML
 - CSS/SCSS
-- Git
-  - 2.26.0
-- MySQL
-  - 5.6.47
+- Git（2.26.0）
+- MySQL（5.6.47）
 - AWS
 
 ## DB 設計
