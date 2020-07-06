@@ -19,7 +19,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :validatable
 
-  # １ユーザ１プロフィール
+  # １user１profile
   has_one :about
 
   # 半角英数字、大小文字、8文字以上

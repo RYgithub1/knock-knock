@@ -6,7 +6,6 @@
     width: 95%;
     text-align: center;
     margin: 0 auto;
-
     &__aboutsNewContentHead {
       width: 95%;
       height: 98%;
@@ -25,14 +24,13 @@
         }
       }
     }
-
     &__aboutsNewContentForm {
       width: 95%;
       background-color: #ffd482;
       margin: 0 auto;
       border-top: 1px solid #ff6600;
 
-      // -# =====  基本情報１  =========================
+      // -# =====  基本情報１  =============================
       .newFormAbout {
         width: 100%;
         height: 200px;
@@ -105,7 +103,7 @@
         }
       }
 
-      // -# =====  基本情報２  =========================
+      // -# =====  基本情報２  =============================
       .newFormBasic {
         border-top: 1px solid #ff6600;
         width: 100%;
@@ -179,14 +177,13 @@
           }
           &__newFormBasicSexCode {
             font-size: 20px;
-
             .basicSexCode {
             }
           }
         }
       }
 
-      // -# =====  追加情報  ==========================
+      // -# =====  追加情報  ==============================
       .newFormPlus {
         border-top: 1px solid #ff6600;
         padding: 25px 5px 20px 5px;
@@ -262,7 +259,6 @@
             }
           }
         }
-
         &__newFormPlusInvitation {
           margin: 20px auto;
           &__newFormPlusInvitationTitle {
@@ -297,7 +293,7 @@
         }
       }
 
-      // -# =====  送信ボタン  ==========================
+      // -# =====  送信ボタン  ==============================
       .newFormPost {
         width: 95%;
         height: 50px;

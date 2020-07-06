@@ -5,7 +5,7 @@
 -# ===== abouts#show part ===================================
 .aboutsShow
   .aboutsShow__aboutsShowContent
-    -# ----- some infomation --------------------------
+    -# ----- some infomation ------------------------
     .aboutsShow__aboutsShowContent__aboutsShowContentSome
       .aboutsShow__aboutsShowContent__aboutsShowContentSome__aboutsShowContentSomeTitle
         - if current_user.id == @about.user.id
@@ -35,6 +35,7 @@
               %th
                 Languages
                 %td
+                  -# implement tag serch function later
                   -# - @tags.each do |tag|
                   -#   = tag.name
                   = @about.tag_list
@@ -44,7 +45,7 @@
                 %td
                   = @about.sex
 
-    -# ----- introduction --------------------------
+    -# ----- introduction ---------------------------
     .aboutsShow__aboutsShowContent__aboutsShowContentBody
       .aboutsShow__aboutsShowContent__aboutsShowContentBody__aboutsShowContentBodyTitle
         %h.showContentBodyTitle INTRODUCTION
@@ -53,7 +54,7 @@
           -# h: <html>エスケープ、<script>除去
           = simple_format(h(@about.body))
 
-    -# ----- picturtes --------------------------
+    -# ----- picturtes ------------------------------
     .aboutsShow__aboutsShowContent__aboutsShowContentPicture
       .aboutsShow__aboutsShowContent__aboutsShowContentPicture__aboutsShowContentPictureTitle
         %h.showContentPictureTitle PICTURES
@@ -63,7 +64,7 @@
             - @pictures.each do |picture|
               = image_tag picture.image.url, class: "pictureImage", size: "200x180"
 
-    -# ----- invitation --------------------------
+    -# ----- invitation -----------------------------
     .aboutsShow__aboutsShowContent__aboutsShowContentInvitstion
       .aboutsShow__aboutsShowContent__aboutsShowContentInvitstion__aboutsShowContentInvitstionTitle
         %h.showContentInvitstionTitle INVITAION
@@ -71,7 +72,7 @@
         .showContentInvitstionCode
           = simple_format(h(@about.invitation))
 
-    -# ----- recommendation --------------------------
+    -# ----- recommendation -------------------------
     .aboutsShow__aboutsShowContent__aboutsShowContentRecommendation
       .aboutsShow__aboutsShowContent__aboutsShowContentRecommendation__aboutsShowContentRecommendationTitle
         %h.showContentRecommendationTitle RECOMMENDATION
@@ -79,7 +80,7 @@
         .showContentRecommendationCode
           = simple_format(h(@about.recommendation))
 
-    -# ----- doorHanger or currentLocation -----------
+    -# ----- doorHanger or currentLocation ----------
     .aboutsShow__aboutsShowContent__aboutsShowContentHanger
       - unless user_signed_in?
         = render "/users/sign_in"
@@ -126,7 +127,7 @@
                   = "no info"
 
         - else
-          -# `````` doorHanger ````````````````````````
+          -# `````` doorHanger ```````````````````````````
           .aboutsShow__aboutsShowContent__aboutsShowContentHanger__aboutsShowContentHangerTitle
             %h.showContentHangerTitle Door Hanger
           .aboutsShow__aboutsShowContent__aboutsShowContentHanger__aboutsShowContentHangerCode

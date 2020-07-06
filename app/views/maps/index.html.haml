@@ -3,8 +3,8 @@
     .banner__bannerContent
       .banner__bannerContent__bannerContentImage
         %p#slideshow.slideshow
-          -# 記述修正検討
-          -# %img.active{alt: "noReadable", src: "freeTravelPhoto1.jpg", width: "490px", height: "250px"}
+          -# considering alternative syntax
+          -# %img.active{alt: "noReadable", src: "freeTravelPhoto1.jpg", width: "543px", height: "345px"}
           = image_tag "freeTravelPhoto1.jpg", alt: "noReadable", class: "active "
           = image_tag "freeTravelPhoto2.jpg", alt: "noReadable"
           = image_tag "freeTravelPhoto3.jpg", alt: "noReadable"
@@ -35,7 +35,7 @@
     .teller__tellerContent
       .teller__tellerContent__tellerContentSuggestion
         .teller__tellerContent__tellerContentSuggestion__tellerContentSuggestionBody
-          -# suggestion items
+          -# suggestion items later
       .teller__tellerContent__tellerContentNews
         .teller__tellerContent__tellerContentNews__tellerContentNewsBody
           .teller__tellerContent__tellerContentNews__tellerContentNewsBody__tellerContentNewsBodyTitle

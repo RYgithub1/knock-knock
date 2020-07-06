@@ -38,12 +38,12 @@
             .newFormAbout__newFormAboutPhoto__newFormAboutPhotoCode
               .aboutPhotoCode
                 #image-boxIcon.image-boxIcon
-                  -# ````` preview part ``````````````````````
+                  -# ````` preview part `````````````````````````
                   #previewsIcon.previewsIcon
                     -if @about.persisted?
                       - @about.photos.each_with_index do |pho, m|
                         = image_tag pho.image.url, data:{ indexIcon: m }, width: "100", height: "100"
-                  -# ````` group part ``````````````````````
+                  -# ````` group part ```````````````````````````
                   = f.fields_for :photos do |i|
                     .jsFileGroupIcon{"data-indexIcon" => "#{i.index}"}
                       = i.label :image, class: "jsFileLabelIcon" do
@@ -52,7 +52,7 @@
                           delete icon
                     - if @about.persisted?
                       = i.check_box :_destroy, data:{ indexIcon: i.index }, class: "hiddenDestroyIcon"
-                  -# ````` additonal group part ``````````````````````
+                  -# ````` additonal group part (spare code)`````
                   -# no need anymore photo now (if few photos, then add)
                   -# - if @about.persisted?
                   -#   .jsFileGroupIcon{"data-indexIcon" => "#{@about.photos.count}"}
@@ -118,7 +118,7 @@
             .newFormPlus__newFormPlusBody__newFormPlusBodyTitle
               %span.plusBodyTitle INTRODUCTION
             .newFormPlus__newFormPlusBody__newFormPlusBodyCode
-              -# placeholder: "エスケープ処理を外す場合.html_safeを以下へ追記".html_safe
+              -# placeholder: "エスケープ処理を外す場合(.html_safe)を追記"
               = f.text_area :body, class: "plusBodyCode", size: "100x6", placeholder: "Example:\nRoute\nSchedule\nStyle\nSingle or..."
           .newFormPlus__newFormPlusPicture
             .newFormPlus__newFormPlusPicture__newFormPlusPictureTitle
@@ -126,7 +126,7 @@
             .newFormPlus__newFormPlusPicture__newFormPlusPictureCode
               .plusPictureCode
                 #image-box.image-box
-                  -# `````` 処理 Preview ``````````````````````
+                  -# `````` 処理 Preview `````````````````````````
                   #previews.previews
                     -# @aboutに画像image登録->js裏側でsvとやり取り->存在すればpreview用JS発火
                     - if @about.persisted?

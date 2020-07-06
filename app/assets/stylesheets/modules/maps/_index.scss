@@ -23,7 +23,7 @@
           width: 98%;
           height: 100%;
         }
-        // 追加imgタグ->img単体へのデザイン
+        // imgタグ画像z-index：(通常)8、(active)10、(last_active)9
         .slideshow img {
           width: 98%;
           height: 396px;

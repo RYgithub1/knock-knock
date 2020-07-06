@@ -18,7 +18,7 @@ $(document).on("turbolinks:load", function () {
   fileIndexIcon.splice(0, lastIndexIcon);
   $(".hiddenDestroyIcon").hide();
 
-  // ==== 新規と編集 ================================
+  // ==== 新規と編集 ====================================
   $("#image-boxIcon").on("change", ".jsFileIcon", function (e) {
     // one photo for one about(here)
     // const targetIndex = $(this).parent().parent().data("indexIcon");

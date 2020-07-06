@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # for cross-site request forgeries
   protect_from_forgery with: :exception
 
-  # ログインユーザのみアクセス許可 [maps#indexは許可]
+  # ログインユーザのみアクセス許可 [#indexは許可]
   before_action :authenticate_user!, except: [:index]
 
   # strong parameter for devise

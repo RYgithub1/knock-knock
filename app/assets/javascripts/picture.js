@@ -22,7 +22,7 @@ $(document).on("turbolinks:load", function () {
   fileIndex.splice(0, lastIndex);
   $(".hiddenDestroy").hide();
 
-  // ===== 新規abouts作成時と編集時 ==================
+  // ===== 新規abouts作成時と編集時 ==================================
   $("#image-box").on("change", ".jsFile", function (e) {
     const targetIndex = $(this).parent().parent().data("index");
     // ファイルのブラウザ上でのURLを取得する
@@ -43,7 +43,7 @@ $(document).on("turbolinks:load", function () {
     }
   });
 
-  // ===== 削除時 ==================
+  // ===== 削除時 ==================================================
   $("#image-box").on("click", ".jsRemove", function () {
     const targetIndex = $(this).parent().parent().data("index");
     // 該当indexを振られているチェックボックスを取得する
