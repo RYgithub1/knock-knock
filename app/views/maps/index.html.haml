@@ -39,20 +39,21 @@
       .teller__tellerContent__tellerContentNews
         .teller__tellerContent__tellerContentNews__tellerContentNewsBody
           .teller__tellerContent__tellerContentNews__tellerContentNewsBody__tellerContentNewsBodyTitle
-            %h3.newsTitle News
-          .teller__tellerContent__tellerContentNews__tellerContentNewsBody__tellerContentNewsBodyTitle
-
-             
+            %h2.newsTitle News
+          .teller__tellerContent__tellerContentNews__tellerContentNewsBody__tellerContentNewsBodyCode
             - @scoops.each do |scoop|
-              = DateTime.iso8601(scoop.publishedAt, Date::ENGLAND).to_date.to_s
-              %br
-              = scoop.title
-              %br
-              = scoop.description
-              %br
-              - if scoop.urlToImage.present?
-                = image_tag scoop.urlToImage, width: "144", height: "144"
-              %br
-              = link_to "Scoop", scoop.url, class: "zxc"
-              %br
-              %br
+              .newsCode
+                .newsCode__newsCodeUrlImage
+                  = link_to scoop.url, class: "scoopUrl" do
+                    - if scoop.urlToImage.present?
+                      = image_tag scoop.urlToImage, class: "scoopUrlToImage", width: "196", height: "196"
+                  
+                .newsCode__newsCodeDateTitle
+                  .newsCode__newsCodeDateTitle__newsCodeDateTitle--date
+                    = DateTime.iso8601(scoop.publishedAt, Date::ENGLAND).to_date.to_s
+                  .newsCode__newsCodeDateTitle__newsCodeDateTitle--title
+                    = scoop.title
+
+              .newsDescription
+                .newsDescription__newsDescriptionBody
+                  = scoop.description

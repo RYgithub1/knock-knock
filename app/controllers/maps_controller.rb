@@ -56,8 +56,7 @@ class MapsController < ApplicationController
 
     # ===== News =======================================
     newsApi = News.new(ENV['NEWS_API_KEY'])
-    @scoops = newsApi.get_everything(q:"travel", from:"Date.today.days_ago(27)", to:"Date.today.days_ago(1)", pageSize:"5", language:"en", sortBy: "publishedAt")
-
+    @scoops = newsApi.get_everything(q:"travel", from:"Date.today.days_ago(27)", to:"Date.today.days_ago(1)", pageSize:"4", language:"en", sortBy: "publishedAt")
   end
 
 end
