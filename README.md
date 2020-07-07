@@ -2,7 +2,7 @@
 
 ## トップイメージ
 
-xxx
+<img width="1440" alt="トップイメージ_20200707" src="https://user-images.githubusercontent.com/62828568/86697506-68b41780-c049-11ea-8480-93839f3adf16.png">
 
 ## アプリケーション名
 
@@ -39,32 +39,52 @@ _Knock-Knock!_
 
 #### トップページ(MAP)
 
+<img width="1435" alt="トップページ_MAP_20200707" src="https://user-images.githubusercontent.com/62828568/86697603-81bcc880-c049-11ea-9e37-63422507cecc.png">
+
 マップの表示例
 ログインポップ
 
 #### トップページ(news)
 
+<img width="1440" alt="トップページ_news_20200707" src="https://user-images.githubusercontent.com/62828568/86697704-9a2ce300-c049-11ea-9600-e7eccaa6d497.png">
+
 ニュース表示例
 
-#### プロフィール登録
+#### ユーザー登録
+
+<img width="1440" alt="ユーザー登録_20200707" src="https://user-images.githubusercontent.com/62828568/86697834-b92b7500-c049-11ea-8cf6-a9c2d922ef67.png">
 
 #### 自分のプロフィール(About ME >トップ)
+
+<img width="682" alt="プロフィール_ME_トップ_20200707" src="https://user-images.githubusercontent.com/62828568/86697932-cfd1cc00-c049-11ea-89f1-03478fc7e16e.png">
 
 編集ボタン
 
 #### 自分のプロフィール(About ME >現在地取得)
 
+<img width="672" alt="プロフィール_ME_位置_20200707" src="https://user-images.githubusercontent.com/62828568/86698057-ef68f480-c049-11ea-910d-dd8895eee0e0.png">
+
 #### 他人のプロフィール(About HIM/HER >トップ)
+
+<img width="667" alt="プロフィール_AZ_トップ_20200707" src="https://user-images.githubusercontent.com/62828568/86698131-fee83d80-c049-11ea-837f-627bda080abe.png">
 
 ノック・ノックボタン
 
 #### 他人のプロフィール(About HIM/HER >ハンガー)
 
+<img width="672" alt="プロフィール_AZ_ハンガ_20200707" src="https://user-images.githubusercontent.com/62828568/86698199-10314a00-c04a-11ea-8689-a6fa6baee0ba.png">
+
 #### ドア作成ページ(ドアノブチェック)
+
+<img width="669" alt="ドアノブチェック_20200707" src="https://user-images.githubusercontent.com/62828568/86698275-217a5680-c04a-11ea-8a50-bc10376648b0.png">
 
 #### メッセージ交換ページ(Knock-Knock Door)
 
+<img width="773" alt="メッセージ_20200707" src="https://user-images.githubusercontent.com/62828568/86698361-322acc80-c04a-11ea-83ca-5f1b30f07d3f.png">
+
 #### ドア一覧ページ(DoorS)
+
+<img width="973" alt="ドアーズ_20200707" src="https://user-images.githubusercontent.com/62828568/86698425-4078e880-c04a-11ea-8ab3-48f4f306f95a.png">
 
 ## 工夫
 
@@ -91,7 +111,7 @@ _Knock-Knock!_
 
 ## システム構成図
 
-(デプロイに合わせ整備中)
+(デプロイに合わせ作成中)
 
 ---
 
