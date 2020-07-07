@@ -34,13 +34,13 @@ _Knock-Knock!_
 ## 内容
 
 ### アプリ遷移図
-- 図の左上トップページ【Knock-Knock】を起点に設計しています。
+- アプリ遷移図の左上赤線枠、トップページ【Knock-Knock】を起点に使用します。
 
 <img width="1185" alt="アプリ遷移図_20200707" src="https://user-images.githubusercontent.com/62828568/86683553-9e9ecf00-c03c-11ea-93fa-5e9b9ecc54e4.png">
 
 ### トップページ(MAP)
-- マップ上で気になる旅人を選択して、About MEをクリックし、プロフィールを閲覧できます(プロフィール閲覧以降は要ログインです)。
-- 右上の「visiter」はログイン後にログイン中ユーザー情報に変わります。
+- マップ上で気になる旅人を選択して、About MEをクリックすることで、プロフィールを閲覧できます(要ログインです)。
+- 右上の「visiter」ポップアップは、ログイン後にログイン中のユーザー情報に変わります。
 
 <img width="1435" alt="トップページ_MAP_20200707" src="https://user-images.githubusercontent.com/62828568/86697603-81bcc880-c049-11ea-9e37-63422507cecc.png">
 
@@ -50,39 +50,42 @@ _Knock-Knock!_
 <img width="1440" alt="トップページ_news_20200707" src="https://user-images.githubusercontent.com/62828568/86697704-9a2ce300-c049-11ea-9600-e7eccaa6d497.png">
 
 ### ユーザー登録
-- ヘッダー右上のサインアップから登録可能です。
+- ヘッダー右上のサインアップから登録可能です。ヘッダーにて「サインアップ/ログイン/ログアウト」を行えます。
 
 <img width="1440" alt="ユーザー登録_20200707" src="https://user-images.githubusercontent.com/62828568/86697834-b92b7500-c049-11ea-8cf6-a9c2d922ef67.png">
 
 ### 自分のプロフィール(About ME >トップ)
-- ヘッダー下の「edit」からプロフィール情報やサインアップ情報を編集できます。
+- ヘッダー下の「edit > 」からプロフィール情報やサインアップ情報を編集できます。
 
 <img width="682" alt="プロフィール_ME_トップ_20200707" src="https://user-images.githubusercontent.com/62828568/86697932-cfd1cc00-c049-11ea-89f1-03478fc7e16e.png">
 
 ### 自分のプロフィール(About ME >現在地取得)
-- 1クリックで現在を取得できます。取得後に現在地情報が、自分のプロフィール/ポップアップ/マップに反映されます。
+- 1クリックで現在地を取得できます。取得した位置情報が、自分のプロフィール/ポップアップ/マップに反映されます。
 
 <img width="672" alt="プロフィール_ME_位置_20200707" src="https://user-images.githubusercontent.com/62828568/86698057-ef68f480-c049-11ea-910d-dd8895eee0e0.png">
 
 ### 他人のプロフィール(About HIM/HER >トップ)
+- 他人のプロフィールを確認して聞きたいことや相談したことがあれば、「Knock-Knock Door」ボタンを押下してドアノブチェックに進みます。
 
 <img width="667" alt="プロフィール_AZ_トップ_20200707" src="https://user-images.githubusercontent.com/62828568/86698131-fee83d80-c049-11ea-837f-627bda080abe.png">
 
-ノック・ノックボタン
-
 ### 他人のプロフィール(About HIM/HER >ハンガー)
+- 気になるけどメッセージの送付は一端保留するなどの場合、相手のドアにハンガーをかけておきます。
 
 <img width="672" alt="プロフィール_AZ_ハンガ_20200707" src="https://user-images.githubusercontent.com/62828568/86698199-10314a00-c04a-11ea-8689-a6fa6baee0ba.png">
 
 ### ドア作成ページ(ドアノブチェック)
+- さあ、ドアノブをチェックして、ドアをノックノック！しましょう。
 
 <img width="669" alt="ドアノブチェック_20200707" src="https://user-images.githubusercontent.com/62828568/86698275-217a5680-c04a-11ea-8a50-bc10376648b0.png">
 
 ### メッセージ交換ページ(Knock-Knock Door)
+- より有意義な経験を得るために情報交換を行うページです。
 
 <img width="773" alt="メッセージ_20200707" src="https://user-images.githubusercontent.com/62828568/86698361-322acc80-c04a-11ea-83ca-5f1b30f07d3f.png">
 
 ### ドア一覧ページ(DoorS)
+- 誰のドアにハンガーをかけているか、また誰のドアをノックノックしたかを一覧で確認できます。やり取りした最終日時やコメントを記載しています。
 
 <img width="973" alt="ドアーズ_20200707" src="https://user-images.githubusercontent.com/62828568/86698425-4078e880-c04a-11ea-8ab3-48f4f306f95a.png">
 
@@ -91,7 +94,7 @@ _Knock-Knock!_
 - マップ関係《MAP》
 
   - 現在地ボタンを１クリックするだけで位置を取得し、マップやポップアップに表示します。
-  - マップ上で気になる旅人を選択しプロフィールに遷移可能です(要ログイン)。
+  - マップ上で気になる旅人を選択しプロフィールに遷移可能です。
 
 - プロフィール関係《About / Hanger》
 
