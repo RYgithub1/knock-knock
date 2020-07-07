@@ -35,7 +35,7 @@ _Knock-Knock!_
 
 ### アプリ遷移図
 
-<img width="1182" alt="アプリ遷移図_20200707" src="https://user-images.githubusercontent.com/62828568/86682193-4915f280-c03b-11ea-98b5-7274ca987367.png">
+
 
 #### トップページ(MAP)
 
@@ -94,7 +94,7 @@ _Knock-Knock!_
 
 ### ER 図
 
-![Uploading ER図_20200707.png…]()
+<img width="1258" alt="ER図_20200707" src="https://user-images.githubusercontent.com/62828568/86682462-9003e800-c03b-11ea-9885-7ff8a8a5eb2f.png">
 
 ### users Table
 
