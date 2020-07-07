@@ -33,6 +33,10 @@ _Knock-Knock!_
 
 ## 内容
 
+### アプリ遷移図
+
+![Uploading アプリ遷移図_20200707.png…]()
+
 #### トップページ(MAP)
 
 #### 自分のプロフィール(About ME)
@@ -63,30 +67,34 @@ _Knock-Knock!_
 
 ## 今後の実装予定
 
-1. □ 新着メッセージ有無の判別機能
-2. □ 操作時のノックノック音機能
-3. □ フッター項目
-4. □ 現地時間表示
-5. □ 評価機能
+1. □ ノックノック操作音の追加
+2. □ フッター項目の強化
+3. □ 言語タグ検索の追加
+4. □ ユーザー貢献度
+
+## システム構成図
+
+(デプロイに合わせ整備中)
 
 ---
 
 ## 開発環境
 
-- Ruby
-  - 2.5.1
-- Rails
-  - 5.2.4.3
-- JavaScript/jQuery
+- Ruby（2.5.1）
+- Rails（5.2.4.3）
+- JavaScript
+- jQuery（4.4.0）
 - HTML/HAML
 - CSS/SCSS
-- Git
-  - 2.26.0
-- MySQL
-  - 5.6.47
+- Git（2.26.0）
+- MySQL（5.6.47）
 - AWS
 
 ## DB 設計
+
+### ER 図
+
+![Uploading ER図_20200707.png…]()
 
 ### users Table
 
@@ -106,10 +114,10 @@ _Knock-Knock!_
 
 ### users_pairs Table
 
-| Column  | Type    | Options           |
-| ------- | ------- | ----------------- |
-| user_id | integer | foreign_key: true |
-| pair_id | integer | foreign_key: true |
+| Column  | Type   | Options           |
+| ------- | ------ | ----------------- |
+| user_id | bigint | foreign_key: true |
+| pair_id | bigint | foreign_key: true |
 
 #### Association(users_pairs)
 
@@ -130,23 +138,23 @@ _Knock-Knock!_
 
 ### messages Table
 
-| Column  | Type    | Options                        |
-| ------- | ------- | ------------------------------ |
-| user_id | integer | null: false, foreign_key: true |
-| pair_id | integer | null: false, foreign_key: true |
-| content | string  |                                |
-| image   | string  |                                |
+| Column  | Type   | Options                        |
+| ------- | ------ | ------------------------------ |
+| user_id | bigint | null: false, foreign_key: true |
+| pair_id | bigint | null: false, foreign_key: true |
+| content | string |                                |
+| image   | string |                                |
 
 #### Association(messages)
 
-- belongs_to :user
 - belongs_to :pair
+- belongs_to :user
 
 ### abouts Table
 
 | Column         | Type    | Options                        |
 | -------------- | ------- | ------------------------------ |
-| user_id        | integer | null: false, foreign_key: true |
+| user_id        | bigint  | null: false, foreign_key: true |
 | birthday       | date    | null: false                    |
 | sex            | integer | null: false                    |
 | nation_id      | integer | (active_hash)                  |
@@ -169,10 +177,10 @@ _Knock-Knock!_
 
 ### photos Table
 
-| Column   | Type    | Options                        |
-| -------- | ------- | ------------------------------ |
-| about_id | integer | null: false, foreign_key: true |
-| image    | string  | null: false                    |
+| Column   | Type   | Options                        |
+| -------- | ------ | ------------------------------ |
+| about_id | bigint | null: false, foreign_key: true |
+| image    | string | null: false                    |
 
 #### Association(photos)
 
@@ -180,10 +188,10 @@ _Knock-Knock!_
 
 ### pictures Table
 
-| Column   | Type    | Options                        |
-| -------- | ------- | ------------------------------ |
-| about_id | integer | null: false, foreign_key: true |
-| image    | string  | default: ""                    |
+| Column   | Type   | Options                        |
+| -------- | ------ | ------------------------------ |
+| about_id | bigint | null: false, foreign_key: true |
+| image    | string | default: ""                    |
 
 #### Association(pictures)
 
@@ -196,9 +204,9 @@ _Knock-Knock!_
 | tag_id        | integer | null: false, unique: true, foreign_key: true |
 | taggable_id   | integer | unique: true, polymorphic: true              |
 | tagger_id     | integer | unique: true, polymorphic: true              |
-| taggable_type | string  | unique: true                                 |
-| tagger_type   | string  | unique: true                                 |
-| context       | string  | unique: true, limit: 128                     |
+| taggable_type | varchar | unique: true                                 |
+| tagger_type   | varchar | unique: true                                 |
+| context       | varchar | unique: true, limit: 128                     |
 
 #### Association(taggings)
 
@@ -209,21 +217,29 @@ _Knock-Knock!_
 
 | Column         | Type    | Options      |
 | -------------- | ------- | ------------ |
-| name           | string  | unique: true |
+| name           | varchar | unique: true |
 | taggings_count | integer | default: 0   |
 
 #### Association(tags)
 
 - belongs_to :tagging
 
-## 補足
+### hangers Table
 
-### アプリ遷移図
+| Column   | Type    | Options |
+| -------- | ------- | ------- |
+| about_id | integer |         |
+| user_id  | integer |         |
 
-### ER 図
+#### Association(tags)
 
-### システム構成図
-
-### 著者
+- belongs_to :user
+- belongs_to :about
 
 ---
+
+## 著者
+
+- イニシャル：R.O
+- ![GitHub](https://github.com/RYgithub1)
+- [GitHub](https://github.com/RYgithub1)
