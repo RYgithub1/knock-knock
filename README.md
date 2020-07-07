@@ -34,33 +34,33 @@ _Knock-Knock!_
 ## 内容
 
 ### アプリ遷移図
+- 図の左上トップページ【Knock-Knock】を起点に設計しています。
 
 <img width="1185" alt="アプリ遷移図_20200707" src="https://user-images.githubusercontent.com/62828568/86683553-9e9ecf00-c03c-11ea-93fa-5e9b9ecc54e4.png">
 
 ### トップページ(MAP)
+- マップ上で気になる旅人を選択して、About MEをクリックし、プロフィールを閲覧できます(プロフィール閲覧以降は要ログインです)。
+- 右上の「visiter」はログイン後にログイン中ユーザー情報に変わります。
 
 <img width="1435" alt="トップページ_MAP_20200707" src="https://user-images.githubusercontent.com/62828568/86697603-81bcc880-c049-11ea-9e37-63422507cecc.png">
 
-マップの表示例
-ログインポップ
-
 ### トップページ(news)
+- トラベルに関する最新情報を掲載しています。画像をクリックすると別タブで情報元を確認できます。
 
 <img width="1440" alt="トップページ_news_20200707" src="https://user-images.githubusercontent.com/62828568/86697704-9a2ce300-c049-11ea-9600-e7eccaa6d497.png">
 
-ニュース表示例
-
 ### ユーザー登録
+- ヘッダー右上のサインアップから登録可能です。
 
 <img width="1440" alt="ユーザー登録_20200707" src="https://user-images.githubusercontent.com/62828568/86697834-b92b7500-c049-11ea-8cf6-a9c2d922ef67.png">
 
 ### 自分のプロフィール(About ME >トップ)
+- ヘッダー下の「edit」からプロフィール情報やサインアップ情報を編集できます。
 
 <img width="682" alt="プロフィール_ME_トップ_20200707" src="https://user-images.githubusercontent.com/62828568/86697932-cfd1cc00-c049-11ea-89f1-03478fc7e16e.png">
 
-編集ボタン
-
 ### 自分のプロフィール(About ME >現在地取得)
+- 1クリックで現在を取得できます。取得後に現在地情報が、自分のプロフィール/ポップアップ/マップに反映されます。
 
 <img width="672" alt="プロフィール_ME_位置_20200707" src="https://user-images.githubusercontent.com/62828568/86698057-ef68f480-c049-11ea-910d-dd8895eee0e0.png">
 
