@@ -240,6 +240,5 @@ _Knock-Knock!_
 
 ## 著者
 
-- イニシャル：R.O
-- ![GitHub](https://github.com/RYgithub1)
+- 製作者：R.O.
 - [GitHub](https://github.com/RYgithub1)
