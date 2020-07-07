@@ -35,7 +35,7 @@ _Knock-Knock!_
 
 ### アプリ遷移図
 
-
+<img width="1185" alt="アプリ遷移図_20200707" src="https://user-images.githubusercontent.com/62828568/86683553-9e9ecf00-c03c-11ea-93fa-5e9b9ecc54e4.png">
 
 #### トップページ(MAP)
 
