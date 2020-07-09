@@ -1,0 +1,15 @@
+-# ===== lessons#index ========================
+.lesson
+  .lesson__lessonContent
+    .lesson__lessonContent__lessonContentSome
+      .lesson__lessonContent__lessonContentSome__lessonContentSomeTitle
+        %h2.lessonTitle Lessons
+      .lesson__lessonContent__lessonContentSome__lessonContentSomeCode
+        .lessonCode#lessonCode
+          = paginate(@lessons)
+          - @lessons.each do |lesson|
+            .lessonCodeName
+              = lesson.name
+            .lessonCodeProverb
+              = lesson.proverb
+

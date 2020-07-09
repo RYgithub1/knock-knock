@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   root to: "maps#index"
   resources :maps, only: [:index]
+  resources :lessons, only: [:index]
 
   resources :abouts, except: [:index, :destroy] do
     resource :hangers, only: [:create, :destroy]
