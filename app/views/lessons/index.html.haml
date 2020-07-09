@@ -1,3 +1,31 @@
-
-
-
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+.lesson
+  .lesson__lessonContent
+    .lesson__lessonContent__lessonContentSome
+      .lesson__lessonContent__lessonContentSome__lessonContentSomeTitle
+        %h2.lessonTitle Lessons
+      .lesson__lessonContent__lessonContentSome__lessonContentSomeCode
+        .lessonCode
+          - @lessons.each do |lesson|
+            .lessonCodeName
+              = lesson.name
+            .lessonCodeProverb
+              = lesson.proverb
+          = paginate(@lessons)
