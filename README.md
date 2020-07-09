@@ -4,6 +4,16 @@
 
 <img width="705" alt="トップイメージ_20200707" src="https://user-images.githubusercontent.com/62828568/86699648-5cc95500-c04b-11ea-9aa2-f4bf903dab9d.png">
 
+![ruby](https://img.shields.io/badge/-Ruby-red)
+![rails](<https://img.shields.io/badge/-Rails-rgb(220,20,60)>)
+![javascript](https://img.shields.io/badge/-JavaScript-yellow)
+![jquery](https://img.shields.io/badge/-jQuery-blue)
+![html](https://img.shields.io/badge/-HTML-orange)
+![css](https://img.shields.io/badge/-CSS-lightblue)
+![mysql](https://img.shields.io/badge/-MySQL-lightgreen)
+![AWS](https://img.shields.io/badge/-AWS-blueviolet)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/RYgithub1/knock-knock)
+
 ## アプリケーション名
 
 _Knock-Knock!_
