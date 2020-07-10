@@ -1,0 +1,52 @@
+-# ===== contacts#new ======================================
+.contact
+  .contact__contactContent
+    .contact__contactContent__contactContentSome
+      .contact__contactContent__contactContentSome__contactContentSomeTitle
+        %h2.contactTitle Contact
+      .contact__contactContent__contactContentSome__contactContentSomeCode
+        .contactCode
+          = simple_form_for @contact, html: {class: "horizontal_form"} do |f|
+            - if @contact.confirming.blank?
+              -# ----- [1]input view -------------------
+              .formInput
+                = f.input :name, input_html: {maxlength: 33}, label: "Name", placeholder: "your name", error: "Would you confirm content again?", class: "contactF"
+                = f.input :cmail, label: "Mail", placeholder: "xxxx@domain.com", class: "contactF"
+                = f.input :title, class: "contactF"
+                -# = f.text_area :content, placeholder: "Content : opinion / inquiry / problem ...", size: "44x8", class: "contactF"
+                = f.text_area :content, placeholder: "Content : opinion / inquiry / problem ...", size: "44x8", class: "contactF"
+              .formAction.mb-0
+                = f.button :submit, "Confirm", class: "inquiryBtn btn-primary"
+                .cancelBtnDo
+                  = link_to "cancel", root_path, class: "cancelBtn btn-default"
+
+            - else
+              -# ----- [2]confirm view -----------------
+              %table.table
+                %tr
+                  %th Name
+                  %td= @contact.name
+                %tr
+                  %th Mail
+                  %td= @contact.cmail
+                %tr
+                  %th Title
+                  %td= @contact.title
+                %tr
+                  %th Inqury
+                  %td= @contact.content
+
+              .formInput
+                = f.hidden_field :name
+                = f.hidden_field :cmail
+                = f.hidden_field :title
+                = f.hidden_field :content
+              .formAction.mb-0
+                %p Is it OK to handle this content?
+                = f.button :submit, "Submit", class: "inquiryBtn btn-primary"
+                .cancelBtnDo
+                  = link_to "cancel", root_path, class: "cancelBtn btn-default"
+
+            -# ----- [3] hidden confirming -----------
+            = f.hidden_field :confirming
+
