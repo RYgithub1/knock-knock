@@ -9,7 +9,56 @@
               "About Us"
             %ul.footUlLiBody
               %li= link_to "Adventure", lessons_path, class: "footest", data: {confirm: "You can do it! Let's give it a try! ;)"}
-              %li= link_to "Our Team", root_path, class: "footest", data: {confirm: "Thanks! It's under maintenance."}
+              %li#jsModalOpen
+                = link_to "Our Team", root_path , class: "footest"
+              .modal.jsModal
+                .modal__modalBackground#jsModalClose
+                .modal__modalContent
+                  %p
+                    Message from our team
+                    %br
+                    %br
+                    %br
+                    We believe we can make world a better place by travel, and enrich travel by connection.
+                    %br
+                    Knock-Knock is about sharing our lives and feelings with others, to understand their culture and to foster mutual respect.
+                    %br
+                    Knock-Knock will make communication with locals and travellers easier in every country on Earth.
+                    %br
+                    Travel like a local, find your new home and experience the world in a way money cannot buy.
+                    %br
+                    There is a community of knock-knockers near you.
+                    %br
+                    Dance, sing, act! Hike and eat out!
+                    %br
+                    Make the world a little smaller, a little friendlier.
+                    %br
+                    Open your mind and heart to others.
+                    %br
+                    You will be awarded with unforgettable experiences.
+                    %br
+                    %br
+                    %br
+                    Knock-Knock began in 2020 as a small passion project by founders R.O. & Ben.
+                    %br
+                    While we were traveling, we could not find infomation we wanted online.
+                    %br
+                    So we decided to provide an online platform for travelers to exchange infomation simply.
+                    %br
+                    From now on we are here to support your travel experience.
+                    %br
+                    And we hope you will find this web site usuful.
+                    %br
+                    We are waiting for your click on the "contact" button at footer on application's top view.
+                    %br
+                    We will keep improving this web site for you.
+                    %br
+                    Enjoy your travel! Good luck!
+                    %br
+                    %br
+                    %br
+                    Sincerely R.O. & Ben
+                    %br
               %li= link_to "Contacts", new_contacts_path, class: "footest", data: {confirm: "Pease tell us your flank opinion."}
           %li.footUlLi
             %h2.footUlLiHead
