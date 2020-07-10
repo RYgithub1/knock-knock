@@ -292,10 +292,30 @@ _Knock-Knock!_
 | about_id | integer |         |
 | user_id  | integer |         |
 
-#### Association(tags)
+#### Association(hangers)
 
 - belongs_to :user
 - belongs_to :about
+
+### lessons Table
+
+| Column  | Type   | Options |
+| ------- | ------ | ------- |
+| name    | string |         |
+| proverb | text   |         |
+
+#### Association(lessons)
+
+### contacts Table
+
+| Column  | Type   | Options                  |
+| ------- | ------ | ------------------------ |
+| name    | string | null: false              |
+| cmail   | string | null: false, default: "" |
+| title   | string | null: false              |
+| content | text   | null: false              |
+
+#### Association(contacts)
 
 ---
 
