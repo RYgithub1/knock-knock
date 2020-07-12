@@ -28,4 +28,6 @@ class Message < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
+  has_many :notifications, dependent: :destroy
+
 end

@@ -9,6 +9,8 @@ class PairsController < ApplicationController
   def index
     @currentHangers = current_user.hangers
     @currentUsersPairs = current_user.users_pairs
+    # current_userに紐づく、自分宛の通知passive_notifications
+    @notifications = current_user.passive_notifications
   end
 
   def new

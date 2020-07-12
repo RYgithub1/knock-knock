@@ -9,12 +9,21 @@ class MessagesController < ApplicationController
     @aboutAZ = About.find_by(user_id: UsersPair.where(pair_id: params[:pair_id]).where.not(user_id: current_user.id)[0].user_id)
     @message = Message.new
     @messages = @pair.messages.includes(:user)
+    # (kkd)messages#indexを開封 -> 未確認checked:falseの全てが確認済checked:true
+    @notifications = current_user.passive_notifications
+    @notifications.where(checked: false).each do |notification|
+      # 対象ペアのkkdのみ処理
+      if notification.pair_id == params[:pair_id].to_i
+        notification.update_attributes(checked: true)
+      end
+    end
   end
 
   def create
     @message = @pair.messages.new(message_params)
     if @message.save
-      # messages#index needs pair_id
+      # sendAMessage -> callMethod toCreteNewNotification
+      @pair.create_notification_message!(current_user, @message.id)
       redirect_to pair_messages_path(@pair)
     else
       @messages = @pair.messages.includes(:user)
@@ -33,7 +42,7 @@ class MessagesController < ApplicationController
   end
 
   def message_params
-    # merge two hashes to register user_id for messages table
+    # mergeTwoHashes toRegisterUser_id forMessagesTable
     params.require(:message).permit(:content, :image).merge(user_id: current_user.id)
   end
 

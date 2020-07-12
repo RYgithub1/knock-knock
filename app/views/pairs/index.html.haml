@@ -62,6 +62,22 @@
       .pairIndex__pairIndexContent__pairIndexContentDoor__pairIndexContentDoorHead
         %i.fas.fa-door-open.pairIndexHangerLogo
         %h3.pairIndexDoorHead knocked doors
+          
+      - if @notifications.exists?
+        -# ----- @notificstionsが存在する、ならここ -----
+        - if unchecked_notifications.any?
+          -# ````` 未確認メッセージあり `````
+          %span.fa-stack
+            %i.fas.fa-bell.n-circle
+              新着メッセージがあります
+        - else
+          -# ````` 未確認メッセージなし `````
+          %i.fas.fa-bell
+            メッセージ通知を全て確認済みです
+      - else
+        -# ----- @notificstionsが存在しないならここ -----
+        （ac間メッセ関係ないbはここ）No message yet -> Why don't you send a message from you?
+
 
       .pairIndex__pairIndexContent__pairIndexContentDoor__pairIndexContentDoorCode
         .pairIndex__pairIndexContent__pairIndexContentDoor__pairIndexContentDoorCode__pairIndexContentDoorCodeLimit
