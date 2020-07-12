@@ -23,7 +23,7 @@ class MessagesController < ApplicationController
     @message = @pair.messages.new(message_params)
     if @message.save
       # sendAMessage -> callMethod toCreteNewNotification
-      @pair.create_notification_message!(current_user, @message.id)
+      @pair.create_notification_message(current_user, @message.id)
       redirect_to pair_messages_path(@pair)
     else
       @messages = @pair.messages.includes(:user)

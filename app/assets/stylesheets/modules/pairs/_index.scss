@@ -110,6 +110,25 @@ body {
         }
       }
 
+      &__pairIndexContentDoorNotification {
+        &__pairIndexContentDoorNotificationBody {
+          margin: 1px 0px 10px 75px;
+          .beNotifNoCheck {
+            font-size: 22px;
+            font-weight: bold;
+            color: red;
+          }
+          .beNotifChecked {
+            font-size: 17px;
+            color: black;
+          }
+          .noNotif {
+            font-size: 17px;
+            color: black;
+          }
+        }
+      }
+
       &__pairIndexContentDoorCode {
         width: 98%;
         &__pairIndexContentDoorCodeLimit {
@@ -145,11 +164,4 @@ body {
       }
     }
   }
-}
-
-.n-circle {
-  position: absolute;
-  padding-left: 1rem;
-  padding-top: 0rem;
-  color: #4c6aef;
 }

@@ -19,18 +19,18 @@ class Pair < ApplicationRecord
 
 
   # ----- notification -----------------------------
-  def create_notification_message!(current_user, message_id)
+  def create_notification_message(current_user, message_id)
     # メッセージをした全ての人(自分以外)のuser_id取得 -> 重複なし -> 全員に通知
     temp_ids = Message.select(:user_id).where(pair_id: id).where.not(user_id: current_user.id).distinct
     # [1]自分宛てのメッセージが有り場合
     temp_ids.each do |temp_id|
-      save_notification_message!(current_user, message_id, temp_id["user_id"])
+      save_notification_message(current_user, message_id, temp_id["user_id"])
     end
     # [2]自分宛てのメッセージが無し（メッセージ送付した一発目の）場合
-    save_notification_message!(current_user, message_id, user_ids) if temp_ids.blank?
+    save_notification_message(current_user, message_id, user_ids) if temp_ids.blank?
   end
 
-  def save_notification_message!(current_user, message_id, visited_id)
+  def save_notification_message(current_user, message_id, visited_id)
     # 同一ペアで複数回メッセージ有りの場合 -> そのペア向けに、複数回分の呼び出し内容をDBへ保存
     notification = current_user.active_notifications.new(
       pair_id: id,
