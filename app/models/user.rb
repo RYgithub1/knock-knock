@@ -44,4 +44,8 @@ class User < ApplicationRecord
   has_many :hangers, dependent: :destroy
   accepts_nested_attributes_for :hangers, allow_destroy: true
 
+  # (from me)active_notifications,(from other)passive_notifications
+  has_many :active_notifications, class_name: "Notification", foreign_key: "visitor_id", dependent: :destroy
+  has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
+
 end

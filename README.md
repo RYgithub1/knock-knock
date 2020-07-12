@@ -172,6 +172,8 @@ _Knock-Knock!_
 - has_many :pairs, through: :users_pairs
 - has_many :messages
 - has_many :hangers
+- has_many :active_notifications
+- has_many :passive_notifications
 
 ### users_pairs Table
 
@@ -196,6 +198,7 @@ _Knock-Knock!_
 - has_many :users_pairs
 - has_many :users, through: :users_pairs
 - has_many :messages
+  has_many :notifications
 
 ### messages Table
 
@@ -210,6 +213,7 @@ _Knock-Knock!_
 
 - belongs_to :pair
 - belongs_to :user
+- has_many :notifications
 
 ### abouts Table
 
@@ -316,6 +320,24 @@ _Knock-Knock!_
 | content | text   | null: false              |
 
 #### Association(contacts)
+
+### notifications Table
+
+| Column      | Type    | Options                     |
+| ----------- | ------- | --------------------------- |
+| visitor_id  | integer | null: false                 |
+| visited_id  | integer | null: false                 |
+| pair_id     | integer |                             |
+| messagae_id | integer |                             |
+| action      | string  | null: false, default: ""    |
+| checked     | boolean | null: false, default: false |
+
+#### Association(notifications)
+
+- belongs_to :pair
+- belongs_to :message
+- belongs_to :visitor
+- belongs_to :visited
 
 ---
 
