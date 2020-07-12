@@ -128,8 +128,8 @@ _Knock-Knock!_
 
 ## 今後の実装予定
 
-1. □ ノックノック操作音の追加
-2. □ フッター項目の強化
+1. □ 操作音の追加
+2. □ フッター（□Adventure,□OurTeam,□Contacts,□Currencey,□Currency,□Insights,□Guide）
 3. □ 言語タグ検索の追加
 4. □ ユーザー貢献度
 
@@ -155,7 +155,7 @@ _Knock-Knock!_
 
 ### ER 図
 
-<img width="1258" alt="ER図_20200707" src="https://user-images.githubusercontent.com/62828568/86682462-9003e800-c03b-11ea-9885-7ff8a8a5eb2f.png">
+<img width="1406" alt="ER図_20200712" src="https://user-images.githubusercontent.com/62828568/87242512-5a5e6500-c468-11ea-82f6-d7bdd89c145d.png">
 
 ### users Table
 
