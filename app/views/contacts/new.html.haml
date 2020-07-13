@@ -13,7 +13,6 @@
                 = f.input :name, input_html: {maxlength: 33}, label: "Name", placeholder: "your name", error: "Would you confirm content again?", class: "contactF"
                 = f.input :cmail, label: "Mail", placeholder: "xxxx@domain.com", class: "contactF"
                 = f.input :title, class: "contactF"
-                -# = f.text_area :content, placeholder: "Content : opinion / inquiry / problem ...", size: "44x8", class: "contactF"
                 = f.text_area :content, placeholder: "Content : opinion / inquiry / problem ...", size: "44x8", class: "contactF"
               .formAction.mb-0
                 = f.button :submit, "Confirm", class: "inquiryBtn btn-primary"

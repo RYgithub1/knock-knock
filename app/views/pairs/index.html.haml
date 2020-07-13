@@ -48,7 +48,7 @@
                         - else
                           = image_tag hangerPhoto.image.url, class: "pairsIndexHangerPhoto", size: "44x44"
                       %td
-                        - hangerAbout = About.find_by(id: currentHanger.about_id)
+                        -# - hangerAbout = About.find_by(id: currentHanger.about_id)
                         - hangerUser = User.where(id: hangerAbout.user_id)
                         = hangerUser[0].name
                       %td
