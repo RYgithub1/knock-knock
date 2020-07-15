@@ -11,6 +11,7 @@
 ![html](https://img.shields.io/badge/-HTML-orange)
 ![css](https://img.shields.io/badge/-CSS-lightblue)
 ![mysql](https://img.shields.io/badge/-MySQL-lightgreen)
+![rspec](https://img.shields.io/badge/-RSpec-lightgrey)
 ![AWS](https://img.shields.io/badge/-AWS-blueviolet)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/RYgithub1/knock-knock)
 
