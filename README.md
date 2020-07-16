@@ -11,6 +11,7 @@
 ![html](https://img.shields.io/badge/-HTML-orange)
 ![css](https://img.shields.io/badge/-CSS-lightblue)
 ![mysql](https://img.shields.io/badge/-MySQL-lightgreen)
+![rspec](https://img.shields.io/badge/-RSpec-lightgrey)
 ![AWS](https://img.shields.io/badge/-AWS-blueviolet)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/RYgithub1/knock-knock)
 
@@ -107,8 +108,9 @@ _Knock-Knock!_
 ### ドア一覧ページ(DoorS)
 
 - 誰のドアにハンガーをかけているか、また誰のドアをノックノックしたかを一覧で確認できます。最終日時やコメントから、やり取りの進捗を確認します。
+- 新着メッセージがある場合「knocked doors」下方に赤文字で通知が表示されます。
 
-<img width="973" alt="ドアーズ_20200707" src="https://user-images.githubusercontent.com/62828568/86698425-4078e880-c04a-11ea-8ab3-48f4f306f95a.png">
+<img width="791" alt="ドアーズ_20200712" src="https://user-images.githubusercontent.com/62828568/87307535-c3bba200-c554-11ea-830f-676b08ef3552.png">
 
 ## 工夫
 
@@ -119,8 +121,8 @@ _Knock-Knock!_
 
 - プロフィール関係《About / Hanger》
 
-  - 自分のプロフィール(About ME)の編集ページで、複数画像をプレビュー確認の上投稿できます。
-  - 他人のプロフィール(About Him/Her)ページで、相手が気になる場合、ドアにハンガー(hanger)を非同期でかけられます。
+  - 自分のプロフィール(About ME)の編集ページで、複数の画像をプレビュー確認して投稿できます。
+  - 他人のプロフィール(About HimHer)ページで、相手が気になる場合、ドアにハンガー(hanger)をかけておいて、後で一覧ページからアプローチできます。
 
 - メッセージ関係《Knock-Knock Door / DoorS》
   - 同じアカウント同士(２人あたり)につき、メッセージ交換できるドア(Knock-Knock Door)は１つとしています。
@@ -129,7 +131,7 @@ _Knock-Knock!_
 ## 今後の実装予定
 
 1. □ 操作音の追加
-2. □ フッター（□Adventure,□OurTeam,□Contacts,□Currencey,□Currency,□Insights,□Guide）
+2. □ フッター（□Adventure,□OurTeam,□Contacts,□Currencey,□Insights,□Guide）
 3. □ 言語タグ検索の追加
 4. □ ユーザー貢献度
 
