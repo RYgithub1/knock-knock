@@ -50,8 +50,6 @@ test:
 production:
   <<: *default
   database: knock-knock_production
-  # username: knock-knock
   username: root
-  # password: <%= ENV['KNOCK-KNOCK_DATABASE_PASSWORD'] %>
   password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
