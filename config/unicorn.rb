@@ -11,15 +11,15 @@ working_directory app_path
 pid "#{app_path}/tmp/pids/unicorn.pid"
 
 # port番号（どのポート番号のリクエストを受け付けるか）
-# listen 3001
-listen "#{app_path}/tmp/sockets/unicorn.sock"
-
+listen 3000
+# listen "#{app_path}/tmp/sockets/unicorn.sock"
 
 # [エラーログ]の格納ファイル(-> $less log/unicorn.stderr.log  ,or $tail)
 stderr_path "#{app_path}/log/unicorn.stderr.log"
 
 # [通常ログ]の格納ファイル
 stdout_path "#{app_path}/log/unicorn.stdout.log"
+
 
 
 
