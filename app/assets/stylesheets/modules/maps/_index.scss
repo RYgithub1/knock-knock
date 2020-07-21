@@ -35,6 +35,9 @@
           margin: 0 auto;
           z-index: 8;
           opacity: 0;
+          background-image: image-url("freeTravelPhoto1.jpg");
+          background-image: image-url("freeTravelPhoto2.jpg");
+          background-image: image-url("freeTravelPhoto3.jpg");
         }
         .slideshow img.active {
           z-index: 10;

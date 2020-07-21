@@ -5,17 +5,24 @@
         %p#slideshow.slideshow
           -# considering alternative syntax
           -# %img.active{alt: "noReadable", src: "freeTravelPhoto1.jpg", width: "543px", height: "345px"}
-          = image_tag "freeTravelPhoto1.jpg", alt: "noReadable", class: "active "
-          = image_tag "freeTravelPhoto2.jpg", alt: "noReadable"
-          = image_tag "freeTravelPhoto3.jpg", alt: "noReadable"
-          = image_tag "freeTravelPhoto4.jpg", alt: "noReadable"
-          = image_tag "freeTravelPhoto5.jpg", alt: "noReadable"
-          = image_tag "freeTravelPhoto6.jpg", alt: "noReadable"
-          = image_tag "freeTravelPhoto7.jpg", alt: "noReadable"
-          = image_tag "freeTravelPhoto8.jpg", alt: "noReadable"
-          = image_tag "freeTravelPhoto9.jpg", alt: "noReadable"
-          = image_tag "freeTravelPhoto10.jpg", alt: "noReadable"
-          = image_tag "freeTravelPhoto11.jpg", alt: "noReadable"
+          -# = image_tag "/assets/freeTravelPhoto1.jpg", alt: "noReadable", class: "active "
+          -# -----------
+          -# = image_tag "freeTravelPhoto1.jpg", alt: "noReadable", class: "active "
+          -# = image_tag "freeTravelPhoto2.jpg", alt: "noReadable"
+          -# = image_tag "freeTravelPhoto3.jpg", alt: "noReadable"
+          -# = image_tag "freeTravelPhoto4.jpg", alt: "noReadable"
+          -# = image_tag "freeTravelPhoto5.jpg", alt: "noReadable"
+          -# = image_tag "freeTravelPhoto6.jpg", alt: "noReadable"
+          -# = image_tag "freeTravelPhoto7.jpg", alt: "noReadable"
+          -# = image_tag "freeTravelPhoto8.jpg", alt: "noReadable"
+          -# = image_tag "freeTravelPhoto9.jpg", alt: "noReadable"
+          -# = image_tag "freeTravelPhoto10.jpg", alt: "noReadable"
+          -# = image_tag "freeTravelPhoto11.jpg", alt: "noReadable"
+          -# -----------------
+          = image_tag asset_path("freeTravelPhoto1.jpg"), alt: "noReadable", class: "active "
+          = image_tag asset_path("freeTravelPhoto2.jpg"), alt: "noReadable"
+          = image_tag asset_path("freeTravelPhoto3.jpg"), alt: "noReadable"
+    
 
   .mapper
     .mapper__mapperContent
