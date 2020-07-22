@@ -1,8 +1,0 @@
-{
-  "name": "knock-knock",
-  "private": true,
-  "dependencies": {
-    "core-js": "^3.6.5",
-    "newsapi": "^2.4.0"
-  }
-}
