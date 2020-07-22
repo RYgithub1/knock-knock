@@ -15,8 +15,7 @@ pid "#{app_path}/tmp/pids/unicorn.pid"
 
 
 # port番号（どのポート番号のリクエストを受け付けるか）
-listen 3000
-# listen "#{app_path}/tmp/sockets/unicorn.sock"
+listen "#{app_path}/tmp/sockets/unicorn.sock"
 # listen "#{app_path}/shared/tmp/sockets/unicorn.sock"
 
 
