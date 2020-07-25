@@ -130,8 +130,9 @@ _Knock-Knock!_
 
 ## 今後の実装予定
 
-1. □ 操作音の追加
-2. □ フッター（□Adventure,□OurTeam,□Contacts,□Currencey,□Insights,□Guide）
+1. ■ 操作音の追加
+2. □ フッター
+   （■Adventure,■OurTeam,■Contacts,□Currencey,□Insights,□Guide）
 3. □ 言語タグ検索の追加
 4. □ ユーザー貢献度
 
