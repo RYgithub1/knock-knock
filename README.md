@@ -13,6 +13,8 @@
 ![mysql](https://img.shields.io/badge/-MySQL-lightgreen)
 ![rspec](https://img.shields.io/badge/-RSpec-lightgrey)
 ![AWS](https://img.shields.io/badge/-AWS-blueviolet)
+![Unicorn](https://img.shields.io/badge/-Unicorn-pink)
+![Nginx](https://img.shields.io/badge/-Nginx-yellowgreen)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/RYgithub1/knock-knock)
 
 ## アプリケーション名
