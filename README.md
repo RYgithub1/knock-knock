@@ -146,11 +146,13 @@ _Knock-Knock!_
 - Rails（5.2.4.3）
 - JavaScript
 - jQuery（4.4.0）
-- HTML/HAML
-- CSS/SCSS
+- HTML5/HAML（5.1.2）
+- CSS3/SCSS
 - Git（2.26.0）
 - MySQL（5.6.47）
 - AWS
+- Unicorn（5.4.1）
+- Nginx（1.16.1）
 
 ## 機能一覧
 
