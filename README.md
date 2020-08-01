@@ -150,7 +150,7 @@ _Knock-Knock!_
 - CSS3/SCSS
 - Git（2.26.0）
 - MySQL（5.6.47）
-- AWS
+- AWS（Linux AMI release 2018.03）
 - Unicorn（5.4.1）
 - Nginx（1.16.1）
 
