@@ -60,7 +60,6 @@ class AboutsController < ApplicationController
       :address,
       :birthday,
       :tag_list,
-      # tag_ids: [],
       :latitude,
       :longitude,
       :nation_id,
