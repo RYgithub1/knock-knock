@@ -3,8 +3,6 @@ class AboutsController < ApplicationController
   before_action :oneUser_oneAbout_check, only: [:new, :create]
   before_action :noCurrentUserAbout_then_canNotWatchOtherAbout_check, only: [:show, :edit, :update]
   before_action :set_about, only: [:show, :edit, :update]
-  # location.js発火 -> InvalidAuthenticityTokenの場合の一次回避
-  # skip_before_action :verify_authenticity_token
 
 
   def new
