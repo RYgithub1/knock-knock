@@ -6,7 +6,7 @@ lock '3.14.1'
 set :application, 'knock-knock'
 
 # アプリを自動でpullするRepositoryを指定
-set :repo_url,  'git@github.com:RYgithub1/knock-knock.git'
+set :repo_url, 'git@github.com:RYgithub1/knock-knock.git'
 
 # バージョンが変わっても共通で参照するディレクトリを指定
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
