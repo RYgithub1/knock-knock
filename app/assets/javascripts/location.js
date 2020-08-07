@@ -26,7 +26,7 @@ function getPosition() {
           alert("Couldn't get current place.");
           break;
         case 3: //TIMEOUT
-          alert("Time Outだぜ.");
+          alert("Time Out.");
           break;
         default:
           alert("Other Error(ERROR CODE:" + error.code + ").");
